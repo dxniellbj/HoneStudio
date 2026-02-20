@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hone Studio — Brand Identity Kit</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=Space+Mono:wght@400;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Neutrals */
+    --ink: #0F1114;
+    --carbon: #181B20;
+    --slate: #22262D;
+    --iron: #363B44;
+    --graphite: #5A6069;
+    --ash: #8A9099;
+    --fog: #B3B8C0;
+    --mist: #D6D9DE;
+    --cloud: #ECEEF1;
+    --snow: #F6F7F9;
+    --white: #FFFFFF;
+
+    /* Primary — Teal Edge */
+    --teal: #00D4AA;
+    --teal-bright: #1AEDC2;
+    --teal-mid: #00B892;
+    --teal-dark: #009E7B;
+    --teal-deep: #007A5F;
+    --teal-ghost: rgba(0,212,170,0.08);
+    --teal-glow: rgba(0,212,170,0.15);
+
+    /* Signal — Warm Accent */
+    --signal: #FF6B3D;
+    --signal-dim: #E05A30;
+    --signal-ghost: rgba(255,107,61,0.08);
+
+    /* Depth — Indigo Accent */
+    --indigo: #4F5BD5;
+    --indigo-dim: #3D49B8;
+    --indigo-ghost: rgba(79,91,213,0.08);
+
+    /* Status */
+    --success: #34D399;
+    --warning: #FBBF24;
+    --error: #F87171;
+
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--snow);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ============================================
+     HERO
+  ============================================ */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: var(--ink);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 25% 25%, rgba(0,212,170,0.07) 0%, transparent 50%),
+      radial-gradient(ellipse at 75% 65%, rgba(79,91,213,0.05) 0%, transparent 45%);
+    pointer-events: none;
+  }
+
+  .hero-grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 64px 64px;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 32px;
+    max-width: 900px;
+  }
+
+  .hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal);
+    background: var(--teal-ghost);
+    border: 1px solid rgba(0,212,170,0.12);
+    padding: 7px 18px;
+    border-radius: 100px;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.2s forwards;
+  }
+
+  .hero-pill::before {
+    content: '';
+    width: 5px; height: 5px;
+    background: var(--teal);
+    border-radius: 50%;
+    animation: blink 2.4s ease infinite;
+  }
+
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .hero-wordmark {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(60px, 11vw, 140px);
+    color: var(--white);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.35s forwards;
+  }
+
+  .hero-wordmark .dot { color: var(--teal); }
+
+  .hero-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: clamp(16px, 2vw, 21px);
+    color: var(--ash);
+    margin-top: 18px;
+    line-height: 1.5;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.65s forwards;
+  }
+
+  .hero-tagline {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--iron);
+    margin-top: 56px;
+    letter-spacing: 1px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.95s forwards;
+  }
+
+  .hero-tagline span { color: var(--teal-mid); }
+
+  /* Swiss Army SVG icon */
+  .hero-knife-icon {
+    margin-top: 40px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 1.1s forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(20px) }
+    to { opacity:1; transform:translateY(0) }
+  }
+
+  /* ============================================
+     SHARED SECTION STYLES
+  ============================================ */
+  section {
+    padding: 96px 56px;
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 18px; height: 1.5px;
+    background: var(--teal);
+  }
+
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(28px, 3.5vw, 44px);
+    color: var(--ink);
+    letter-spacing: -0.015em;
+    margin-bottom: 10px;
+  }
+
+  .section-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: var(--graphite);
+    max-width: 540px;
+    line-height: 1.75;
+    margin-bottom: 52px;
+  }
+
+  .divider {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 56px;
+  }
+
+  .divider-line {
+    width: 100%;
+    height: 1px;
+    background: var(--cloud);
+  }
+
+  /* Dark section */
+  .dark-wrap {
+    background: var(--ink);
+    padding: 96px 56px;
+  }
+
+  .dark-wrap .section-inner {
+    max-width: 1208px;
+    margin: 0 auto;
+  }
+
+  .dark-wrap .section-title { color: var(--white); }
+  .dark-wrap .section-desc { color: var(--ash); }
+
+  /* ============================================
+     01 — BRAND POSITIONING
+  ============================================ */
+  .positioning-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .pos-card {
+    background: var(--white);
+    border: 1px solid var(--cloud);
+    border-radius: var(--radius-md);
+    padding: 36px 32px;
+    transition: all 0.25s ease;
+  }
+
+  .pos-card:hover {
+    border-color: var(--teal);
+    box-shadow: 0 6px 28px rgba(0,212,170,0.06);
+  }
+
+  .pos-card-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ash);
+    margin-bottom: 16px;
+  }
+
+  .pos-card h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+
+  .pos-card p {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--graphite);
+    line-height: 1.75;
+  }
+
+  .pos-card-full {
+    grid-column: 1 / -1;
+  }
+
+  /* Concept Card — Swiss Army Knife */
+  .concept-card {
+    background: var(--ink);
+    border: 1px solid var(--slate);
+    border-radius: var(--radius-md);
+    padding: 48px 40px;
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    transition: border-color 0.25s ease;
+  }
+
+  .concept-card:hover { border-color: var(--teal-dark); }
+
+  .concept-icon-area {
+    flex-shrink: 0;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .concept-text h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: var(--white);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .concept-text p {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: var(--ash);
+    line-height: 1.75;
+    max-width: 520px;
+  }
+
+  .concept-text .concept-note {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--iron);
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .concept-text .concept-note::before {
+    content: '';
+    width: 12px; height: 1px;
+    background: var(--teal-dark);
+  }
+
+  /* ============================================
+     02 — BRAND ATTRIBUTES
+  ============================================ */
+  .attributes-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .attr-chip {
+    flex: 1;
+    min-width: 140px;
+    background: var(--white);
+    border: 1px solid var(--cloud);
+    border-radius: var(--radius-md);
+    padding: 28px 24px;
+    text-align: center;
+    transition: all 0.25s ease;
+  }
+
+  .attr-chip:hover {
+    border-color: var(--teal);
+    transform: translateY(-2px);
+  }
+
+  .attr-chip h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .attr-chip p {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    color: var(--ash);
+    line-height: 1.6;
+  }
+
+  /* ============================================
+     03 — COLOR SYSTEM
+  ============================================ */
+  .palette-group { margin-bottom: 40px; }
+  .palette-group:last-child { margin-bottom: 0; }
+
+  .pg-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--graphite);
+    margin-bottom: 14px;
+  }
+
+  .palette-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .swatch {
+    flex: 1;
+    min-width: 110px;
+    aspect-ratio: 1.25;
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 14px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    position: relative;
+  }
+
+  .swatch:hover { transform: translateY(-3px); }
+  .swatch-border { border: 1px solid var(--cloud); }
+
+  .sw-name {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.3px;
+  }
+
+  .sw-hex {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    opacity: 0.6;
+    margin-top: 2px;
+  }
+
+  .on-dark .sw-name, .on-dark .sw-hex { color: var(--white); }
+  .on-light .sw-name, .on-light .sw-hex { color: var(--ink); }
+
+  /* ============================================
+     04 — TYPOGRAPHY
+  ============================================ */
+  .type-block {
+    padding: 44px 0;
+    border-bottom: 1px solid var(--cloud);
+  }
+
+  .type-block:last-child { border-bottom: none; }
+
+  .type-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+  }
+
+  .type-left h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    margin-bottom: 3px;
+  }
+
+  .type-left span {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    color: var(--ash);
+  }
+
+  .type-right {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: var(--ash);
+    text-align: right;
+    letter-spacing: 0.4px;
+    line-height: 1.9;
+  }
+
+  .ts-display {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(38px, 5.5vw, 76px);
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .ts-display .dot { color: var(--teal); }
+
+  .ts-display-sub {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(22px, 3vw, 42px);
+    color: var(--graphite);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    margin-top: 10px;
+  }
+
+  .ts-mono-box {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: var(--ink);
+    letter-spacing: 0.3px;
+    line-height: 1.9;
+    background: var(--cloud);
+    padding: 24px 28px;
+    border-radius: var(--radius-sm);
+  }
+
+  .ts-mono-box .m-teal { color: var(--teal-dark); }
+  .ts-mono-box .m-sig { color: var(--signal-dim); }
+
+  .ts-body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: var(--graphite);
+    line-height: 1.8;
+    max-width: 600px;
+  }
+
+  .ts-body strong { font-weight: 600; color: var(--ink); }
+
+  .ts-caps {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--fog);
+  }
+
+  .type-scale-ref {
+    margin-top: 44px;
+    padding: 36px;
+    background: var(--white);
+    border: 1px solid var(--cloud);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .tsr-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    margin-bottom: 8px;
+  }
+
+  .tsr-row {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+  }
+
+  .tsr-size {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: var(--ash);
+    min-width: 50px;
+  }
+
+  .tsr-sample {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  /* ============================================
+     05 — LOGO TREATMENTS
+  ============================================ */
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .logo-cell {
+    aspect-ratio: 1.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+
+  .logo-cell:hover { transform: scale(1.008); }
+
+  .lc-label {
+    position: absolute;
+    top: 14px;
+    left: 18px;
+    font-family: 'Space Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .lc-dark { background: var(--ink); }
+  .lc-light { background: var(--white); border: 1px solid var(--cloud); }
+  .lc-teal { background: var(--teal); }
+  .lc-carbon { background: var(--carbon); }
+
+  .lc-wordmark {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 40px;
+    letter-spacing: -0.02em;
+  }
+
+  .lc-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+
+  .lc-icon-box {
+    width: 52px; height: 52px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  .lc-icon-letter {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 26px;
+  }
+
+  /* ============================================
+     06 — SERVICE ARCHITECTURE
+  ============================================ */
+  .svc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .svc-card {
+    background: var(--carbon);
+    border: 1px solid var(--slate);
+    border-radius: var(--radius-md);
+    padding: 36px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s ease;
+  }
+
+  .svc-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2.5px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+  }
+
+  .svc-card:hover::after { opacity: 1; }
+  .svc-card:hover { border-color: var(--iron); transform: translateY(-2px); }
+
+  .svc-card:nth-child(1)::after { background: var(--teal); }
+  .svc-card:nth-child(2)::after { background: var(--signal); }
+  .svc-card:nth-child(3)::after { background: var(--indigo); }
+
+  .svc-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--iron);
+    margin-bottom: 20px;
+  }
+
+  /* Linework icon areas */
+  .svc-icon-area {
+    width: 44px; height: 44px;
+    margin-bottom: 20px;
+  }
+
+  .svc-card h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+
+  .svc-card .svc-signal {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 13px;
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+
+  .svc-card:nth-child(1) .svc-signal { color: var(--teal-mid); }
+  .svc-card:nth-child(2) .svc-signal { color: var(--signal); }
+  .svc-card:nth-child(3) .svc-signal { color: var(--indigo); }
+
+  .svc-card p {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: var(--ash);
+    line-height: 1.7;
+  }
+
+  .svc-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 20px;
+  }
+
+  .svc-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.4px;
+    padding: 4px 9px;
+    border-radius: 100px;
+    border: 1px solid var(--iron);
+    color: var(--fog);
+  }
+
+  /* ============================================
+     07 — AUDIENCE PACKAGES
+  ============================================ */
+  .pkg-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .pkg-card {
+    background: var(--white);
+    border: 1px solid var(--cloud);
+    border-radius: var(--radius-md);
+    padding: 36px 28px;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pkg-card:hover {
+    border-color: var(--teal);
+    box-shadow: 0 8px 32px rgba(0,212,170,0.06);
+    transform: translateY(-2px);
+  }
+
+  .pkg-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    margin-bottom: 16px;
+  }
+
+  .pkg-card h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+
+  .pkg-audience {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--ash);
+    margin-bottom: 16px;
+  }
+
+  .pkg-hook {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--teal-dark);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .pkg-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: var(--graphite);
+    line-height: 1.75;
+    flex: 1;
+  }
+
+  .pkg-model {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+    color: var(--ash);
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--cloud);
+  }
+
+  /* ============================================
+     08 — MESSAGING
+  ============================================ */
+  .msg-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .msg-card {
+    background: var(--white);
+    border: 1px solid var(--cloud);
+    border-radius: var(--radius-md);
+    padding: 32px 28px;
+  }
+
+  .msg-card-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ash);
+    margin-bottom: 16px;
+  }
+
+  .msg-card blockquote {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink);
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    border: none;
+    padding: 0;
+  }
+
+  .msg-card p {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: var(--graphite);
+    line-height: 1.7;
+    margin-top: 12px;
+  }
+
+  .msg-full { grid-column: 1 / -1; }
+
+  .msg-verbs {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+
+  .msg-verb {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--teal-dark);
+    background: var(--teal-ghost);
+    padding: 8px 18px;
+    border-radius: 100px;
+  }
+
+  /* ============================================
+     09 — PATTERNS
+  ============================================ */
+  .pattern-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .pat-cell {
+    aspect-ratio: 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+  }
+
+  .pat-label {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    font-family: 'Space Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal);
+    background: rgba(15,17,20,0.65);
+    padding: 3px 8px;
+    border-radius: 3px;
+    backdrop-filter: blur(4px);
+  }
+
+  .pat-grid {
+    background: var(--ink);
+    background-image:
+      linear-gradient(rgba(0,212,170,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,170,0.05) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .pat-dots {
+    background: var(--carbon);
+    background-image: radial-gradient(circle, var(--teal-dark) 0.7px, transparent 0.7px);
+    background-size: 20px 20px;
+  }
+
+  .pat-diag {
+    background: var(--ink);
+    background-image: repeating-linear-gradient(
+      -45deg, transparent, transparent 12px,
+      rgba(79,91,213,0.05) 12px, rgba(79,91,213,0.05) 13px
+    );
+  }
+
+  /* ============================================
+     10 — BRAND IN USE
+  ============================================ */
+  .use-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .use-card {
+    background: var(--white);
+    border: 1px solid var(--cloud);
+    border-radius: var(--radius-md);
+    padding: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1.25;
+    position: relative;
+    transition: box-shadow 0.25s ease;
+  }
+
+  .use-card:hover { box-shadow: 0 10px 36px rgba(0,0,0,0.05); }
+
+  .use-label {
+    position: absolute;
+    top: 14px;
+    left: 18px;
+    font-family: 'Space Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ash);
+  }
+
+  /* Biz card */
+  .biz {
+    width: 300px;
+    height: 172px;
+    background: var(--ink);
+    border-radius: var(--radius-sm);
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .biz::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 90px; height: 90px;
+    background: radial-gradient(circle at top right, rgba(0,212,170,0.1), transparent 70%);
+  }
+
+  .biz-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .biz .b-logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--white);
+  }
+
+  .biz .b-logo .dot { color: var(--teal); }
+
+  .biz .b-icon {
+    width: 28px; height: 28px;
+    background: var(--teal);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ink);
+  }
+
+  .biz .b-info {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 9px;
+    color: var(--ash);
+    line-height: 2;
+  }
+
+  .biz .b-info strong {
+    font-weight: 500;
+    color: var(--white);
+    display: block;
+    font-size: 11px;
+    margin-bottom: 1px;
+  }
+
+  /* Web mockup */
+  .web-mock {
+    width: 300px;
+    height: 200px;
+    background: var(--ink);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  .wm-bar {
+    height: 26px;
+    background: var(--carbon);
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    gap: 4px;
+  }
+
+  .wm-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--iron);
+  }
+
+  .wm-body {
+    padding: 18px 20px;
+  }
+
+  .wm-body .wm-h {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .wm-body .wm-p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 7.5px;
+    color: var(--ash);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .wm-btn {
+    display: inline-block;
+    background: var(--teal);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 7.5px;
+    padding: 5px 12px;
+    border-radius: 4px;
+  }
+
+  /* Email sig */
+  .esig {
+    background: var(--white);
+    border: 1px solid var(--cloud);
+    border-radius: var(--radius-sm);
+    padding: 22px 26px;
+    width: 290px;
+    border-left: 3px solid var(--teal);
+  }
+
+  .esig .es-name {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--ink);
+  }
+
+  .esig .es-title {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    color: var(--graphite);
+    margin-top: 2px;
+  }
+
+  .esig .es-div {
+    width: 28px; height: 1.5px;
+    background: var(--teal);
+    margin: 10px 0;
+  }
+
+  .esig .es-brand {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--ink);
+  }
+
+  .esig .es-brand .dot { color: var(--teal-dark); }
+
+  .esig .es-url {
+    font-family: 'Space Mono', monospace;
+    font-size: 8px;
+    color: var(--ash);
+    margin-top: 3px;
+  }
+
+  /* Social avatar */
+  .soc-avatar {
+    width: 140px; height: 140px;
+    background: var(--ink);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .soc-avatar::before {
+    content: '';
+    position: absolute;
+    bottom: -16px; right: -16px;
+    width: 70px; height: 70px;
+    background: radial-gradient(circle, rgba(0,212,170,0.12), transparent 70%);
+  }
+
+  .soc-avatar .sa-h {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 50px;
+    color: var(--white);
+  }
+
+  .soc-avatar .sa-h .dot { color: var(--teal); }
+
+  .soc-avatar .sa-sub {
+    font-family: 'Space Mono', monospace;
+    font-size: 6px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--iron);
+    margin-top: 2px;
+  }
+
+  /* ============================================
+     11 — GUIDELINES
+  ============================================ */
+  .guide-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .guide-card {
+    background: var(--white);
+    border: 1px solid var(--cloud);
+    border-radius: var(--radius-md);
+    padding: 32px 28px;
+  }
+
+  .guide-card h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    margin-bottom: 18px;
+  }
+
+  .guide-card p {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: var(--graphite);
+    line-height: 1.8;
+  }
+
+  .guide-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .guide-card ul li {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: var(--graphite);
+    line-height: 2.2;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .guide-card ul li::before {
+    content: '';
+    width: 4px; height: 4px;
+    background: var(--teal);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .guide-full { grid-column: 1 / -1; }
+
+  .dd-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 14px;
+  }
+
+  .dd-do, .dd-dont {
+    padding: 18px 20px;
+    border-radius: var(--radius-sm);
+  }
+
+  .dd-do { background: var(--teal-ghost); }
+  .dd-dont { background: rgba(248,113,113,0.06); }
+
+  .dd-do h4, .dd-dont h4 {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .dd-do h4 { color: var(--teal-dark); }
+  .dd-dont h4 { color: var(--error); }
+
+  .dd-do p, .dd-dont p {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    color: var(--graphite);
+    line-height: 2.1;
+  }
+
+  /* ============================================
+     FOOTER
+  ============================================ */
+  .footer {
+    background: var(--ink);
+    text-align: center;
+    padding: 72px 56px;
+  }
+
+  .f-logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 26px;
+    color: var(--white);
+    letter-spacing: -0.02em;
+  }
+
+  .f-logo .dot { color: var(--teal); }
+
+  .f-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: var(--ash);
+    margin-top: 6px;
+  }
+
+  .f-line {
+    width: 36px; height: 2px;
+    background: var(--teal);
+    margin: 24px auto;
+    border-radius: 2px;
+  }
+
+  .f-note {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: var(--iron);
+    letter-spacing: 0.4px;
+  }
+
+  /* ============================================
+     RESPONSIVE
+  ============================================ */
+  @media (max-width: 900px) {
+    section { padding: 60px 24px; }
+    .dark-wrap { padding: 60px 24px; }
+    .positioning-grid,
+    .svc-grid,
+    .pkg-grid,
+    .msg-grid,
+    .logo-grid,
+    .pattern-grid,
+    .use-grid,
+    .guide-grid { grid-template-columns: 1fr; }
+    .concept-card { flex-direction: column; text-align: center; }
+    .concept-icon-area { width: 100px; height: 100px; }
+    .divider { padding: 0 24px; }
+    .attributes-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== HERO ====== -->
+<div class="hero">
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-pill">Brand Identity Kit — Feb 2026</div>
+    <div class="hero-wordmark">Hone<span class="dot">.</span></div>
+    <div class="hero-sub">Fractional Operations & Tech Partner</div>
+    <div class="hero-tagline"><span>→</span> One partner. Every tool you need.</div>
+    <!-- Swiss Army Knife linework icon -->
+    <div class="hero-knife-icon">
+      <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="14" y="22" width="36" height="20" rx="10" stroke="#00D4AA" stroke-width="1.2" opacity="0.5"/>
+        <line x1="14" y1="32" x2="4" y2="26" stroke="#00D4AA" stroke-width="1" stroke-linecap="round" opacity="0.35"/>
+        <line x1="14" y1="32" x2="6" y2="38" stroke="#4F5BD5" stroke-width="1" stroke-linecap="round" opacity="0.35"/>
+        <line x1="50" y1="32" x2="60" y2="24" stroke="#FF6B3D" stroke-width="1" stroke-linecap="round" opacity="0.35"/>
+        <circle cx="32" cy="32" r="2" fill="#00D4AA" opacity="0.4"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 01 — BRAND POSITIONING ====== -->
+<section>
+  <div class="section-label">01 — Brand Positioning</div>
+  <div class="section-title">The Foundation</div>
+  <div class="section-desc">
+    Hone Studio replaces the need to hire a full ops and tech team. One partner. 
+    Strategy, systems, and websites — with zero overhead.
+  </div>
+
+  <div class="positioning-grid">
+    <div class="pos-card">
+      <div class="pos-card-label">Name</div>
+      <h3>Hone Studio</h3>
+      <p>"Hone" means to sharpen, refine, and perfect — which is exactly what the business does for clients. "Studio" bridges the gap between corporate and creative audiences.</p>
+    </div>
+    <div class="pos-card">
+      <div class="pos-card-label">Positioning</div>
+      <h3>Fractional Ops & Tech Partner</h3>
+      <p>Premium, solo-operated consultancy. Not an agency, not a freelancer — a fractional team that embeds into your business and stays until the work is done.</p>
+    </div>
+
+    <!-- Swiss Army Knife Concept -->
+    <div class="concept-card">
+      <div class="concept-icon-area">
+        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Main body -->
+          <rect x="25" y="40" width="70" height="40" rx="20" stroke="#00D4AA" stroke-width="1.5" opacity="0.6"/>
+          <!-- Tools fanning out -->
+          <line x1="30" y1="52" x2="10" y2="32" stroke="#00D4AA" stroke-width="1.2" stroke-linecap="round" opacity="0.45"/>
+          <line x1="28" y1="58" x2="8" y2="58" stroke="#00D4AA" stroke-width="1.2" stroke-linecap="round" opacity="0.35"/>
+          <line x1="30" y1="68" x2="12" y2="82" stroke="#4F5BD5" stroke-width="1.2" stroke-linecap="round" opacity="0.4"/>
+          <line x1="90" y1="52" x2="110" y2="34" stroke="#FF6B3D" stroke-width="1.2" stroke-linecap="round" opacity="0.4"/>
+          <line x1="92" y1="58" x2="112" y2="58" stroke="#FF6B3D" stroke-width="1.2" stroke-linecap="round" opacity="0.3"/>
+          <line x1="90" y1="68" x2="108" y2="84" stroke="#4F5BD5" stroke-width="1.2" stroke-linecap="round" opacity="0.35"/>
+          <!-- Center pivot -->
+          <circle cx="60" cy="60" r="4" stroke="#00D4AA" stroke-width="1" fill="none" opacity="0.5"/>
+          <circle cx="60" cy="60" r="1.5" fill="#00D4AA" opacity="0.6"/>
+          <!-- Tool tips -->
+          <circle cx="10" cy="32" r="2" fill="#00D4AA" opacity="0.5"/>
+          <circle cx="8" cy="58" r="2" fill="#00D4AA" opacity="0.4"/>
+          <circle cx="12" cy="82" r="2" fill="#4F5BD5" opacity="0.5"/>
+          <circle cx="110" cy="34" r="2" fill="#FF6B3D" opacity="0.5"/>
+          <circle cx="112" cy="58" r="2" fill="#FF6B3D" opacity="0.4"/>
+          <circle cx="108" cy="84" r="2" fill="#4F5BD5" opacity="0.4"/>
+        </svg>
+      </div>
+      <div class="concept-text">
+        <h3>The Swiss Army Knife</h3>
+        <p>One partner, every tool a business needs. The Swiss Army Knife concept is the unifying narrative — used in messaging and copy, not in visual brand identity or logo. It captures the breadth of capability without diluting the premium positioning.</p>
+        <div class="concept-note">Messaging concept · Not visual identity</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 02 — BRAND ATTRIBUTES ====== -->
+<div class="divider"><div class="divider-line"></div></div>
+<section>
+  <div class="section-label">02 — Brand Attributes</div>
+  <div class="section-title">Personality</div>
+  <div class="section-desc">
+    Five attributes that guide every design, copy, and interaction decision. 
+    The middle ground between clean/corporate and warm/creative.
+  </div>
+  <div class="attributes-row">
+    <div class="attr-chip">
+      <h4>Capable</h4>
+      <p>Confident language, strong case studies, results-driven copy</p>
+    </div>
+    <div class="attr-chip">
+      <h4>Calm</h4>
+      <p>Clean layouts, generous whitespace, unhurried pacing</p>
+    </div>
+    <div class="attr-chip">
+      <h4>Modern</h4>
+      <p>Current design patterns, subtle animations, contemporary type</p>
+    </div>
+    <div class="attr-chip">
+      <h4>Sharp</h4>
+      <p>Precise linework, crisp edges, direct messaging</p>
+    </div>
+    <div class="attr-chip">
+      <h4>Premium</h4>
+      <p>High-quality details, intentional restraint, no clutter</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 03 — COLOR SYSTEM ====== -->
+<div class="divider"><div class="divider-line"></div></div>
+<section>
+  <div class="section-label">03 — Color System</div>
+  <div class="section-title">Palette</div>
+  <div class="section-desc">
+    A neutral foundation with electric teal as the signature accent. 
+    Signal orange and indigo serve as secondary pillars — one per service line.
+  </div>
+
+  <div class="palette-group">
+    <div class="pg-label">Primary — Teal Edge</div>
+    <div class="palette-row">
+      <div class="swatch on-dark" style="background:#1AEDC2"><div class="sw-name">Teal Bright</div><div class="sw-hex">#1AEDC2</div></div>
+      <div class="swatch on-dark" style="background:#00D4AA"><div class="sw-name">Teal</div><div class="sw-hex">#00D4AA</div></div>
+      <div class="swatch on-dark" style="background:#00B892"><div class="sw-name">Teal Mid</div><div class="sw-hex">#00B892</div></div>
+      <div class="swatch on-light" style="background:#009E7B"><div class="sw-name">Teal Dark</div><div class="sw-hex">#009E7B</div></div>
+      <div class="swatch on-light" style="background:#007A5F"><div class="sw-name">Teal Deep</div><div class="sw-hex">#007A5F</div></div>
+    </div>
+  </div>
+
+  <div class="palette-group">
+    <div class="pg-label">Secondary — Service Accents</div>
+    <div class="palette-row">
+      <div class="swatch on-dark" style="background:#FF6B3D;max-width:180px"><div class="sw-name">Signal</div><div class="sw-hex">#FF6B3D · AI & Auto</div></div>
+      <div class="swatch on-light" style="background:#E05A30;max-width:180px"><div class="sw-name">Signal Dim</div><div class="sw-hex">#E05A30</div></div>
+      <div class="swatch on-dark" style="background:#4F5BD5;max-width:180px"><div class="sw-name">Indigo</div><div class="sw-hex">#4F5BD5 · Strategy</div></div>
+      <div class="swatch on-light" style="background:#3D49B8;max-width:180px"><div class="sw-name">Indigo Dim</div><div class="sw-hex">#3D49B8</div></div>
+    </div>
+  </div>
+
+  <div class="palette-group">
+    <div class="pg-label">Neutrals — Dark</div>
+    <div class="palette-row">
+      <div class="swatch on-dark" style="background:#0F1114"><div class="sw-name">Ink</div><div class="sw-hex">#0F1114</div></div>
+      <div class="swatch on-dark" style="background:#181B20"><div class="sw-name">Carbon</div><div class="sw-hex">#181B20</div></div>
+      <div class="swatch on-dark" style="background:#22262D"><div class="sw-name">Slate</div><div class="sw-hex">#22262D</div></div>
+      <div class="swatch on-dark" style="background:#363B44"><div class="sw-name">Iron</div><div class="sw-hex">#363B44</div></div>
+      <div class="swatch on-dark" style="background:#5A6069"><div class="sw-name">Graphite</div><div class="sw-hex">#5A6069</div></div>
+    </div>
+  </div>
+
+  <div class="palette-group">
+    <div class="pg-label">Neutrals — Light</div>
+    <div class="palette-row">
+      <div class="swatch on-light" style="background:#8A9099"><div class="sw-name">Ash</div><div class="sw-hex">#8A9099</div></div>
+      <div class="swatch on-light" style="background:#B3B8C0"><div class="sw-name">Fog</div><div class="sw-hex">#B3B8C0</div></div>
+      <div class="swatch on-light swatch-border" style="background:#D6D9DE"><div class="sw-name">Mist</div><div class="sw-hex">#D6D9DE</div></div>
+      <div class="swatch on-light swatch-border" style="background:#ECEEF1"><div class="sw-name">Cloud</div><div class="sw-hex">#ECEEF1</div></div>
+      <div class="swatch on-light swatch-border" style="background:#F6F7F9"><div class="sw-name">Snow</div><div class="sw-hex">#F6F7F9</div></div>
+      <div class="swatch on-light swatch-border" style="background:#FFFFFF"><div class="sw-name">White</div><div class="sw-hex">#FFFFFF</div></div>
+    </div>
+  </div>
+
+  <div class="palette-group">
+    <div class="pg-label">Utility — Status</div>
+    <div class="palette-row">
+      <div class="swatch on-dark" style="background:#34D399;max-width:140px"><div class="sw-name">Success</div><div class="sw-hex">#34D399</div></div>
+      <div class="swatch on-dark" style="background:#FBBF24;max-width:140px"><div class="sw-name">Warning</div><div class="sw-hex">#FBBF24</div></div>
+      <div class="swatch on-dark" style="background:#F87171;max-width:140px"><div class="sw-name">Error</div><div class="sw-hex">#F87171</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 04 — TYPOGRAPHY ====== -->
+<div class="divider"><div class="divider-line"></div></div>
+<section>
+  <div class="section-label">04 — Typography</div>
+  <div class="section-title">Type System</div>
+  <div class="section-desc">
+    Three typefaces — a characterful serif for display, a geometric sans for body, 
+    and a monospace for code and system UI. Each serves a clear role.
+  </div>
+
+  <div class="type-block">
+    <div class="type-row">
+      <div class="type-left">
+        <h3>Display</h3>
+        <span>Fraunces · Variable · 300–700</span>
+      </div>
+      <div class="type-right">Logo · Headlines · Page Titles<br>Warm authority, modern craft</div>
+    </div>
+    <div class="ts-display">Hone Studio<span class="dot">.</span></div>
+    <div class="ts-display" style="font-size:clamp(22px,3vw,40px);margin-top:10px;color:var(--graphite)">Sharpen the way you operate, build, and grow.</div>
+    <div class="ts-display-sub">Strategy. Systems. Digital presence.</div>
+  </div>
+
+  <div class="type-block">
+    <div class="type-row">
+      <div class="type-left">
+        <h3>Monospace</h3>
+        <span>Space Mono · Regular 400</span>
+      </div>
+      <div class="type-right">Labels · Tags · Nav · Code<br>Technical precision, system feel</div>
+    </div>
+    <div class="ts-mono-box">
+      <span class="m-teal">const</span> partner = {<br>
+      &nbsp;&nbsp;name: <span class="m-sig">"Hone Studio"</span>,<br>
+      &nbsp;&nbsp;services: [<span class="m-sig">"web"</span>, <span class="m-sig">"ai"</span>, <span class="m-sig">"strategy"</span>],<br>
+      &nbsp;&nbsp;overhead: <span class="m-teal">null</span>,<br>
+      &nbsp;&nbsp;tools: <span class="m-sig">"every one you need"</span><br>
+      };
+    </div>
+  </div>
+
+  <div class="type-block">
+    <div class="type-row">
+      <div class="type-left">
+        <h3>Body</h3>
+        <span>DM Sans · 300 / 400 / 500 / 600</span>
+      </div>
+      <div class="type-right">Body Copy · UI · Descriptions<br>Clean, legible, modern</div>
+    </div>
+    <div class="ts-body">
+      Your business needs a full ops and tech team. <strong>You don't need to hire one.</strong> Hone Studio embeds as your fractional partner — handling web development, automation, and research so you can focus on growth. One relationship. One invoice. Every tool you need.
+    </div>
+  </div>
+
+  <div class="type-block" style="border-bottom:none">
+    <div class="type-row">
+      <div class="type-left">
+        <h3>Captions & Labels</h3>
+        <span>Space Mono · Uppercase · Tracked</span>
+      </div>
+      <div class="type-right">Navigation · Metadata · Tags<br>System-level text, 8–11px</div>
+    </div>
+    <div class="ts-caps">Web Design &nbsp;·&nbsp; AI & Automation &nbsp;·&nbsp; Strategy & Research</div>
+    <div class="ts-caps" style="margin-top:8px;color:var(--ash)">Kajabi &nbsp;·&nbsp; Shopify &nbsp;·&nbsp; Squarespace &nbsp;·&nbsp; Custom Apps</div>
+  </div>
+
+  <div class="type-scale-ref">
+    <div class="tsr-label">Type Scale</div>
+    <div class="tsr-row"><span class="tsr-size">76px</span><span class="tsr-sample" style="font-size:42px">Hone</span></div>
+    <div class="tsr-row"><span class="tsr-size">48px</span><span class="tsr-sample" style="font-size:32px">Hone</span></div>
+    <div class="tsr-row"><span class="tsr-size">36px</span><span class="tsr-sample" style="font-size:24px">Hone Studio</span></div>
+    <div class="tsr-row"><span class="tsr-size">24px</span><span class="tsr-sample" style="font-size:18px">Hone Studio</span></div>
+    <div class="tsr-row"><span class="tsr-size">16px</span><span class="tsr-sample" style="font-size:14px">Hone Studio</span></div>
+  </div>
+</section>
+
+<!-- ====== 05 — LOGO TREATMENTS ====== -->
+<div class="divider"><div class="divider-line"></div></div>
+<section>
+  <div class="section-label">05 — Logo Treatments</div>
+  <div class="section-title">Logomark</div>
+  <div class="section-desc">
+    The Hone wordmark uses Fraunces with a teal period as its signature element. 
+    The dot is brand identity — it must never be removed or recolored.
+  </div>
+
+  <div class="logo-grid">
+    <div class="logo-cell lc-dark">
+      <div class="lc-label" style="color:var(--iron)">Primary — Dark</div>
+      <div class="lc-wordmark" style="color:var(--white)">Hone<span style="color:var(--teal)">.</span></div>
+      <div class="lc-tag" style="color:var(--graphite)">Studio</div>
+    </div>
+
+    <div class="logo-cell lc-light">
+      <div class="lc-label" style="color:var(--ash)">Primary — Light</div>
+      <div class="lc-wordmark" style="color:var(--ink)">Hone<span style="color:var(--teal-dark)">.</span></div>
+      <div class="lc-tag" style="color:var(--ash)">Studio</div>
+    </div>
+
+    <div class="logo-cell lc-teal">
+      <div class="lc-label" style="color:rgba(15,17,20,0.35)">Accent — Teal</div>
+      <div class="lc-icon-box" style="background:rgba(15,17,20,0.12);border-radius:10px">
+        <div class="lc-icon-letter" style="color:var(--ink)">H</div>
+      </div>
+      <div class="lc-wordmark" style="color:var(--ink);font-size:34px">Hone<span style="color:rgba(15,17,20,0.4)">.</span></div>
+      <div class="lc-tag" style="color:rgba(15,17,20,0.45)">Studio</div>
+    </div>
+
+    <div class="logo-cell lc-carbon">
+      <div class="lc-label" style="color:var(--iron)">Icon Mark</div>
+      <div class="lc-icon-box" style="background:var(--teal);border-radius:10px">
+        <div class="lc-icon-letter" style="color:var(--ink)">H</div>
+      </div>
+      <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--iron);margin-top:10px">Favicon · Social · App Icon</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 06 — SERVICES ====== -->
+<div class="dark-wrap">
+  <div class="section-inner">
+    <div class="section-label">06 — Service Architecture</div>
+    <div class="section-title">Three Pillars</div>
+    <div class="section-desc">
+      Each pillar has an assigned accent color. Teal leads (Web), 
+      Signal supports (AI), Indigo deepens (Strategy).
+    </div>
+
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-num">01</div>
+        <div class="svc-icon-area">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="6" width="32" height="24" rx="2" stroke="#00D4AA" stroke-width="1.2"/><line x1="4" y1="12" x2="36" y2="12" stroke="#00D4AA" stroke-width="0.8" opacity="0.4"/><circle cx="8" cy="9" r="1" fill="#00D4AA" opacity="0.5"/><circle cx="12" cy="9" r="1" fill="#00D4AA" opacity="0.3"/><line x1="12" y1="34" x2="28" y2="34" stroke="#00D4AA" stroke-width="1" opacity="0.3"/></svg>
+        </div>
+        <h3>Web Design & Development</h3>
+        <div class="svc-signal">"I build your digital presence"</div>
+        <p>Custom websites and platforms on Kajabi, Shopify, Squarespace, or fully custom web apps. From launch to redesign to ongoing optimization.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Kajabi</span>
+          <span class="svc-tag">Shopify</span>
+          <span class="svc-tag">Squarespace</span>
+          <span class="svc-tag">Custom Apps</span>
+          <span class="svc-tag">Redesign</span>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-num">02</div>
+        <div class="svc-icon-area">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M8 28L16 20L22 24L32 12" stroke="#FF6B3D" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="12" r="3" stroke="#FF6B3D" stroke-width="1" opacity="0.5"/><line x1="4" y1="34" x2="36" y2="34" stroke="#FF6B3D" stroke-width="0.8" opacity="0.3"/></svg>
+        </div>
+        <h3>AI & Automation</h3>
+        <div class="svc-signal">"I make your business run itself"</div>
+        <p>Workflow automation, CRM integrations, AI-powered tools, email flows, and lead capture systems. The backend that lets your business scale.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Automation</span>
+          <span class="svc-tag">CRM</span>
+          <span class="svc-tag">AI Tools</span>
+          <span class="svc-tag">Email Flows</span>
+          <span class="svc-tag">Lead Capture</span>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-num">03</div>
+        <div class="svc-icon-area">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="12" stroke="#4F5BD5" stroke-width="1.2"/><circle cx="20" cy="20" r="6" stroke="#4F5BD5" stroke-width="0.8" opacity="0.4"/><circle cx="20" cy="20" r="1.5" fill="#4F5BD5" opacity="0.6"/><line x1="20" y1="4" x2="20" y2="8" stroke="#4F5BD5" stroke-width="0.8" opacity="0.3"/><line x1="20" y1="32" x2="20" y2="36" stroke="#4F5BD5" stroke-width="0.8" opacity="0.3"/><line x1="4" y1="20" x2="8" y2="20" stroke="#4F5BD5" stroke-width="0.8" opacity="0.3"/><line x1="32" y1="20" x2="36" y2="20" stroke="#4F5BD5" stroke-width="0.8" opacity="0.3"/></svg>
+        </div>
+        <h3>Strategy & Research</h3>
+        <div class="svc-signal">"I make sure we build the right thing"</div>
+        <p>Market research, competitive analysis, and data-driven discovery. Folded into every engagement — not sold standalone.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Market Research</span>
+          <span class="svc-tag">Competitive Intel</span>
+          <span class="svc-tag">Discovery</span>
+          <span class="svc-tag">Data-Driven</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 07 — AUDIENCE PACKAGES ====== -->
+<section>
+  <div class="section-label">07 — Audience Packages</div>
+  <div class="section-title">Who I Work With</div>
+  <div class="section-desc">
+    Three audiences self-select from the homepage via an "I work with..." funnel. 
+    Each package has tailored language, case studies, and a specific CTA.
+  </div>
+
+  <div class="pkg-grid">
+    <div class="pkg-card">
+      <div class="pkg-eyebrow">Package 01</div>
+      <h3>Launch Partner</h3>
+      <div class="pkg-audience">Founders & Early-Stage Startups</div>
+      <div class="pkg-hook">"Move fast without hiring."</div>
+      <div class="pkg-desc">Get from zero to operational fast. Market research baked into discovery, website build, basic automation, and optional ongoing support.</div>
+      <div class="pkg-model">Model: Project-based + optional retainer</div>
+    </div>
+
+    <div class="pkg-card">
+      <div class="pkg-eyebrow">Package 02</div>
+      <h3>Growth Partner</h3>
+      <div class="pkg-audience">Small Business & E-commerce</div>
+      <div class="pkg-hook">"Stop duct-taping your systems together."</div>
+      <div class="pkg-desc">Site optimization or redesign, workflow automation, market research for expansion, and ongoing technical maintenance included.</div>
+      <div class="pkg-model">Model: Monthly retainer or quarterly projects</div>
+    </div>
+
+    <div class="pkg-card">
+      <div class="pkg-eyebrow">Package 03</div>
+      <h3>Backend Partner</h3>
+      <div class="pkg-audience">Agencies & Consultants</div>
+      <div class="pkg-hook">"Your behind-the-scenes execution partner."</div>
+      <div class="pkg-desc">White-label web builds, brandable research & reporting, automation setup for clients, and overflow tech support.</div>
+      <div class="pkg-model">Model: Per-project or retainer, white-label</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 08 — MESSAGING ====== -->
+<div class="divider"><div class="divider-line"></div></div>
+<section>
+  <div class="section-label">08 — Messaging Territory</div>
+  <div class="section-title">Voice & Copy</div>
+  <div class="section-desc">
+    Tagline candidates and the "Hone" verb as a messaging engine. 
+    Frame services as outcomes, not deliverables.
+  </div>
+
+  <div class="msg-grid">
+    <div class="msg-card">
+      <div class="msg-card-label">Tagline Option A</div>
+      <blockquote>"Your business needs a full ops and tech team. You don't need to hire one."</blockquote>
+    </div>
+    <div class="msg-card">
+      <div class="msg-card-label">Tagline Option B</div>
+      <blockquote>"Strategy, systems, and websites — one partner, no overhead."</blockquote>
+    </div>
+    <div class="msg-card">
+      <div class="msg-card-label">Tagline Option C</div>
+      <blockquote>"I handle the research, the build, and the backend so you can focus on growth."</blockquote>
+    </div>
+    <div class="msg-card">
+      <div class="msg-card-label">Swiss Army Knife Hook</div>
+      <blockquote>"One partner. Every tool you need."</blockquote>
+      <p>The Swiss Army Knife metaphor lives in copy and messaging, not visual branding.</p>
+    </div>
+
+    <div class="msg-card msg-full">
+      <div class="msg-card-label">The "Hone" Verb — Messaging Engine</div>
+      <blockquote>The name "Hone" is itself a verb — and the richest source of campaign copy.</blockquote>
+      <div class="msg-verbs">
+        <span class="msg-verb">Hone your systems</span>
+        <span class="msg-verb">Hone your presence</span>
+        <span class="msg-verb">Hone your operations</span>
+        <span class="msg-verb">Hone your growth</span>
+        <span class="msg-verb">Hone your launch</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 09 — PATTERNS ====== -->
+<div class="divider"><div class="divider-line"></div></div>
+<section>
+  <div class="section-label">09 — Patterns & Textures</div>
+  <div class="section-title">Brand Textures</div>
+  <div class="section-desc">
+    Subtle grid and system patterns reinforce the sharp, technical identity.
+    Used as card backgrounds, section fills, and presentation slides.
+  </div>
+  <div class="pattern-grid">
+    <div class="pat-cell pat-grid"><div class="pat-label">System Grid</div></div>
+    <div class="pat-cell pat-dots"><div class="pat-label">Dot Matrix</div></div>
+    <div class="pat-cell pat-diag"><div class="pat-label">Diagonal Lines</div></div>
+  </div>
+</section>
+
+<!-- ====== 10 — BRAND IN USE ====== -->
+<div class="divider"><div class="divider-line"></div></div>
+<section>
+  <div class="section-label">10 — Brand in Use</div>
+  <div class="section-title">Applications</div>
+  <div class="section-desc">
+    From business cards to website to email signatures — 
+    sharp and consistent across every touchpoint.
+  </div>
+
+  <div class="use-grid">
+    <div class="use-card">
+      <div class="use-label">Business Card</div>
+      <div class="biz">
+        <div class="biz-top">
+          <div class="b-logo">Hone<span class="dot">.</span></div>
+          <div class="b-icon">H</div>
+        </div>
+        <div class="b-info">
+          <strong>Niell</strong>
+          Fractional Ops & Tech Partner<br>
+          hello@honestudio.co
+        </div>
+      </div>
+    </div>
+
+    <div class="use-card">
+      <div class="use-label">Website Hero</div>
+      <div class="web-mock">
+        <div class="wm-bar"><div class="wm-dot"></div><div class="wm-dot"></div><div class="wm-dot"></div></div>
+        <div class="wm-body">
+          <div class="wm-h">Your business needs a full ops<br>and tech team. You don't<br>need to hire one.</div>
+          <div class="wm-p">Strategy, systems, and websites from<br>one partner — with zero overhead.</div>
+          <div class="wm-btn">Book a Discovery Call →</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="use-card">
+      <div class="use-label">Email Signature</div>
+      <div class="esig">
+        <div class="es-name">Niell</div>
+        <div class="es-title">Fractional Ops & Tech Partner</div>
+        <div class="es-div"></div>
+        <div class="es-brand">Hone<span class="dot">.</span> Studio</div>
+        <div class="es-url">honestudio.co</div>
+      </div>
+    </div>
+
+    <div class="use-card" style="background:var(--ink);border-color:var(--slate)">
+      <div class="use-label" style="color:var(--iron)">Social Avatar</div>
+      <div class="soc-avatar">
+        <div class="sa-h">H<span class="dot">.</span></div>
+        <div class="sa-sub">Studio</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 11 — GUIDELINES ====== -->
+<div class="divider"><div class="divider-line"></div></div>
+<section>
+  <div class="section-label">11 — Guidelines</div>
+  <div class="section-title">Brand Rules</div>
+  <div class="section-desc">
+    Consistency builds credibility. These rules ensure Hone stays 
+    sharp across every scale and application.
+  </div>
+
+  <div class="guide-grid">
+    <div class="guide-card">
+      <h3>Logo Rules</h3>
+      <ul>
+        <li>Clear space = cap height of "H" on all sides</li>
+        <li>Teal dot is brand identity — never remove it</li>
+        <li>Print min: 20mm wide · Digital min: 100px</li>
+        <li>Icon mark "H" min: 28px</li>
+      </ul>
+    </div>
+
+    <div class="guide-card">
+      <h3>Tone of Voice</h3>
+      <ul>
+        <li>Direct, not aggressive</li>
+        <li>Expert, not pretentious</li>
+        <li>Warm, not casual</li>
+        <li>Clear, not oversimplified</li>
+      </ul>
+    </div>
+
+    <div class="guide-card">
+      <h3>Illustration Style</h3>
+      <ul>
+        <li>Linework only — no full illustrations or photos</li>
+        <li>Thin strokes (1–1.5px) in brand accent colors</li>
+        <li>Functional diagrams over decorative art</li>
+        <li>Works for creative and institutional audiences</li>
+      </ul>
+    </div>
+
+    <div class="guide-card">
+      <h3>Strategic Principles</h3>
+      <ul>
+        <li>Lead with web + automation, not strategy</li>
+        <li>Frame services as outcomes, not deliverables</li>
+        <li>Cross-sell through case studies, not navigation</li>
+        <li>No pricing on site — use "book a call" CTAs</li>
+      </ul>
+    </div>
+
+    <div class="guide-card guide-full">
+      <h3>Do's & Don'ts</h3>
+      <div class="dd-row">
+        <div class="dd-do">
+          <h4>✓ Do</h4>
+          <p>
+            Use the teal dot as signature brand element<br>
+            Pair Fraunces display with DM Sans body<br>
+            Use Space Mono for all labels and tags<br>
+            Use linework illustrations, not photography<br>
+            Maintain generous whitespace and calm pacing<br>
+            Use "Hone your ___" as a copy pattern
+          </p>
+        </div>
+        <div class="dd-dont">
+          <h4>✗ Don't</h4>
+          <p>
+            Remove or recolor the teal period<br>
+            Use more than two accents simultaneously<br>
+            Set body text in Fraunces or Space Mono<br>
+            Use stock photos or full illustrations<br>
+            Use the Swiss Army Knife visually in the logo<br>
+            List "admin" or "tech support" as standalone services
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<div class="footer">
+  <div class="f-logo">Hone<span class="dot">.</span></div>
+  <div class="f-tag">One partner. Every tool you need.</div>
+  <div class="f-line"></div>
+  <div class="f-note">Brand Identity Kit · Confidential · February 2026</div>
+</div>
+
+</body>
+</html>

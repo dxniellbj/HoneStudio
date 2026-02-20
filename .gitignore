@@ -1,0 +1,28 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+
+# env
+.env
+.env.local
+.env.*.local
+
+# debug
+npm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+
+# firebase
+.firebase/
+
+# claude
+.claude/
+
+# misc
+*.tsbuildinfo
+next-env.d.ts
