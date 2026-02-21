@@ -193,7 +193,7 @@ function FirstVisitHero() {
   const ctaY = useTransform(scrollYProgress, [0.52, 0.58], [30, 0]);
 
   return (
-    <section ref={containerRef} className="relative min-h-[300vh] bg-snow dark:bg-ink">
+    <section ref={containerRef} className="relative min-h-[200vh] bg-snow dark:bg-ink">
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
         <div className="hero-gradient absolute inset-0" />
         <div className="hero-grid absolute inset-0" />
@@ -368,7 +368,7 @@ function ReturnVisitHero() {
   const ctaY = useTransform(scrollYProgress, [0.28, 0.36], [30, 0]);
 
   return (
-    <section ref={containerRef} className="relative min-h-[300vh] bg-snow dark:bg-ink">
+    <section ref={containerRef} className="relative min-h-[200vh] bg-snow dark:bg-ink">
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
         <div className="hero-gradient absolute inset-0" />
         <div className="hero-grid absolute inset-0" />
