@@ -177,14 +177,14 @@ export default function ChatWidget() {
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
             role="dialog"
             aria-label="Honest AI chat"
-            className="fixed right-6 bottom-24 z-50 flex h-[28rem] w-[22rem] flex-col overflow-hidden rounded-lg border border-slate bg-ink shadow-2xl sm:w-96"
+            className="fixed right-6 bottom-24 z-50 flex h-[28rem] w-[22rem] flex-col overflow-hidden rounded-lg border border-cloud dark:border-slate bg-white dark:bg-ink shadow-2xl sm:w-96"
           >
             {/* Header */}
-            <div className="flex items-center gap-3 border-b border-slate px-4 py-3">
+            <div className="flex items-center gap-3 border-b border-cloud dark:border-slate px-4 py-3">
               <div className="h-2 w-2 rounded-full bg-teal animate-blink" />
               <div>
-                <p className="text-sm font-medium text-white">Honest AI</p>
-                <p className="text-[11px] text-ash">Ask me anything about Hone Studio</p>
+                <p className="text-sm font-medium text-ink dark:text-white">Honest AI</p>
+                <p className="text-[11px] text-graphite dark:text-ash">Ask me anything about Hone Studio</p>
               </div>
             </div>
 
@@ -192,12 +192,12 @@ export default function ChatWidget() {
             <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
               {messages.length === 0 && (
                 <div className="space-y-2">
-                  <p className="text-center text-xs text-iron">Quick prompts</p>
+                  <p className="text-center text-xs text-ash dark:text-iron">Quick prompts</p>
                   {QUICK_PROMPTS.map((prompt) => (
                     <button
                       key={prompt}
                       onClick={() => sendMessage(prompt)}
-                      className="block w-full rounded-md border border-slate px-3 py-2 text-left text-sm text-ash transition-colors hover:border-teal hover:text-teal"
+                      className="block w-full rounded-md border border-cloud dark:border-slate px-3 py-2 text-left text-sm text-graphite dark:text-ash transition-colors hover:border-teal hover:text-teal"
                     >
                       {prompt}
                     </button>
@@ -211,11 +211,11 @@ export default function ChatWidget() {
 
               {streaming && messages[messages.length - 1]?.text === "" && (
                 <div className="flex justify-start">
-                  <div className="rounded-lg bg-slate px-4 py-3">
+                  <div className="rounded-lg bg-snow dark:bg-slate px-4 py-3">
                     <span className="inline-flex gap-1">
-                      <span className="h-1.5 w-1.5 animate-blink rounded-full bg-ash" />
-                      <span className="h-1.5 w-1.5 animate-blink rounded-full bg-ash [animation-delay:0.2s]" />
-                      <span className="h-1.5 w-1.5 animate-blink rounded-full bg-ash [animation-delay:0.4s]" />
+                      <span className="h-1.5 w-1.5 animate-blink rounded-full bg-graphite dark:bg-ash" />
+                      <span className="h-1.5 w-1.5 animate-blink rounded-full bg-graphite dark:bg-ash [animation-delay:0.2s]" />
+                      <span className="h-1.5 w-1.5 animate-blink rounded-full bg-graphite dark:bg-ash [animation-delay:0.4s]" />
                     </span>
                   </div>
                 </div>
@@ -223,7 +223,7 @@ export default function ChatWidget() {
             </div>
 
             {/* Input */}
-            <form onSubmit={handleSubmit} className="border-t border-slate p-3">
+            <form onSubmit={handleSubmit} className="border-t border-cloud dark:border-slate p-3">
               <div className="flex gap-2">
                 <textarea
                   ref={inputRef}
@@ -234,7 +234,7 @@ export default function ChatWidget() {
                   rows={1}
                   disabled={streaming}
                   aria-label="Chat message"
-                  className="flex-1 resize-none rounded-md border border-slate bg-carbon px-3 py-2 text-sm text-white placeholder:text-iron focus:border-teal focus:outline-none disabled:opacity-50"
+                  className="flex-1 resize-none rounded-md border border-cloud dark:border-slate bg-snow dark:bg-carbon px-3 py-2 text-sm text-ink dark:text-white placeholder:text-ash dark:placeholder:text-iron focus:border-teal focus:outline-none disabled:opacity-50"
                 />
                 <button
                   type="submit"

@@ -96,7 +96,7 @@ export default function ServicePillars() {
             return (
               <div
                 key={pillar.title}
-                className={`group relative rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink p-8 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] ${accent.glow}`}
+                className={`group relative h-full rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink p-8 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] ${accent.glow}`}
               >
                 {/* Colored top accent — absolute positioned for reliable hover */}
                 <div

@@ -137,6 +137,33 @@
   }
 }
 
+/* Splash — ripple dismiss */
+@keyframes splashRipple {
+  0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+.splash-ripple {
+  position: fixed;
+  width: 200vmax;
+  height: 200vmax;
+  border-radius: 50%;
+  background: var(--color-teal, #00D4AA);
+  pointer-events: none;
+  z-index: 10000;
+  animation: splashRipple 600ms ease-out forwards;
+}
+
+/* Splash — enter prompt pulse */
+@keyframes splashPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.splash-prompt {
+  animation: splashPulse 2s ease-in-out infinite;
+}
+
 @keyframes marquee {
   from {
     transform: translateX(0);

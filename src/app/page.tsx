@@ -1,4 +1,5 @@
 import HeroIntro from "@/components/HeroIntro";
+import SplashScreen from "@/components/SplashScreen";
 import ServicePillars from "@/components/ServicePillars";
 import ToolsBanner from "@/components/ToolsBanner";
 import AudienceFunnel from "@/components/AudienceFunnel";
@@ -12,7 +13,8 @@ import { CASE_STUDIES } from "@/lib/data";
 export default function HomePage() {
   return (
     <>
-      {/* 1. Hero (A: snow/ink) */}
+      {/* Splash + Hero (homepage only) */}
+      <SplashScreen />
       <HeroIntro />
 
       <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
@@ -55,7 +57,7 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {CASE_STUDIES.map((study, i) => (
-              <ScrollReveal key={study.slug} delay={i * 0.1}>
+              <ScrollReveal key={study.slug} delay={i * 0.1} className="h-full">
                 <CaseStudyCard {...study} />
               </ScrollReveal>
             ))}

@@ -78,7 +78,7 @@ export default function AudienceFunnel() {
                 boxShadow: "0 8px 30px rgba(0,212,170,0.12)",
                 transition: { type: "spring", stiffness: 300, damping: 20 },
               }}
-              className="relative rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-8 transition-colors"
+              className="relative h-full rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-8 transition-colors"
             >
               {/* Eyebrow */}
               <p className="mb-4 font-mono text-xs uppercase tracking-widest text-ash">

@@ -165,8 +165,8 @@ export default function ServicesPage() {
 
           <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {PROCESS_STEPS.map((step, i) => (
-              <ScrollReveal key={step.number} delay={i * 0.1}>
-                <div className="rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-8 transition-all duration-300 hover:border-iron">
+              <ScrollReveal key={step.number} delay={i * 0.1} className="h-full">
+                <div className="h-full rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-8 transition-all duration-300 hover:border-iron">
                   <p className="mb-4 font-mono text-sm text-teal">
                     {step.number}
                   </p>

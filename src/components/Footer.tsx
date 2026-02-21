@@ -42,10 +42,10 @@ export default function Footer() {
 
         {/* Email */}
         <a
-          href="mailto:hello@honestudio.co"
+          href="mailto:hello@honestudio.cv"
           className="mb-8 font-mono text-sm text-graphite dark:text-ash transition-colors hover:text-teal"
         >
-          hello@honestudio.co
+          hello@honestudio.cv
         </a>
 
         {/* Divider */}

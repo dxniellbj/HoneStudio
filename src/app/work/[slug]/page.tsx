@@ -44,6 +44,9 @@ export default async function CaseStudyPage({
   const study = getStudy(slug);
   if (!study) notFound();
 
+  // Find other case studies for navigation
+  const others = CASE_STUDIES.filter((s) => s.slug !== slug);
+
   return (
     <>
       {/* ── Hero (A: snow/ink) ── */}
@@ -89,26 +92,71 @@ export default async function CaseStudyPage({
 
       <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
 
-      {/* ── Challenge (B: white/carbon) ── */}
+      {/* ── Scope & Tech Stack (B: white/carbon) ── */}
       <section className="bg-white dark:bg-carbon py-24 px-6 pattern-dots">
+        <div className="mx-auto max-w-4xl">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
+            {/* Scope */}
+            <ScrollReveal>
+              <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
+                <span className="inline-block h-px w-6 bg-teal" />
+                Scope
+              </p>
+              <div className="space-y-3">
+                {study.scope.map((item, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-teal" />
+                    <p className="text-sm leading-relaxed text-graphite dark:text-ash">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </ScrollReveal>
+
+            {/* Tech Stack */}
+            <ScrollReveal delay={0.1}>
+              <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
+                <span className="inline-block h-px w-6 bg-teal" />
+                Tech Stack
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {study.techStack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-full border border-cloud dark:border-iron px-3 py-1 font-mono text-[11px] text-graphite dark:text-ash"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
+
+      {/* ── The Challenge (A: snow/ink) ── */}
+      <section className="bg-snow dark:bg-ink py-24 px-6 pattern-diag">
         <div className="mx-auto max-w-4xl">
           <ScrollReveal>
             <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
               <span className="inline-block h-px w-6 bg-teal" />
               The Challenge
             </p>
-            <p className="text-lg leading-relaxed text-graphite dark:text-ash">
-              {study.challenge}
-            </p>
+            <div className="rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-8">
+              <p className="text-lg leading-relaxed text-graphite dark:text-ash">
+                {study.challenge}
+              </p>
+            </div>
           </ScrollReveal>
         </div>
       </section>
 
-      <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
+      <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
 
-      {/* ── Approach (A: snow/ink) ── */}
-      <section className="relative bg-snow dark:bg-ink py-24 px-6 pattern-diag">
-        <TechLines variant="circuit-trace" className="text-mist dark:text-iron" />
+      {/* ── The Approach (B: white/carbon) ── */}
+      <section className="relative bg-white dark:bg-carbon py-24 px-6 pattern-scan">
+        <TechLines variant="circuit-trace" className="text-cloud dark:text-iron" />
         <div className="mx-auto max-w-4xl">
           <ScrollReveal>
             <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
@@ -120,8 +168,8 @@ export default async function CaseStudyPage({
           <div className="mt-8 space-y-6">
             {study.approach.map((step, i) => (
               <ScrollReveal key={i} delay={i * 0.08}>
-                <div className="flex items-start gap-4">
-                  <span className="mt-1 font-mono text-sm text-teal">
+                <div className="flex items-start gap-4 rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink p-6">
+                  <span className="shrink-0 font-mono text-sm font-medium text-teal">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="text-sm leading-relaxed text-graphite dark:text-ash">{step}</p>
@@ -132,10 +180,41 @@ export default async function CaseStudyPage({
         </div>
       </section>
 
-      <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
+      <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
 
-      {/* ── Results (B: white/carbon) ── */}
-      <section className="bg-white dark:bg-carbon py-24 px-6 pattern-grid">
+      {/* ── Key Features (A: snow/ink) ── */}
+      {study.keyFeatures.length > 0 && (
+        <>
+          <section className="bg-snow dark:bg-ink py-24 px-6 pattern-grid">
+            <div className="mx-auto max-w-4xl">
+              <ScrollReveal>
+                <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
+                  <span className="inline-block h-px w-6 bg-teal" />
+                  Key Features
+                </p>
+              </ScrollReveal>
+
+              <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+                {study.keyFeatures.map((feature, i) => (
+                  <ScrollReveal key={i} delay={i * 0.06} className="h-full">
+                    <div className="h-full flex items-start gap-3 rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-5 transition-all duration-300 hover:border-teal">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal" />
+                      <p className="text-sm leading-relaxed text-graphite dark:text-ash">
+                        {feature}
+                      </p>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
+        </>
+      )}
+
+      {/* ── The Results (B: white/carbon) ── */}
+      <section className="bg-white dark:bg-carbon py-24 px-6 pattern-dots">
         <div className="mx-auto max-w-4xl">
           <ScrollReveal>
             <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
@@ -146,8 +225,8 @@ export default async function CaseStudyPage({
 
           <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
             {study.results.map((result, i) => (
-              <ScrollReveal key={i} delay={i * 0.08}>
-                <div className="flex items-start gap-3 rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink p-6">
+              <ScrollReveal key={i} delay={i * 0.08} className="h-full">
+                <div className="h-full flex items-start gap-3 rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink p-6">
                   <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-teal" />
                   <p className="text-sm leading-relaxed text-graphite dark:text-ash">
                     {result}
@@ -161,8 +240,49 @@ export default async function CaseStudyPage({
 
       <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
 
-      {/* ── CTA (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink py-24 px-6 pattern-grid">
+      {/* ── Other Projects (A: snow/ink) ── */}
+      {others.length > 0 && (
+        <>
+          <section className="bg-snow dark:bg-ink py-24 px-6 pattern-diag">
+            <div className="mx-auto max-w-4xl">
+              <ScrollReveal>
+                <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
+                  <span className="inline-block h-px w-6 bg-teal" />
+                  More Work
+                </p>
+              </ScrollReveal>
+
+              <div className="mt-8 space-y-4">
+                {others.map((other, i) => (
+                  <ScrollReveal key={other.slug} delay={i * 0.08}>
+                    <Link
+                      href={`/work/${other.slug}`}
+                      className="group flex items-center justify-between rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-6 transition-all duration-300 hover:border-teal hover:-translate-y-0.5"
+                    >
+                      <div>
+                        <p className="font-mono text-[11px] uppercase tracking-widest text-ash">
+                          {other.client}
+                        </p>
+                        <p className="mt-1 font-display text-lg font-medium text-ink dark:text-white group-hover:text-teal transition-colors">
+                          {other.title}
+                        </p>
+                      </div>
+                      <span className="font-mono text-xs text-teal opacity-0 transition-opacity group-hover:opacity-100">
+                        &rarr;
+                      </span>
+                    </Link>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
+        </>
+      )}
+
+      {/* ── CTA ── */}
+      <section className="bg-white dark:bg-carbon py-24 px-6 pattern-grid">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-3xl text-section-title text-ink dark:text-white md:text-4xl">
             Want results like these?

@@ -268,7 +268,7 @@ function ToolCard({ category }: { category: ToolCategory }) {
 
   return (
     <div
-      className={`group w-full p-6 md:p-8 rounded-xl border ${BORDER_CLASSES[category.accent]} ${HOVER_CLASSES[category.accent]} bg-cloud dark:bg-slate/70 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]`}
+      className={`group h-full w-full p-6 md:p-8 rounded-xl border ${BORDER_CLASSES[category.accent]} ${HOVER_CLASSES[category.accent]} bg-cloud dark:bg-slate/70 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]`}
     >
       {/* Icon area with radial mask */}
       <div

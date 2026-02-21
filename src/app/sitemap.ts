@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { CASE_STUDIES } from "@/lib/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://honestudio.co";
+  const base = "https://honestudio.cv";
 
   const staticPages = [
     { url: base, lastModified: new Date(), priority: 1 },

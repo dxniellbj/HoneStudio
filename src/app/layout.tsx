@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Fraunces, DM_Sans, Space_Mono } from "next/font/google";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import SplashScreen from "@/components/SplashScreen";
 import ThemeProvider from "@/components/ThemeProvider";
 import ChatWidgetLazy from "@/components/chat/ChatWidgetLazy";
 import TealCursor from "@/components/TealCursor";
@@ -36,7 +35,7 @@ export const metadata: Metadata = {
   },
   description:
     "Fractional ops & tech partner — strategy, systems, and websites with zero overhead.",
-  metadataBase: new URL("https://honestudio.co"),
+  metadataBase: new URL("https://honestudio.cv"),
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -70,7 +69,6 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeProvider>
-          <SplashScreen />
           <NavBar />
           <main>{children}</main>
           <Footer />

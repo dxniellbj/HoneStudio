@@ -62,10 +62,10 @@ export default function ContactPage() {
                         Email
                       </p>
                       <a
-                        href="mailto:hello@honestudio.co"
+                        href="mailto:hello@honestudio.cv"
                         className="text-sm text-teal transition-colors hover:text-teal-bright"
                       >
-                        hello@honestudio.co
+                        hello@honestudio.cv
                       </a>
                     </div>
 

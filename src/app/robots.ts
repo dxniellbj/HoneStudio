@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/api/",
     },
-    sitemap: "https://honestudio.co/sitemap.xml",
+    sitemap: "https://honestudio.cv/sitemap.xml",
   };
 }

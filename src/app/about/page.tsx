@@ -185,8 +185,8 @@ export default function AboutPage() {
 
           <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2">
             {VALUES.map((value, i) => (
-              <ScrollReveal key={value.title} delay={i * 0.08}>
-                <div className="rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-8 transition-all duration-300 hover:border-teal hover:shadow-sm">
+              <ScrollReveal key={value.title} delay={i * 0.08} className="h-full">
+                <div className="h-full rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-8 transition-all duration-300 hover:border-teal hover:shadow-sm">
                   <h3 className="mb-3 font-display text-xl font-medium text-ink dark:text-white">
                     {value.title}
                   </h3>
@@ -218,8 +218,8 @@ export default function AboutPage() {
 
           <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
             {Object.entries(TOOLKIT).map(([category, tools], i) => (
-              <ScrollReveal key={category} delay={i * 0.1}>
-                <div className="rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink p-8">
+              <ScrollReveal key={category} delay={i * 0.1} className="h-full">
+                <div className="h-full rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink p-8">
                   <h3
                     className={`mb-6 font-mono text-xs uppercase tracking-widest ${TOOLKIT_ACCENT[category]}`}
                   >

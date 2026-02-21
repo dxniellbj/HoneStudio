@@ -12,76 +12,129 @@ export interface CaseStudy {
   challenge: string;
   approach: string[];
   results: string[];
+  scope: string[];
+  techStack: string[];
+  keyFeatures: string[];
 }
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
-    title: "A Learning Platform That Matches the Teaching",
+    title: "From WordPress to a Scalable Education Platform",
     client: "Shan Fisher Education",
     platform: "Kajabi",
-    pillars: ["Web", "Strategy"],
-    summary:
-      "Redesigned and rebuilt a Kajabi-based education platform to match a premium teaching brand — streamlined course delivery, improved UX, and boosted enrollment conversions.",
-    slug: "shan-fisher-education",
-    challenge:
-      "Shan Fisher had built a loyal following through premium coaching, but the Kajabi site didn't reflect the quality of the teaching. Course navigation was confusing, enrollment drop-off was high, and the brand felt inconsistent across pages.",
-    approach: [
-      "Audited the existing platform to map every friction point in the student journey",
-      "Redesigned the course catalog and individual course pages for clarity and conversion",
-      "Built a cohesive visual system — typography, color, and layout — that matched the premium teaching brand",
-      "Streamlined the checkout flow to reduce steps and eliminate ambiguity",
-    ],
-    results: [
-      "Enrollment conversions increased significantly after relaunch",
-      "Students reported a clearer, more intuitive learning experience",
-      "Brand consistency across all pages and touchpoints",
-      "Reduced support tickets related to navigation and access issues",
-    ],
-  },
-  {
-    title: "From Scattered Content to Scalable Academy",
-    client: "Elena Givone Academy",
-    platform: "Kajabi",
-    pillars: ["Web", "Strategy"],
-    summary:
-      "Transformed a growing coaching business into a structured online academy — unified branding, clear course pathways, and automated student onboarding.",
-    slug: "elena-givone-academy",
-    challenge:
-      "Elena had multiple courses, memberships, and resources scattered across different tools. Students didn't know where to start, onboarding was manual, and the brand lacked a unified home.",
-    approach: [
-      "Mapped all existing content and organized it into clear learning pathways",
-      "Designed and built a unified academy hub on Kajabi with intuitive navigation",
-      "Created automated onboarding sequences — welcome emails, progress tracking, and nudges",
-      "Established brand guidelines and applied them consistently across the platform",
-    ],
-    results: [
-      "All content unified under a single, branded academy experience",
-      "Automated onboarding replaced hours of manual student setup",
-      "Clear course pathways improved student completion rates",
-      "Scalable foundation ready for new courses without rework",
-    ],
-  },
-  {
-    title: "A Digital Home for a Venture Collective",
-    client: "Showcase Ventures",
-    platform: "Squarespace + Firebase",
     pillars: ["Web", "AI", "Strategy"],
     summary:
-      "Built a dynamic portfolio site for a venture collective — featuring AI-powered search, real-time deal tracking, and an investor-facing dashboard.",
-    slug: "showcase-ventures",
+      "Migrated a photography education business from WordPress to Kajabi — moved all courses, built offers, and set up full automation including email sequences.",
+    slug: "shan-fisher-education",
     challenge:
-      "Showcase Ventures needed a public-facing site that doubled as an operational tool. The portfolio was managed in spreadsheets, investors had no self-serve access to deal information, and there was no way to search or filter the portfolio intelligently.",
+      "Shan Fisher Education is a photography business that had outgrown their WordPress setup. Courses were hard to manage, there was no automation in place, and scaling meant hitting a wall with every new launch. They needed a platform that could handle course delivery, payments, and marketing in one place.",
     approach: [
-      "Designed a clean, investor-grade portfolio site on Squarespace for the public front",
-      "Built a Firebase-backed data layer for real-time deal tracking and portfolio management",
-      "Integrated AI-powered search so investors could query the portfolio in natural language",
-      "Created a private dashboard for the team to manage deals, update statuses, and track metrics",
+      "Audited the existing WordPress site and mapped all courses, content, and student data for migration",
+      "Migrated the full course library to Kajabi — including videos, resources, and student access",
+      "Built offers, landing pages, and checkout flows optimized for conversion",
+      "Set up full automation — email sequences, onboarding flows, and post-purchase nurture campaigns",
     ],
     results: [
-      "Investors can self-serve portfolio information without requesting updates",
-      "AI search reduced time-to-answer for portfolio queries from hours to seconds",
-      "The team replaced spreadsheet tracking with a purpose-built dashboard",
-      "Public site established Showcase Ventures' digital credibility with LPs",
+      "Complete migration from WordPress to Kajabi with zero downtime",
+      "All courses, offers, and student data successfully moved to one platform",
+      "Automated email sequences replaced hours of manual follow-up",
+      "Scalable foundation for launching new courses and offers without rework",
+    ],
+    scope: [
+      "Platform migration (WordPress → Kajabi)",
+      "Course library setup & content migration",
+      "Offer & checkout flow design",
+      "Email automation & onboarding sequences",
+    ],
+    techStack: ["Kajabi", "WordPress"],
+    keyFeatures: [
+      "Full course library with video hosting and resource downloads",
+      "Optimized offers with landing pages and checkout flows",
+      "Automated email sequences for onboarding, nurture, and post-purchase",
+      "Student access management and progress tracking",
+    ],
+  },
+  {
+    title: "Building an Academy for an Award-Winning Photographer",
+    client: "Elena Givone Academy",
+    platform: "Squarespace",
+    pillars: ["Web", "Strategy"],
+    summary:
+      "Helped internationally recognized photographer Elena Givone launch her academy — initially on Kajabi for digital courses, then transitioned to Squarespace as her focus shifted to physical workshops.",
+    slug: "elena-givone-academy",
+    challenge:
+      "Elena Givone — an award-winning Italian photographer, Fujifilm X-Photographer, and Elinchrom ambassador — wanted to start offering education to fellow photographers. She needed a platform to launch courses, but as her vision evolved toward in-person workshops between Italy and Sri Lanka, the setup had to adapt with her.",
+    approach: [
+      "Built the initial academy on Kajabi with course structure, content hosting, and checkout flows",
+      "As Elena's focus shifted from digital courses to physical workshops, re-evaluated the platform needs",
+      "Transitioned the academy to Squarespace — better suited for workshop listings, event-based content, and her visual brand",
+      "Designed the site to showcase her portfolio, published books, and upcoming workshop schedule",
+    ],
+    results: [
+      "Academy launched and operational, giving Elena a professional home for her education offering",
+      "Smooth transition from Kajabi to Squarespace without losing momentum",
+      "Platform now aligned with her workshop-first model — easy to update events and listings",
+      "Site reflects Elena's international brand across photography, education, and social projects",
+    ],
+    scope: [
+      "Academy platform setup (Kajabi, then Squarespace)",
+      "Course structure & content hosting",
+      "Website design aligned to visual brand",
+      "Workshop listings & event management",
+    ],
+    techStack: ["Squarespace", "Kajabi"],
+    keyFeatures: [
+      "Portfolio showcase for photography, books, and social projects",
+      "Workshop schedule with event-based listings",
+      "Course structure for digital education content",
+      "Brand-consistent design reflecting Elena's international presence",
+    ],
+  },
+  {
+    title: "AI-Powered Deal Sourcing for a Media & Consumer VC",
+    client: "Showcase Ventures",
+    platform: "Next.js + Firebase + Gemini",
+    pillars: ["AI", "Strategy"],
+    summary:
+      "Built Spotlight and Spyglass — two internal tools that use AI-powered enrichment, multi-source web scraping, and real-time collaboration to transform how a VC firm sources and researches deals.",
+    slug: "showcase-ventures",
+    challenge:
+      "Showcase Ventures invests in Seed and Series A/B media and consumer companies — music, entertainment, film, digital media, beauty, hospitality, and more. Researching potential investments meant hours of manual Googling, scattered notes, and no structured way to enrich, grade, or track companies across the team.",
+    approach: [
+      "Built Spotlight — a full investment sourcing platform with AI-powered company enrichment using Gemini, multi-source web scraping via Bright Data, and real-time Firestore collaboration",
+      "Designed a multi-phase enrichment pipeline: domain discovery, content scraping, AI analysis, social link extraction, and follower count retrieval — all with consensus scoring for data quality",
+      "Built hierarchical theme management with drag-and-drop, an interactive dashboard with ROI tracking, and a brand extractor for bulk CSV imports",
+      "Built Spyglass — a retail intelligence hub where analysts upload store walk photos and Gemini AI automatically detects every brand and SKU on the shelf, enriches with manufacturer data via web search, and visualizes findings on an interactive map",
+    ],
+    results: [
+      "Company research that took hours now happens in seconds through automated AI enrichment",
+      "Multi-source validation ensures data quality — no single point of failure",
+      "Real-time collaboration lets the full investment team see enriched data instantly",
+      "Structured grading and pipeline tracking replaced scattered notes and spreadsheets",
+    ],
+    scope: [
+      "Spotlight — investment sourcing platform",
+      "Spyglass — retail intelligence hub",
+      "AI enrichment pipeline design",
+      "Real-time collaborative data infrastructure",
+    ],
+    techStack: [
+      "Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "ShadCN UI",
+      "Firebase Firestore", "Firebase Auth", "Firebase Storage", "Firebase Cloud Functions",
+      "Google Genkit", "Gemini AI", "Bright Data", "Perplexity API",
+      "Google Maps API", "Google PSE", "Recharts",
+    ],
+    keyFeatures: [
+      "Multi-phase AI enrichment: domain discovery → web scraping → AI analysis → social data → consensus scoring",
+      "Four concurrent background processing queues for parallel enrichment",
+      "Hierarchical theme/folder management with drag-and-drop organization",
+      "Interactive dashboard with ROI tracking and sourcing grade distribution",
+      "Brand extractor for bulk CSV imports with automated domain discovery",
+      "Store walk photo analysis — Gemini AI detects every brand and SKU on retail shelves",
+      "Two-pass retail enrichment with Google Search grounding for manufacturer data",
+      "Interactive Google Maps view with intelligent markers per store location",
+      "A/B/C/D company grading system with pipeline tracking",
+      "Real-time Firestore listeners — all users see data updates instantly",
     ],
   },
 ];
@@ -178,6 +231,25 @@ export const PROCESS_STEPS: ProcessStep[] = [
     title: "Refine",
     description:
       "Launch is just the beginning. We measure, learn, and iterate — making sure what we built keeps working as your business evolves.",
+  },
+];
+
+// ── Notable Mentions (smaller projects) ──
+
+export interface NotableMention {
+  client: string;
+  url: string;
+  description: string;
+  pillars: readonly string[];
+}
+
+export const NOTABLE_MENTIONS: NotableMention[] = [
+  {
+    client: "Lanelit",
+    url: "https://lanelit.com",
+    description:
+      "Redesigned the website and set up email replays for Allison Lane's book coaching and visibility strategy practice.",
+    pillars: ["Web", "AI"],
   },
 ];
 

@@ -35,7 +35,7 @@ function formatText(text: string) {
     }
     if (part.startsWith("`") && part.endsWith("`")) {
       return (
-        <code key={i} className="rounded bg-slate px-1 py-0.5 font-mono text-[0.85em]">
+        <code key={i} className="rounded bg-snow dark:bg-slate px-1 py-0.5 font-mono text-[0.85em]">
           {part.slice(1, -1)}
         </code>
       );
@@ -57,7 +57,7 @@ export default function ChatMessage({ role, text }: ChatMessageProps) {
         className={`max-w-[85%] rounded-lg px-4 py-3 text-sm leading-relaxed ${
           isUser
             ? "bg-teal text-ink"
-            : "bg-slate text-ash"
+            : "bg-snow dark:bg-slate text-graphite dark:text-ash"
         }`}
       >
         {formatText(text)}
