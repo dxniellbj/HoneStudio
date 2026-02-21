@@ -46,7 +46,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Offer & checkout flow design",
       "Email automation & onboarding sequences",
     ],
-    techStack: ["Kajabi", "WordPress"],
+    techStack: ["Kajabi", "WordPress", "HTML", "CSS", "JavaScript"],
     keyFeatures: [
       "Full course library with video hosting and resource downloads",
       "Optimized offers with landing pages and checkout flows",
@@ -82,7 +82,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Website design aligned to visual brand",
       "Workshop listings & event management",
     ],
-    techStack: ["Squarespace", "Kajabi"],
+    techStack: ["Squarespace", "Kajabi", "HTML", "CSS", "JavaScript"],
     keyFeatures: [
       "Portfolio showcase for photography, books, and social projects",
       "Workshop schedule with event-based listings",
