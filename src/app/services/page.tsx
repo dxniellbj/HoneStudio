@@ -8,7 +8,7 @@ import { SERVICE_PILLARS, PROCESS_STEPS } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Web design, AI & automation, and strategy — three pillars, one partner. See how Hone Studio delivers integrated results.",
+    "Web design, AI & automation, and strategy. See how Hone Studio works.",
 };
 
 const ACCENT_MAP = {
@@ -63,8 +63,8 @@ export default function ServicesPage() {
               Three Pillars, One Partner
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-section-desc text-graphite dark:text-ash">
-              Strategy, systems, and websites that work together — so every
-              piece of your business pulls in the same direction.
+              Strategy, systems, and websites that actually work together.
+              Everything pulling in the same direction.
             </p>
           </ScrollReveal>
         </div>
@@ -158,8 +158,7 @@ export default function ServicesPage() {
               How We Work Together
             </h2>
             <p className="mt-4 max-w-2xl text-lg text-section-desc text-graphite dark:text-ash">
-              A clear, repeatable process — so you always know what&apos;s
-              happening and what comes next.
+              Here&apos;s how it usually goes.
             </p>
           </ScrollReveal>
 
@@ -192,7 +191,7 @@ export default function ServicesPage() {
             Ready to talk?
           </h2>
           <p className="mt-4 text-lg text-graphite dark:text-ash">
-            Let&apos;s figure out where I can make the biggest impact.
+            Tell me what you&apos;re dealing with — I&apos;ll tell you where I can help.
           </p>
           <Link
             href="/contact"

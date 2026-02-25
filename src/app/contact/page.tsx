@@ -94,8 +94,8 @@ export default function ContactPage() {
                   <div className="mt-8 h-px bg-cloud dark:bg-slate" />
 
                   <p className="mt-6 text-xs leading-relaxed text-ash">
-                    No sales pitch, no obligation. Just a conversation about
-                    what you need and whether I&apos;m the right fit.
+                    This is just a conversation about what you need and
+                    whether I&apos;m the right person for it.
                   </p>
                 </div>
               </ScrollReveal>

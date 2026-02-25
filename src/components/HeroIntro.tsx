@@ -98,7 +98,7 @@ function StaticHero() {
         </p>
 
         <p className="mx-auto mt-6 max-w-2xl font-body text-lg font-light text-graphite dark:text-ash">
-          Strategy, systems, and websites — one partner, zero overhead.
+          I handle strategy, systems, and your website — so you&apos;re not managing a whole team to get it done.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
@@ -261,7 +261,7 @@ function FirstVisitHero() {
               style={{ opacity: descOpacity, y: descY }}
               className="mx-auto mt-6 max-w-2xl font-body text-lg font-light text-graphite dark:text-ash"
             >
-              Strategy, systems, and websites — one partner, zero overhead.
+              I handle strategy, systems, and your website — so you&apos;re not managing a whole team to get it done.
             </motion.p>
 
             <motion.div
@@ -439,7 +439,7 @@ function ReturnVisitHero() {
                 style={{ opacity: descOpacity, y: descY }}
                 className="mx-auto mt-6 max-w-2xl font-body text-lg font-light text-graphite dark:text-ash"
               >
-                Strategy, systems, and websites — one partner, zero overhead.
+                I handle strategy, systems, and your website — so you&apos;re not managing a whole team to get it done.
               </motion.p>
 
               <motion.div

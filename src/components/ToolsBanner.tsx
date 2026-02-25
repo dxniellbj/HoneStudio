@@ -151,7 +151,7 @@ const CATEGORIES: ToolCategory[] = [
     title: "Web & Development",
     accent: "teal",
     description:
-      "Frameworks and platforms for fast, scalable digital experiences.",
+      "What I build with.",
     featured: ["Next.js", "React", "Firebase", "WordPress", "Tailwind"],
     tools: [
       "HTML",
@@ -175,7 +175,7 @@ const CATEGORIES: ToolCategory[] = [
     title: "AI & Intelligence",
     accent: "signal",
     description:
-      "LLMs and AI tools powering smarter workflows and experiences.",
+      "What I think with.",
     featured: ["Claude", "Perplexity", "OpenAI", "Gemini", "Cursor"],
     tools: [
       "Claude",
@@ -192,7 +192,7 @@ const CATEGORIES: ToolCategory[] = [
     title: "Ops & Automation",
     accent: "indigo",
     description:
-      "Platforms that connect, automate, and scale your business operations.",
+      "What I automate with.",
     featured: ["Zapier", "Make", "HubSpot", "Pipedrive", "GHL"],
     tools: [
       "Zapier",
@@ -350,8 +350,7 @@ export default function ToolsBanner() {
             Tools of the Trade
           </h2>
           <p className="mt-4 mx-auto max-w-2xl text-lg text-graphite dark:text-ash">
-            The platforms, frameworks, and AI tools I use to build, automate,
-            and optimize.
+            Everything I use day-to-day.
           </p>
         </div>
 

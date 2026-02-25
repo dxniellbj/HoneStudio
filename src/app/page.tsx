@@ -49,8 +49,7 @@ export default function HomePage() {
                 Selected Work
               </h2>
               <p className="mt-4 max-w-2xl text-lg text-graphite dark:text-ash">
-                Real projects, real outcomes. Here&apos;s what integrated ops
-                and tech looks like in practice.
+                A few projects that show how this actually works.
               </p>
             </div>
           </ScrollReveal>
@@ -76,10 +75,10 @@ export default function HomePage() {
       <section className="bg-snow dark:bg-ink py-24 px-6 pattern-grid">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
-            Ready to sharpen your operations?
+            Got something you&apos;re working on?
           </h2>
           <p className="mt-4 text-lg text-graphite dark:text-ash">
-            Let&apos;s talk about what you need.
+            Tell me what you&apos;re dealing with — I&apos;ll tell you if I can help.
           </p>
           <Link
             href="/contact"

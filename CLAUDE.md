@@ -165,6 +165,23 @@ Self-host all three via `next/font/google`. No external stylesheet requests.
 - Cross-sell through case studies, not nav
 - Tone of voice: direct not aggressive, expert not pretentious, warm not casual, clear not oversimplified
 
+### Copywriting Voice
+
+**Banned patterns** — these read as AI-generated or TED-talk performative:
+- "No X, no Y, just Z" constructions
+- "move the needle", "pixel-perfect", "seamless", "cutting-edge", "holistic"
+- TED-talk callbacks ("That's the job.", "That's how X works.")
+- Empty doubling ("real projects, real outcomes")
+- Tricolon slogans used repeatedly ("X. Y. Z." as a rhythm crutch)
+
+**Rules:**
+- Write like you're talking to one person, not presenting to a room
+- Sell the experience of working together, not a list of services
+- If it sounds like a slide deck, rewrite it
+- Contractions are fine — they sound human
+- Don't over-explain. Trust the reader.
+- CTAs should sound like something you'd actually say out loud
+
 ---
 
 ## 7. Animation System

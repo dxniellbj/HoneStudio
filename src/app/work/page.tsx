@@ -8,7 +8,7 @@ import { NOTABLE_MENTIONS } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Selected projects from Hone Studio — real work, real outcomes across web, AI, and strategy.",
+    "Selected projects from Hone Studio — web, AI, and strategy work for real businesses.",
 };
 
 export default function WorkPage() {
@@ -26,8 +26,7 @@ export default function WorkPage() {
               Selected Work
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-section-desc text-graphite dark:text-ash">
-              Real projects, real outcomes. Here&apos;s what integrated ops and
-              tech looks like in practice.
+              A few projects that show how this works in practice.
             </p>
           </ScrollReveal>
         </div>

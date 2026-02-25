@@ -10,7 +10,7 @@ const AUDIENCES = [
     audience: "Founders & Early-Stage Startups",
     hook: "Move fast without hiring.",
     description:
-      "You have a vision and a deadline, but no dev team. I step in as your fractional ops and tech partner — from MVP to launch and beyond.",
+      "You've got a vision and a deadline but no dev team. I step in and handle the ops and tech — from MVP to launch and whatever comes after.",
     model: "Project-based engagement",
   },
   {
@@ -19,7 +19,7 @@ const AUDIENCES = [
     audience: "Small Business & E-commerce",
     hook: "Stop duct-taping your systems together.",
     description:
-      "Your business is growing but your tools aren't keeping up. I streamline your stack, automate your workflows, and build what you need to scale.",
+      "Your business is growing but your tools aren't. I clean up the stack, automate the workflows, and build what you need to keep scaling.",
     model: "Monthly retainer",
   },
   {

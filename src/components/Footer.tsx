@@ -21,7 +21,7 @@ export default function Footer() {
 
         {/* Tagline */}
         <p className="mb-8 text-graphite dark:text-ash">
-          One partner. Every tool you need.
+          Strategy. Systems. Websites. One person.
         </p>
 
         {/* Nav Links */}

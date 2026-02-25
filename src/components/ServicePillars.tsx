@@ -4,7 +4,7 @@ const PILLARS = [
     title: "Web Design & Development",
     accent: "teal",
     accentHex: "#00D4AA",
-    quote: "I build your digital presence.",
+    quote: "Your site should work as hard as you do.",
     icon: (
       <svg width="40" height="40" viewBox="0 0 40 40" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="4" y="6" width="32" height="24" rx="2" stroke="#00D4AA" />
@@ -17,7 +17,7 @@ const PILLARS = [
       </svg>
     ),
     description:
-      "Pixel-perfect sites that convert — designed around your goals, built to scale, maintained so you never think about it.",
+      "I build sites around what you're actually trying to do — then maintain them so you never have to think about it.",
     tags: ["Kajabi", "Shopify", "Squarespace", "Custom Apps"],
   },
   {
@@ -25,7 +25,7 @@ const PILLARS = [
     title: "AI & Automation",
     accent: "signal",
     accentHex: "#FF6B3D",
-    quote: "I make your business run itself.",
+    quote: "Less manual work. More time back.",
     icon: (
       <svg width="40" height="40" viewBox="0 0 40 40" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M20 4 L36 14 L36 26 L20 36 L4 26 L4 14 Z" stroke="#FF6B3D" />
@@ -37,7 +37,7 @@ const PILLARS = [
       </svg>
     ),
     description:
-      "Automate the busywork — smart workflows, AI-powered tools, and systems that run while you sleep.",
+      "Smart workflows, AI tools, and systems that handle the repetitive stuff — so you can spend time on work that actually matters.",
     tags: ["Automation", "CRM", "AI Tools", "Email Flows"],
   },
   {
@@ -57,7 +57,7 @@ const PILLARS = [
       </svg>
     ),
     description:
-      "Know your market before you move — competitive intel, audience research, and strategy that drives decisions.",
+      "Competitive intel, audience research, and a strategy you can actually act on — before you spend a dollar.",
     tags: ["Market Research", "Competitive Intel", "Discovery"],
   },
 ] as const;
@@ -85,7 +85,7 @@ export default function ServicePillars() {
             Three Pillars, One Partner
           </h2>
           <p className="mt-4 max-w-2xl text-lg text-section-desc text-graphite dark:text-ash">
-            Integrated services that work together — so your strategy, systems, and site all pull in the same direction.
+            Strategy, systems, and your site — working together instead of in three different silos.
           </p>
         </div>
 

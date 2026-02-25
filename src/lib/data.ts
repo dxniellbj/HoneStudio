@@ -156,12 +156,12 @@ export const SERVICE_PILLARS: ServicePillar[] = [
     number: "01",
     title: "Web Design & Development",
     accent: "teal",
-    tagline: "Your digital presence, built to convert.",
+    tagline: "Sites that actually work for you.",
     description:
-      "Pixel-perfect sites designed around your goals, built to scale, and maintained so you never think about it. From landing pages to full platforms — every detail serves a purpose.",
+      "I design and build sites around what you're trying to accomplish — then maintain them so you never have to think about it. Landing pages, full platforms, whatever the project calls for.",
     outcomes: [
-      "Higher conversion rates through intentional UX",
-      "Consistent brand experience across every page",
+      "Better conversion through design that's actually thought through",
+      "A brand experience that holds up across every page",
       "A site that scales with your business",
       "Zero maintenance headaches",
     ],
@@ -171,11 +171,11 @@ export const SERVICE_PILLARS: ServicePillar[] = [
     number: "02",
     title: "AI & Automation",
     accent: "signal",
-    tagline: "Your business, running itself.",
+    tagline: "Less busywork. More leverage.",
     description:
-      "Automate the busywork — smart workflows, AI-powered tools, and systems that run while you sleep. Free up your time to focus on the work that actually moves the needle.",
+      "Smart workflows, AI tools, and systems that handle the repetitive stuff — so you can spend your time on work that actually matters.",
     outcomes: [
-      "Hours reclaimed from manual, repetitive tasks",
+      "Hours back from tasks you shouldn't be doing manually",
       "Fewer errors with automated quality checks",
       "Faster customer response times",
       "Systems that learn and improve over time",
@@ -186,12 +186,12 @@ export const SERVICE_PILLARS: ServicePillar[] = [
     number: "03",
     title: "Strategy & Research",
     accent: "indigo",
-    tagline: "Build the right thing, the first time.",
+    tagline: "Know what you're building before you build it.",
     description:
-      "Know your market before you move — competitive intel, audience research, and strategy that drives decisions. No guesswork, no wasted budget, just clarity.",
+      "Competitive intel, audience research, and a strategy you can actually act on. Know what you're building and why before you spend a dollar.",
     outcomes: [
-      "Clear understanding of your competitive landscape",
-      "Data-backed decisions instead of assumptions",
+      "Clear picture of your competitive landscape",
+      "Decisions based on data, not gut feelings",
       "A roadmap that aligns team and budget",
       "Confidence in what to build and why",
     ],
@@ -212,25 +212,25 @@ export const PROCESS_STEPS: ProcessStep[] = [
     number: "01",
     title: "Discovery",
     description:
-      "We start with listening. I learn your business, your goals, your constraints — and identify the biggest opportunities to move the needle.",
+      "I learn your business — the goals, the constraints, where things are stuck. We figure out where the biggest wins are.",
   },
   {
     number: "02",
     title: "Strategy",
     description:
-      "A clear plan emerges. We align on priorities, define what success looks like, and map out the work — no ambiguity, no scope creep.",
+      "We align on priorities, define what success looks like, and map out exactly what gets built. Everyone knows what's happening and when.",
   },
   {
     number: "03",
     title: "Build",
     description:
-      "Execution with precision. I design, develop, and integrate — shipping in focused sprints with regular check-ins so nothing goes sideways.",
+      "I design, build, and ship in focused sprints. You get regular check-ins so there are never any surprises.",
   },
   {
     number: "04",
     title: "Refine",
     description:
-      "Launch is just the beginning. We measure, learn, and iterate — making sure what we built keeps working as your business evolves.",
+      "After launch, we measure what's working and adjust. The goal is making sure everything keeps performing as your business grows.",
   },
 ];
 

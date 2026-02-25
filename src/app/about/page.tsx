@@ -7,29 +7,29 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Meet Niell Alfajora — the fractional ops & tech partner behind Hone Studio. One partner, every tool you need.",
+    "Meet Niell Alfajora — the person behind Hone Studio. Strategy, systems, and websites, all from one partner.",
 };
 
 const VALUES = [
   {
     title: "Integrated, Not Siloed",
     description:
-      "Strategy, design, and tech shouldn't live in separate rooms. I work across all three so everything connects and nothing falls through the cracks.",
+      "Strategy, design, and tech all live under one roof. When I work across all three, things actually connect.",
   },
   {
     title: "Outcomes Over Deliverables",
     description:
-      "A beautiful site that doesn't convert is just decoration. Everything I build is measured by the results it drives for your business.",
+      "A beautiful site that doesn't convert is decoration. I care about what the work does for your business, not how many pages I shipped.",
   },
   {
     title: "Honest By Default",
     description:
-      "If something won't work, I'll say so. If there's a better path, I'll show you. No upsells, no fluff — just clear, direct communication.",
+      "If something won't work, I'll tell you. If there's a better path, I'll show you. That's it.",
   },
   {
     title: "Lean & Focused",
     description:
-      "No agency overhead, no bloated teams. One senior partner who knows your business inside out — faster decisions, tighter execution.",
+      "One senior partner who knows your business inside out. Faster decisions, tighter execution, and nobody billing you for a project manager you never needed.",
   },
 ] as const;
 
@@ -72,15 +72,15 @@ export default function AboutPage() {
               </p>
               <div className="mt-8 space-y-4 text-lg leading-relaxed text-section-desc text-graphite dark:text-ash">
                 <p>
-                  I&apos;m a fractional ops and tech partner for founders, small
-                  businesses, and agencies who need senior-level execution
-                  without the overhead of a full team.
+                  I&apos;m the ops and tech person for founders, small
+                  businesses, and agencies who don&apos;t want to build a
+                  full team just to get things done.
                 </p>
                 <p>
-                  Most businesses hire a designer, a developer, a strategist,
-                  and an automation specialist — four conversations, four
-                  invoices, four people who don&apos;t talk to each other. I
-                  replace that with one partner who handles all of it.
+                  Most businesses end up hiring a designer, a developer, a
+                  strategist, and someone for automation. That&apos;s four
+                  conversations, four invoices, and four people who never
+                  talk to each other. I&apos;m one person who does all of it.
                 </p>
               </div>
             </ScrollReveal>
@@ -119,15 +119,15 @@ export default function AboutPage() {
                 Why &ldquo;Hone&rdquo;?
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-graphite dark:text-ash">
-                To hone means to sharpen — to take something good and make it
-                precise, focused, effective. That&apos;s the job. I take
-                businesses that are already doing the work and sharpen
-                everything around them: the site, the systems, the strategy.
+                To hone means to sharpen — take something that works and make
+                it work better. I look at what you already have and tighten
+                the whole thing up: the site, the systems, how it all
+                connects.
               </p>
               <p className="mt-4 text-lg leading-relaxed text-graphite dark:text-ash">
-                No bloat. No reinvention for the sake of it. Just a sharper
-                version of what you already have — and a clear path to
-                what&apos;s next.
+                I&apos;m not here to rebuild everything from scratch. I make
+                what you have sharper, and I point you toward what&apos;s
+                next.
               </p>
             </ScrollReveal>
 
@@ -137,21 +137,20 @@ export default function AboutPage() {
                   The Swiss Army Knife Thinking
                 </h3>
                 <p className="text-sm leading-relaxed text-graphite dark:text-ash">
-                  A Swiss Army Knife doesn&apos;t carry twelve separate tools
-                  in a bag — it puts every blade, driver, and opener into one
-                  compact frame. That&apos;s how Hone Studio works.
+                  A Swiss Army Knife doesn&apos;t carry twelve tools in a
+                  bag — everything fits into one frame. Same idea here.
                 </p>
                 <p className="mt-4 text-sm leading-relaxed text-graphite dark:text-ash">
-                  Strategy informs the design. Design shapes the build. The
-                  build feeds back into strategy. When one person holds all
-                  three, nothing gets lost in translation, nothing falls between
-                  teams, and every decision stays aligned with the outcome.
+                  Strategy feeds the design. Design shapes the build. The
+                  build loops back into strategy. When one person holds all
+                  three pieces, things don&apos;t slip through the cracks
+                  between handoffs.
                 </p>
                 <div className="mt-6 space-y-3">
                   {[
-                    { label: "One partner", detail: "not three vendors" },
-                    { label: "One conversation", detail: "not a game of telephone" },
-                    { label: "One bill", detail: "not a stack of invoices" },
+                    { label: "One partner", detail: "instead of three vendors" },
+                    { label: "One conversation", detail: "instead of a relay chain" },
+                    { label: "One invoice", detail: "instead of three" },
                   ].map((item) => (
                     <div key={item.label} className="flex items-start gap-3">
                       <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-teal" />
@@ -251,7 +250,7 @@ export default function AboutPage() {
             Let&apos;s work together
           </h2>
           <p className="mt-4 text-lg text-graphite dark:text-ash">
-            Tell me about your project — I&apos;ll tell you how I can help.
+            Tell me what you&apos;re working on — I&apos;ll tell you where I fit in.
           </p>
           <Link
             href="/contact"
