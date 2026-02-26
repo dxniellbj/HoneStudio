@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionDivider from "@/components/SectionDivider";
 import TechLines from "@/components/TechLines";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -116,7 +117,7 @@ export default function AboutPage() {
       {/* ── Background (B: white/carbon) ── */}
       <section className="bg-white dark:bg-carbon py-16 px-6 pattern-dots">
         <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <ScrollReveal>
               <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
                 <span className="inline-block h-px w-6 bg-teal" />
@@ -144,6 +145,10 @@ export default function AboutPage() {
                   The through line is I like figuring out how things work —
                   whether that&apos;s a Kajabi funnel or an AI enrichment
                   pipeline. Different tools, same curiosity.
+                </p>
+                <p>
+                  That&apos;s where the name comes from — to hone means to
+                  sharpen. Take what&apos;s already working and make it better.
                 </p>
               </div>
             </ScrollReveal>
@@ -224,113 +229,6 @@ export default function AboutPage() {
 
       <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
 
-      {/* ── Origin (B: white/carbon) ── */}
-      <section className="bg-white dark:bg-carbon py-16 px-6 pattern-dots">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-                <span className="inline-block h-px w-6 bg-teal" />
-                Origin
-              </p>
-              <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
-                Why &ldquo;Hone&rdquo;?
-              </h2>
-              <p className="mt-6 text-lg leading-relaxed text-graphite dark:text-ash">
-                To hone means to sharpen — take something that works and make
-                it work better. I look at what you already have and tighten
-                the whole thing up: the site, the systems, how it all
-                connects.
-              </p>
-              <p className="mt-4 text-lg leading-relaxed text-graphite dark:text-ash">
-                I&apos;m not here to rebuild everything from scratch. I make
-                what you have sharper, and I point you toward what&apos;s
-                next.
-              </p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.15}>
-              <div className="rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink p-8">
-                <h3 className="mb-4 font-display text-xl font-medium text-ink dark:text-white">
-                  The Swiss Army Knife Thinking
-                </h3>
-                <p className="text-sm leading-relaxed text-graphite dark:text-ash">
-                  A Swiss Army Knife doesn&apos;t carry twelve tools in a
-                  bag — everything fits into one frame. Same idea here.
-                </p>
-                <p className="mt-4 text-sm leading-relaxed text-graphite dark:text-ash">
-                  Strategy feeds the design. Design shapes the build. The
-                  build loops back into strategy. When one person holds all
-                  three pieces, things don&apos;t slip through the cracks
-                  between handoffs.
-                </p>
-                <div className="mt-6 space-y-3">
-                  {[
-                    { label: "One partner", detail: "instead of three vendors" },
-                    { label: "One conversation", detail: "instead of a relay chain" },
-                    { label: "One invoice", detail: "instead of three" },
-                  ].map((item) => (
-                    <div key={item.label} className="flex items-start gap-3">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-teal" />
-                      <p className="text-sm text-graphite dark:text-ash">
-                        <span className="font-medium text-ink dark:text-white">{item.label}</span>
-                        {" — "}{item.detail}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
-
-      {/* ── Top Reads (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink py-16 px-6 pattern-grid">
-        <div className="mx-auto max-w-7xl">
-          <ScrollReveal>
-            <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-              <span className="inline-block h-px w-6 bg-teal" />
-              Off the Clock
-            </p>
-            <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
-              Top Reads
-            </h2>
-          </ScrollReveal>
-
-          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {TOP_READS.map((book, i) => (
-              <ScrollReveal key={book.title} delay={i * 0.08} className="h-full">
-                <div className="group h-full overflow-hidden rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon transition-all duration-300 hover:border-teal hover:shadow-sm">
-                  <div className="aspect-[2/3] overflow-hidden bg-cloud dark:bg-slate">
-                    <img
-                      src={book.cover}
-                      alt={`${book.title} by ${book.author}`}
-                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-5">
-                    <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-teal">
-                      {book.genre}
-                    </p>
-                    <h3 className="font-display text-lg font-medium leading-snug text-ink dark:text-white">
-                      {book.title}
-                    </h3>
-                    <p className="mt-1 text-sm text-graphite dark:text-ash">
-                      {book.author}
-                    </p>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
-
       {/* ── Toolkit (B: white/carbon) ── */}
       <section className="relative bg-white dark:bg-carbon py-16 px-6 pattern-scan">
         <TechLines variant="corner-brackets" className="text-cloud dark:text-slate" />
@@ -373,8 +271,54 @@ export default function AboutPage() {
 
       <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
 
-      {/* ── CTA (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink py-16 px-6">
+      {/* ── Top Reads (A: snow/ink) ── */}
+      <section className="bg-snow dark:bg-ink py-16 px-6 pattern-grid">
+        <div className="mx-auto max-w-7xl">
+          <ScrollReveal>
+            <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
+              <span className="inline-block h-px w-6 bg-teal" />
+              Off the Clock
+            </p>
+            <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
+              Top Reads
+            </h2>
+          </ScrollReveal>
+
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {TOP_READS.map((book, i) => (
+              <ScrollReveal key={book.title} delay={i * 0.08} className="h-full">
+                <div className="group h-full overflow-hidden rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon transition-all duration-300 hover:border-teal hover:shadow-sm">
+                  <div className="relative aspect-[2/3] overflow-hidden bg-cloud dark:bg-slate">
+                    <Image
+                      src={book.cover}
+                      alt={`${book.title} by ${book.author}`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-teal">
+                      {book.genre}
+                    </p>
+                    <h3 className="font-display text-lg font-medium leading-snug text-ink dark:text-white">
+                      {book.title}
+                    </h3>
+                    <p className="mt-1 text-sm text-graphite dark:text-ash">
+                      {book.author}
+                    </p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
+
+      {/* ── CTA (B: white/carbon) ── */}
+      <section className="bg-white dark:bg-carbon py-16 px-6">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
             Let&apos;s work together
