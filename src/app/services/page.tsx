@@ -52,7 +52,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* ── Hero (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink py-32 px-6 pattern-grid">
+      <section className="bg-snow dark:bg-ink py-20 px-6 pattern-grid">
         <div className="mx-auto max-w-7xl">
           <ScrollReveal>
             <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
@@ -84,7 +84,7 @@ export default function ServicesPage() {
               lightFrom={divider.lightFrom}
               lightTo={divider.lightTo}
             />
-            <section className={`${style.bg} py-24 px-6 ${style.pattern}`}>
+            <section className={`${style.bg} py-16 px-6 ${style.pattern}`}>
               <div className="mx-auto max-w-7xl">
                 <div
                   className={`grid grid-cols-1 items-start gap-12 lg:grid-cols-2 ${
@@ -146,7 +146,7 @@ export default function ServicesPage() {
 
       {/* ── Process (A: snow/ink) ── */}
       <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
-      <section className="relative bg-snow dark:bg-ink py-24 px-6 pattern-dots">
+      <section className="relative bg-snow dark:bg-ink py-16 px-6 pattern-dots">
         <TechLines variant="circuit-trace" className="text-mist dark:text-iron" />
         <div className="mx-auto max-w-7xl">
           <ScrollReveal>
@@ -162,7 +162,7 @@ export default function ServicesPage() {
             </p>
           </ScrollReveal>
 
-          <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {PROCESS_STEPS.map((step, i) => (
               <ScrollReveal key={step.number} delay={i * 0.1} className="h-full">
                 <div className="h-full rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-8 transition-all duration-300 hover:border-iron">
@@ -185,7 +185,7 @@ export default function ServicesPage() {
       <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
 
       {/* ── CTA (B: white/carbon) ── */}
-      <section className="bg-white dark:bg-carbon py-24 px-6 pattern-dots">
+      <section className="bg-white dark:bg-carbon py-16 px-6 pattern-dots">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
             Ready to talk?

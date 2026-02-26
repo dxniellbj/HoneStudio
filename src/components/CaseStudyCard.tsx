@@ -7,6 +7,8 @@ interface CaseStudyCardProps {
   pillars: readonly string[];
   summary: string;
   slug: string;
+  thumbnail?: string;
+  thumbnailBg?: string;
 }
 
 const PILLAR_COLORS: Record<string, string> = {
@@ -22,13 +24,26 @@ export default function CaseStudyCard({
   pillars,
   summary,
   slug,
+  thumbnail,
+  thumbnailBg,
 }: CaseStudyCardProps) {
   return (
     <Link href={`/work/${slug}`} className="block h-full">
       <article className="group h-full rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon overflow-hidden transition-all duration-300 hover:border-teal hover:shadow-lg hover:-translate-y-1">
-        {/* Thumbnail Placeholder */}
-        <div className="relative h-48 bg-slate dark:bg-ink overflow-hidden">
-          <div className="absolute inset-0 bg-radial-[at_30%_40%] from-teal-glow to-transparent opacity-60" />
+        {/* Thumbnail */}
+        <div
+          className="relative aspect-video bg-slate dark:bg-ink overflow-hidden"
+          style={thumbnailBg ? { backgroundColor: thumbnailBg } : undefined}
+        >
+          {thumbnail ? (
+            <img
+              src={thumbnail}
+              alt={`${client} preview`}
+              className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <div className="absolute inset-0 bg-radial-[at_30%_40%] from-teal-glow to-transparent opacity-60" />
+          )}
         </div>
 
         {/* Body */}

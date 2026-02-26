@@ -13,7 +13,6 @@ Website: honestudio.cv
 Founder: Niell Alfajora (Daniell Bije Alfajora)
 Role: Fractional Ops & Tech Partner
 Location: Philippines
-Contact email: hello@honestudio.cv
 Phone: +63 969 613 6802
 
 === ABOUT NIELL ===

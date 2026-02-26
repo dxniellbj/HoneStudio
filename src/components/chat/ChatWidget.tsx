@@ -192,7 +192,7 @@ export default function ChatWidget() {
             <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
               {messages.length === 0 && (
                 <div className="space-y-2">
-                  <p className="text-center text-xs text-ash dark:text-iron">Quick prompts</p>
+                  <p className="text-center text-xs text-ash dark:text-graphite">Quick prompts</p>
                   {QUICK_PROMPTS.map((prompt) => (
                     <button
                       key={prompt}

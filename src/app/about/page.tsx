@@ -55,7 +55,7 @@ export default function AboutPage() {
   return (
     <>
       {/* ── Hero (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink py-32 px-6 pattern-grid">
+      <section className="bg-snow dark:bg-ink py-20 px-6 pattern-grid">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             {/* Text */}
@@ -107,7 +107,7 @@ export default function AboutPage() {
       <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
 
       {/* ── Why Hone (B: white/carbon) ── */}
-      <section className="bg-white dark:bg-carbon py-24 px-6 pattern-dots">
+      <section className="bg-white dark:bg-carbon py-16 px-6 pattern-dots">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
             <ScrollReveal>
@@ -170,7 +170,7 @@ export default function AboutPage() {
       <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
 
       {/* ── Values (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink py-24 px-6 pattern-diag">
+      <section className="bg-snow dark:bg-ink py-16 px-6 pattern-diag">
         <div className="mx-auto max-w-7xl">
           <ScrollReveal>
             <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
@@ -182,7 +182,7 @@ export default function AboutPage() {
             </h2>
           </ScrollReveal>
 
-          <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
             {VALUES.map((value, i) => (
               <ScrollReveal key={value.title} delay={i * 0.08} className="h-full">
                 <div className="h-full rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-8 transition-all duration-300 hover:border-teal hover:shadow-sm">
@@ -202,7 +202,7 @@ export default function AboutPage() {
       <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
 
       {/* ── Toolkit (B: white/carbon) ── */}
-      <section className="relative bg-white dark:bg-carbon py-24 px-6 pattern-scan">
+      <section className="relative bg-white dark:bg-carbon py-16 px-6 pattern-scan">
         <TechLines variant="corner-brackets" className="text-cloud dark:text-slate" />
         <div className="mx-auto max-w-7xl">
           <ScrollReveal>
@@ -215,7 +215,7 @@ export default function AboutPage() {
             </h2>
           </ScrollReveal>
 
-          <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
             {Object.entries(TOOLKIT).map(([category, tools], i) => (
               <ScrollReveal key={category} delay={i * 0.1} className="h-full">
                 <div className="h-full rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink p-8">
@@ -244,7 +244,7 @@ export default function AboutPage() {
       <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
 
       {/* ── CTA (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink py-24 px-6 pattern-grid">
+      <section className="bg-snow dark:bg-ink py-16 px-6 pattern-grid">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
             Let&apos;s work together

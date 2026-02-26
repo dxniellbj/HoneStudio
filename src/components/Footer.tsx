@@ -40,19 +40,11 @@ export default function Footer() {
           ))}
         </nav>
 
-        {/* Email */}
-        <a
-          href="mailto:hello@honestudio.cv"
-          className="mb-8 font-mono text-sm text-graphite dark:text-ash transition-colors hover:text-teal"
-        >
-          hello@honestudio.cv
-        </a>
-
         {/* Divider */}
         <div className="mb-8 h-0.5 w-9 bg-teal" />
 
         {/* Copyright */}
-        <p className="font-mono text-xs text-ash dark:text-iron">
+        <p className="font-mono text-xs text-ash dark:text-graphite">
           &copy; 2026 Hone Studio
         </p>
       </div>

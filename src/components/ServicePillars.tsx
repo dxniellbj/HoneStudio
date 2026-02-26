@@ -72,7 +72,7 @@ const ACCENT_MAP: Record<string, { bg: string; text: string; quoteText: string; 
 
 export default function ServicePillars() {
   return (
-    <section className="relative bg-white dark:bg-carbon py-24 px-6 pattern-grid">
+    <section className="relative bg-white dark:bg-carbon py-16 px-6 pattern-grid">
       <TechLines variant="corner-brackets" className="text-cloud dark:text-slate" />
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
@@ -104,7 +104,7 @@ export default function ServicePillars() {
                 />
 
                 {/* Card Number */}
-                <p className="mb-4 font-mono text-sm text-ash dark:text-iron">{pillar.number}</p>
+                <p className="mb-4 font-mono text-sm text-ash dark:text-graphite">{pillar.number}</p>
 
                 {/* Icon */}
                 <div className="mb-6">{pillar.icon}</div>

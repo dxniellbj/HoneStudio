@@ -32,7 +32,7 @@ export default function SectionDivider({
 
   return (
     <div
-      className="h-16 md:h-24"
+      className="h-8 md:h-12"
       aria-hidden="true"
       style={{
         "--divider-from": fromColor,

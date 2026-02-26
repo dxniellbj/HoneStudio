@@ -6,6 +6,17 @@ import SectionDivider from "@/components/SectionDivider";
 import TechLines from "@/components/TechLines";
 import { CASE_STUDIES } from "@/lib/data";
 
+const COL_SPAN: Record<number, string> = {
+  3: "md:col-span-3",
+  4: "md:col-span-4",
+  5: "md:col-span-5",
+  6: "md:col-span-6",
+  7: "md:col-span-7",
+  8: "md:col-span-8",
+  9: "md:col-span-9",
+  12: "md:col-span-12",
+};
+
 const PILLAR_COLORS: Record<string, string> = {
   Web: "border-teal/30 text-teal bg-teal-ghost",
   AI: "border-signal/30 text-signal bg-signal-ghost",
@@ -50,7 +61,7 @@ export default async function CaseStudyPage({
   return (
     <>
       {/* ── Hero (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink py-32 px-6 pattern-grid">
+      <section className="bg-snow dark:bg-ink py-20 px-6 pattern-grid">
         <div className="mx-auto max-w-4xl">
           <ScrollReveal>
             <Link
@@ -86,14 +97,51 @@ export default async function CaseStudyPage({
             <p className="mt-6 max-w-2xl text-lg text-section-desc text-graphite dark:text-ash">
               {study.summary}
             </p>
+
+            {study.url && (
+              <a
+                href={study.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center gap-2 font-mono text-sm uppercase tracking-widest text-teal transition-colors hover:text-teal-bright"
+              >
+                Visit Site
+                <svg className="ml-1.5 inline-block h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5" />
+                </svg>
+              </a>
+            )}
           </ScrollReveal>
+
+          {/* Hero Image */}
+          {study.images && study.images.length > 0 && (
+            <ScrollReveal delay={0.1}>
+              <figure className="mt-10">
+                <div
+                  className="overflow-hidden rounded-md border border-cloud dark:border-slate"
+                  style={study.images[0].bg ? { backgroundColor: study.images[0].bg } : undefined}
+                >
+                  <img
+                    src={study.images[0].src}
+                    alt={study.images[0].alt}
+                    className="w-full object-contain"
+                  />
+                </div>
+                {study.images[0].caption && (
+                  <figcaption className="mt-3 text-center text-sm text-graphite dark:text-ash">
+                    {study.images[0].caption}
+                  </figcaption>
+                )}
+              </figure>
+            </ScrollReveal>
+          )}
         </div>
       </section>
 
       <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
 
       {/* ── Scope & Tech Stack (B: white/carbon) ── */}
-      <section className="bg-white dark:bg-carbon py-24 px-6 pattern-dots">
+      <section className="bg-white dark:bg-carbon py-16 px-6 pattern-dots">
         <div className="mx-auto max-w-4xl">
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
             {/* Scope */}
@@ -136,7 +184,7 @@ export default async function CaseStudyPage({
       <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
 
       {/* ── The Challenge (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink py-24 px-6 pattern-diag">
+      <section className="bg-snow dark:bg-ink py-16 px-6 pattern-diag">
         <div className="mx-auto max-w-4xl">
           <ScrollReveal>
             <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
@@ -155,7 +203,7 @@ export default async function CaseStudyPage({
       <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
 
       {/* ── The Approach (B: white/carbon) ── */}
-      <section className="relative bg-white dark:bg-carbon py-24 px-6 pattern-scan">
+      <section className="relative bg-white dark:bg-carbon py-16 px-6 pattern-scan">
         <TechLines variant="circuit-trace" className="text-cloud dark:text-iron" />
         <div className="mx-auto max-w-4xl">
           <ScrollReveal>
@@ -185,7 +233,7 @@ export default async function CaseStudyPage({
       {/* ── Key Features (A: snow/ink) ── */}
       {study.keyFeatures.length > 0 && (
         <>
-          <section className="bg-snow dark:bg-ink py-24 px-6 pattern-grid">
+          <section className="bg-snow dark:bg-ink py-16 px-6 pattern-grid">
             <div className="mx-auto max-w-4xl">
               <ScrollReveal>
                 <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
@@ -214,7 +262,7 @@ export default async function CaseStudyPage({
       )}
 
       {/* ── The Results (B: white/carbon) ── */}
-      <section className="bg-white dark:bg-carbon py-24 px-6 pattern-dots">
+      <section className="bg-white dark:bg-carbon py-16 px-6 pattern-dots">
         <div className="mx-auto max-w-4xl">
           <ScrollReveal>
             <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
@@ -223,7 +271,59 @@ export default async function CaseStudyPage({
             </p>
           </ScrollReveal>
 
-          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+          {/* Stats */}
+          {study.stats && study.stats.length > 0 && (
+            <div className="mt-6 mb-8 grid grid-cols-2 gap-4 md:grid-cols-4">
+              {study.stats.map((stat, i) => (
+                <ScrollReveal key={i} delay={i * 0.06} className="h-full">
+                  <div className="h-full rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink p-5 text-center">
+                    <p className="font-display text-2xl font-semibold text-teal md:text-3xl">
+                      {stat.value}
+                    </p>
+                    <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-graphite dark:text-ash">
+                      {stat.label}
+                    </p>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          )}
+
+          {/* Supporting Images */}
+          {study.images && study.images.length > 1 && (
+            <div className="mb-8 grid grid-cols-12 gap-4">
+              {study.images.slice(1).map((img, i) => {
+                const span = img.cols ?? 12;
+                return (
+                  <ScrollReveal
+                    key={i}
+                    delay={i * 0.06}
+                    className={`col-span-12 ${COL_SPAN[span] ?? "md:col-span-12"}`}
+                  >
+                    <figure className="h-full">
+                      <div
+                        className="h-full overflow-hidden rounded-md border border-cloud dark:border-slate"
+                        style={img.bg ? { backgroundColor: img.bg } : undefined}
+                      >
+                        <img
+                          src={img.src}
+                          alt={img.alt}
+                          className="h-full w-full object-contain"
+                        />
+                      </div>
+                      {img.caption && (
+                        <figcaption className="mt-3 text-center text-sm text-graphite dark:text-ash">
+                          {img.caption}
+                        </figcaption>
+                      )}
+                    </figure>
+                  </ScrollReveal>
+                );
+              })}
+            </div>
+          )}
+
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {study.results.map((result, i) => (
               <ScrollReveal key={i} delay={i * 0.08} className="h-full">
                 <div className="h-full flex items-start gap-3 rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink p-6">
@@ -243,7 +343,7 @@ export default async function CaseStudyPage({
       {/* ── Other Projects (A: snow/ink) ── */}
       {others.length > 0 && (
         <>
-          <section className="bg-snow dark:bg-ink py-24 px-6 pattern-diag">
+          <section className="bg-snow dark:bg-ink py-16 px-6 pattern-diag">
             <div className="mx-auto max-w-4xl">
               <ScrollReveal>
                 <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
@@ -282,7 +382,7 @@ export default async function CaseStudyPage({
       )}
 
       {/* ── CTA ── */}
-      <section className="bg-white dark:bg-carbon py-24 px-6 pattern-grid">
+      <section className="bg-white dark:bg-carbon py-16 px-6 pattern-grid">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-3xl text-section-title text-ink dark:text-white md:text-4xl">
             Want results like these?

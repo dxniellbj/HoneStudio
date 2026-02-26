@@ -35,7 +35,7 @@ const AUDIENCES = [
 
 export default function AudienceFunnel() {
   return (
-    <section className="bg-snow dark:bg-ink py-24 px-6 pattern-dots">
+    <section className="bg-snow dark:bg-ink py-16 px-6 pattern-dots">
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <motion.div
@@ -94,7 +94,7 @@ export default function AudienceFunnel() {
               <p className="mb-4 text-sm text-ash">{item.audience}</p>
 
               {/* Hook Quote */}
-              <p className="mb-4 font-display text-lg italic text-teal-dark dark:text-teal">
+              <p className="mb-4 font-display text-lg italic text-teal-deep dark:text-teal">
                 &ldquo;{item.hook}&rdquo;
               </p>
 

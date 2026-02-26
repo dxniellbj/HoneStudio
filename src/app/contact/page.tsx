@@ -15,7 +15,7 @@ export default function ContactPage() {
   return (
     <>
       {/* ── Hero (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink py-32 px-6 pattern-grid">
+      <section className="bg-snow dark:bg-ink py-20 px-6 pattern-grid">
         <div className="mx-auto max-w-7xl">
           <ScrollReveal>
             <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
@@ -36,7 +36,7 @@ export default function ContactPage() {
       <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
 
       {/* ── Form + Info (B: white/carbon) ── */}
-      <section className="bg-white dark:bg-carbon py-24 px-6 pattern-dots">
+      <section className="bg-white dark:bg-carbon py-16 px-6 pattern-dots">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-5">
             {/* Form — takes 3 of 5 cols */}
@@ -56,19 +56,6 @@ export default function ContactPage() {
                   </h3>
 
                   <div className="space-y-6">
-                    {/* Email */}
-                    <div>
-                      <p className="mb-1 font-mono text-xs uppercase tracking-widest text-ash">
-                        Email
-                      </p>
-                      <a
-                        href="mailto:hello@honestudio.cv"
-                        className="text-sm text-teal transition-colors hover:text-teal-bright"
-                      >
-                        hello@honestudio.cv
-                      </a>
-                    </div>
-
                     {/* Response Time */}
                     <div>
                       <p className="mb-1 font-mono text-xs uppercase tracking-widest text-ash">

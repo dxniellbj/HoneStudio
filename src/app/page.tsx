@@ -37,10 +37,10 @@ export default function HomePage() {
       <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
 
       {/* 5. Proof Section (A: snow/ink) */}
-      <section className="bg-snow dark:bg-ink py-24 px-6 pattern-diag">
+      <section className="bg-snow dark:bg-ink py-16 px-6 pattern-diag">
         <div className="mx-auto max-w-7xl">
           <ScrollReveal>
-            <div className="mb-16">
+            <div className="mb-10">
               <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
                 <span className="inline-block h-px w-6 bg-teal" />
                 Proof
@@ -72,7 +72,7 @@ export default function HomePage() {
       <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
 
       {/* 7. CTA Section (A: snow/ink) */}
-      <section className="bg-snow dark:bg-ink py-24 px-6 pattern-grid">
+      <section className="bg-snow dark:bg-ink py-16 px-6 pattern-grid">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
             Got something you&apos;re working on?

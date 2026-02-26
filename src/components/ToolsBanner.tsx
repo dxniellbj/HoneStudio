@@ -197,10 +197,13 @@ const CATEGORIES: ToolCategory[] = [
     tools: [
       "Zapier",
       "Make",
+      "Google Apps Script",
+      "Google Cloud",
       "HubSpot",
       "Pipedrive",
       "GoHighLevel",
       "ConvertKit",
+      "ManyChat",
     ],
   },
 ];
@@ -337,7 +340,7 @@ function ToolCard({ category }: { category: ToolCategory }) {
 
 export default function ToolsBanner() {
   return (
-    <section className="bg-white dark:bg-carbon py-24 px-6">
+    <section className="bg-white dark:bg-carbon py-16 px-6">
       <div className="mx-auto max-w-7xl">
         {/* Section header */}
         <div className="mb-16 text-center">
