@@ -71,6 +71,7 @@ export default function BusinessCard() {
         <div className="bcard-details">
           <p className="bcard-name">Niell Alfajora</p>
           <p className="bcard-role">Fractional Ops &amp; Tech Partner</p>
+          <p className="bcard-contact">dxniellbj@gmail.com</p>
           <p className="bcard-contact">+63 969 613 6802</p>
         </div>
       </div>

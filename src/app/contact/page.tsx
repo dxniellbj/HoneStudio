@@ -56,6 +56,19 @@ export default function ContactPage() {
                   </h3>
 
                   <div className="space-y-6">
+                    {/* Email */}
+                    <div>
+                      <p className="mb-1 font-mono text-xs uppercase tracking-widest text-ash">
+                        Email
+                      </p>
+                      <a
+                        href="mailto:dxniellbj@gmail.com"
+                        className="text-sm text-graphite dark:text-ash transition-colors hover:text-teal"
+                      >
+                        dxniellbj@gmail.com
+                      </a>
+                    </div>
+
                     {/* Response Time */}
                     <div>
                       <p className="mb-1 font-mono text-xs uppercase tracking-widest text-ash">

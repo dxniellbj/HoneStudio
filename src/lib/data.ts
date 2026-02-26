@@ -37,10 +37,79 @@ export interface CaseStudy {
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
+    title: "AI-Powered Deal Sourcing for a Media & Consumer VC",
+    client: "Showcase Ventures",
+    platform: "Next.js + Firebase + Gemini",
+    pillars: ["Web", "AI", "Strategy"],
+    summary:
+      "Built Spotlight and Spyglass — two internal tools that use AI-powered enrichment, multi-source web scraping, and real-time collaboration to transform how a VC firm sources and researches deals.",
+    slug: "showcase-ventures",
+    thumbnail: "/images/work/showcase-ventures/Spotlight - Hero.png",
+    thumbnailBg: "#2c2f21",
+    images: [
+      {
+        src: "/images/work/showcase-ventures/Spotlight - Interface.png",
+        alt: "Spotlight company enrichment table",
+        bg: "#2c2f21",
+        caption: "Enter a company name and website — AI enrichment handles the rest: description, social links, follower counts, sourcing grades, and more.",
+      },
+      {
+        src: "/images/work/showcase-ventures/Spotlight - Analytics.png",
+        alt: "Spotlight analytics dashboard showing ROI and sourcing metrics",
+        bg: "#2c2f21",
+      },
+    ],
+    stats: [
+      { label: "Companies / Week", value: "~1,000" },
+      { label: "Hours Saved / Week", value: "250+" },
+      { label: "Days Saved / Year", value: "1,625" },
+      { label: "Cost / 1K Companies", value: "$10–15" },
+    ],
+    challenge:
+      "Showcase Ventures is a startup VC firm focused on media and consumer — music, entertainment, film, digital media, beauty, hospitality, and more. As a lean team without enterprise tooling, researching potential investments meant hours of manual Googling, scattered notes, and no structured way to enrich, grade, or track companies at scale.",
+    approach: [
+      "Started with the core problem: the team was spending hours manually researching every company. Built Spotlight to let them enter a name and website, then let AI do the rest",
+      "Designed the enrichment pipeline in phases — domain discovery, web scraping, AI analysis, social data extraction, and follower counts — each validating against multiple sources so nothing relies on a single data point",
+      "Added the tools the team needed around it: theme-based organization with drag-and-drop, a grading system, bulk CSV imports, and a real-time dashboard tracking ROI and pipeline health",
+      "Built Spyglass as a second tool for retail intelligence — analysts photograph store shelves, Gemini AI identifies every brand and SKU on sight, then enriches each with manufacturer data and maps it all geographically",
+    ],
+    results: [
+      "~1,000 companies enriched per week at $10–15 in API costs — work that would take a full team 250+ hours done automatically",
+      "13,000+ hours of manual research eliminated per year — the equivalent of six full-time analysts",
+      "8,851 companies sourced, enriched, and graded in the system to date",
+      "Deal pipeline went from scattered notes and spreadsheets to a structured, searchable platform the whole team uses daily",
+      "Investment team now sees enriched company data in real time — research that used to take hours is ready in seconds",
+    ],
+    scope: [
+      "Spotlight — investment sourcing platform",
+      "Spyglass — retail intelligence hub",
+      "AI enrichment pipeline design",
+      "Real-time collaborative data infrastructure",
+    ],
+    techStack: [
+      "Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "ShadCN UI",
+      "Firebase Firestore", "Firebase Auth", "Firebase Storage", "Firebase Cloud Functions",
+      "Google Genkit", "Gemini AI", "Bright Data", "Perplexity API",
+      "Google Maps API", "Google PSE", "Recharts",
+    ],
+    keyFeatures: [
+      "Multi-phase AI enrichment: domain discovery → web scraping → AI analysis → social data → consensus scoring",
+      "Four concurrent background processing queues for parallel enrichment",
+      "Hierarchical theme/folder management with drag-and-drop organization",
+      "Interactive dashboard with ROI tracking and sourcing grade distribution",
+      "Brand extractor for bulk CSV imports with automated domain discovery",
+      "Store walk photo analysis — Gemini AI detects every brand and SKU on retail shelves",
+      "Two-pass retail enrichment with Google Search grounding for manufacturer data",
+      "Interactive Google Maps view with intelligent markers per store location",
+      "A/B/C/D company grading system with pipeline tracking",
+      "Real-time Firestore listeners — all users see data updates instantly",
+    ],
+  },
+  {
     title: "From WordPress to a Scalable Education Platform",
     client: "Shan Fisher Education",
     platform: "Kajabi",
-    pillars: ["Web", "AI", "Strategy"],
+    pillars: ["Web", "Strategy"],
     summary:
       "Migrated a photography education business from WordPress to Kajabi — moved all courses, built offers, and set up full automation including email sequences.",
     slug: "shan-fisher-education",
@@ -139,75 +208,6 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Workshop schedule with event-based listings",
       "Course structure for digital education content",
       "Brand-consistent design reflecting Elena's international presence",
-    ],
-  },
-  {
-    title: "AI-Powered Deal Sourcing for a Media & Consumer VC",
-    client: "Showcase Ventures",
-    platform: "Next.js + Firebase + Gemini",
-    pillars: ["AI", "Strategy"],
-    summary:
-      "Built Spotlight and Spyglass — two internal tools that use AI-powered enrichment, multi-source web scraping, and real-time collaboration to transform how a VC firm sources and researches deals.",
-    slug: "showcase-ventures",
-    thumbnail: "/images/work/showcase-ventures/Spotlight - Hero.png",
-    thumbnailBg: "#2c2f21",
-    images: [
-      {
-        src: "/images/work/showcase-ventures/Spotlight - Interface.png",
-        alt: "Spotlight company enrichment table",
-        bg: "#2c2f21",
-        caption: "Enter a company name and website — AI enrichment handles the rest: description, social links, follower counts, sourcing grades, and more.",
-      },
-      {
-        src: "/images/work/showcase-ventures/Spotlight - Analytics.png",
-        alt: "Spotlight analytics dashboard showing ROI and sourcing metrics",
-        bg: "#2c2f21",
-      },
-    ],
-    stats: [
-      { label: "Companies / Week", value: "~1,000" },
-      { label: "Hours Saved / Week", value: "250+" },
-      { label: "Days Saved / Year", value: "1,625" },
-      { label: "Cost / 1K Companies", value: "$10–15" },
-    ],
-    challenge:
-      "Showcase Ventures is a startup VC firm focused on media and consumer — music, entertainment, film, digital media, beauty, hospitality, and more. As a lean team without enterprise tooling, researching potential investments meant hours of manual Googling, scattered notes, and no structured way to enrich, grade, or track companies at scale.",
-    approach: [
-      "Started with the core problem: the team was spending hours manually researching every company. Built Spotlight to let them enter a name and website, then let AI do the rest",
-      "Designed the enrichment pipeline in phases — domain discovery, web scraping, AI analysis, social data extraction, and follower counts — each validating against multiple sources so nothing relies on a single data point",
-      "Added the tools the team needed around it: theme-based organization with drag-and-drop, a grading system, bulk CSV imports, and a real-time dashboard tracking ROI and pipeline health",
-      "Built Spyglass as a second tool for retail intelligence — analysts photograph store shelves, Gemini AI identifies every brand and SKU on sight, then enriches each with manufacturer data and maps it all geographically",
-    ],
-    results: [
-      "~1,000 companies enriched per week at $10–15 in API costs — work that would take a full team 250+ hours done automatically",
-      "13,000+ hours of manual research eliminated per year — the equivalent of six full-time analysts",
-      "8,851 companies sourced, enriched, and graded in the system to date",
-      "Deal pipeline went from scattered notes and spreadsheets to a structured, searchable platform the whole team uses daily",
-      "Investment team now sees enriched company data in real time — research that used to take hours is ready in seconds",
-    ],
-    scope: [
-      "Spotlight — investment sourcing platform",
-      "Spyglass — retail intelligence hub",
-      "AI enrichment pipeline design",
-      "Real-time collaborative data infrastructure",
-    ],
-    techStack: [
-      "Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "ShadCN UI",
-      "Firebase Firestore", "Firebase Auth", "Firebase Storage", "Firebase Cloud Functions",
-      "Google Genkit", "Gemini AI", "Bright Data", "Perplexity API",
-      "Google Maps API", "Google PSE", "Recharts",
-    ],
-    keyFeatures: [
-      "Multi-phase AI enrichment: domain discovery → web scraping → AI analysis → social data → consensus scoring",
-      "Four concurrent background processing queues for parallel enrichment",
-      "Hierarchical theme/folder management with drag-and-drop organization",
-      "Interactive dashboard with ROI tracking and sourcing grade distribution",
-      "Brand extractor for bulk CSV imports with automated domain discovery",
-      "Store walk photo analysis — Gemini AI detects every brand and SKU on retail shelves",
-      "Two-pass retail enrichment with Google Search grounding for manufacturer data",
-      "Interactive Google Maps view with intelligent markers per store location",
-      "A/B/C/D company grading system with pipeline tracking",
-      "Real-time Firestore listeners — all users see data updates instantly",
     ],
   },
 ];
@@ -324,14 +324,14 @@ export const NOTABLE_MENTIONS: NotableMention[] = [
     url: "https://sharniquinn.com",
     description:
       "Kajabi site for an international wellness coach and speaker offering women's coaching, corporate wellness programs, yoga retreats, and wellness travel consulting.",
-    pillars: ["Web"],
+    pillars: ["Web", "Strategy"],
   },
   {
     client: "Cape Town Wellness Travel Alliance",
     url: "https://ctwta.com",
     description:
       "Kajabi site for an Africa-focused wellness tourism consultancy and talent agency connecting hotels, lodges, and corporate clients with a network of 500+ wellness professionals.",
-    pillars: ["Web"],
+    pillars: ["Web", "Strategy"],
   },
   {
     client: "The Host Approach",
@@ -366,7 +366,7 @@ export const NOTABLE_MENTIONS: NotableMention[] = [
     url: "https://courage2transform.com",
     description:
       "Squarespace site for an internationally certified life and health coach offering one-on-one coaching, art therapy resources, and a membership community.",
-    pillars: ["Web"],
+    pillars: ["Web", "Strategy"],
   },
   {
     client: "KA Energetics",

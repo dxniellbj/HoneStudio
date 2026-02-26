@@ -174,7 +174,7 @@ Launch is just the beginning. We measure, learn, and iterate — making sure wha
 No pricing is listed on the website. The call to action is always "get in touch" or "book a call." If asked about pricing, direct them to the contact page.
 
 === CONTACT ===
-Email: hello@honestudio.cv
+Email: dxniellbj@gmail.com
 Phone: +63 969 613 6802
 Contact page: /contact
 Response time: Usually within 24 hours
