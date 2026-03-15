@@ -105,15 +105,21 @@ export default function AboutPage() {
             {/* Avatar + Business Card */}
             <ScrollReveal delay={0.15}>
               <div className="relative flex items-center justify-center">
-                <img
+                <Image
                   src="/images/N - profile - black on transparent.svg"
                   alt="Niell Alfajora"
+                  width={400}
+                  height={600}
                   className="h-full w-auto max-h-[calc(100vh-16rem)] object-contain dark:hidden"
+                  priority
                 />
-                <img
+                <Image
                   src="/images/N - profile - white on transparent.svg"
                   alt="Niell Alfajora"
+                  width={400}
+                  height={600}
                   className="h-full w-auto max-h-[calc(100vh-16rem)] object-contain hidden dark:block"
+                  priority
                 />
               </div>
             </ScrollReveal>
@@ -356,7 +362,7 @@ export default function AboutPage() {
             <ScrollReveal delay={0.15}>
               <div className="relative flex items-center justify-center">
                 <div className="grid grid-cols-3 gap-4">
-                  {RED_RISING_BOOKS.map((book, i) => (
+                  {RED_RISING_BOOKS.map((book) => (
                     <div key={book.title} className="relative">
                       {book.completed && (
                         <span className="absolute -top-2 -right-2 z-10 rounded-full bg-teal px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-ink">

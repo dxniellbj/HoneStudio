@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionDivider from "@/components/SectionDivider";
 import TechLines from "@/components/TechLines";
@@ -119,13 +120,15 @@ export default async function CaseStudyPage({
             <ScrollReveal delay={0.1}>
               <figure className="mt-10">
                 <div
-                  className="overflow-hidden rounded-md border border-cloud dark:border-slate"
+                  className="relative aspect-video overflow-hidden rounded-md border border-cloud dark:border-slate"
                   style={study.images[0].bg ? { backgroundColor: study.images[0].bg } : undefined}
                 >
-                  <img
+                  <Image
                     src={study.images[0].src}
                     alt={study.images[0].alt}
-                    className="w-full object-contain"
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
                 {study.images[0].caption && (
@@ -290,13 +293,15 @@ export default async function CaseStudyPage({
                   >
                     <figure className="h-full">
                       <div
-                        className="h-full overflow-hidden rounded-md border border-cloud dark:border-slate"
+                        className="relative aspect-video overflow-hidden rounded-md border border-cloud dark:border-slate"
                         style={img.bg ? { backgroundColor: img.bg } : undefined}
                       >
-                        <img
+                        <Image
                           src={img.src}
                           alt={img.alt}
-                          className="h-full w-full object-contain"
+                          fill
+                          className="object-contain"
+                          sizes="(max-width: 768px) 100vw, 33vw"
                         />
                       </div>
                       {img.caption && (
