@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { motion, type Variants } from "framer-motion";
 
 interface CaseStudyCardProps {
   title: string;
@@ -17,6 +20,32 @@ const PILLAR_COLORS: Record<string, string> = {
   Strategy: "border-indigo/30 text-indigo bg-indigo-ghost",
 };
 
+const cardVariants: Variants = {
+  rest: {
+    scale: 1,
+    y: 0,
+    boxShadow: "0 1px 3px rgba(0,0,0,0.08)",
+  },
+  hover: {
+    scale: 1.02,
+    y: -6,
+    boxShadow: "0 20px 40px rgba(0,212,170,0.12), 0 8px 16px rgba(0,0,0,0.08)",
+    transition: {
+      type: "spring" as const,
+      stiffness: 300,
+      damping: 20,
+    },
+  },
+};
+
+const imageVariants: Variants = {
+  rest: { scale: 1 },
+  hover: {
+    scale: 1.08,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
 export default function CaseStudyCard({
   title,
   client,
@@ -29,17 +58,24 @@ export default function CaseStudyCard({
 }: CaseStudyCardProps) {
   return (
     <Link href={`/work/${slug}`} className="block h-full">
-      <article className="group h-full rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon overflow-hidden transition-all duration-300 hover:border-teal hover:shadow-lg hover:-translate-y-1">
+      <motion.article
+        className="group h-full rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon overflow-hidden hover:border-teal"
+        initial="rest"
+        whileHover="hover"
+        animate="rest"
+        variants={cardVariants}
+      >
         {/* Thumbnail */}
         <div
           className="relative aspect-video bg-slate dark:bg-ink overflow-hidden"
           style={thumbnailBg ? { backgroundColor: thumbnailBg } : undefined}
         >
           {thumbnail ? (
-            <img
+            <motion.img
               src={thumbnail}
               alt={`${client} preview`}
-              className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
+              className="h-full w-full object-contain"
+              variants={imageVariants}
             />
           ) : (
             <div className="absolute inset-0 bg-radial-[at_30%_40%] from-teal-glow to-transparent opacity-60" />
@@ -83,12 +119,18 @@ export default function CaseStudyCard({
           </p>
 
           {/* Arrow hint */}
-          <span className="mt-4 inline-flex items-center gap-1 font-mono text-xs uppercase tracking-widest text-teal transition-colors group-hover:text-teal-bright">
+          <motion.span
+            className="mt-4 inline-flex items-center gap-1 font-mono text-xs uppercase tracking-widest text-teal"
+            variants={{
+              rest: { x: 0 },
+              hover: { x: 4 },
+            }}
+          >
             Read case study
             <span aria-hidden="true">&rarr;</span>
-          </span>
+          </motion.span>
         </div>
-      </article>
+      </motion.article>
     </Link>
   );
 }

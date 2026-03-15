@@ -60,11 +60,10 @@ export default function ServicesPage() {
               Services
             </p>
             <h1 className="font-display text-5xl text-section-title text-ink dark:text-white md:text-6xl">
-              Three Pillars, One Partner
+              Three Things, One Person
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-section-desc text-graphite dark:text-ash">
-              Strategy, systems, and websites that actually work together.
-              Everything pulling in the same direction.
+              Most businesses hire separately for strategy, systems, and web. Then spend half their time making sure everyone&apos;s on the same page. I handle all three — which means everything actually connects.
             </p>
           </ScrollReveal>
         </div>
@@ -155,10 +154,10 @@ export default function ServicesPage() {
               Process
             </p>
             <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
-              How We Work Together
+              How This Works
             </h2>
             <p className="mt-4 max-w-2xl text-lg text-section-desc text-graphite dark:text-ash">
-              Here&apos;s how it usually goes.
+              A call, a plan, and we&apos;re building. Here&apos;s exactly what each phase looks like.
             </p>
           </ScrollReveal>
 
@@ -188,16 +187,16 @@ export default function ServicesPage() {
       <section className="bg-white dark:bg-carbon py-16 px-6 pattern-dots">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
-            Ready to talk?
+            Not sure which pillar you need?
           </h2>
           <p className="mt-4 text-lg text-graphite dark:text-ash">
-            Tell me what you&apos;re dealing with — I&apos;ll tell you where I can help.
+            Most projects touch more than one. Let&apos;s figure out what makes sense for yours.
           </p>
           <Link
             href="/contact"
             className="mt-8 inline-block rounded-sm bg-teal px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright"
           >
-            Get in Touch
+            Book a Discovery Call
           </Link>
         </ScrollReveal>
       </section>

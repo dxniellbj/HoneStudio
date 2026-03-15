@@ -4,7 +4,9 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import ThemeProvider from "@/components/ThemeProvider";
 import ChatWidgetLazy from "@/components/chat/ChatWidgetLazy";
+import QuizPrompt from "@/components/QuizPrompt";
 import TealCursor from "@/components/TealCursor";
+import JsonLd from "@/components/JsonLd";
 import "@/styles/globals.css";
 
 const fraunces = Fraunces({
@@ -66,6 +68,7 @@ export default function RootLayout({
             __html: `(function(){try{var t=localStorage.getItem("hone-theme");if(t==="light"){document.documentElement.classList.remove("dark")}else if(!t&&window.matchMedia("(prefers-color-scheme:light)").matches){document.documentElement.classList.remove("dark")}}catch(e){}})()`,
           }}
         />
+        <JsonLd />
       </head>
       <body>
         <ThemeProvider>
@@ -73,6 +76,7 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
           <ChatWidgetLazy />
+          <QuizPrompt />
           <TealCursor />
         </ThemeProvider>
       </body>

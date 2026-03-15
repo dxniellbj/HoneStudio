@@ -17,8 +17,6 @@ export default function HomePage() {
       <SplashScreen />
       <HeroIntro />
 
-      <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
-
       {/* 2. Service Pillars (B: white/carbon) */}
       <ScrollReveal>
         <ServicePillars />
@@ -75,16 +73,16 @@ export default function HomePage() {
       <section className="bg-snow dark:bg-ink py-16 px-6 pattern-grid">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
-            Got something you&apos;re working on?
+            Sound like what you need?
           </h2>
           <p className="mt-4 text-lg text-graphite dark:text-ash">
-            Tell me what you&apos;re dealing with — I&apos;ll tell you if I can help.
+            Tell me what you&apos;re working on. I&apos;ll tell you how I&apos;d approach it — no strings attached.
           </p>
           <Link
             href="/contact"
             className="mt-8 inline-block rounded-sm bg-teal px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright"
           >
-            Get in Touch
+            Start a Conversation
           </Link>
         </ScrollReveal>
       </section>

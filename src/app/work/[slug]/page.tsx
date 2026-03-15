@@ -4,6 +4,7 @@ import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionDivider from "@/components/SectionDivider";
 import TechLines from "@/components/TechLines";
+import { AnimatedStatsGrid } from "@/components/AnimatedStat";
 import { CASE_STUDIES } from "@/lib/data";
 
 const COL_SPAN: Record<number, string> = {
@@ -273,20 +274,7 @@ export default async function CaseStudyPage({
 
           {/* Stats */}
           {study.stats && study.stats.length > 0 && (
-            <div className="mt-6 mb-8 grid grid-cols-2 gap-4 md:grid-cols-4">
-              {study.stats.map((stat, i) => (
-                <ScrollReveal key={i} delay={i * 0.06} className="h-full">
-                  <div className="h-full rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink p-5 text-center">
-                    <p className="font-display text-2xl font-semibold text-teal md:text-3xl">
-                      {stat.value}
-                    </p>
-                    <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-graphite dark:text-ash">
-                      {stat.label}
-                    </p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
+            <AnimatedStatsGrid stats={study.stats} />
           )}
 
           {/* Supporting Images */}
@@ -338,6 +326,43 @@ export default async function CaseStudyPage({
         </div>
       </section>
 
+      {/* ── Cross-Pillar CTA (integrated with Results section) ── */}
+      {study.pillars.length > 1 && (
+        <section className="bg-white dark:bg-carbon pb-16 px-6">
+          <div className="mx-auto max-w-4xl">
+            <ScrollReveal>
+              <div className="rounded-md border border-teal/20 bg-teal-ghost dark:bg-teal-ghost p-8 text-center">
+                <p className="font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash mb-3">
+                  This project combined
+                </p>
+                <div className="flex flex-wrap justify-center gap-2 mb-4">
+                  {study.pillars.map((pillar) => (
+                    <span
+                      key={pillar}
+                      className={`rounded-full border px-4 py-1.5 font-mono text-sm ${
+                        PILLAR_COLORS[pillar] ?? "border-mist dark:border-iron text-graphite dark:text-ash"
+                      }`}
+                    >
+                      {pillar}
+                    </span>
+                  ))}
+                </div>
+                <p className="text-sm text-graphite dark:text-ash mb-6">
+                  The best results come when strategy, systems, and web all work together.
+                </p>
+                <Link
+                  href="/services"
+                  className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-teal transition-colors hover:text-teal-bright"
+                >
+                  See how the pillars connect
+                  <span aria-hidden="true">&rarr;</span>
+                </Link>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
+
       <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
 
       {/* ── Other Projects (A: snow/ink) ── */}
@@ -385,16 +410,16 @@ export default async function CaseStudyPage({
       <section className="bg-white dark:bg-carbon py-16 px-6 pattern-grid">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-3xl text-section-title text-ink dark:text-white md:text-4xl">
-            Want results like these?
+            Got a project that needs this kind of thinking?
           </h2>
           <p className="mt-4 text-lg text-graphite dark:text-ash">
-            Let&apos;s talk about your project.
+            Tell me what you&apos;re trying to build. I&apos;ll tell you how I&apos;d approach it.
           </p>
           <Link
             href="/contact"
             className="mt-8 inline-block rounded-sm bg-teal px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright"
           >
-            Get in Touch
+            Start a Conversation
           </Link>
         </ScrollReveal>
       </section>

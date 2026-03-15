@@ -46,16 +46,16 @@ export default function WorkPage() {
       <section className="bg-snow dark:bg-ink py-16 px-6 pattern-grid">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
-            Got a project in mind?
+            Your project could be here
           </h2>
           <p className="mt-4 text-lg text-graphite dark:text-ash">
-            Let&apos;s talk about what you&apos;re building.
+            Tell me what&apos;s not working — I&apos;ll tell you what I&apos;d do about it.
           </p>
           <Link
             href="/contact"
             className="mt-8 inline-block rounded-sm bg-teal px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright"
           >
-            Get in Touch
+            Start a Conversation
           </Link>
         </ScrollReveal>
       </section>

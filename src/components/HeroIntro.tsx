@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   motion,
   AnimatePresence,
@@ -9,7 +10,11 @@ import {
   useTransform,
   useReducedMotion,
   useAnimate,
+  useMotionValue,
+  useSpring,
 } from "framer-motion";
+import HeroFeatureBlock from "@/components/HeroFeatureBlock";
+import MagneticButton from "@/components/MagneticButton";
 
 /* ── Scroll hint — shows immediately, hides on first scroll ── */
 function useScrollHint(enabled: boolean) {
@@ -72,18 +77,22 @@ function ScrollHint({ visible }: { visible: boolean }) {
 function HeroContentMarkup() {
   return (
     <>
-      <Link
-        href="/contact"
-        className="rounded-sm bg-teal px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright"
-      >
-        Book a Discovery Call
-      </Link>
-      <Link
-        href="/work"
-        className="rounded-sm border border-graphite/30 dark:border-ash/30 bg-transparent px-8 py-3 font-mono text-sm uppercase tracking-widest text-graphite dark:text-ash transition-colors hover:border-teal hover:text-teal"
-      >
-        See My Work
-      </Link>
+      <MagneticButton strength={0.25} radius={80}>
+        <Link
+          href="/contact"
+          className="inline-block rounded-sm bg-teal px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright"
+        >
+          Book a Discovery Call
+        </Link>
+      </MagneticButton>
+      <MagneticButton strength={0.25} radius={80}>
+        <Link
+          href="/work"
+          className="inline-block rounded-sm border border-graphite/30 dark:border-ash/30 bg-transparent px-8 py-3 font-mono text-sm uppercase tracking-widest text-graphite dark:text-ash transition-colors hover:border-teal hover:text-teal"
+        >
+          See My Work
+        </Link>
+      </MagneticButton>
     </>
   );
 }
@@ -93,38 +102,63 @@ function HeroContentMarkup() {
    ──────────────────────────────────────────────────────────── */
 function StaticHero() {
   return (
-    <section className="relative min-h-screen bg-snow dark:bg-ink flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen bg-snow dark:bg-ink flex items-center overflow-hidden">
       <div className="hero-gradient absolute inset-0" />
       <div className="hero-grid absolute inset-0" />
+      {/* Bottom fade gradient for smooth transition to next section */}
+      <div 
+        className="pointer-events-none absolute bottom-0 left-0 right-0 z-20 h-24 hidden dark:block"
+        style={{
+          background: 'linear-gradient(to bottom, transparent, var(--color-carbon))',
+        }}
+        aria-hidden="true"
+      />
+      <div 
+        className="pointer-events-none absolute bottom-0 left-0 right-0 z-20 h-24 dark:hidden"
+        style={{
+          background: 'linear-gradient(to bottom, transparent, var(--color-white))',
+        }}
+        aria-hidden="true"
+      />
+      
+      {/* Static spotlight (no mouse tracking for reduced motion) */}
+      <div className="hero-spotlight absolute inset-0 pointer-events-none opacity-30" />
 
-      <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-teal/20 bg-teal-ghost px-4 py-2">
-          <span className="inline-block h-2 w-2 rounded-full bg-teal animate-blink" />
-          <span className="font-mono text-xs uppercase tracking-widest text-teal">
-            Fractional Ops &amp; Tech Partner
-          </span>
-        </div>
+      {/* Floating geometric shapes — right 45% */}
+      <div className="absolute top-0 right-0 w-[45%] h-full pointer-events-none hidden lg:block">
+        <HeroFeatureBlock />
+      </div>
 
-        <h2
-          className="font-display font-bold text-ink dark:text-white leading-tight"
-          style={{ fontSize: "clamp(2rem, 6vw, 3.5rem)", letterSpacing: "-0.03em" }}
-        >
-          Your business needs a full ops and tech team.
-        </h2>
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-20">
+        <div className="text-left max-w-3xl">
+          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-teal/20 bg-teal-ghost px-4 py-2">
+            <span className="inline-block h-2 w-2 rounded-full bg-teal animate-blink" />
+            <span className="font-mono text-xs uppercase tracking-widest text-teal">
+              Fractional Ops &amp; Tech Partner
+            </span>
+          </div>
 
-        <p
-          className="mt-4 font-display text-teal leading-tight"
-          style={{ fontSize: "clamp(1.25rem, 3vw, 2rem)" }}
-        >
-          You don&apos;t need to hire one.
-        </p>
+          <h2
+            className="font-display font-bold text-ink dark:text-white leading-tight"
+            style={{ fontSize: "clamp(2rem, 5vw, 3rem)", letterSpacing: "-0.03em" }}
+          >
+            You&apos;re juggling a designer, a developer, and a strategist who&apos;ve never talked to each other.
+          </h2>
 
-        <p className="mx-auto mt-6 max-w-2xl font-body text-lg font-light text-graphite dark:text-ash">
-          I handle strategy, systems, and your website — so you&apos;re not managing a whole team to get it done.
-        </p>
+          <p
+            className="mt-4 font-display text-teal leading-tight"
+            style={{ fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)" }}
+          >
+            I&apos;m one person who does all of it.
+          </p>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <HeroContentMarkup />
+          <p className="mt-6 max-w-xl font-body text-lg font-light text-graphite dark:text-ash">
+            Strategy, systems, and websites — all under one roof. No handoffs, no miscommunication, no managing a whole team just to ship something.
+          </p>
+
+          <div className="mt-10 flex flex-wrap items-center justify-start gap-4">
+            <HeroContentMarkup />
+          </div>
         </div>
       </div>
     </section>
@@ -136,14 +170,36 @@ function StaticHero() {
    - Auto-plays: swivel in → hold → swivel out (scroll locked)
    - Unlocks scroll → scroll-driven hero content
    - 3s idle → floating scroll hint (centered, disappears on scroll)
+   - Mouse-tracking spotlight effect
    ──────────────────────────────────────────────────────────── */
 function AnimatedHero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const stickyRef = useRef<HTMLDivElement>(null);
   const wordmarkRef = useRef<HTMLHeadingElement>(null);
   const dotRef = useRef<HTMLSpanElement>(null);
   const [animDone, setAnimDone] = useState(false);
   const [, animate] = useAnimate();
   const showHint = useScrollHint(animDone);
+  const pathname = usePathname();
+
+  /* ── Mouse tracking for spotlight ── */
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springConfig = { stiffness: 50, damping: 30 };
+  const spotlightX = useSpring(mouseX, springConfig);
+  const spotlightY = useSpring(mouseY, springConfig);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!stickyRef.current) return;
+      const rect = stickyRef.current.getBoundingClientRect();
+      mouseX.set(e.clientX - rect.left);
+      mouseY.set(e.clientY - rect.top);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseX, mouseY]);
 
   useEffect(() => {
     let cancelled = false;
@@ -210,6 +266,37 @@ function AnimatedHero() {
     offset: ["start start", "end start"],
   });
 
+  // Lock scroll position once user has scrolled past 50% of hero (home page only)
+  const [scrollLockPosition, setScrollLockPosition] = useState<number | null>(null);
+  const isHomePage = pathname === "/";
+  
+  useEffect(() => {
+    if (!isHomePage) return;
+    
+    const unsubscribe = scrollYProgress.on("change", (value) => {
+      // Once user scrolls past 50%, set a lock position
+      if (value > 0.5 && scrollLockPosition === null) {
+        const heroHeight = containerRef.current?.offsetHeight || 0;
+        setScrollLockPosition(heroHeight * 0.4); // Lock at 40% of hero height
+      }
+    });
+    return () => unsubscribe();
+  }, [scrollYProgress, scrollLockPosition, isHomePage]);
+
+  // Prevent scrolling back up past the lock position (home page only)
+  useEffect(() => {
+    if (!isHomePage || scrollLockPosition === null) return;
+
+    const handleScroll = () => {
+      if (window.scrollY < scrollLockPosition) {
+        window.scrollTo({ top: scrollLockPosition, behavior: "instant" });
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: false });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [scrollLockPosition, isHomePage]);
+
   const pillOpacity = useTransform(scrollYProgress, [0.05, 0.12], [0, 1]);
   const pillY = useTransform(scrollYProgress, [0.05, 0.12], [30, 0]);
 
@@ -225,11 +312,41 @@ function AnimatedHero() {
   const ctaOpacity = useTransform(scrollYProgress, [0.28, 0.36], [0, 1]);
   const ctaY = useTransform(scrollYProgress, [0.28, 0.36], [30, 0]);
 
+  // Feature block fades in with CTAs
+  const featureOpacity = useTransform(scrollYProgress, [0.28, 0.40], [0, 1]);
+
   return (
     <section ref={containerRef} className="relative min-h-[200vh] bg-snow dark:bg-ink">
-      <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
+      {/* Bottom fade gradient for smooth transition to next section */}
+      <div 
+        className="pointer-events-none absolute bottom-0 left-0 right-0 h-32 md:h-48"
+        style={{
+          background: 'linear-gradient(to bottom, transparent, var(--color-carbon))',
+        }}
+        aria-hidden="true"
+      />
+      <div 
+        className="pointer-events-none absolute bottom-0 left-0 right-0 h-32 md:h-48 dark:hidden"
+        style={{
+          background: 'linear-gradient(to bottom, transparent, var(--color-white))',
+        }}
+        aria-hidden="true"
+      />
+      <div ref={stickyRef} className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
         <div className="hero-gradient absolute inset-0" />
         <div className="hero-grid absolute inset-0" />
+
+        {/* ── Mouse-tracking spotlight overlay ── */}
+        <motion.div
+          className="hero-spotlight absolute inset-0 pointer-events-none"
+          style={{
+            background: useTransform(
+              [spotlightX, spotlightY],
+              ([x, y]) =>
+                `radial-gradient(600px circle at ${x}px ${y}px, rgba(82, 143, 118, 0.08), transparent 60%)`
+            ),
+          }}
+        />
 
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-6">
           {/* ── Wordmark: swivels in then out (auto-play) ── */}
@@ -268,45 +385,57 @@ function AnimatedHero() {
 
           {/* ── Hero content: scroll-driven (visible after swivel out) ── */}
           {animDone && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center mx-auto max-w-4xl px-6 text-center">
+            <>
+              {/* Floating geometric shapes — right 45% */}
               <motion.div
-                style={{ opacity: pillOpacity, y: pillY }}
-                className="mb-8 inline-flex items-center gap-2 rounded-full border border-teal/20 bg-teal-ghost px-4 py-2"
+                style={{ opacity: featureOpacity }}
+                className="absolute top-0 right-0 w-[45%] h-full pointer-events-none hidden lg:block"
               >
-                <span className="inline-block h-2 w-2 rounded-full bg-teal animate-blink" />
-                <span className="font-mono text-xs uppercase tracking-widest text-teal">
-                  Fractional Ops &amp; Tech Partner
-                </span>
+                <HeroFeatureBlock />
               </motion.div>
 
-              <motion.h2
-                style={{ opacity: headlineOpacity, y: headlineY, fontSize: "clamp(2rem, 6vw, 3.5rem)", letterSpacing: "-0.03em" }}
-                className="font-display font-bold text-ink dark:text-white leading-tight"
-              >
-                Your business needs a full ops and tech team.
-              </motion.h2>
+              <div className="absolute inset-0 flex items-center w-full max-w-7xl mx-auto px-6 py-20">
+                <div className="text-left max-w-3xl">
+                  <motion.div
+                    style={{ opacity: pillOpacity, y: pillY }}
+                    className="mb-8 inline-flex items-center gap-2 rounded-full border border-teal/20 bg-teal-ghost px-4 py-2"
+                  >
+                    <span className="inline-block h-2 w-2 rounded-full bg-teal animate-blink" />
+                    <span className="font-mono text-xs uppercase tracking-widest text-teal">
+                      Fractional Ops &amp; Tech Partner
+                    </span>
+                  </motion.div>
 
-              <motion.p
-                style={{ opacity: subtitleOpacity, y: subtitleY, fontSize: "clamp(1.25rem, 3vw, 2rem)" }}
-                className="mt-4 font-display text-teal leading-tight"
-              >
-                You don&apos;t need to hire one.
-              </motion.p>
+                  <motion.h2
+                    style={{ opacity: headlineOpacity, y: headlineY, fontSize: "clamp(2rem, 5vw, 3rem)", letterSpacing: "-0.03em" }}
+                    className="font-display font-bold text-ink dark:text-white leading-tight"
+                  >
+                    You&apos;re juggling a designer, a developer, and a strategist who&apos;ve never talked to each other.
+                  </motion.h2>
 
-              <motion.p
-                style={{ opacity: descOpacity, y: descY }}
-                className="mx-auto mt-6 max-w-2xl font-body text-lg font-light text-graphite dark:text-ash"
-              >
-                I handle strategy, systems, and your website — so you&apos;re not managing a whole team to get it done.
-              </motion.p>
+                  <motion.p
+                    style={{ opacity: subtitleOpacity, y: subtitleY, fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)" }}
+                    className="mt-4 font-display text-teal leading-tight"
+                  >
+                    I&apos;m one person who does all of it.
+                  </motion.p>
 
-              <motion.div
-                style={{ opacity: ctaOpacity, y: ctaY }}
-                className="mt-10 flex flex-wrap items-center justify-center gap-4"
-              >
-                <HeroContentMarkup />
-              </motion.div>
-            </div>
+                  <motion.p
+                    style={{ opacity: descOpacity, y: descY }}
+                    className="mt-6 max-w-xl font-body text-lg font-light text-graphite dark:text-ash"
+                  >
+                    Strategy, systems, and websites — all under one roof. No handoffs, no miscommunication, no managing a whole team just to ship something.
+                  </motion.p>
+
+                  <motion.div
+                    style={{ opacity: ctaOpacity, y: ctaY }}
+                    className="mt-10 flex flex-wrap items-center justify-start gap-4"
+                  >
+                    <HeroContentMarkup />
+                  </motion.div>
+                </div>
+              </div>
+            </>
           )}
         </div>
       </div>
@@ -365,6 +494,16 @@ export default function HeroIntro() {
     <section className="relative min-h-screen bg-snow dark:bg-ink flex items-center justify-center overflow-hidden">
       <div className="hero-gradient absolute inset-0" />
       <div className="hero-grid absolute inset-0" />
+      <div 
+        className="pointer-events-none absolute bottom-0 left-0 right-0 z-20 h-24 hidden dark:block"
+        style={{ background: 'linear-gradient(to bottom, transparent, var(--color-carbon))' }}
+        aria-hidden="true"
+      />
+      <div 
+        className="pointer-events-none absolute bottom-0 left-0 right-0 z-20 h-24 dark:hidden"
+        style={{ background: 'linear-gradient(to bottom, transparent, var(--color-white))' }}
+        aria-hidden="true"
+      />
     </section>
   );
 }

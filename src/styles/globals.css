@@ -5,14 +5,14 @@
    ──────────────────────────────────────────── */
 
 @theme {
-  /* ── Primary — Teal Edge ── */
-  --color-teal: #00D4AA;
-  --color-teal-bright: #1AEDC2;
-  --color-teal-mid: #00B892;
-  --color-teal-dark: #009E7B;
-  --color-teal-deep: #007A5F;
-  --color-teal-ghost: rgba(0, 212, 170, 0.08);
-  --color-teal-glow: rgba(0, 212, 170, 0.15);
+  /* ── Primary — Forest Teal ── */
+  --color-teal: #528f76;
+  --color-teal-bright: #71b280;
+  --color-teal-mid: #427a6e;
+  --color-teal-dark: #2d6466;
+  --color-teal-deep: #134e5e;
+  --color-teal-ghost: rgba(82, 143, 118, 0.08);
+  --color-teal-glow: rgba(82, 143, 118, 0.15);
 
   /* ── Secondary — Service Accents ── */
   --color-signal: #FF6B3D;
@@ -348,6 +348,27 @@
   }
 }
 
+/* ── Animated gradient mesh for hero sections ── */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes gradientPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
 @keyframes blink {
   0%,
   100% {
@@ -428,15 +449,22 @@
     position: absolute;
     inset: 0;
     background: radial-gradient(
-        ellipse at 25% 25%,
-        rgba(0, 212, 170, 0.08) 0%,
+        ellipse 120% 80% at 25% 25%,
+        rgba(82, 143, 118, 0.1) 0%,
         transparent 50%
       ),
       radial-gradient(
-        ellipse at 75% 65%,
-        rgba(79, 91, 213, 0.05) 0%,
+        ellipse 100% 60% at 75% 65%,
+        rgba(79, 91, 213, 0.06) 0%,
         transparent 50%
+      ),
+      radial-gradient(
+        ellipse 80% 40% at 50% 90%,
+        rgba(255, 107, 61, 0.04) 0%,
+        transparent 40%
       );
+    background-size: 200% 200%;
+    animation: gradientShift 25s ease infinite;
     opacity: 1;
     transition: opacity 0.5s ease;
   }
@@ -447,15 +475,22 @@
     position: absolute;
     inset: 0;
     background: radial-gradient(
-        ellipse at 25% 25%,
-        var(--color-teal-glow) 0%,
+        ellipse 120% 80% at 25% 25%,
+        rgba(82, 143, 118, 0.18) 0%,
         transparent 50%
       ),
       radial-gradient(
-        ellipse at 75% 65%,
-        var(--color-indigo-ghost) 0%,
+        ellipse 100% 60% at 75% 65%,
+        rgba(79, 91, 213, 0.1) 0%,
         transparent 50%
+      ),
+      radial-gradient(
+        ellipse 80% 40% at 50% 90%,
+        rgba(255, 107, 61, 0.06) 0%,
+        transparent 40%
       );
+    background-size: 200% 200%;
+    animation: gradientShift 25s ease infinite;
     opacity: 0;
     transition: opacity 0.5s ease;
   }
@@ -528,6 +563,74 @@
 
 @utility animate-blink {
   animation: blink 2s ease-in-out infinite;
+}
+
+/* ── Hero Spotlight ── */
+.hero-spotlight {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transition: background 0.15s ease;
+}
+
+@utility animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* ── Animated gradient mesh for hero/CTA sections ── */
+@utility gradient-mesh {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 30%, rgba(82, 143, 118, 0.08), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 70% 60%, rgba(79, 91, 213, 0.06), transparent 50%),
+      radial-gradient(ellipse 40% 30% at 50% 80%, rgba(255, 107, 61, 0.04), transparent 40%);
+    background-size: 200% 200%;
+    animation: gradientShift 20s ease infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+:is(.dark) .gradient-mesh::before {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 30%, rgba(82, 143, 118, 0.12), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 70% 60%, rgba(79, 91, 213, 0.08), transparent 50%),
+    radial-gradient(ellipse 40% 30% at 50% 80%, rgba(255, 107, 61, 0.06), transparent 40%);
+}
+
+/* ── Noise texture overlay ── */
+@utility noise-texture {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+:is(.dark) .noise-texture::after {
+  opacity: 0.04;
+}
+
+/* ── Enhanced teal glow for interactive elements ── */
+@utility glow-teal {
+  transition: box-shadow 0.3s ease;
+}
+
+.glow-teal:hover {
+  box-shadow: 0 0 20px rgba(82, 143, 118, 0.25), 0 0 40px rgba(82, 143, 118, 0.1);
 }
 
 @utility text-section-title {

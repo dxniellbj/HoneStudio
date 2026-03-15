@@ -1,5 +1,14 @@
 # Hone Studio — Project Conventions
 
+## 0. Tooling
+
+**Always activate Serena MCP** at the start of every session:
+```
+mcp__plugin_serena_serena__activate_project with project: "C:\Users\N\HoneStudio"
+```
+
+---
+
 **Stack:** Next.js 15 (App Router) · TypeScript · Tailwind CSS 4 · Firebase Hosting · Gemini API
 **Domain:** honestudio.cv / honestudio.co
 **One-liner:** Fractional ops & tech partner — strategy, systems, and websites with zero overhead.
@@ -151,6 +160,14 @@ Self-host all three via `next/font/google`. No external stylesheet requests.
 - Self-host fonts via `next/font` — no CLS
 - Target Lighthouse 95+
 
+### Images
+- **Always compress images** before adding to `public/` — target < 200KB per image
+- Use WebP or JPEG for photos, PNG only when transparency is required
+- Use `next/image` with `fill` and proper `sizes` attribute for responsive images
+- Provide meaningful `alt` text for accessibility
+- Store images in organized folders: `public/images/about/`, `public/images/work/`, etc.
+- For book covers and thumbnails: max 400px width, compress to < 50KB
+
 ### Accessibility
 - ARIA roles on all interactive elements
 - Keyboard navigation and focus management
@@ -221,7 +238,7 @@ Library: **Framer Motion** (`motion` from `framer-motion`)
 ## 8. Honest AI Rules
 
 - **Name:** Honest AI
-- **Model:** Gemini 2.0 Flash
+- **Model:** Gemini 2.5 Flash Lite (`gemini-2.5-flash-lite`)
 - **API route:** `POST /api/chat` — streaming via `generateContentStream`
 - **Rate limit:** 20 req/min/IP
 - When unsure, say so honestly

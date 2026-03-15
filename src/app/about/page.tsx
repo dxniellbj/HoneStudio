@@ -13,24 +13,24 @@ export const metadata: Metadata = {
 
 const VALUES = [
   {
-    title: "Integrated, Not Siloed",
+    title: "Everything Connects",
     description:
-      "Strategy, design, and tech all live under one roof. When I work across all three, things actually connect.",
+      "Strategy, design, and tech all live under one roof. No handoffs, no \"that's not my department.\" When one person handles it all, nothing falls through the cracks.",
   },
   {
-    title: "Outcomes Over Deliverables",
+    title: "Outcomes, Not Deliverables",
     description:
-      "A beautiful site that doesn't convert is decoration. I care about what the work does for your business, not how many pages I shipped.",
+      "A beautiful site that doesn't convert is just expensive decoration. I care about what the work does for your business — not how many pages I shipped.",
   },
   {
     title: "Honest By Default",
     description:
-      "If something won't work, I'll tell you. If there's a better path, I'll show you. That's it.",
+      "If something won't work, I'll tell you. If there's a better path, I'll show you. No point in being precious about it.",
   },
   {
-    title: "Lean & Focused",
+    title: "One Person, Not One Team",
     description:
-      "One senior partner who knows your business inside out. Faster decisions, tighter execution, and nobody billing you for a project manager you never needed.",
+      "You get a senior partner who knows your business inside out. Faster decisions, tighter execution, and no one billing you for a project manager you never needed.",
   },
 ] as const;
 
@@ -59,6 +59,15 @@ const TOP_READS = [
   { genre: "Slice of Life", title: "The Book Thief", author: "Markus Zusak", cover: "/images/about/the-book-thief-book-cover.jpg" },
 ] as const;
 
+const RED_RISING_BOOKS = [
+  { title: "Red Rising", cover: "/images/about/red-rising-1.jpg", completed: true },
+  { title: "Golden Son", cover: "/images/about/red-rising-2.jpg", completed: true },
+  { title: "Morning Star", cover: "/images/about/red-rising-3.png", completed: true },
+  { title: "Iron Gold", cover: "/images/about/red-rising-4.webp", completed: false },
+  { title: "Dark Age", cover: "/images/about/red-rising-5.jpg", completed: false },
+  { title: "Light Bringer", cover: "/images/about/red-rising-6.jpg", completed: false },
+] as const;
+
 export default function AboutPage() {
   return (
     <>
@@ -85,10 +94,10 @@ export default function AboutPage() {
                   full team just to get things done.
                 </p>
                 <p>
-                  Most businesses end up hiring a designer, a developer, a
+                  Here&apos;s what usually happens: you hire a designer, a developer, a
                   strategist, and someone for automation. That&apos;s four
                   conversations, four invoices, and four people who never
-                  talk to each other. I&apos;m one person who does all of it.
+                  talk to each other. I&apos;m one person who does all of it — and actually enjoys the fact that it all connects.
                 </p>
               </div>
             </ScrollReveal>
@@ -131,20 +140,19 @@ export default function AboutPage() {
                   I started building websites for small businesses — Kajabi
                   sites, Shopify stores, WordPress redesigns. The kind of work
                   where you talk directly to the person running the business and
-                  figure out what they actually need.
+                  figure out what they actually need. (Not what looks good in a portfolio.)
                 </p>
                 <p>
                   That kept pulling me into bigger problems. A client needed
-                  email automations, then a CRM setup, then competitive
+                  email automations. Then a CRM setup. Then competitive
                   research before a rebrand. Instead of saying &ldquo;that&apos;s
-                  not what I do,&rdquo; I learned it. One thing led to another
-                  and now I build AI-powered internal tools for a VC firm during
-                  the week and ship sites and systems for founders on the side.
+                  not what I do,&rdquo; I learned it. Honestly, I found it more interesting than just building another website.
                 </p>
                 <p>
-                  The through line is I like figuring out how things work —
+                  One thing led to another and now I build AI-powered internal tools for a VC firm during
+                  the week and ship sites and systems for founders on the side. The through line? I like figuring out how things work —
                   whether that&apos;s a Kajabi funnel or an AI enrichment
-                  pipeline. Different tools, same curiosity.
+                  pipeline.
                 </p>
                 <p>
                   That&apos;s where the name comes from — to hone means to
@@ -317,20 +325,81 @@ export default function AboutPage() {
 
       <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
 
-      {/* ── CTA (B: white/carbon) ── */}
-      <section className="bg-white dark:bg-carbon py-16 px-6">
+      {/* ── Currently Reading (B: white/carbon) ── */}
+      <section className="bg-white dark:bg-carbon py-16 px-6 pattern-dots">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+            <ScrollReveal>
+              <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
+                <span className="inline-block h-px w-6 bg-teal" />
+                Currently Reading
+              </p>
+              <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
+                Red Rising Series
+              </h2>
+              <p className="mt-2 font-mono text-sm text-graphite dark:text-ash">
+                by Pierce Brown
+              </p>
+              <div className="mt-6 space-y-4 text-lg leading-relaxed text-graphite dark:text-ash">
+                <p>
+                  In a future where humanity has colonized the solar system, society is divided into a color-coded caste system. Golds rule with iron fists. Reds toil in the mines, believing they&apos;re sacrificing for humanity&apos;s future. It&apos;s a lie — and when Darrow discovers the truth, he becomes the spark that ignites a revolution.
+                </p>
+                <p>
+                  What begins as one man&apos;s infiltration of the ruling class evolves into a solar system-spanning war. Alliances form and shatter. Friends become enemies. The original trilogy follows Darrow&apos;s rise from slave to revolutionary leader — and the second trilogy explores the brutal cost of building a new world from the ashes of the old.
+                </p>
+                <p className="font-display text-teal italic">
+                  &ldquo;I will die. You will die. We will all die and the universe will carry on without care. All that we have is that shout into the wind — how we live. How we go. And how we stand before we fall.&rdquo;
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.15}>
+              <div className="relative flex items-center justify-center">
+                <div className="grid grid-cols-3 gap-4">
+                  {RED_RISING_BOOKS.map((book, i) => (
+                    <div key={book.title} className="relative">
+                      {book.completed && (
+                        <span className="absolute -top-2 -right-2 z-10 rounded-full bg-teal px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-ink">
+                          Done
+                        </span>
+                      )}
+                      <div className="group relative aspect-[2/3] w-24 md:w-32 overflow-hidden rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink shadow-lg transition-transform duration-300 hover:scale-105">
+                        <Image
+                          src={book.cover}
+                          alt={`${book.title} by Pierce Brown`}
+                          fill
+                          sizes="128px"
+                          className="object-cover"
+                        />
+                      </div>
+                      <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-widest text-graphite dark:text-ash">
+                        {book.title}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
+
+      {/* ── CTA (A: snow/ink) ── */}
+      <section className="bg-snow dark:bg-ink py-16 px-6">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
-            Let&apos;s work together
+            Think we&apos;d work well together?
           </h2>
           <p className="mt-4 text-lg text-graphite dark:text-ash">
-            Tell me what you&apos;re working on — I&apos;ll tell you where I fit in.
+            I&apos;m always open to a conversation. Even if it&apos;s just to talk through what you&apos;re building.
           </p>
           <Link
             href="/contact"
             className="mt-8 inline-block rounded-sm bg-teal px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright"
           >
-            Get in Touch
+            Let&apos;s Talk
           </Link>
         </ScrollReveal>
       </section>
