@@ -7,7 +7,8 @@
     "frameworksBackend": {
       "region": "us-central1",
       "environmentVariables": {
-        "GEMINI_API_KEY": "SECRET:GEMINI_API_KEY"
+        "GEMINI_API_KEY": "SECRET:GEMINI_API_KEY",
+        "CAL_WEBHOOK_SECRET": "SECRET:CAL_WEBHOOK_SECRET"
       }
     },
     "ignore": [

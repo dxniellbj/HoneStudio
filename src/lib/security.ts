@@ -46,22 +46,29 @@ export function validateOrigin(request: NextRequest): boolean {
 }
 
 /**
- * Verify webhook secret header
- * Uses a simple shared secret in x-webhook-secret header
+ * Verify Cal.com webhook signature
+ * Cal.com signs the payload with HMAC-SHA256 using the secret
  */
-export function verifyWebhookSecret(
-  headerSecret: string | null,
-  expectedSecret: string
+export function verifyCalSignature(
+  payload: string,
+  signature: string | null,
+  secret: string
 ): boolean {
-  if (!headerSecret || !expectedSecret) {
+  if (!signature || !secret) {
     return false;
   }
+
+  // Cal.com uses HMAC-SHA256
+  const expectedSignature = crypto
+    .createHmac("sha256", secret)
+    .update(payload)
+    .digest("hex");
 
   // Constant-time comparison to prevent timing attacks
   try {
     return crypto.timingSafeEqual(
-      Buffer.from(headerSecret),
-      Buffer.from(expectedSecret)
+      Buffer.from(signature),
+      Buffer.from(expectedSignature)
     );
   } catch {
     return false;
