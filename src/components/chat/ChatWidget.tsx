@@ -34,6 +34,15 @@ export default function ChatWidget() {
     if (open) inputRef.current?.focus();
   }, [open]);
 
+  // Listen for custom event to open chat from other components
+  useEffect(() => {
+    function handleOpenChat() {
+      setOpen(true);
+    }
+    window.addEventListener("openHonestChat", handleOpenChat);
+    return () => window.removeEventListener("openHonestChat", handleOpenChat);
+  }, []);
+
   // Focus trap
   useEffect(() => {
     if (!open) return;

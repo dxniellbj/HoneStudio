@@ -4,6 +4,7 @@ import SectionDivider from "@/components/SectionDivider";
 import TechLines from "@/components/TechLines";
 import BusinessCard from "@/components/BusinessCard";
 import CalEmbed from "@/components/CalEmbed";
+import ContactSidebar from "@/components/ContactSidebar";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -37,47 +38,27 @@ export default function ContactPage() {
 
       {/* ── Calendar Embed (B: white/carbon) ── */}
       <section className="bg-white dark:bg-carbon py-16 px-6 pattern-dots">
-        <div className="mx-auto max-w-4xl">
-          <ScrollReveal>
-            <div className="relative rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink overflow-hidden">
-              <TechLines variant="bracket-pair" className="text-cloud dark:text-slate" />
-              <div className="h-[650px] md:h-[700px]">
-                <CalEmbed />
-              </div>
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-col lg:flex-row lg:gap-6">
+            {/* Calendar - Left Side */}
+            <div className="flex-1">
+              <ScrollReveal>
+                <div className="relative rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink overflow-hidden p-4 md:p-6 h-[620px] md:h-[660px]">
+                  <TechLines variant="bracket-pair" className="text-cloud dark:text-slate" />
+                  <div className="h-full">
+                    <CalEmbed />
+                  </div>
+                </div>
+              </ScrollReveal>
             </div>
-          </ScrollReveal>
 
-          {/* Alternative contact */}
-          <ScrollReveal delay={0.1}>
-            <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-8">
-              <div className="text-center sm:text-left">
-                <p className="font-mono text-xs uppercase tracking-widest text-ash">
-                  Prefer email?
-                </p>
-                <a
-                  href="mailto:dxniellbj@gmail.com"
-                  className="text-sm text-graphite dark:text-ash transition-colors hover:text-teal"
-                >
-                  dxniellbj@gmail.com
-                </a>
-              </div>
-              <div className="hidden sm:block h-8 w-px bg-cloud dark:bg-slate" />
-              <div className="text-center sm:text-left">
-                <p className="font-mono text-xs uppercase tracking-widest text-ash">
-                  Quick question?
-                </p>
-                <p className="text-sm text-graphite dark:text-ash">
-                  Use the chat widget
-                </p>
-              </div>
+            {/* Contact Options - Right Side */}
+            <div className="mt-8 lg:mt-0 lg:w-72 lg:self-start">
+              <ScrollReveal delay={0.1}>
+                <ContactSidebar />
+              </ScrollReveal>
             </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.15}>
-            <div className="mt-8 flex justify-center">
-              <BusinessCard />
-            </div>
-          </ScrollReveal>
+          </div>
         </div>
       </section>
     </>
