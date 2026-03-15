@@ -1,0 +1,36 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default: deny all reads and writes
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Contacts collection - server-side write only
+    match /contacts/{contactId} {
+      // No client reads
+      allow read: if false;
+      
+      // No client writes - API route handles this via Admin SDK
+      allow write: if false;
+    }
+
+    // Bookings collection - server-side write only (Cal.com webhook)
+    match /bookings/{bookingId} {
+      allow read: if false;
+      allow write: if false;
+    }
+
+    // Quiz submissions - server-side write only
+    match /quiz_submissions/{submissionId} {
+      allow read: if false;
+      allow write: if false;
+    }
+
+    // If you need authenticated admin access in the future:
+    // match /contacts/{contactId} {
+    //   allow read: if request.auth != null && request.auth.token.admin == true;
+    // }
+  }
+}

@@ -1,7 +1,18 @@
 import { NextRequest } from "next/server";
 import { model, SYSTEM_PROMPT } from "@/lib/gemini-client";
+import { rateLimit, RATE_LIMITS } from "@/lib/rate-limit";
+import { validateOrigin, sanitizeInput } from "@/lib/security";
 
 export async function POST(request: NextRequest) {
+  // Rate limiting
+  const rateLimitResponse = rateLimit(request, RATE_LIMITS.chat);
+  if (rateLimitResponse) return rateLimitResponse;
+
+  // Origin validation (CSRF protection)
+  if (!validateOrigin(request)) {
+    return Response.json({ error: "Invalid origin" }, { status: 403 });
+  }
+
   let body: { message?: string; history?: { role: string; text: string }[]; page?: string };
 
   try {
@@ -12,11 +23,24 @@ export async function POST(request: NextRequest) {
 
   const { message, history = [], page } = body;
 
+  // Validate and sanitize message
   if (!message?.trim()) {
     return Response.json({ error: "Message is required" }, { status: 400 });
   }
 
-  const pageContext = page ? `\nThe user is currently on the ${page} page.` : "";
+  // Limit message length to prevent abuse
+  const sanitizedMessage = sanitizeInput(message, 2000);
+  if (sanitizedMessage.length === 0) {
+    return Response.json({ error: "Message is required" }, { status: 400 });
+  }
+
+  // Limit history to prevent context stuffing
+  const limitedHistory = history.slice(-20).map((msg) => ({
+    role: msg.role as "user" | "model",
+    parts: [{ text: sanitizeInput(msg.text, 2000) }],
+  }));
+
+  const pageContext = page ? `\nThe user is currently on the ${sanitizeInput(page, 50)} page.` : "";
 
   try {
     const chat = model.startChat({
@@ -29,14 +53,11 @@ export async function POST(request: NextRequest) {
           role: "model",
           parts: [{ text: "Understood. I'm Honest AI, ready to help visitors learn about Hone Studio." }],
         },
-        ...history.map((msg) => ({
-          role: msg.role as "user" | "model",
-          parts: [{ text: msg.text }],
-        })),
+        ...limitedHistory,
       ],
     });
 
-    const result = await chat.sendMessageStream(message);
+    const result = await chat.sendMessageStream(sanitizedMessage);
 
     const encoder = new TextEncoder();
     const stream = new ReadableStream({

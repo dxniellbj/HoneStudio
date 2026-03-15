@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/firestore";
 import nodemailer from "nodemailer";
+import { rateLimit, RATE_LIMITS } from "@/lib/rate-limit";
+import { validateOrigin, sanitizeInput, sanitizeEmail } from "@/lib/security";
 
 interface ContactPayload {
   name?: string;
@@ -67,6 +69,15 @@ async function sendNotification(data: {
 }
 
 export async function POST(request: NextRequest) {
+  // Rate limiting
+  const rateLimitResponse = rateLimit(request, RATE_LIMITS.contact);
+  if (rateLimitResponse) return rateLimitResponse;
+
+  // Origin validation (CSRF protection)
+  if (!validateOrigin(request)) {
+    return NextResponse.json({ error: "Invalid origin" }, { status: 403 });
+  }
+
   let body: ContactPayload;
 
   try {
@@ -95,11 +106,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ errors }, { status: 400 });
   }
 
+  // Sanitize inputs
   const submission = {
-    name: name!.trim(),
-    email: email!.trim(),
-    company: company?.trim() || "",
-    message: message!.trim(),
+    name: sanitizeInput(name!, 200),
+    email: sanitizeEmail(email!) || email!.trim(),
+    company: sanitizeInput(company || "", 200),
+    message: sanitizeInput(message!, 5000),
     createdAt: new Date().toISOString(),
   };
 

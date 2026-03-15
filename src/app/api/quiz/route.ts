@@ -3,6 +3,8 @@ import { db } from "@/lib/firestore";
 import nodemailer from "nodemailer";
 import type { QuizSubmission } from "@/types/quiz";
 import { SERVICE_DISPLAY, AUDIENCE_DISPLAY } from "@/lib/quiz-data";
+import { rateLimit, RATE_LIMITS } from "@/lib/rate-limit";
+import { validateOrigin, sanitizeInput, sanitizeEmail } from "@/lib/security";
 
 const NOTIFY_EMAIL = process.env.CONTACT_NOTIFY_EMAIL || "";
 const SMTP_HOST = process.env.SMTP_HOST || "smtp.gmail.com";
@@ -126,6 +128,15 @@ async function sendQuizNotification(data: QuizSubmission) {
 }
 
 export async function POST(request: NextRequest) {
+  // Rate limiting
+  const rateLimitResponse = rateLimit(request, RATE_LIMITS.quiz);
+  if (rateLimitResponse) return rateLimitResponse;
+
+  // Origin validation (CSRF protection)
+  if (!validateOrigin(request)) {
+    return NextResponse.json({ error: "Invalid origin" }, { status: 403 });
+  }
+
   let body: QuizSubmission;
 
   try {
@@ -145,7 +156,8 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(body.email)) {
+  const sanitizedEmail = sanitizeEmail(body.email);
+  if (!sanitizedEmail) {
     return NextResponse.json(
       { error: "Invalid email format" },
       { status: 400 }
@@ -159,14 +171,22 @@ export async function POST(request: NextRequest) {
     );
   }
 
+  // Sanitize and limit answers
+  const sanitizedAnswers = body.answers.slice(0, 20).map((a) => ({
+    questionId: sanitizeInput(a.questionId || "", 100),
+    optionId: sanitizeInput(a.optionId || "", 100),
+    questionText: sanitizeInput(a.questionText || "", 500),
+    answerText: sanitizeInput(a.answerText || "", 500),
+  }));
+
   const submission: QuizSubmission = {
     createdAt: new Date().toISOString(),
     scores: body.scores,
     recommendation: body.recommendation,
-    answers: body.answers,
-    email: body.email.trim(),
-    name: body.name?.trim(),
-    company: body.company?.trim(),
+    answers: sanitizedAnswers,
+    email: sanitizedEmail,
+    name: sanitizeInput(body.name || "", 200),
+    company: sanitizeInput(body.company || "", 200),
     urgency: body.urgency,
   };
 
