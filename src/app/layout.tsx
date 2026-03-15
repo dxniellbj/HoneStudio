@@ -68,12 +68,7 @@ export default function RootLayout({
             __html: `(function(){try{var t=localStorage.getItem("hone-theme");if(t==="light"){document.documentElement.classList.remove("dark")}else if(!t&&window.matchMedia("(prefers-color-scheme:light)").matches){document.documentElement.classList.remove("dark")}}catch(e){}})()`,
           }}
         />
-        {/* Plausible Analytics - privacy-friendly, no cookies */}
-        <script
-          defer
-          data-domain="honestudio.cv"
-          src="https://plausible.io/js/script.js"
-        />
+        
         <JsonLd />
       </head>
       <body>

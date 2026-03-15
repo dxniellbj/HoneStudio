@@ -1,5 +1,4 @@
 import type { NextConfig } from "next";
-import { withSentryConfig } from "@sentry/nextjs";
 
 const nextConfig: NextConfig = {
   async headers() {
@@ -39,11 +38,11 @@ const nextConfig: NextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cal.com https://app.cal.com https://plausible.io",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cal.com https://app.cal.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "img-src 'self' data: https: blob:",
               "font-src 'self' https://fonts.gstatic.com",
-              "connect-src 'self' https://generativelanguage.googleapis.com https://cal.com https://app.cal.com https://*.sentry.io https://plausible.io",
+              "connect-src 'self' https://generativelanguage.googleapis.com https://cal.com https://app.cal.com",
               "frame-src https://cal.com https://app.cal.com",
               "frame-ancestors 'none'",
               "form-action 'self'",
@@ -57,15 +56,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default withSentryConfig(nextConfig, {
-  // Suppresses source map upload logs during build
-  silent: true,
-  
-  // Upload source maps for better stack traces
-  widenClientFileUpload: true,
-  
-  // Configure source maps
-  sourcemaps: {
-    deleteSourcemapsAfterUpload: true,
-  },
-});
+export default nextConfig;
