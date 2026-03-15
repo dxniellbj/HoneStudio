@@ -28,6 +28,12 @@ service cloud.firestore {
       allow write: if false;
     }
 
+    // Error logs - server-side write only
+    match /errors/{errorId} {
+      allow read: if false;
+      allow write: if false;
+    }
+
     // If you need authenticated admin access in the future:
     // match /contacts/{contactId} {
     //   allow read: if request.auth != null && request.auth.token.admin == true;

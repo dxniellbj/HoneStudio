@@ -7,6 +7,7 @@ import ChatWidgetLazy from "@/components/chat/ChatWidgetLazy";
 import QuizPrompt from "@/components/QuizPrompt";
 import TealCursor from "@/components/TealCursor";
 import JsonLd from "@/components/JsonLd";
+import ErrorLogger from "@/components/ErrorLogger";
 import "@/styles/globals.css";
 
 const fraunces = Fraunces({
@@ -79,6 +80,7 @@ export default function RootLayout({
           <ChatWidgetLazy />
           <QuizPrompt />
           <TealCursor />
+          <ErrorLogger />
         </ThemeProvider>
       </body>
     </html>
