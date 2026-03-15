@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/firestore";
 import { rateLimit, RATE_LIMITS } from "@/lib/rate-limit";
-import { verifyCalSignature } from "@/lib/security";
+import { verifyWebhookSecret } from "@/lib/security";
 
 // Cal.com webhook payload types
 interface CalBookingPayload {
@@ -36,11 +36,8 @@ export async function POST(req: NextRequest) {
   const rateLimitResponse = rateLimit(req, RATE_LIMITS.webhook);
   if (rateLimitResponse) return rateLimitResponse;
 
-  // Get raw body for signature verification
-  const rawBody = await req.text();
-  
-  // Verify Cal.com signature
-  const signature = req.headers.get("cal-signature");
+  // Verify webhook secret header
+  const headerSecret = req.headers.get("x-webhook-secret");
   const webhookSecret = process.env.CAL_WEBHOOK_SECRET;
 
   if (!webhookSecret) {
@@ -51,16 +48,16 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  if (!verifyCalSignature(rawBody, signature, webhookSecret)) {
-    console.warn("[Cal Webhook] Invalid signature");
+  if (!verifyWebhookSecret(headerSecret, webhookSecret)) {
+    console.warn("[Cal Webhook] Invalid or missing secret");
     return NextResponse.json(
-      { error: "Invalid signature" },
+      { error: "Unauthorized" },
       { status: 401 }
     );
   }
 
   try {
-    const body = JSON.parse(rawBody) as CalBookingPayload;
+    const body = (await req.json()) as CalBookingPayload;
     const { triggerEvent, payload } = body;
 
     // Get attendee info (the person who booked)
