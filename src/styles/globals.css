@@ -21,6 +21,9 @@
   --color-indigo: #4F5BD5;
   --color-indigo-dim: #3D49B8;
   --color-indigo-ghost: rgba(79, 91, 213, 0.08);
+  --color-violet: #A855F7;
+  --color-violet-dim: #9333EA;
+  --color-violet-ghost: rgba(168, 85, 247, 0.08);
 
   /* ── Neutrals ── */
   --color-ink: #0F1114;

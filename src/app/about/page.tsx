@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionDivider from "@/components/SectionDivider";
-import TechLines from "@/components/TechLines";
+import Toolkit from "@/components/Toolkit";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -31,24 +31,6 @@ export const metadata: Metadata = {
     description:
       "Meet Niell Alfajora — the person behind Hone Studio. Strategy, systems, and websites, all from one partner.",
   },
-};
-
-const TOOLKIT = {
-  Web: ["Next.js", "React", "Tailwind CSS", "Kajabi", "Shopify", "Squarespace", "Figma", "Vercel", "Firebase"],
-  "AI & Automation": ["Gemini", "OpenAI", "Claude", "Perplexity", "Firebase", "Chatbots", "CRM Automations", "Data Pipelines"],
-  Strategy: ["Market Research", "Competitive Intel", "Discovery Workshops", "Roadmapping", "Audits"],
-} as const;
-
-const TOOLKIT_ACCENT: Record<string, string> = {
-  Web: "text-teal dark:text-teal-dark",
-  "AI & Automation": "text-signal",
-  Strategy: "text-indigo",
-};
-
-const TOOLKIT_TAG_STYLE: Record<string, string> = {
-  Web: "border-teal/30 dark:border-teal-dark/30 text-teal dark:text-teal-dark bg-teal-ghost",
-  "AI & Automation": "border-signal/30 text-signal bg-signal-ghost",
-  Strategy: "border-indigo/30 text-indigo bg-indigo-ghost",
 };
 
 const VALUES = [
@@ -246,47 +228,7 @@ export default function AboutPage() {
       <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
 
       {/* ── Toolkit (B: white/carbon) ── */}
-      <section className="relative bg-white dark:bg-carbon py-16 px-6 pattern-scan">
-        <TechLines variant="corner-brackets" className="text-cloud dark:text-slate" />
-        <div className="mx-auto max-w-7xl">
-          <ScrollReveal>
-            <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-              <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
-              Toolkit
-            </p>
-            <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
-              What I Work With
-            </h2>
-            <p className="mt-4 text-lg text-graphite dark:text-ash">
-              I&apos;m platform-flexible — I pick the tool that fits the business, not the one I&apos;m most comfortable with.
-            </p>
-          </ScrollReveal>
-
-          <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
-            {Object.entries(TOOLKIT).map(([category, tools], i) => (
-              <ScrollReveal key={category} delay={i * 0.1} className="h-full">
-                <div className="h-full rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink p-8">
-                  <h3
-                    className={`mb-6 font-mono text-xs uppercase tracking-widest ${TOOLKIT_ACCENT[category]}`}
-                  >
-                    {category}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {tools.map((tool) => (
-                      <span
-                        key={tool}
-                        className={`rounded-full border px-3 py-1 font-mono text-[11px] ${TOOLKIT_TAG_STYLE[category]}`}
-                      >
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Toolkit />
 
       <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
 

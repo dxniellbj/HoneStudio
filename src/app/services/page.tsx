@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionDivider from "@/components/SectionDivider";
 import TechLines from "@/components/TechLines";
+import Toolkit from "@/components/Toolkit";
 import Link from "next/link";
 import { SERVICE_PILLARS, PROCESS_STEPS } from "@/lib/data";
 
@@ -211,8 +212,13 @@ export default function ServicesPage() {
 
       <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
 
-      {/* ── CTA (B: white/carbon) ── */}
-      <section className="bg-white dark:bg-carbon py-16 px-6 pattern-dots">
+      {/* ── Toolkit (B: white/carbon) ── */}
+      <Toolkit />
+
+      <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
+
+      {/* ── CTA (A: snow/ink) ── */}
+      <section className="bg-snow dark:bg-ink py-16 px-6 pattern-dots">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
             Let&apos;s figure out what you actually need.

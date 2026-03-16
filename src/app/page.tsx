@@ -1,7 +1,7 @@
 import HeroIntro from "@/components/HeroIntro";
 import SplashScreen from "@/components/SplashScreen";
 import ServicePillars from "@/components/ServicePillars";
-import ToolsBanner from "@/components/ToolsBanner";
+import Toolkit from "@/components/Toolkit";
 import AudienceFunnel from "@/components/AudienceFunnel";
 import CaseStudyCard from "@/components/CaseStudyCard";
 import StatsStrip from "@/components/StatsStrip";
@@ -30,8 +30,8 @@ export default function HomePage() {
 
       <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
 
-      {/* 4. Tools Banner (B: white/carbon) */}
-      <ToolsBanner />
+      {/* 4. Toolkit (B: white/carbon) */}
+      <Toolkit />
 
       <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
 
