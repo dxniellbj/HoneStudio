@@ -356,7 +356,7 @@ export default async function CaseStudyPage({
 
                 return (
                   <ScrollReveal key={rowIndex} delay={rowIndex * 0.06}>
-                    <div className={`grid grid-cols-12 gap-4 ${isMultiImage ? "md:grid-rows-1" : ""}`}>
+                    <div className={`grid grid-cols-12 gap-4 ${isMultiImage ? "md:auto-rows-[400px]" : ""}`}>
                       {row.map((img, imgIndex) => {
                         const span = img.cols ?? 12;
                         const isFullWidth = span === 12;
@@ -364,16 +364,12 @@ export default async function CaseStudyPage({
                         return (
                           <figure
                             key={imgIndex}
-                            className={`col-span-12 ${COL_SPAN[span] ?? "md:col-span-12"} ${isMultiImage ? "h-full" : ""}`}
+                            className={`col-span-12 ${COL_SPAN[span] ?? "md:col-span-12"}`}
                           >
                             <ImageLightbox src={img.src} alt={img.alt}>
                               <div
                                 className={`relative overflow-hidden rounded-md border border-cloud dark:border-slate transition-all duration-300 hover:border-teal ${
-                                  isFullWidth
-                                    ? "aspect-video"
-                                    : isMultiImage
-                                      ? "aspect-[4/3]"
-                                      : "aspect-video"
+                                  isFullWidth ? "aspect-video" : "h-full"
                                 }`}
                                 style={img.bg ? { backgroundColor: img.bg } : undefined}
                               >
