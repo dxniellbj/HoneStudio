@@ -3,20 +3,21 @@ import TechLines from "@/components/TechLines";
 
 const TOOLKIT = {
   Web: [
-    "Next.js", "React", "Tailwind CSS", "JavaScript", "TypeScript", "HTML/CSS",
-    "Shopify", "Liquid", "Kajabi", "Squarespace", "Webflow", "Framer",
-    "Figma", "Vercel", "Firebase", "Google Workspace"
+    "Next.js", "React", "TypeScript", "JavaScript", "Firebase",
+    "Tailwind CSS", "Liquid", "Vercel", "Shopify", "Webflow",
+    "Framer", "Kajabi", "Squarespace", "Figma", "Google Workspace", "HTML/CSS"
   ],
   "AI & Automation": [
-    "Gemini", "OpenAI", "Claude", "Perplexity", "Genkit",
-    "Chatbots", "CRM Automations", "Data Pipelines", "AI Workflows",
-    "Google Sheets", "Excel", "Apps Script", "API Integrations", "Lead Enrichment"
+    "Genkit", "API Integrations", "Data Pipelines", "AI Workflows",
+    "Claude", "OpenAI", "Gemini", "Perplexity", "Apps Script",
+    "CRM Automations", "Lead Enrichment", "Chatbots", "Google Sheets", "Excel"
   ],
   Strategy: [
-    "Market Research", "Competitive Intel", "Discovery Workshops", "Roadmapping", "Audits",
-    "SEO", "CRO", "Website Audits", "Funnel Planning", "Offer Positioning", "Sourcing Systems"
+    "Funnel Planning", "Offer Positioning", "Sourcing Systems",
+    "Market Research", "Competitive Intel", "SEO", "CRO",
+    "Discovery Workshops", "Roadmapping", "Website Audits", "Audits"
   ],
-  Design: ["Canva", "Photoshop", "Illustrator", "Figma", "Brand Kits", "Web Graphics"],
+  Design: ["Illustrator", "Photoshop", "Figma", "Brand Kits", "Web Graphics", "Canva"],
 } as const;
 
 const TOOLKIT_ACCENT: Record<string, string> = {
