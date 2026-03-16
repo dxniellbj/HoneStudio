@@ -6,7 +6,8 @@ import ScrollReveal from "@/components/ScrollReveal";
 import SectionDivider from "@/components/SectionDivider";
 import TechLines from "@/components/TechLines";
 import { AnimatedStatsGrid } from "@/components/AnimatedStat";
-import { CASE_STUDIES } from "@/lib/data";
+import ImageLightbox from "@/components/ImageLightbox";
+import { CASE_STUDIES, type CaseStudyImage } from "@/lib/data";
 
 const COL_SPAN: Record<number, string> = {
   3: "md:col-span-3",
@@ -24,6 +25,44 @@ const PILLAR_COLORS: Record<string, string> = {
   AI: "border-signal/30 text-signal bg-signal-ghost",
   Strategy: "border-indigo/30 text-indigo bg-indigo-ghost",
 };
+
+// Group images into rows based on column spans (12-col grid)
+function groupImagesIntoRows(images: CaseStudyImage[]): CaseStudyImage[][] {
+  const rows: CaseStudyImage[][] = [];
+  let currentRow: CaseStudyImage[] = [];
+  let currentCols = 0;
+
+  for (const img of images) {
+    const cols = img.cols ?? 12;
+
+    if (currentCols + cols > 12) {
+      // Start new row
+      if (currentRow.length > 0) {
+        rows.push(currentRow);
+      }
+      currentRow = [img];
+      currentCols = cols;
+    } else {
+      // Add to current row
+      currentRow.push(img);
+      currentCols += cols;
+    }
+
+    // If we've filled the row, push it
+    if (currentCols === 12) {
+      rows.push(currentRow);
+      currentRow = [];
+      currentCols = 0;
+    }
+  }
+
+  // Push remaining images
+  if (currentRow.length > 0) {
+    rows.push(currentRow);
+  }
+
+  return rows;
+}
 
 function getStudy(slug: string) {
   return CASE_STUDIES.find((s) => s.slug === slug);
@@ -146,18 +185,20 @@ export default async function CaseStudyPage({
           {study.images && study.images.length > 0 && (
             <ScrollReveal delay={0.1}>
               <figure className="mt-10">
-                <div
-                  className="relative aspect-video overflow-hidden rounded-md border border-cloud dark:border-slate"
-                  style={study.images[0].bg ? { backgroundColor: study.images[0].bg } : undefined}
-                >
-                  <Image
-                    src={study.images[0].src}
-                    alt={study.images[0].alt}
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
+                <ImageLightbox src={study.images[0].src} alt={study.images[0].alt}>
+                  <div
+                    className="relative aspect-video overflow-hidden rounded-md border border-cloud dark:border-slate transition-all duration-300 hover:border-teal"
+                    style={study.images[0].bg ? { backgroundColor: study.images[0].bg } : undefined}
+                  >
+                    <Image
+                      src={study.images[0].src}
+                      alt={study.images[0].alt}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                </ImageLightbox>
                 {study.images[0].caption && (
                   <figcaption className="mt-3 text-center text-sm text-graphite dark:text-ash">
                     {study.images[0].caption}
@@ -309,34 +350,57 @@ export default async function CaseStudyPage({
 
           {/* Supporting Images */}
           {study.images && study.images.length > 1 && (
-            <div className="mb-8 grid grid-cols-12 gap-4">
-              {study.images.slice(1).map((img, i) => {
-                const span = img.cols ?? 12;
+            <div className="mb-8 space-y-4">
+              {groupImagesIntoRows(study.images.slice(1)).map((row, rowIndex) => {
+                const isMultiImage = row.length > 1;
+
                 return (
-                  <ScrollReveal
-                    key={i}
-                    delay={i * 0.06}
-                    className={`col-span-12 ${COL_SPAN[span] ?? "md:col-span-12"}`}
-                  >
-                    <figure className="h-full">
-                      <div
-                        className="relative aspect-video overflow-hidden rounded-md border border-cloud dark:border-slate"
-                        style={img.bg ? { backgroundColor: img.bg } : undefined}
-                      >
-                        <Image
-                          src={img.src}
-                          alt={img.alt}
-                          fill
-                          className="object-contain"
-                          sizes="(max-width: 768px) 100vw, 33vw"
-                        />
-                      </div>
-                      {img.caption && (
-                        <figcaption className="mt-3 text-center text-sm text-graphite dark:text-ash">
-                          {img.caption}
-                        </figcaption>
-                      )}
-                    </figure>
+                  <ScrollReveal key={rowIndex} delay={rowIndex * 0.06}>
+                    <div className={`grid grid-cols-12 gap-4 ${isMultiImage ? "md:grid-rows-1" : ""}`}>
+                      {row.map((img, imgIndex) => {
+                        const span = img.cols ?? 12;
+                        const isFullWidth = span === 12;
+
+                        return (
+                          <figure
+                            key={imgIndex}
+                            className={`col-span-12 ${COL_SPAN[span] ?? "md:col-span-12"} ${isMultiImage ? "h-full" : ""}`}
+                          >
+                            <ImageLightbox src={img.src} alt={img.alt}>
+                              <div
+                                className={`relative overflow-hidden rounded-md border border-cloud dark:border-slate transition-all duration-300 hover:border-teal ${
+                                  isFullWidth
+                                    ? "aspect-video"
+                                    : isMultiImage
+                                      ? "aspect-[4/3]"
+                                      : "aspect-video"
+                                }`}
+                                style={img.bg ? { backgroundColor: img.bg } : undefined}
+                              >
+                                <Image
+                                  src={img.src}
+                                  alt={img.alt}
+                                  fill
+                                  className="object-contain"
+                                  sizes={isFullWidth ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 100vw, 33vw"}
+                                />
+                                {/* Zoom indicator */}
+                                <div className="absolute bottom-2 right-2 flex h-6 w-6 items-center justify-center rounded-full bg-ink/50 text-white opacity-0 transition-opacity group-hover:opacity-100">
+                                  <svg className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                                  </svg>
+                                </div>
+                              </div>
+                            </ImageLightbox>
+                            {img.caption && (
+                              <figcaption className="mt-3 text-center text-sm text-graphite dark:text-ash">
+                                {img.caption}
+                              </figcaption>
+                            )}
+                          </figure>
+                        );
+                      })}
+                    </div>
                   </ScrollReveal>
                 );
               })}

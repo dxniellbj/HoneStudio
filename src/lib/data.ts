@@ -135,10 +135,10 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
     stats: [
-      { label: "Net Revenue", value: "£67,986" },
+      { label: "Net Revenue", value: "$86,000+" },
       { label: "Contacts", value: "13,800+" },
       { label: "Subs / Month", value: "35" },
-      { label: "MRR", value: "£408" },
+      { label: "MRR", value: "$518" },
     ],
     challenge:
       "Shan Fisher Education is a photography business that had outgrown their WordPress setup. Courses were hard to manage, there was no automation in place, and scaling meant hitting a wall with every new launch. They needed a platform that could handle course delivery, payments, and marketing in one place.",
