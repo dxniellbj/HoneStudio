@@ -77,62 +77,67 @@ export default function WorkGrid() {
 
           <div className="space-y-4">
             <AnimatePresence mode="popLayout">
-              {filteredMentions.map((mention) => (
-                <motion.div
-                  key={mention.client}
-                  layout
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
-                  transition={{ type: "spring", stiffness: 100, damping: 20 }}
-                >
-                  <div className="flex items-start justify-between gap-6 rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-6 transition-all duration-300 hover:border-teal">
-                    <div>
-                      {mention.url ? (
-                        <a
-                          href={mention.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-display text-lg font-medium text-ink dark:text-white transition-colors hover:text-teal dark:hover:text-teal-dark"
-                        >
+              {filteredMentions.map((mention) => {
+                const CardWrapper = mention.url ? "a" : "div";
+                const cardProps = mention.url
+                  ? {
+                      href: mention.url,
+                      target: "_blank",
+                      rel: "noopener noreferrer",
+                    }
+                  : {};
+
+                return (
+                  <motion.div
+                    key={mention.client}
+                    layout
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.98 }}
+                    transition={{ type: "spring", stiffness: 100, damping: 20 }}
+                  >
+                    <CardWrapper
+                      {...cardProps}
+                      className={`flex items-start justify-between gap-6 rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-6 transition-all duration-300 hover:border-teal ${mention.url ? "cursor-pointer group block" : ""}`}
+                    >
+                      <div>
+                        <span className={`font-display text-lg font-medium text-ink dark:text-white ${mention.url ? "group-hover:text-teal dark:group-hover:text-teal-dark transition-colors" : ""}`}>
                           {mention.client}
-                          <svg className="ml-1.5 inline-block h-3.5 w-3.5 text-ash" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5" />
-                          </svg>
-                        </a>
-                      ) : (
-                        <span className="font-display text-lg font-medium text-ink dark:text-white">
-                          {mention.client}
+                          {mention.url && (
+                            <svg className="ml-1.5 inline-block h-3.5 w-3.5 text-ash group-hover:text-teal dark:group-hover:text-teal-dark transition-colors" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                              <path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5" />
+                            </svg>
+                          )}
                           {mention.defunct && (
                             <span className="ml-2 text-sm font-normal italic text-ash">
                               (defunct)
                             </span>
                           )}
                         </span>
-                      )}
-                      <p className="mt-2 text-sm leading-relaxed text-graphite dark:text-ash">
-                        {mention.description}
-                      </p>
-                    </div>
-                    <div className="flex shrink-0 gap-2">
-                      {mention.pillars.map((pillar) => (
-                        <span
-                          key={pillar}
-                          className={`rounded-full border px-3 py-1 font-mono text-[11px] ${
-                            pillar === "Web"
-                              ? "border-teal/30 dark:border-teal-dark/30 text-teal dark:text-teal-dark bg-teal-ghost"
-                              : pillar === "AI"
-                                ? "border-signal/30 text-signal bg-signal-ghost"
-                                : "border-indigo/30 text-indigo bg-indigo-ghost"
-                          }`}
-                        >
-                          {pillar}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+                        <p className="mt-2 text-sm leading-relaxed text-graphite dark:text-ash">
+                          {mention.description}
+                        </p>
+                      </div>
+                      <div className="flex shrink-0 gap-2">
+                        {mention.pillars.map((pillar) => (
+                          <span
+                            key={pillar}
+                            className={`rounded-full border px-3 py-1 font-mono text-[11px] ${
+                              pillar === "Web"
+                                ? "border-teal/30 dark:border-teal-dark/30 text-teal dark:text-teal-dark bg-teal-ghost"
+                                : pillar === "AI"
+                                  ? "border-signal/30 text-signal bg-signal-ghost"
+                                  : "border-indigo/30 text-indigo bg-indigo-ghost"
+                            }`}
+                          >
+                            {pillar}
+                          </span>
+                        ))}
+                      </div>
+                    </CardWrapper>
+                  </motion.div>
+                );
+              })}
             </AnimatePresence>
           </div>
         </div>

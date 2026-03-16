@@ -327,8 +327,8 @@ export const NOTABLE_MENTIONS: NotableMention[] = [
     pillars: ["Web", "Strategy"],
   },
   {
-    client: "Cape Town Wellness Travel Alliance",
-    url: "https://ctwta.com",
+    client: "The Wellness Agency Africa",
+    url: "https://thewellnessagency.africa",
     description:
       "Kajabi site for an Africa-focused wellness tourism consultancy connecting hotels and corporates with 500+ wellness professionals.",
     pillars: ["Web", "Strategy"],
