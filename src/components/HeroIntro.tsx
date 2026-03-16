@@ -319,7 +319,7 @@ function AnimatedHero() {
     <section ref={containerRef} className="relative min-h-[200vh] bg-snow dark:bg-ink">
       {/* Bottom fade gradient for smooth transition to next section */}
       <div 
-        className="pointer-events-none absolute bottom-0 left-0 right-0 h-32 md:h-48"
+        className="pointer-events-none absolute bottom-0 left-0 right-0 h-32 md:h-48 hidden dark:block"
         style={{
           background: 'linear-gradient(to bottom, transparent, var(--color-carbon))',
         }}
