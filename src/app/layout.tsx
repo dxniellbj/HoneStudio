@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Fraunces, DM_Sans, Space_Mono } from "next/font/google";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -6,6 +7,7 @@ import ThemeProvider from "@/components/ThemeProvider";
 import ChatWidgetLazy from "@/components/chat/ChatWidgetLazy";
 import QuizPrompt from "@/components/QuizPrompt";
 import TealCursor from "@/components/TealCursor";
+import PageLoadingIndicator from "@/components/PageLoadingIndicator";
 import JsonLd from "@/components/JsonLd";
 import ErrorLogger from "@/components/ErrorLogger";
 import "@/styles/globals.css";
@@ -116,6 +118,9 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeProvider>
+          <Suspense fallback={null}>
+            <PageLoadingIndicator />
+          </Suspense>
           <NavBar />
           <main>{children}</main>
           <Footer />

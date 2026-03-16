@@ -738,3 +738,54 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* ────────────────────────────────────────────
+   Interactive Feedback — Buttons & Links
+   ──────────────────────────────────────────── */
+
+/* Button click feedback */
+button,
+a,
+[role="button"] {
+  transition: transform 0.1s ease, opacity 0.1s ease;
+}
+
+button:active:not(:disabled),
+a:active,
+[role="button"]:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+/* Primary CTA buttons get stronger feedback */
+.bg-teal:active,
+.bg-teal-dark:active,
+[class*="bg-teal"]:active {
+  transform: scale(0.95);
+  opacity: 0.9;
+}
+
+/* Navigation link click ripple effect */
+@keyframes linkRipple {
+  0% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Focus visible states for accessibility */
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 2px;
+}
+
+.dark button:focus-visible,
+.dark a:focus-visible,
+.dark [role="button"]:focus-visible {
+  outline-color: var(--color-teal-dark);
+}

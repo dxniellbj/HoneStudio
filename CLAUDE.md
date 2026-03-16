@@ -176,6 +176,12 @@ Self-host all three via `next/font/google`. No external stylesheet requests.
 - Semantic HTML with proper heading hierarchy
 - `prefers-reduced-motion: reduce` — disable all motion, fall back to instant state
 
+### User Feedback
+- Always add feedback after user action — loading states, button press animations, navigation indicators
+- Show progress indicators during page transitions (top progress bar, loading cursor)
+- Buttons should have visible active/pressed states (scale down on click)
+- Never leave the user wondering if their action was received
+
 ### Content & Messaging
 - No pricing on site — CTA is always "get in touch" / "book a call"
 - Frame services as outcomes, not deliverables
