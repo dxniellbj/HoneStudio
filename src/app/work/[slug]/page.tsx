@@ -162,7 +162,7 @@ export default async function CaseStudyPage({
             <h1 className="mt-2 font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
               {study.title}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-section-desc text-graphite dark:text-ash">
+            <p className="mt-6 text-lg leading-relaxed text-graphite dark:text-ash">
               {study.summary}
             </p>
 
