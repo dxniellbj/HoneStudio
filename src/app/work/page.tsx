@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionDivider from "@/components/SectionDivider";
 import WorkGrid from "@/components/WorkGrid";
+import Testimonials from "@/components/Testimonials";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -62,6 +63,9 @@ export default function WorkPage() {
           <WorkGrid />
         </div>
       </section>
+
+      {/* ── Testimonial (B: white/carbon) ── */}
+      <Testimonials />
 
       <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
 

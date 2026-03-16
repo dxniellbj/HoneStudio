@@ -5,6 +5,7 @@ import ToolsBanner from "@/components/ToolsBanner";
 import AudienceFunnel from "@/components/AudienceFunnel";
 import CaseStudyCard from "@/components/CaseStudyCard";
 import StatsStrip from "@/components/StatsStrip";
+import Testimonials from "@/components/Testimonials";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionDivider from "@/components/SectionDivider";
 import Link from "next/link";
@@ -67,9 +68,12 @@ export default function HomePage() {
       {/* 6. Stats Strip (B: white/carbon) */}
       <StatsStrip />
 
+      {/* 7. Testimonial (B: white/carbon) */}
+      <Testimonials />
+
       <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
 
-      {/* 7. CTA Section (A: snow/ink) */}
+      {/* 8. CTA Section (A: snow/ink) */}
       <section className="bg-snow dark:bg-ink py-16 px-6 pattern-grid">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
