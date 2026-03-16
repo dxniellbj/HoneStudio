@@ -53,7 +53,7 @@ function StatItem({
 
   return (
     <div className="text-center">
-      <p className="font-display text-4xl font-medium text-teal md:text-5xl">
+      <p className="font-display text-4xl font-medium text-teal dark:text-teal-dark md:text-5xl">
         {count}
         <span className="text-teal-bright">{suffix}</span>
       </p>
@@ -89,7 +89,7 @@ export default function StatsStrip() {
   return (
     <section ref={ref} className="bg-white dark:bg-carbon py-20 px-6 pattern-scan">
       <div className="mx-auto max-w-5xl mb-10">
-        <TechLines variant="scan-rule" className="text-teal" />
+        <TechLines variant="scan-rule" className="text-teal dark:text-teal-dark" />
       </div>
       <div className="mx-auto grid max-w-5xl grid-cols-2 gap-10 md:grid-cols-4">
         {STATS.map((stat) => (

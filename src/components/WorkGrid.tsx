@@ -37,8 +37,8 @@ export default function WorkGrid() {
             aria-pressed={active === filter}
             className={`rounded-full border px-5 py-2 font-mono text-xs uppercase tracking-widest transition-colors ${
               active === filter
-                ? "border-teal bg-teal text-ink"
-                : "border-cloud dark:border-slate bg-snow dark:bg-ink text-graphite dark:text-ash hover:border-teal hover:text-teal"
+                ? "border-teal dark:border-teal-dark bg-teal dark:bg-teal-dark text-ink"
+                : "border-cloud dark:border-slate bg-snow dark:bg-ink text-graphite dark:text-ash hover:border-teal dark:hover:border-teal-dark hover:text-teal dark:hover:text-teal-dark"
             }`}
           >
             {filter}
@@ -70,7 +70,7 @@ export default function WorkGrid() {
         <div className="mt-16">
           <ScrollReveal>
             <p className="mb-6 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-              <span className="inline-block h-px w-6 bg-teal" />
+              <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
               Also Worked With
             </p>
           </ScrollReveal>
@@ -93,7 +93,7 @@ export default function WorkGrid() {
                           href={mention.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-display text-lg font-medium text-ink dark:text-white transition-colors hover:text-teal"
+                          className="font-display text-lg font-medium text-ink dark:text-white transition-colors hover:text-teal dark:hover:text-teal-dark"
                         >
                           {mention.client}
                           <svg className="ml-1.5 inline-block h-3.5 w-3.5 text-ash" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -120,7 +120,7 @@ export default function WorkGrid() {
                           key={pillar}
                           className={`rounded-full border px-3 py-1 font-mono text-[11px] ${
                             pillar === "Web"
-                              ? "border-teal/30 text-teal bg-teal-ghost"
+                              ? "border-teal/30 dark:border-teal-dark/30 text-teal dark:text-teal-dark bg-teal-ghost"
                               : pillar === "AI"
                                 ? "border-signal/30 text-signal bg-signal-ghost"
                                 : "border-indigo/30 text-indigo bg-indigo-ghost"

@@ -8,15 +8,40 @@ import { SERVICE_PILLARS, PROCESS_STEPS } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Web design, AI & automation, and strategy. See how Hone Studio works.",
+    "Web design & development, AI automation, and business strategy. Three services, one partner, zero handoffs. See how Hone Studio works.",
+  keywords: [
+    "web design services",
+    "AI automation",
+    "business strategy",
+    "Kajabi development",
+    "Shopify development",
+    "Next.js development",
+    "CRM automation",
+    "chatbot development",
+  ],
+  alternates: {
+    canonical: "/services",
+  },
+  openGraph: {
+    title: "Services | Hone Studio",
+    description:
+      "Web design & development, AI automation, and business strategy. Three services, one partner, zero handoffs.",
+    url: "https://honestudio.cv/services",
+    
+  },
+  twitter: {
+    title: "Services | Hone Studio",
+    description:
+      "Web design & development, AI automation, and business strategy. Three services, one partner, zero handoffs.",
+  },
 };
 
 const ACCENT_MAP = {
   teal: {
-    number: "text-teal",
-    border: "border-teal/20",
-    dot: "bg-teal",
-    tag: "border-teal/30 text-teal bg-teal-ghost",
+    number: "text-teal dark:text-teal-dark",
+    border: "border-teal/20 dark:border-teal-dark/20",
+    dot: "bg-teal dark:bg-teal-dark",
+    tag: "border-teal/30 dark:border-teal-dark/30 text-teal dark:text-teal-dark bg-teal-ghost",
   },
   signal: {
     number: "text-signal",
@@ -52,18 +77,21 @@ export default function ServicesPage() {
   return (
     <>
       {/* ── Hero (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink py-20 px-6 pattern-grid">
+      <section className="bg-snow dark:bg-ink min-h-screen flex items-center px-6 pattern-grid">
         <div className="mx-auto max-w-7xl">
           <ScrollReveal>
             <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-              <span className="inline-block h-px w-6 bg-teal" />
+              <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
               Services
             </p>
             <h1 className="font-display text-5xl text-section-title text-ink dark:text-white md:text-6xl">
               Three Things, One Person
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-section-desc text-graphite dark:text-ash">
-              Most businesses hire separately for strategy, systems, and web. Then spend half their time making sure everyone&apos;s on the same page. I handle all three — which means everything actually connects.
+              You&apos;ve got a strategist who doesn&apos;t talk to your developer. A developer who&apos;s never seen the business plan. And an automation person who built something nobody asked for.
+            </p>
+            <p className="mt-4 max-w-2xl text-lg text-section-desc text-graphite dark:text-ash">
+              I do all three. Strategy, systems, and web. One brain, one Slack thread, zero game-of-telephone. Everything connects because one person is connecting it.
             </p>
           </ScrollReveal>
         </div>
@@ -150,14 +178,14 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-7xl">
           <ScrollReveal>
             <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-              <span className="inline-block h-px w-6 bg-teal" />
+              <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
               Process
             </p>
             <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
               How This Works
             </h2>
             <p className="mt-4 max-w-2xl text-lg text-section-desc text-graphite dark:text-ash">
-              A call, a plan, and we&apos;re building. Here&apos;s exactly what each phase looks like.
+              No 12-step onboarding gauntlet. Here&apos;s what actually happens:
             </p>
           </ScrollReveal>
 
@@ -165,7 +193,7 @@ export default function ServicesPage() {
             {PROCESS_STEPS.map((step, i) => (
               <ScrollReveal key={step.number} delay={i * 0.1} className="h-full">
                 <div className="h-full rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-8 transition-all duration-300 hover:border-iron">
-                  <p className="mb-4 font-mono text-sm text-teal">
+                  <p className="mb-4 font-mono text-sm text-teal dark:text-teal-dark">
                     {step.number}
                   </p>
                   <h3 className="mb-3 font-display text-xl font-medium text-ink dark:text-white">
@@ -187,14 +215,17 @@ export default function ServicesPage() {
       <section className="bg-white dark:bg-carbon py-16 px-6 pattern-dots">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
-            Not sure which pillar you need?
+            Let&apos;s figure out what you actually need.
           </h2>
           <p className="mt-4 text-lg text-graphite dark:text-ash">
-            Most projects touch more than one. Let&apos;s figure out what makes sense for yours.
+            Most projects touch more than one of these. That&apos;s the whole point of working with one person — we don&apos;t have to draw lines between strategy, systems, and web. We just build what moves the needle.
+          </p>
+          <p className="mt-4 text-lg text-graphite dark:text-ash">
+            Tell me what&apos;s going on and I&apos;ll tell you where to start.
           </p>
           <Link
             href="/contact"
-            className="mt-8 inline-block rounded-sm bg-teal px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright"
+            className="mt-8 inline-block rounded-sm bg-teal dark:bg-teal-dark px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal"
           >
             Book a Discovery Call
           </Link>

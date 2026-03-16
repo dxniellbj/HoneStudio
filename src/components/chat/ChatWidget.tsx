@@ -150,7 +150,7 @@ export default function ChatWidget() {
         onClick={() => setOpen(!open)}
         aria-label={open ? "Close chat" : "Open Honest AI chat"}
         aria-expanded={open}
-        className="fixed right-6 bottom-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-teal shadow-lg transition-transform hover:scale-105 hover:bg-teal-bright active:scale-95"
+        className="fixed right-6 bottom-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-teal dark:bg-teal-dark shadow-lg transition-transform hover:scale-105 hover:bg-teal-bright dark:hover:bg-teal active:scale-95"
       >
         <svg
           width="24"
@@ -190,7 +190,7 @@ export default function ChatWidget() {
           >
             {/* Header */}
             <div className="flex items-center gap-3 border-b border-cloud dark:border-slate px-4 py-3">
-              <div className="h-2 w-2 rounded-full bg-teal animate-blink" />
+              <div className="h-2 w-2 rounded-full bg-teal dark:bg-teal-dark animate-blink" />
               <div>
                 <p className="text-sm font-medium text-ink dark:text-white">Honest AI</p>
                 <p className="text-[11px] text-graphite dark:text-ash">Ask me anything about Hone Studio</p>
@@ -206,7 +206,7 @@ export default function ChatWidget() {
                     <button
                       key={prompt}
                       onClick={() => sendMessage(prompt)}
-                      className="block w-full rounded-md border border-cloud dark:border-slate px-3 py-2 text-left text-sm text-graphite dark:text-ash transition-colors hover:border-teal hover:text-teal"
+                      className="block w-full rounded-md border border-cloud dark:border-slate px-3 py-2 text-left text-sm text-graphite dark:text-ash transition-colors hover:border-teal dark:hover:border-teal-dark hover:text-teal dark:hover:text-teal-dark"
                     >
                       {prompt}
                     </button>
@@ -249,7 +249,7 @@ export default function ChatWidget() {
                   type="submit"
                   disabled={streaming || !input.trim()}
                   aria-label="Send message"
-                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-teal text-ink transition-colors hover:bg-teal-bright disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-teal dark:bg-teal-dark text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   <svg
                     width="16"

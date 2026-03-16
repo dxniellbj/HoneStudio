@@ -336,7 +336,7 @@ export default function Quiz() {
               <button
                 onClick={handleNext}
                 disabled={!currentAnswer}
-                className="rounded-sm bg-teal px-6 py-2.5 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright disabled:cursor-not-allowed disabled:opacity-50"
+                className="rounded-sm bg-teal dark:bg-teal-dark px-6 py-2.5 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {state.currentStep === QUIZ_QUESTIONS.length - 1
                   ? "See Results"

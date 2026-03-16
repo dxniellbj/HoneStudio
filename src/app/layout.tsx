@@ -33,23 +33,65 @@ const spaceMono = Space_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Hone Studio",
+    default: "Hone Studio — Fractional Ops & Tech Partner",
     template: "%s | Hone Studio",
   },
   description:
-    "Fractional ops & tech partner — strategy, systems, and websites with zero overhead.",
+    "Fractional ops & tech partner for founders and small teams. Strategy, systems, and websites — all from one senior partner. No overhead, no handoffs.",
+  keywords: [
+    "fractional ops",
+    "tech partner",
+    "web design",
+    "web development",
+    "AI automation",
+    "business strategy",
+    "Kajabi",
+    "Shopify",
+    "Next.js",
+    "small business",
+    "startup",
+    "freelance developer",
+    "fractional CTO",
+  ],
+  authors: [{ name: "Niell Alfajora", url: "https://honestudio.cv/about" }],
+  creator: "Niell Alfajora",
+  publisher: "Hone Studio",
   metadataBase: new URL("https://honestudio.cv"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
+    url: "https://honestudio.cv",
     siteName: "Hone Studio",
-    title: "Hone Studio",
+    title: "Hone Studio — Fractional Ops & Tech Partner",
     description:
-      "Fractional ops & tech partner — strategy, systems, and websites with zero overhead.",
+      "Strategy, systems, and websites — all from one senior partner. No overhead, no handoffs.",
+    
   },
   twitter: {
     card: "summary_large_image",
+    title: "Hone Studio — Fractional Ops & Tech Partner",
+    description:
+      "Strategy, systems, and websites — all from one senior partner. No overhead, no handoffs.",
+    creator: "@honestudio",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "your-google-verification-code",
+  },
+  category: "technology",
 };
 
 export default function RootLayout({

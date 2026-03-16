@@ -235,13 +235,13 @@ const FLOAT_CLASSES = [
 ];
 
 const TAG_CLASSES = {
-  teal: "text-teal border-teal/20 bg-teal-ghost",
+  teal: "text-teal dark:text-teal-dark border-teal/20 dark:border-teal-dark/20 bg-teal-ghost",
   signal: "text-signal border-signal/20 bg-signal-ghost",
   indigo: "text-indigo border-indigo/20 bg-indigo-ghost",
 } as const;
 
 const TITLE_CLASSES = {
-  teal: "text-teal",
+  teal: "text-teal dark:text-teal-dark",
   signal: "text-signal",
   indigo: "text-indigo",
 } as const;
@@ -345,9 +345,9 @@ export default function ToolsBanner() {
         {/* Section header */}
         <div className="mb-16 text-center">
           <p className="mb-4 flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-            <span className="inline-block h-px w-6 bg-teal" />
+            <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
             Tech Stack
-            <span className="inline-block h-px w-6 bg-teal" />
+            <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
           </p>
           <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
             Tools of the Trade

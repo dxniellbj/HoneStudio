@@ -42,7 +42,7 @@ export default function QuizResumePrompt({
       <div className="flex flex-col gap-3 sm:flex-row">
         <motion.button
           onClick={onResume}
-          className="flex-1 rounded-sm bg-teal px-6 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright"
+          className="flex-1 rounded-sm bg-teal dark:bg-teal-dark px-6 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           transition={springTransition}

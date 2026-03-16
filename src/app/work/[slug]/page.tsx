@@ -20,7 +20,7 @@ const COL_SPAN: Record<number, string> = {
 };
 
 const PILLAR_COLORS: Record<string, string> = {
-  Web: "border-teal/30 text-teal bg-teal-ghost",
+  Web: "border-teal/30 dark:border-teal-dark/30 text-teal dark:text-teal-dark bg-teal-ghost",
   AI: "border-signal/30 text-signal bg-signal-ghost",
   Strategy: "border-indigo/30 text-indigo bg-indigo-ghost",
 };
@@ -42,9 +42,36 @@ export async function generateMetadata({
   const study = getStudy(slug);
   if (!study) return {};
 
+  const title = `${study.client} Case Study`;
+  const description = study.summary;
+
   return {
-    title: study.client,
-    description: study.summary,
+    title,
+    description,
+    keywords: [
+      study.client,
+      "case study",
+      ...study.pillars,
+      "portfolio",
+      "web design",
+    ],
+    alternates: {
+      canonical: `/work/${slug}`,
+    },
+    openGraph: {
+      title: `${title} | Hone Studio`,
+      description,
+      url: `https://honestudio.cv/work/${slug}`,
+      images: study.thumbnail
+        ? [{ url: study.thumbnail, width: 1200, height: 630 }]
+        : undefined,
+      type: "article",
+    },
+    twitter: {
+      title: `${title} | Hone Studio`,
+      description,
+      images: study.thumbnail ? [study.thumbnail] : undefined,
+    },
   };
 }
 
@@ -68,7 +95,7 @@ export default async function CaseStudyPage({
           <ScrollReveal>
             <Link
               href="/work"
-              className="mb-8 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash transition-colors hover:text-teal"
+              className="mb-8 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash transition-colors hover:text-teal dark:hover:text-teal-dark"
             >
               <span aria-hidden="true">&larr;</span>
               Back to Work
@@ -105,7 +132,7 @@ export default async function CaseStudyPage({
                 href={study.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2 font-mono text-sm uppercase tracking-widest text-teal transition-colors hover:text-teal-bright"
+                className="mt-6 inline-flex items-center gap-2 font-mono text-sm uppercase tracking-widest text-teal dark:text-teal-dark transition-colors hover:text-teal-bright dark:hover:text-teal"
               >
                 Visit Site
                 <svg className="ml-1.5 inline-block h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -151,13 +178,13 @@ export default async function CaseStudyPage({
             {/* Scope */}
             <ScrollReveal>
               <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-                <span className="inline-block h-px w-6 bg-teal" />
+                <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
                 Scope
               </p>
               <div className="space-y-3">
                 {study.scope.map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-teal" />
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-teal dark:bg-teal-dark" />
                     <p className="text-sm leading-relaxed text-graphite dark:text-ash">{item}</p>
                   </div>
                 ))}
@@ -167,7 +194,7 @@ export default async function CaseStudyPage({
             {/* Tech Stack */}
             <ScrollReveal delay={0.1}>
               <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-                <span className="inline-block h-px w-6 bg-teal" />
+                <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
                 Tech Stack
               </p>
               <div className="flex flex-wrap gap-2">
@@ -192,7 +219,7 @@ export default async function CaseStudyPage({
         <div className="mx-auto max-w-4xl">
           <ScrollReveal>
             <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-              <span className="inline-block h-px w-6 bg-teal" />
+              <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
               The Challenge
             </p>
             <div className="rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-8">
@@ -212,7 +239,7 @@ export default async function CaseStudyPage({
         <div className="mx-auto max-w-4xl">
           <ScrollReveal>
             <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-              <span className="inline-block h-px w-6 bg-teal" />
+              <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
               The Approach
             </p>
           </ScrollReveal>
@@ -221,7 +248,7 @@ export default async function CaseStudyPage({
             {study.approach.map((step, i) => (
               <ScrollReveal key={i} delay={i * 0.08}>
                 <div className="flex items-start gap-4 rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink p-6">
-                  <span className="shrink-0 font-mono text-sm font-medium text-teal">
+                  <span className="shrink-0 font-mono text-sm font-medium text-teal dark:text-teal-dark">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="text-sm leading-relaxed text-graphite dark:text-ash">{step}</p>
@@ -241,7 +268,7 @@ export default async function CaseStudyPage({
             <div className="mx-auto max-w-4xl">
               <ScrollReveal>
                 <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-                  <span className="inline-block h-px w-6 bg-teal" />
+                  <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
                   Key Features
                 </p>
               </ScrollReveal>
@@ -250,7 +277,7 @@ export default async function CaseStudyPage({
                 {study.keyFeatures.map((feature, i) => (
                   <ScrollReveal key={i} delay={i * 0.06} className="h-full">
                     <div className="h-full flex items-start gap-3 rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-5 transition-all duration-300 hover:border-teal">
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal" />
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal dark:bg-teal-dark" />
                       <p className="text-sm leading-relaxed text-graphite dark:text-ash">
                         {feature}
                       </p>
@@ -270,7 +297,7 @@ export default async function CaseStudyPage({
         <div className="mx-auto max-w-4xl">
           <ScrollReveal>
             <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-              <span className="inline-block h-px w-6 bg-teal" />
+              <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
               The Results
             </p>
           </ScrollReveal>
@@ -320,7 +347,7 @@ export default async function CaseStudyPage({
             {study.results.map((result, i) => (
               <ScrollReveal key={i} delay={i * 0.08} className="h-full">
                 <div className="h-full flex items-start gap-3 rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink p-6">
-                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-teal" />
+                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-teal dark:bg-teal-dark" />
                   <p className="text-sm leading-relaxed text-graphite dark:text-ash">
                     {result}
                   </p>
@@ -357,7 +384,7 @@ export default async function CaseStudyPage({
                 </p>
                 <Link
                   href="/services"
-                  className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-teal transition-colors hover:text-teal-bright"
+                  className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-teal dark:text-teal-dark transition-colors hover:text-teal-bright dark:hover:text-teal"
                 >
                   See how the pillars connect
                   <span aria-hidden="true">&rarr;</span>
@@ -377,7 +404,7 @@ export default async function CaseStudyPage({
             <div className="mx-auto max-w-4xl">
               <ScrollReveal>
                 <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-                  <span className="inline-block h-px w-6 bg-teal" />
+                  <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
                   More Work
                 </p>
               </ScrollReveal>
@@ -397,7 +424,7 @@ export default async function CaseStudyPage({
                           {other.title}
                         </p>
                       </div>
-                      <span className="font-mono text-xs text-teal opacity-0 transition-opacity group-hover:opacity-100">
+                      <span className="font-mono text-xs text-teal dark:text-teal-dark opacity-0 transition-opacity group-hover:opacity-100">
                         &rarr;
                       </span>
                     </Link>
@@ -422,7 +449,7 @@ export default async function CaseStudyPage({
           </p>
           <Link
             href="/contact"
-            className="mt-8 inline-block rounded-sm bg-teal px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright"
+            className="mt-8 inline-block rounded-sm bg-teal dark:bg-teal-dark px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal"
           >
             Start a Conversation
           </Link>

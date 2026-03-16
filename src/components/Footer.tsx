@@ -17,7 +17,7 @@ export default function Footer() {
           <span className="font-display text-2xl font-semibold tracking-[-0.02em] text-ink dark:text-white">
             Hone
           </span>
-          <span className="font-display text-2xl font-semibold tracking-[-0.02em] text-teal">.</span>
+          <span className="font-display text-2xl font-semibold tracking-[-0.02em] text-teal dark:text-teal-dark">.</span>
         </Link>
 
         {/* Tagline */}
@@ -34,7 +34,7 @@ export default function Footer() {
             <Link
               key={link.href}
               href={link.href}
-              className="font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash transition-colors hover:text-teal"
+              className="font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash transition-colors hover:text-teal dark:hover:text-teal-dark"
             >
               {link.label}
             </Link>
@@ -47,7 +47,7 @@ export default function Footer() {
             href="https://www.linkedin.com/in/niell-alfajora/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash transition-colors hover:text-teal"
+            className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash transition-colors hover:text-teal dark:hover:text-teal-dark"
             aria-label="LinkedIn profile"
           >
             <svg
@@ -65,7 +65,7 @@ export default function Footer() {
             href="https://github.com/dxniellbj"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash transition-colors hover:text-teal"
+            className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash transition-colors hover:text-teal dark:hover:text-teal-dark"
             aria-label="GitHub profile"
           >
             <svg
@@ -82,7 +82,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="mb-8 h-0.5 w-9 bg-teal" />
+        <div className="mb-8 h-0.5 w-9 bg-teal dark:bg-teal-dark" />
 
         {/* Copyright */}
         <p className="font-mono text-xs text-ash dark:text-graphite">

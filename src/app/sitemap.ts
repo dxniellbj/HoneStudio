@@ -5,16 +5,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://honestudio.cv";
 
   const staticPages = [
-    { url: base, lastModified: new Date(), priority: 1 },
-    { url: `${base}/services`, lastModified: new Date(), priority: 0.9 },
-    { url: `${base}/work`, lastModified: new Date(), priority: 0.9 },
-    { url: `${base}/about`, lastModified: new Date(), priority: 0.8 },
-    { url: `${base}/contact`, lastModified: new Date(), priority: 0.8 },
+    { url: base, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 1 },
+    { url: `${base}/services`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.9 },
+    { url: `${base}/work`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.9 },
+    { url: `${base}/about`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${base}/contact`, lastModified: new Date(), changeFrequency: "yearly" as const, priority: 0.8 },
+    { url: `${base}/quiz`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
   ];
 
   const caseStudies = CASE_STUDIES.map((study) => ({
     url: `${base}/work/${study.slug}`,
     lastModified: new Date(),
+    changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
 

@@ -65,7 +65,7 @@ const PILLARS = [
 import TechLines from "@/components/TechLines";
 
 const ACCENT_MAP: Record<string, { bg: string; text: string; quoteText: string; glow: string }> = {
-  teal: { bg: "bg-teal", text: "text-teal", quoteText: "text-teal", glow: "hover:border-teal hover:shadow-[0_0_24px_rgba(0,212,170,0.15)]" },
+  teal: { bg: "bg-teal dark:bg-teal-dark", text: "text-teal dark:text-teal-dark", quoteText: "text-teal dark:text-teal-dark", glow: "hover:border-teal dark:hover:border-teal-dark hover:shadow-[0_0_24px_rgba(0,212,170,0.15)]" },
   signal: { bg: "bg-signal", text: "text-signal", quoteText: "text-signal", glow: "hover:border-signal hover:shadow-[0_0_24px_rgba(255,107,61,0.15)]" },
   indigo: { bg: "bg-indigo", text: "text-indigo", quoteText: "text-indigo", glow: "hover:border-indigo hover:shadow-[0_0_24px_rgba(79,91,213,0.15)]" },
 };
@@ -78,7 +78,7 @@ export default function ServicePillars() {
         {/* Section Header */}
         <div className="mb-16">
           <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-            <span className="inline-block h-px w-6 bg-teal" />
+            <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
             How I Help
           </p>
           <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">

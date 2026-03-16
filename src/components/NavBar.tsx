@@ -40,7 +40,7 @@ export default function NavBar() {
             <span className="font-display text-xl font-semibold tracking-[-0.02em] text-ink dark:text-white">
               Hone
             </span>
-            <span className="font-display text-xl font-semibold tracking-[-0.02em] text-teal">.</span>
+            <span className="font-display text-xl font-semibold tracking-[-0.02em] text-teal dark:text-teal-dark">.</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -49,7 +49,7 @@ export default function NavBar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash transition-colors hover:text-teal"
+                className="font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash transition-colors hover:text-teal dark:hover:text-teal-dark"
               >
                 {link.label}
               </Link>
@@ -57,7 +57,7 @@ export default function NavBar() {
             <ThemeToggle />
             <Link
               href="/contact"
-              className="rounded-sm bg-teal px-4 py-2 font-mono text-xs uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright"
+              className="rounded-sm bg-teal dark:bg-teal-dark px-4 py-2 font-mono text-xs uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal"
             >
               Get in Touch
             </Link>
@@ -108,7 +108,7 @@ export default function NavBar() {
             <span className="font-display text-xl font-semibold tracking-[-0.02em] text-ink dark:text-white">
               Hone
             </span>
-            <span className="font-display text-xl font-semibold tracking-[-0.02em] text-teal">.</span>
+            <span className="font-display text-xl font-semibold tracking-[-0.02em] text-teal dark:text-teal-dark">.</span>
           </Link>
         </div>
 
@@ -121,7 +121,7 @@ export default function NavBar() {
               onClick={() => setOpen(false)}
               className={`font-display text-3xl font-medium transition-colors hover:text-teal ${
                 pathname === link.href
-                  ? "text-teal"
+                  ? "text-teal dark:text-teal-dark"
                   : "text-ink dark:text-white"
               }`}
               tabIndex={open ? 0 : -1}
@@ -135,7 +135,7 @@ export default function NavBar() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="rounded-sm bg-teal px-10 py-4 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright"
+              className="rounded-sm bg-teal dark:bg-teal-dark px-10 py-4 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal"
               tabIndex={open ? 0 : -1}
             >
               Get in Touch

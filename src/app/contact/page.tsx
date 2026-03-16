@@ -9,18 +9,40 @@ import ContactSidebar from "@/components/ContactSidebar";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Book a call with Hone Studio. Pick a time that works for you and let's talk about your project.",
+    "Book a discovery call with Hone Studio. Pick a time that works for you and let's talk about your project — no strings attached.",
+  keywords: [
+    "contact",
+    "book a call",
+    "hire developer",
+    "free consultation",
+    "project inquiry",
+  ],
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact | Hone Studio",
+    description:
+      "Book a discovery call with Hone Studio. Let's talk about your project — no strings attached.",
+    url: "https://honestudio.cv/contact",
+    
+  },
+  twitter: {
+    title: "Contact | Hone Studio",
+    description:
+      "Book a discovery call with Hone Studio. Let's talk about your project — no strings attached.",
+  },
 };
 
 export default function ContactPage() {
   return (
     <>
       {/* ── Hero (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink py-20 px-6 pattern-grid">
+      <section className="bg-snow dark:bg-ink min-h-screen flex items-center px-6 pattern-grid">
         <div className="mx-auto max-w-7xl">
           <ScrollReveal>
             <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-              <span className="inline-block h-px w-6 bg-teal" />
+              <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
               Contact
             </p>
             <h1 className="font-display text-5xl text-section-title text-ink dark:text-white md:text-6xl">

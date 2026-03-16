@@ -40,7 +40,7 @@ export default function HomePage() {
           <ScrollReveal>
             <div className="mb-10">
               <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-                <span className="inline-block h-px w-6 bg-teal" />
+                <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
                 Proof
               </p>
               <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
@@ -80,7 +80,7 @@ export default function HomePage() {
           </p>
           <Link
             href="/contact"
-            className="mt-8 inline-block rounded-sm bg-teal px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright"
+            className="mt-8 inline-block rounded-sm bg-teal dark:bg-teal-dark px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal"
           >
             Start a Conversation
           </Link>

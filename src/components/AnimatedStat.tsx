@@ -56,7 +56,7 @@ export default function AnimatedStat({ value, label, started }: AnimatedStatProp
 
   return (
     <div className="h-full rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink p-5 text-center">
-      <p className="font-display text-2xl font-semibold text-teal md:text-3xl">
+      <p className="font-display text-2xl font-semibold text-teal dark:text-teal-dark md:text-3xl">
         {prefix}{formatNumber(animatedNum)}{suffix}
       </p>
       <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-graphite dark:text-ash">

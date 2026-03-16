@@ -25,7 +25,7 @@ function formatText(text: string) {
         <a
           key={i}
           href={linkMatch[2]}
-          className="text-teal underline underline-offset-2 hover:text-teal-bright"
+          className="text-teal dark:text-teal-dark underline underline-offset-2 hover:text-teal-bright dark:hover:text-teal"
           target={linkMatch[2].startsWith("http") ? "_blank" : undefined}
           rel={linkMatch[2].startsWith("http") ? "noopener noreferrer" : undefined}
         >
@@ -56,7 +56,7 @@ export default function ChatMessage({ role, text }: ChatMessageProps) {
       <div
         className={`max-w-[85%] rounded-lg px-4 py-3 text-sm leading-relaxed ${
           isUser
-            ? "bg-teal text-ink"
+            ? "bg-teal dark:bg-teal-dark text-ink"
             : "bg-snow dark:bg-slate text-graphite dark:text-ash"
         }`}
       >

@@ -34,7 +34,7 @@ export default function QuizResults({
   ).slice(0, 2);
 
   const accentColors = {
-    teal: "border-teal bg-teal-ghost text-teal",
+    teal: "border-teal dark:border-teal-dark bg-teal-ghost text-teal dark:text-teal-dark",
     signal: "border-signal bg-signal-ghost text-signal",
     indigo: "border-indigo bg-indigo-ghost text-indigo",
   };
@@ -54,7 +54,7 @@ export default function QuizResults({
     >
       {/* Header */}
       <motion.div variants={fadeUp} className="mb-10 text-center">
-        <span className="mb-3 inline-block font-mono text-xs uppercase tracking-widest text-teal">
+        <span className="mb-3 inline-block font-mono text-xs uppercase tracking-widest text-teal dark:text-teal-dark">
           Your Results
         </span>
         <h1 className="font-display text-3xl font-medium text-white md:text-4xl">
@@ -72,7 +72,7 @@ export default function QuizResults({
         </p>
         <div className="flex gap-2">
           <div
-            className="h-2 rounded-full bg-teal transition-all"
+            className="h-2 rounded-full bg-teal dark:bg-teal-dark transition-all"
             style={{ width: `${percentages.web}%` }}
             title={`Web: ${percentages.web}%`}
           />
@@ -88,7 +88,7 @@ export default function QuizResults({
           />
         </div>
         <div className="mt-3 flex justify-between text-xs">
-          <span className="text-teal">Web {percentages.web}%</span>
+          <span className="text-teal dark:text-teal-dark">Web {percentages.web}%</span>
           <span className="text-signal">AI {percentages.ai}%</span>
           <span className="text-indigo">Strategy {percentages.strategy}%</span>
         </div>
@@ -121,7 +121,7 @@ export default function QuizResults({
               {primaryService.outcomes.map((outcome) => (
                 <li key={outcome} className="flex items-start gap-2 text-sm text-mist">
                   <svg
-                    className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal"
+                    className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal dark:text-teal-dark"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
@@ -166,7 +166,7 @@ export default function QuizResults({
         variants={fadeUp}
         className="mb-10 rounded-md border border-slate bg-carbon p-6"
       >
-        <p className="mb-4 font-mono text-xs uppercase tracking-widest text-teal">
+        <p className="mb-4 font-mono text-xs uppercase tracking-widest text-teal dark:text-teal-dark">
           Recommended Engagement
         </p>
         <h3 className="mb-1 font-display text-xl font-medium text-white">
@@ -192,7 +192,7 @@ export default function QuizResults({
                 href={`/work/${cs.slug}`}
                 className="group rounded-md border border-slate bg-carbon p-4 transition-colors hover:border-iron"
               >
-                <p className="mb-1 text-sm font-medium text-white group-hover:text-teal">
+                <p className="mb-1 text-sm font-medium text-white group-hover:text-teal dark:group-hover:text-teal-dark">
                   {cs.client}
                 </p>
                 <p className="line-clamp-2 text-xs text-ash">{cs.summary}</p>
@@ -223,7 +223,7 @@ export default function QuizResults({
         <p className="mb-6 text-sm text-fog">{cta.subtext}</p>
         <Link
           href="/contact"
-          className="inline-block rounded-sm bg-teal px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright"
+          className="inline-block rounded-sm bg-teal dark:bg-teal-dark px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal"
         >
           {cta.button}
         </Link>

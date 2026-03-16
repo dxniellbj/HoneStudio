@@ -156,7 +156,7 @@ export default function QuizEmailCapture({
           <button
             type="submit"
             disabled={isSubmitting}
-            className="mt-2 w-full rounded-sm bg-teal px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright disabled:cursor-not-allowed disabled:opacity-60"
+            className="mt-2 w-full rounded-sm bg-teal dark:bg-teal-dark px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal disabled:cursor-not-allowed disabled:opacity-60"
           >
             {isSubmitting ? "Loading..." : "See My Results"}
           </button>

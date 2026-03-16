@@ -15,7 +15,7 @@ interface CaseStudyCardProps {
 }
 
 const PILLAR_COLORS: Record<string, string> = {
-  Web: "border-teal/30 text-teal bg-teal-ghost",
+  Web: "border-teal/30 dark:border-teal-dark/30 text-teal dark:text-teal-dark bg-teal-ghost",
   AI: "border-signal/30 text-signal bg-signal-ghost",
   Strategy: "border-indigo/30 text-indigo bg-indigo-ghost",
 };
@@ -90,7 +90,7 @@ export default function CaseStudyCard({
           </p>
 
           {/* Title */}
-          <h3 className="mb-3 font-display text-xl font-semibold text-ink dark:text-white group-hover:text-teal transition-colors">
+          <h3 className="mb-3 font-display text-xl font-semibold text-ink dark:text-white group-hover:text-teal dark:group-hover:text-teal-dark transition-colors">
             {title}
           </h3>
 
@@ -120,7 +120,7 @@ export default function CaseStudyCard({
 
           {/* Arrow hint */}
           <motion.span
-            className="mt-4 inline-flex items-center gap-1 font-mono text-xs uppercase tracking-widest text-teal"
+            className="mt-4 inline-flex items-center gap-1 font-mono text-xs uppercase tracking-widest text-teal dark:text-teal-dark"
             variants={{
               rest: { x: 0 },
               hover: { x: 4 },

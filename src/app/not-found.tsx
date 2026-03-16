@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <section className="flex min-h-[70vh] items-center justify-center bg-ink px-6">
       <div className="text-center">
-        <p className="font-mono text-sm uppercase tracking-widest text-teal">
+        <p className="font-mono text-sm uppercase tracking-widest text-teal dark:text-teal-dark">
           404
         </p>
         <h1 className="mt-4 font-display text-5xl text-section-title text-white md:text-6xl">
@@ -16,13 +16,13 @@ export default function NotFound() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Link
             href="/"
-            className="rounded-sm bg-teal px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright"
+            className="rounded-sm bg-teal dark:bg-teal-dark px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal"
           >
             Go Home
           </Link>
           <Link
             href="/contact"
-            className="rounded-sm border border-slate px-8 py-3 font-mono text-sm uppercase tracking-widest text-ash transition-colors hover:border-teal hover:text-teal"
+            className="rounded-sm border border-slate px-8 py-3 font-mono text-sm uppercase tracking-widest text-ash transition-colors hover:border-teal dark:hover:border-teal-dark hover:text-teal dark:hover:text-teal-dark"
           >
             Get in Touch
           </Link>

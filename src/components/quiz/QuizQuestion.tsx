@@ -87,7 +87,7 @@ export default function QuizQuestion({
                   <div
                     className={`mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border-2 transition-colors ${
                       isSelected
-                        ? "border-teal bg-teal"
+                        ? "border-teal dark:border-teal-dark bg-teal dark:bg-teal-dark"
                         : "border-iron group-hover:border-ash"
                     }`}
                   >

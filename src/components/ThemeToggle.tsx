@@ -8,7 +8,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="relative flex h-8 w-8 items-center justify-center rounded-sm text-ash transition-colors hover:text-teal"
+      className="relative flex h-8 w-8 items-center justify-center rounded-sm text-ash transition-colors hover:text-teal dark:hover:text-teal-dark"
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
     >
       {/* Sun icon — shown in dark mode */}

@@ -42,7 +42,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     platform: "Next.js + Firebase + Gemini",
     pillars: ["Web", "AI", "Strategy"],
     summary:
-      "Built Spotlight and Spyglass — two internal tools that use AI-powered enrichment, multi-source web scraping, and real-time collaboration to transform how a VC firm sources and researches deals.",
+      "A VC firm was sourcing deals the old-fashioned way — spreadsheets, manual research, and a lot of copy-pasting between tabs. I built two internal tools (Spotlight and Spyglass) that use AI-powered enrichment and multi-source web scraping to surface, score, and track deals in real time. The team went from spending 10-20 hours/week on manual sourcing to having a live pipeline that updates itself.",
     slug: "showcase-ventures",
     thumbnail: "/images/work/showcase-ventures/Spotlight - Hero.png",
     thumbnailBg: "#2c2f21",
@@ -111,7 +111,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     platform: "Kajabi",
     pillars: ["Web", "Strategy"],
     summary:
-      "Migrated a photography education business from WordPress to Kajabi — moved all courses, built offers, and set up full automation including email sequences.",
+      "Shan's photography education business had outgrown WordPress. Courses were scattered across multiple platforms, automations didn't exist, and every launch was a manual scramble. I migrated everything to Kajabi — courses, offers, email sequences, the works. Now it runs on autopilot.",
     slug: "shan-fisher-education",
     url: "https://academy.shanfishereducation.com",
     thumbnail: "/images/work/shan-fisher-education/SFE - Hero.png",
@@ -177,7 +177,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     platform: "Squarespace",
     pillars: ["Web", "Strategy"],
     summary:
-      "Helped internationally recognized photographer Elena Givone launch her academy — initially on Kajabi for digital courses, then transitioned to Squarespace as her focus shifted to physical workshops.",
+      "Elena is an internationally recognized photographer who wanted to teach. I helped her launch her academy — first on Kajabi for digital courses, then transitioned to Squarespace when her focus shifted to in-person workshops. The platform adapted to the business, not the other way around.",
     slug: "elena-givone-academy",
     thumbnail: "/images/work/elena-givone-academy/EGA - Hero.png",
     thumbnailBg: "#e8ddd3",
@@ -231,12 +231,12 @@ export const SERVICE_PILLARS: ServicePillar[] = [
     accent: "teal",
     tagline: "Sites that work as hard as you do.",
     description:
-      "Most sites look fine but don't actually do anything. I build around what you're trying to accomplish — whether that's bookings, sales, or just getting people to pick up the phone. Then I maintain it so you never have to think about it.",
+      "A pretty site that doesn't convert is just an expensive brochure. I build around what your business actually needs: more bookings, more sales, more people picking up the phone. Not a template with your logo slapped on it. I work across Kajabi, Shopify, Squarespace, Next.js, and custom builds — so the platform fits your business, not the other way around. And once it's live, I maintain it.",
     outcomes: [
-      "A site built around your actual business goals — not a template",
-      "Consistent brand experience across every page",
-      "Architecture that scales as you grow",
-      "Ongoing maintenance handled — you focus on running your business",
+      "Built around a specific conversion goal, not just 'we need a website'",
+      "Every page has a job — architecture scales when you're ready to grow",
+      "You're not stuck on a platform someone else chose three years ago",
+      "Never wonder why the contact form broke at 2 AM",
     ],
     tools: ["Kajabi", "Shopify", "Squarespace", "Next.js", "Custom Apps"],
   },
@@ -246,12 +246,12 @@ export const SERVICE_PILLARS: ServicePillar[] = [
     accent: "signal",
     tagline: "Stop doing the robot's job.",
     description:
-      "You're probably spending hours on things that should take minutes. I build workflows, AI tools, and systems that handle the repetitive work — so you can focus on the stuff only you can do.",
+      "If you're copying data between tabs, manually sending follow-up emails, or spending your Monday morning updating a spreadsheet that should update itself — that's not work. That's busywork wearing a lanyard. I build the workflows, AI tools, and integrations that handle the repetitive stuff. CRM automations, email flows, chatbots that actually answer questions, data pipelines that don't need you babysitting them.",
     outcomes: [
-      "Reclaim 5–10 hours a week on tasks that now run themselves",
-      "Data flows between your tools without copy-paste errors",
-      "Instant customer responses, 24/7 — even when you're asleep",
-      "Workflows that improve as your data grows",
+      "The 5–10 hours a week you burn on manual tasks? Those come back",
+      "Your tools talk to each other without copy-paste errors",
+      "Your customers get instant responses at 3 AM on a Sunday",
+      "Systems get smarter the longer they run — not dumber",
     ],
     tools: ["Automation", "CRM", "AI Tools", "Email Flows", "Chatbots"],
   },
@@ -261,12 +261,12 @@ export const SERVICE_PILLARS: ServicePillar[] = [
     accent: "indigo",
     tagline: "Build the right thing the first time.",
     description:
-      "Before you spend money building something, you should know it's worth building. I do the competitive research, audience analysis, and strategic planning that tells you what to build and why — so you're not guessing.",
+      "Here's an expensive mistake I see all the time: someone spends $15K building a product, a site, a campaign — and then checks whether anyone actually wants it. That's backwards. I do the competitive research, audience analysis, and strategic planning before a single pixel gets designed. You get a clear picture of where you stand, what to build, and why it's worth building — backed by data, not vibes.",
     outcomes: [
-      "Know exactly where you stand vs. 5–10 direct competitors",
+      "Know exactly how you stack up against 5–10 direct competitors",
+      "A roadmap your whole team can follow, not a 40-page deck that collects dust",
+      "When someone asks 'why are we doing this?' you'll have a real answer",
       "Decisions backed by research, not gut feel",
-      "A roadmap your whole team can follow",
-      "A clear business case for what to build and why",
     ],
     tools: ["Market Research", "Competitive Intel", "Discovery", "Audits"],
   },
@@ -285,25 +285,25 @@ export const PROCESS_STEPS: ProcessStep[] = [
     number: "01",
     title: "Discovery",
     description:
-      "I learn your business — the goals, the constraints, where things are stuck. We figure out where the biggest wins are.",
+      "I learn your business. Not the elevator pitch version — the real one. Where things are stuck, what's been tried, where the biggest wins are hiding.",
   },
   {
     number: "02",
     title: "Strategy",
     description:
-      "We align on priorities, define what success looks like, and map out exactly what gets built. Everyone knows what's happening and when.",
+      "We get specific. What gets built, in what order, what 'done' looks like, and when you'll see it. No ambiguity, no scope creep surprises.",
   },
   {
     number: "03",
     title: "Build",
     description:
-      "I design, build, and ship in focused sprints. You get regular check-ins so there are never any surprises.",
+      "I design and ship in focused sprints, usually 1–2 weeks per cycle. You get regular check-ins so nothing shows up that you didn't expect.",
   },
   {
     number: "04",
     title: "Refine",
     description:
-      "After launch, we measure what's working and adjust. The goal is making sure everything keeps performing as your business grows.",
+      "After launch, we measure. What's converting, what's not, what needs adjusting. The goal isn't 'done' — it's 'working and getting better.'",
   },
 ];
 
@@ -323,35 +323,35 @@ export const NOTABLE_MENTIONS: NotableMention[] = [
     client: "Sharni Quinn Wellness",
     url: "https://sharniquinn.com",
     description:
-      "Kajabi site for an international wellness coach and speaker offering women's coaching, corporate wellness programs, yoga retreats, and wellness travel consulting.",
+      "Kajabi site for an international wellness coach covering coaching programs, corporate wellness, yoga retreats, and travel consulting. Consolidated multiple offerings into one platform.",
     pillars: ["Web", "Strategy"],
   },
   {
     client: "Cape Town Wellness Travel Alliance",
     url: "https://ctwta.com",
     description:
-      "Kajabi site for an Africa-focused wellness tourism consultancy and talent agency connecting hotels, lodges, and corporate clients with a network of 500+ wellness professionals.",
+      "Kajabi site for an Africa-focused wellness tourism consultancy connecting hotels and corporates with 500+ wellness professionals.",
     pillars: ["Web", "Strategy"],
   },
   {
     client: "The Host Approach",
     url: "https://thehostapproach.com",
     description:
-      "Kajabi site, offer structure, and email automations for a vacation rental coaching business that helps BnB hosts build direct booking strategies.",
+      "Kajabi site, offers, and email automations for a vacation rental coaching business helping BnB hosts build direct booking strategies.",
     pillars: ["Web", "AI"],
   },
   {
     client: "Allison Lane Literary",
     url: "https://lanelit.com",
     description:
-      "Kajabi redesign and email automations for a book coaching and visibility strategy firm that helps experts write, publish, and launch books.",
+      "Kajabi redesign and email automations for a book coaching firm that helps experts write, publish, and launch books.",
     pillars: ["Web", "AI"],
   },
   {
     client: "Fabulous Dentistry",
     url: "https://fabulousdentistry.com",
     description:
-      "WordPress site for a Houston-based dental practice offering cosmetic, general, and sedation dentistry with a spa-like patient experience.",
+      "WordPress site for a dental practice.",
     pillars: ["Web"],
   },
   {
@@ -365,39 +365,17 @@ export const NOTABLE_MENTIONS: NotableMention[] = [
     client: "Courage 2 Transform",
     url: "https://courage2transform.com",
     description:
-      "Squarespace site for an internationally certified life and health coach offering one-on-one coaching, art therapy resources, and a membership community.",
+      "Squarespace site for a certified life and health coach offering coaching, art therapy resources, and a membership community.",
     pillars: ["Web", "Strategy"],
   },
   {
     client: "KA Energetics",
     url: "https://kaenergetics.com",
     description:
-      "Website for a healing and coaching practice offering energy work, quantum healing sessions, group meditation, and a transformational cohort program.",
+      "Website for a healing and wellness practice.",
     pillars: ["Web"],
   },
-  // ── Defunct (ordered by size & impact) ──
-  {
-    client: "Go 2 Media & Marketing",
-    description:
-      "Kajabi platform for a social media marketing and virtual assistant agency that connected clients with VAs and provided training programs.",
-    pillars: ["Web"],
-    defunct: true,
-  },
-  {
-    client: "Black Fox Natural Cosmetics",
-    description:
-      "Shopify store for a men's skincare and haircare brand.",
-    pillars: ["Web"],
-    defunct: true,
-  },
-  {
-    client: "DSG Drone Productions",
-    description:
-      "WordPress site for a drone photography and videography production company.",
-    pillars: ["Web"],
-    defunct: true,
-  },
-];
+  ];
 
 // ── Filter Options ──
 

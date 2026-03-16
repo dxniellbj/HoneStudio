@@ -49,7 +49,7 @@ export default function AudienceFunnel() {
             variants={fadeUp}
             className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash"
           >
-            <span className="inline-block h-px w-6 bg-teal" />
+            <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
             Who I Help
           </motion.p>
           <motion.h2
@@ -94,7 +94,7 @@ export default function AudienceFunnel() {
               <p className="mb-4 text-sm text-ash">{item.audience}</p>
 
               {/* Hook Quote */}
-              <p className="mb-4 font-display text-lg italic text-teal-deep dark:text-teal">
+              <p className="mb-4 font-display text-lg italic text-teal-deep dark:text-teal-dark">
                 &ldquo;{item.hook}&rdquo;
               </p>
 

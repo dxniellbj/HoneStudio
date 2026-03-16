@@ -17,7 +17,7 @@ export default function ContactSidebar() {
           </p>
           <a
             href="mailto:dxniellbj@gmail.com"
-            className="text-sm leading-relaxed text-graphite dark:text-ash transition-colors hover:text-teal"
+            className="text-sm leading-relaxed text-graphite dark:text-ash transition-colors hover:text-teal dark:hover:text-teal-dark"
           >
             dxniellbj@gmail.com
           </a>
@@ -31,7 +31,7 @@ export default function ContactSidebar() {
           </p>
           <button
             onClick={openChat}
-            className="text-sm leading-relaxed text-teal transition-colors hover:text-teal-bright text-left"
+            className="text-sm leading-relaxed text-teal dark:text-teal-dark transition-colors hover:text-teal-bright dark:hover:text-teal text-left"
           >
             Use the chat widget →
           </button>

@@ -5,14 +5,14 @@
    ──────────────────────────────────────────── */
 
 @theme {
-  /* ── Primary — Forest Teal ── */
-  --color-teal: #528f76;
-  --color-teal-bright: #71b280;
-  --color-teal-mid: #427a6e;
-  --color-teal-dark: #2d6466;
-  --color-teal-deep: #134e5e;
-  --color-teal-ghost: rgba(82, 143, 118, 0.08);
-  --color-teal-glow: rgba(82, 143, 118, 0.15);
+  /* ── Primary — Teal Edge ── */
+  --color-teal: #00D4AA;
+  --color-teal-bright: #1AEDC2;
+  --color-teal-mid: #00B892;
+  --color-teal-dark: #528f76;
+  --color-teal-deep: #007A5F;
+  --color-teal-ghost: rgba(0, 212, 170, 0.08);
+  --color-teal-glow: rgba(0, 212, 170, 0.15);
 
   /* ── Secondary — Service Accents ── */
   --color-signal: #FF6B3D;

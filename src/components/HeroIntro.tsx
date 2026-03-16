@@ -60,7 +60,7 @@ function ScrollHint({ visible }: { visible: boolean }) {
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="text-teal"
+              className="text-teal dark:text-teal-dark"
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -80,7 +80,7 @@ function HeroContentMarkup() {
       <MagneticButton strength={0.25} radius={80}>
         <Link
           href="/contact"
-          className="inline-block rounded-sm bg-teal px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright"
+          className="inline-block rounded-sm bg-teal dark:bg-teal-dark px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal"
         >
           Book a Discovery Call
         </Link>
@@ -88,7 +88,7 @@ function HeroContentMarkup() {
       <MagneticButton strength={0.25} radius={80}>
         <Link
           href="/work"
-          className="inline-block rounded-sm border border-graphite/30 dark:border-ash/30 bg-transparent px-8 py-3 font-mono text-sm uppercase tracking-widest text-graphite dark:text-ash transition-colors hover:border-teal hover:text-teal"
+          className="inline-block rounded-sm border border-graphite/30 dark:border-ash/30 bg-transparent px-8 py-3 font-mono text-sm uppercase tracking-widest text-graphite dark:text-ash transition-colors hover:border-teal dark:hover:border-teal-dark hover:text-teal dark:hover:text-teal-dark"
         >
           See My Work
         </Link>
@@ -132,8 +132,8 @@ function StaticHero() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-20">
         <div className="text-left max-w-3xl">
           <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-teal/20 bg-teal-ghost px-4 py-2">
-            <span className="inline-block h-2 w-2 rounded-full bg-teal animate-blink" />
-            <span className="font-mono text-xs uppercase tracking-widest text-teal">
+            <span className="inline-block h-2 w-2 rounded-full bg-teal dark:bg-teal-dark animate-blink" />
+            <span className="font-mono text-xs uppercase tracking-widest text-teal dark:text-teal-dark">
               Fractional Ops &amp; Tech Partner
             </span>
           </div>
@@ -146,7 +146,7 @@ function StaticHero() {
           </h2>
 
           <p
-            className="mt-4 font-display text-teal leading-tight"
+            className="mt-4 font-display text-teal dark:text-teal-dark leading-tight"
             style={{ fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)" }}
           >
             I&apos;m one person who does all of it.
@@ -372,7 +372,7 @@ function AnimatedHero() {
                     opacity: 0,
                     fontSize: "clamp(4rem, 15vw, 10rem)",
                   }}
-                  className="font-display font-semibold text-teal"
+                  className="font-display font-semibold text-teal dark:text-teal-dark"
                 >
                   .
                 </span>
@@ -400,8 +400,8 @@ function AnimatedHero() {
                     style={{ opacity: pillOpacity, y: pillY }}
                     className="mb-8 inline-flex items-center gap-2 rounded-full border border-teal/20 bg-teal-ghost px-4 py-2"
                   >
-                    <span className="inline-block h-2 w-2 rounded-full bg-teal animate-blink" />
-                    <span className="font-mono text-xs uppercase tracking-widest text-teal">
+                    <span className="inline-block h-2 w-2 rounded-full bg-teal dark:bg-teal-dark animate-blink" />
+                    <span className="font-mono text-xs uppercase tracking-widest text-teal dark:text-teal-dark">
                       Fractional Ops &amp; Tech Partner
                     </span>
                   </motion.div>
@@ -415,7 +415,7 @@ function AnimatedHero() {
 
                   <motion.p
                     style={{ opacity: subtitleOpacity, y: subtitleY, fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)" }}
-                    className="mt-4 font-display text-teal leading-tight"
+                    className="mt-4 font-display text-teal dark:text-teal-dark leading-tight"
                   >
                     I&apos;m one person who does all of it.
                   </motion.p>

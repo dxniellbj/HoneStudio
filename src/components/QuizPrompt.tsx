@@ -86,8 +86,8 @@ export default function QuizPrompt() {
             {/* Content */}
             <div className="text-center">
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-teal/20 bg-teal-ghost px-4 py-2">
-                <span className="inline-block h-2 w-2 rounded-full bg-teal animate-pulse" />
-                <span className="font-mono text-xs uppercase tracking-widest text-teal">
+                <span className="inline-block h-2 w-2 rounded-full bg-teal dark:bg-teal-dark animate-pulse" />
+                <span className="font-mono text-xs uppercase tracking-widest text-teal dark:text-teal-dark">
                   5-min quiz
                 </span>
               </div>
@@ -104,7 +104,7 @@ export default function QuizPrompt() {
                 <Link
                   href="/quiz"
                   onClick={handleDismiss}
-                  className="w-full rounded-sm bg-teal px-6 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright sm:w-auto"
+                  className="w-full rounded-sm bg-teal dark:bg-teal-dark px-6 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal sm:w-auto"
                 >
                   Take the Quiz
                 </Link>

@@ -236,7 +236,7 @@ export default function ContactForm() {
           type="submit"
           disabled={status === "submitting"}
           aria-busy={status === "submitting"}
-          className="w-full rounded-sm bg-teal px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright disabled:opacity-60 disabled:cursor-not-allowed"
+          className="w-full rounded-sm bg-teal dark:bg-teal-dark px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {status === "submitting" ? "Sending..." : "Send Message"}
         </button>
