@@ -2,9 +2,20 @@ import ScrollReveal from "@/components/ScrollReveal";
 import TechLines from "@/components/TechLines";
 
 const TOOLKIT = {
-  Web: ["JavaScript", "TypeScript", "HTML/CSS", "Shopify", "Liquid", "Google Workspace", "Webflow", "Framer"],
-  "AI & Automation": ["Genkit", "Google Sheets", "Excel", "Apps Script", "API Integrations", "Lead Enrichment", "AI Workflows"],
-  Strategy: ["SEO", "CRO", "Website Audits", "Funnel Planning", "Offer Positioning", "Sourcing Systems"],
+  Web: [
+    "Next.js", "React", "Tailwind CSS", "JavaScript", "TypeScript", "HTML/CSS",
+    "Shopify", "Liquid", "Kajabi", "Squarespace", "Webflow", "Framer",
+    "Figma", "Vercel", "Firebase", "Google Workspace"
+  ],
+  "AI & Automation": [
+    "Gemini", "OpenAI", "Claude", "Perplexity", "Genkit",
+    "Chatbots", "CRM Automations", "Data Pipelines", "AI Workflows",
+    "Google Sheets", "Excel", "Apps Script", "API Integrations", "Lead Enrichment"
+  ],
+  Strategy: [
+    "Market Research", "Competitive Intel", "Discovery Workshops", "Roadmapping", "Audits",
+    "SEO", "CRO", "Website Audits", "Funnel Planning", "Offer Positioning", "Sourcing Systems"
+  ],
   Design: ["Canva", "Photoshop", "Illustrator", "Figma", "Brand Kits", "Web Graphics"],
 } as const;
 
