@@ -13,10 +13,10 @@ Website: honestudio.cv
 Founder: Niell Alfajora (Daniell Bije Alfajora)
 Role: Fractional Ops & Tech Partner
 Location: Philippines
-Phone: +63 969 613 6802
+
 
 === ABOUT NIELL ===
-Niell Alfajora is a full-stack developer and fractional ops & tech partner. He runs Hone Studio and also works as a Research Analyst at Showcase Ventures, a media and consumer-focused VC firm. At Showcase, he supports the investment team on sourcing and due diligence — conducting deep-dive sector research, analyzing market trends, and assessing competitive landscapes to identify Seed and Series A/B opportunities. He also built two internal tools (Spotlight and Spyglass) to streamline deal sourcing. Previously founded Net Maestro.
+Niell Alfajora is a full-stack developer and fractional ops & tech partner. He runs Hone Studio and has experience supporting investment teams on sourcing and due diligence — conducting deep-dive sector research, analyzing market trends, and assessing competitive landscapes to identify Seed and Series A/B opportunities. He has built internal AI tools to streamline deal sourcing and research workflows. Previously founded Net Maestro.
 
 === WHAT HONE STUDIO DOES ===
 Hone Studio is a one-person studio run by Niell Alfajora. It provides fractional (part-time, on-demand) operations and technology services for founders, small businesses, and agencies.
@@ -119,14 +119,13 @@ Launch is just the beginning. We measure, learn, and iterate — making sure wha
    - Platform aligned with her workshop-first model — easy to update events and listings
    - Site reflects Elena's international brand across photography, education, and social projects
 
-3. Showcase Ventures
+3. Media & Consumer VC
    Industry: Venture capital — media and consumer focused (music, live entertainment, film, TV, digital media, video games, beauty, health & wellness, hospitality, food & beverage, fashion)
    Platform: Next.js 15, Firebase (Firestore), Gemini AI, Bright Data, Perplexity API
    Pillars: AI, Strategy
-   Summary: Built Spotlight and Spyglass — two internal tools that use AI-powered enrichment, multi-source web scraping, and real-time collaboration to transform how the firm sources and researches deals.
-   Context: Niell works at Showcase Ventures as a Research Analyst, supporting the investment team on sourcing and due diligence.
+   Summary: Built a Sourcing Platform and Intel Hub — two internal tools that use AI-powered enrichment, multi-source web scraping, and real-time collaboration to transform how the firm sources and researches deals.
    What was built:
-   - Spotlight — a full investment sourcing platform with AI-powered company enrichment. Features include:
+   - Sourcing Platform — a full investment sourcing platform with AI-powered company enrichment. Features include:
      - Multi-phase enrichment: domain discovery via Google PSE, web scraping via Bright Data, AI analysis via Gemini, social link discovery, follower count retrieval
      - Consensus scoring across multiple sources for data quality validation
      - Hierarchical theme/folder management with drag-and-drop
@@ -135,17 +134,17 @@ Launch is just the beginning. We measure, learn, and iterate — making sure wha
      - Real-time collaboration via Firestore listeners — all users see updates instantly
      - Company grading system (preliminary and final grades) with pipeline tracking
      - Background queue processing with concurrent enrichment (4 parallel queues)
-   - Spyglass (codename: StoreWalker) — a retail intelligence hub for CPG investors and analysts. Features include:
+   - Intel Hub — a retail intelligence hub for CPG investors and analysts. Features include:
      - Store walk workflow: visit a retail location, photograph shelves, upload photos
-     - Gemini 3-Flash AI analyzes each photo to exhaustively detect every brand and SKU visible (brand name, SKU, category, size, unit count)
+     - Gemini AI analyzes each photo to exhaustively detect every brand and SKU visible (brand name, SKU, category, size, unit count)
      - Two-pass enrichment: Pass 1 extracts brands from images, Pass 2 enriches with manufacturer data via Google Search grounding
      - Brand database with resizable table, search, category/grade filters, bulk actions, and A/B/C/D grading system
      - Interactive Google Maps view with intelligent markers showing store locations and detected brands
      - Real-time dashboard with visit stats, brand counts, tracking rates, and category breakdowns
      - Processing history with analysis logs, timing metrics, and raw AI responses
      - Firebase Cloud Functions triggered on visit creation for automated background processing
-   Tech: React 19, React Router v7, TypeScript, Tailwind CSS, Radix UI/ShadCN, Firebase (Auth, Firestore, Storage, Cloud Functions), Google Genkit, Gemini 3-Flash, Google Maps API, Recharts
-   Tech: Next.js 15, TypeScript, React 19, Tailwind CSS 4, ShadCN UI, Firebase Firestore, Google Genkit, Gemini 2.0 Flash, Bright Data, Perplexity API, Recharts
+   Tech: React 19, React Router v7, TypeScript, Tailwind CSS, Radix UI/ShadCN, Firebase (Auth, Firestore, Storage, Cloud Functions), Google Genkit, Gemini AI, Google Maps API, Recharts
+   Tech: Next.js 15, TypeScript, React 19, Tailwind CSS 4, ShadCN UI, Firebase Firestore, Google Genkit, Gemini AI, Bright Data, Perplexity API, Recharts
    Results:
    - Company research that took hours now happens in seconds through automated AI enrichment
    - Multi-source validation ensures data quality — no single point of failure
@@ -170,12 +169,16 @@ Launch is just the beginning. We measure, learn, and iterate — making sure wha
 4. Lean & Focused
    No agency overhead, no bloated teams. One senior partner who knows your business inside out — faster decisions, tighter execution.
 
+=== TESTIMONIALS ===
+
+Brian W.: "I couldn't have launched my business without Daniell. He excelled with strategy, research, creative execution and building technology to streamline operations. Daniell is hard working, reliable and a great communicator. Can't wait to work with him again!" (5 stars)
+
 === PRICING ===
 No pricing is listed on the website. The call to action is always "get in touch" or "book a call." If asked about pricing, direct them to the contact page.
 
 === CONTACT ===
 Email: dxniellbj@gmail.com
-Phone: +63 969 613 6802
+
 Contact page: /contact
 Response time: Usually within 24 hours
 `;

@@ -38,24 +38,24 @@ export interface CaseStudy {
 export const CASE_STUDIES: CaseStudy[] = [
   {
     title: "AI-Powered Deal Sourcing for a Media & Consumer VC",
-    client: "Showcase Ventures",
+    client: "Media & Consumer VC",
     platform: "Next.js + Firebase + Gemini",
     pillars: ["Web", "AI", "Strategy"],
     summary:
-      "A VC firm was sourcing deals the old-fashioned way — spreadsheets, manual research, and a lot of copy-pasting between tabs. I built two internal tools (Spotlight and Spyglass) that use AI-powered enrichment and multi-source web scraping to surface, score, and track deals in real time. The team went from spending 10-20 hours/week on manual sourcing to having a live pipeline that updates itself.",
-    slug: "showcase-ventures",
-    thumbnail: "/images/work/showcase-ventures/Spotlight - Hero.png",
+      "A VC firm was sourcing deals the old-fashioned way — spreadsheets, manual research, and a lot of copy-pasting between tabs. I built two internal tools (a Sourcing Platform and an Intel Hub) that use AI-powered enrichment and multi-source web scraping to surface, score, and track deals in real time. The team went from spending 10-20 hours/week on manual sourcing to having a live pipeline that updates itself.",
+    slug: "vc-deal-sourcing",
+    thumbnail: "/images/work/vc-deal-sourcing/Platform - Hero.png",
     thumbnailBg: "#2c2f21",
     images: [
       {
-        src: "/images/work/showcase-ventures/Spotlight - Interface.png",
-        alt: "Spotlight company enrichment table",
+        src: "/images/work/vc-deal-sourcing/Platform - Interface.png",
+        alt: "Sourcing Platform company enrichment table",
         bg: "#2c2f21",
         caption: "Enter a company name and website — AI enrichment handles the rest: description, social links, follower counts, sourcing grades, and more.",
       },
       {
-        src: "/images/work/showcase-ventures/Spotlight - Analytics.png",
-        alt: "Spotlight analytics dashboard showing ROI and sourcing metrics",
+        src: "/images/work/vc-deal-sourcing/Platform - Analytics.png",
+        alt: "Sourcing Platform analytics dashboard showing ROI and sourcing metrics",
         bg: "#2c2f21",
       },
     ],
@@ -66,12 +66,12 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: "Cost / 1K Companies", value: "$10–15" },
     ],
     challenge:
-      "Showcase Ventures is a startup VC firm focused on media and consumer — music, entertainment, film, digital media, beauty, hospitality, and more. As a lean team without enterprise tooling, researching potential investments meant hours of manual Googling, scattered notes, and no structured way to enrich, grade, or track companies at scale.",
+      "The client is a startup VC firm focused on media and consumer — music, entertainment, film, digital media, beauty, hospitality, and more. As a lean team without enterprise tooling, researching potential investments meant hours of manual Googling, scattered notes, and no structured way to enrich, grade, or track companies at scale.",
     approach: [
-      "Started with the core problem: the team was spending hours manually researching every company. Built Spotlight to let them enter a name and website, then let AI do the rest",
+      "Started with the core problem: the team was spending hours manually researching every company. Built a Sourcing Platform to let them enter a name and website, then let AI do the rest",
       "Designed the enrichment pipeline in phases — domain discovery, web scraping, AI analysis, social data extraction, and follower counts — each validating against multiple sources so nothing relies on a single data point",
       "Added the tools the team needed around it: theme-based organization with drag-and-drop, a grading system, bulk CSV imports, and a real-time dashboard tracking ROI and pipeline health",
-      "Built Spyglass as a second tool for retail intelligence — analysts photograph store shelves, Gemini AI identifies every brand and SKU on sight, then enriches each with manufacturer data and maps it all geographically",
+      "Built an Intel Hub as a second tool for retail intelligence — analysts photograph store shelves, Gemini AI identifies every brand and SKU on sight, then enriches each with manufacturer data and maps it all geographically",
     ],
     results: [
       "~1,000 companies enriched per week at $10–15 in API costs — work that would take a full team 250+ hours done automatically",
@@ -81,8 +81,8 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Investment team now sees enriched company data in real time — research that used to take hours is ready in seconds",
     ],
     scope: [
-      "Spotlight — investment sourcing platform",
-      "Spyglass — retail intelligence hub",
+      "Sourcing Platform — investment sourcing platform",
+      "Intel Hub — retail intelligence hub",
       "AI enrichment pipeline design",
       "Real-time collaborative data infrastructure",
     ],
@@ -381,3 +381,20 @@ export const NOTABLE_MENTIONS: NotableMention[] = [
 
 export const PILLAR_FILTERS = ["All", "Web", "AI", "Strategy"] as const;
 export type PillarFilter = (typeof PILLAR_FILTERS)[number];
+
+// ── Testimonials ──
+
+export interface Testimonial {
+  name: string;
+  quote: string;
+  rating: number;
+}
+
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    name: "Brian W.",
+    quote:
+      "I couldn't have launched my business without Daniell. He excelled with strategy, research, creative execution and building technology to streamline operations. Daniell is hard working, reliable and a great communicator. Can't wait to work with him again!",
+    rating: 5,
+  },
+];

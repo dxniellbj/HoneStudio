@@ -188,18 +188,6 @@ export default function AboutPage() {
                 </h3>
                 <div className="space-y-5">
                   <div>
-                    <p className="mb-1 font-mono text-xs uppercase tracking-widest text-teal dark:text-teal-dark">
-                      Day Job
-                    </p>
-                    <p className="text-sm leading-relaxed text-graphite dark:text-ash">
-                      Research Analyst at{" "}
-                      <span className="font-medium text-ink dark:text-white">Showcase Ventures</span>
-                      {" "}— a media &amp; consumer VC firm. I support the
-                      investment team on sourcing and due diligence, and built
-                      two internal AI tools to streamline the process.
-                    </p>
-                  </div>
-                  <div>
                     <p className="mb-1 font-mono text-xs uppercase tracking-widest text-signal">
                       Building
                     </p>
