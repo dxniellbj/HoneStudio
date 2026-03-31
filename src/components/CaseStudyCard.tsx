@@ -59,7 +59,7 @@ export default function CaseStudyCard({
   return (
     <Link href={`/work/${slug}`} className="block h-full">
       <motion.article
-        className="group h-full rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon overflow-hidden hover:border-teal"
+        className="group h-full rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon overflow-hidden hover:border-teal dark:hover:border-teal-dark"
         initial="rest"
         whileHover="hover"
         animate="rest"

@@ -198,7 +198,7 @@ export default function ChatWidget() {
             </div>
 
             {/* Messages */}
-            <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
+            <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-4" aria-live="polite" aria-relevant="additions">
               {messages.length === 0 && (
                 <div className="space-y-2">
                   <p className="text-center text-xs text-ash dark:text-graphite">Quick prompts</p>

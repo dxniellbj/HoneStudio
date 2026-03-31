@@ -78,7 +78,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* ── Hero (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink min-h-screen flex items-center px-6 pattern-grid">
+      <section className="bg-snow dark:bg-ink min-h-dvh flex items-center px-6 pattern-grid">
         <div className="mx-auto max-w-7xl">
           <ScrollReveal>
             <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
@@ -193,7 +193,7 @@ export default function ServicesPage() {
           <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {PROCESS_STEPS.map((step, i) => (
               <ScrollReveal key={step.number} delay={i * 0.1} className="h-full">
-                <div className="h-full rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-8 transition-all duration-300 hover:border-iron">
+                <div className="h-full rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-8 transition-all duration-300 hover:border-teal dark:hover:border-teal-dark">
                   <p className="mb-4 font-mono text-sm text-teal dark:text-teal-dark">
                     {step.number}
                   </p>
@@ -224,7 +224,7 @@ export default function ServicesPage() {
             Let&apos;s figure out what you actually need.
           </h2>
           <p className="mt-4 text-lg text-graphite dark:text-ash">
-            Most projects touch more than one of these. That&apos;s the whole point of working with one person — we don&apos;t have to draw lines between strategy, systems, and web. We just build what moves the needle.
+            Most projects touch more than one of these. That&apos;s the whole point of working with one person — we don&apos;t have to draw lines between strategy, systems, and web. We just build what matters.
           </p>
           <p className="mt-4 text-lg text-graphite dark:text-ash">
             Tell me what&apos;s going on and I&apos;ll tell you where to start.

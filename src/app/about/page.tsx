@@ -80,7 +80,7 @@ export default function AboutPage() {
   return (
     <>
       {/* ── Hero (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink min-h-screen flex items-center px-6 pattern-grid">
+      <section className="bg-snow dark:bg-ink min-h-dvh flex items-center px-6 pattern-grid">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             {/* Text */}

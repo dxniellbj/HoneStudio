@@ -49,7 +49,12 @@ export default function NavBar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash transition-colors hover:text-teal dark:hover:text-teal-dark"
+                aria-current={pathname === link.href ? "page" : undefined}
+                className={`font-mono text-xs uppercase tracking-widest transition-colors hover:text-teal dark:hover:text-teal-dark ${
+                  pathname === link.href
+                    ? "text-teal dark:text-teal-dark"
+                    : "text-graphite dark:text-ash"
+                }`}
               >
                 {link.label}
               </Link>

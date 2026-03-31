@@ -102,7 +102,7 @@ function HeroContentMarkup() {
    ──────────────────────────────────────────────────────────── */
 function StaticHero() {
   return (
-    <section className="relative min-h-screen bg-snow dark:bg-ink flex items-center overflow-hidden">
+    <section className="relative min-h-dvh bg-snow dark:bg-ink flex items-center overflow-hidden">
       <div className="hero-gradient absolute inset-0" />
       <div className="hero-grid absolute inset-0" />
       {/* Bottom fade gradient for smooth transition to next section */}
@@ -332,7 +332,7 @@ function AnimatedHero() {
         }}
         aria-hidden="true"
       />
-      <div ref={stickyRef} className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
+      <div ref={stickyRef} className="sticky top-0 flex h-dvh items-center justify-center overflow-hidden">
         <div className="hero-gradient absolute inset-0" />
         <div className="hero-grid absolute inset-0" />
 
@@ -491,7 +491,7 @@ export default function HeroIntro() {
 
   // Waiting for mode — invisible placeholder to avoid layout shift
   return (
-    <section className="relative min-h-screen bg-snow dark:bg-ink flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-dvh bg-snow dark:bg-ink flex items-center justify-center overflow-hidden">
       <div className="hero-gradient absolute inset-0" />
       <div className="hero-grid absolute inset-0" />
       <div 

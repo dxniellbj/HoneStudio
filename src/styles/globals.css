@@ -715,15 +715,15 @@
       45deg,
       transparent,
       transparent 14px,
-      rgba(15, 17, 20, 0.05) 14px,
-      rgba(15, 17, 20, 0.05) 15px
+      var(--pattern-diag) 14px,
+      var(--pattern-diag) 15px
     ),
     repeating-linear-gradient(
       -45deg,
       transparent,
       transparent 14px,
-      rgba(15, 17, 20, 0.05) 14px,
-      rgba(15, 17, 20, 0.05) 15px
+      var(--pattern-diag) 14px,
+      var(--pattern-diag) 15px
     );
 }
 

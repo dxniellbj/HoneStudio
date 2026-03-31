@@ -98,7 +98,7 @@ export default function WorkGrid() {
                   >
                     <CardWrapper
                       {...cardProps}
-                      className={`flex items-start justify-between gap-6 rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-6 transition-all duration-300 hover:border-teal ${mention.url ? "cursor-pointer group block" : ""}`}
+                      className={`flex items-start justify-between gap-6 rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-6 transition-all duration-300 hover:border-teal dark:hover:border-teal-dark ${mention.url ? "cursor-pointer group block" : ""}`}
                     >
                       <div>
                         <span className={`font-display text-lg font-medium text-ink dark:text-white ${mention.url ? "group-hover:text-teal dark:group-hover:text-teal-dark transition-colors" : ""}`}>

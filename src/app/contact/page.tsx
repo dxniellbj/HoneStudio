@@ -38,7 +38,7 @@ export default function ContactPage() {
   return (
     <>
       {/* ── Hero (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink min-h-screen flex items-center px-6 pattern-grid">
+      <section className="bg-snow dark:bg-ink min-h-dvh flex items-center px-6 pattern-grid">
         <div className="mx-auto max-w-7xl">
           <ScrollReveal>
             <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
