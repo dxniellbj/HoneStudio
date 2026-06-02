@@ -9,12 +9,12 @@ import ContactSidebar from "@/components/ContactSidebar";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Book a discovery call with Hone Studio. Pick a time that works for you and let's talk about your project — no strings attached.",
+    "Book a discovery call with Hone Studio. 20 to 30 minutes to talk through what you're building and whether there's a fit. Prefer email? I reply within 24 hours.",
   keywords: [
     "contact",
     "book a call",
     "hire developer",
-    "free consultation",
+    "discovery call",
     "project inquiry",
   ],
   alternates: {
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact | Hone Studio",
     description:
-      "Book a discovery call with Hone Studio. Let's talk about your project — no strings attached.",
+      "Book a discovery call with Hone Studio. 20 to 30 minutes to talk through what you're building and whether there's a fit.",
     url: "https://honestudio.cv/contact",
-    
+
   },
   twitter: {
     title: "Contact | Hone Studio",
     description:
-      "Book a discovery call with Hone Studio. Let's talk about your project — no strings attached.",
+      "Book a discovery call with Hone Studio. 20 to 30 minutes to talk through what you're building and whether there's a fit.",
   },
 };
 
@@ -38,7 +38,7 @@ export default function ContactPage() {
   return (
     <>
       {/* ── Hero (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink min-h-dvh flex items-center px-6 pattern-grid">
+      <section className="bg-snow dark:bg-ink min-h-dvh flex items-center px-6 pt-24 md:pt-28 pattern-grid">
         <div className="mx-auto max-w-7xl">
           <ScrollReveal>
             <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
@@ -49,8 +49,10 @@ export default function ContactPage() {
               Book a Call
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-section-desc text-graphite dark:text-ash">
-              Pick a time that works for you. We&apos;ll talk through your
-              project and see if there&apos;s a fit.
+              We&apos;ll spend 20 to 30 minutes talking through what you&apos;re building and whether there&apos;s a fit. You don&apos;t need a finished brief, just a problem worth solving.
+            </p>
+            <p className="mt-4 max-w-2xl text-lg text-section-desc text-graphite dark:text-ash">
+              If a call feels like too much too soon, email works. I reply within 24 hours. After we talk, I follow up with a short written scope: what I&apos;d build, in what order, and a rough timeline.
             </p>
           </ScrollReveal>
         </div>

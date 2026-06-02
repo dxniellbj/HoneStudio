@@ -8,11 +8,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Meet Niell Alfajora — the person behind Hone Studio. I build the strategy, the systems, and the website, and I'm the same person in all three meetings.",
+    "Meet Niell Alfajora, the developer behind Hone Studio. I build custom software and AI tools, and I'm the same person who plans it, designs it, and ships it.",
   keywords: [
     "Niell Alfajora",
     "Hone Studio founder",
-    "fractional CTO",
+    "custom software developer",
     "tech consultant",
     "web developer Philippines",
   ],
@@ -22,14 +22,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About | Hone Studio",
     description:
-      "Meet Niell Alfajora — the person behind Hone Studio. Strategy, systems, and websites, all from one partner.",
+      "Meet Niell Alfajora, the developer behind Hone Studio. Custom software, AI tools, and the websites in between.",
     url: "https://honestudio.cv/about",
     
   },
   twitter: {
     title: "About | Hone Studio",
     description:
-      "Meet Niell Alfajora — the person behind Hone Studio. Strategy, systems, and websites, all from one partner.",
+      "Meet Niell Alfajora, the developer behind Hone Studio. Custom software, AI tools, and the websites in between.",
   },
 };
 
@@ -37,7 +37,7 @@ const VALUES = [
   {
     title: "Honest By Default",
     description:
-      "If something won't work, I'll tell you before you spend money on it. If there's a better path, I'll show you — even if it means less work for me. I'd rather lose a project than build the wrong thing.",
+      "If something won't work, I'll tell you before you spend money on it. If there's a better path, I'll show you, even if it means less work for me. I'd rather lose a project than build the wrong thing.",
   },
   {
     title: "One Brain, Not One Team",
@@ -80,7 +80,7 @@ export default function AboutPage() {
   return (
     <>
       {/* ── Hero (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink min-h-dvh flex items-center px-6 pattern-grid">
+      <section className="bg-snow dark:bg-ink min-h-dvh flex items-center px-6 pt-24 md:pt-28 pattern-grid">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             {/* Text */}
@@ -97,7 +97,7 @@ export default function AboutPage() {
               </p>
               <div className="mt-8 space-y-4 text-lg leading-relaxed text-section-desc text-graphite dark:text-ash">
                 <p>
-                  I build the strategy, the systems, and the website — and I&apos;m the same person in all three meetings.
+                  I build the strategy, the systems, and the website, and I&apos;m the same person in all three meetings.
                 </p>
                 <p>
                   Founders and small teams hire me when they need someone who can think about the business <em>and</em> build the thing. Not a developer waiting on a brief. Not a strategist who hands off a PDF. One person who does the thinking and the building, so nothing gets lost in translation.
@@ -146,7 +146,7 @@ export default function AboutPage() {
               </h2>
               <div className="mt-6 space-y-4 text-lg leading-relaxed text-graphite dark:text-ash">
                 <p>
-                  I started building websites for small businesses. Kajabi sites, Shopify stores, WordPress redesigns. The kind of work where you&apos;re on a call with the actual founder and you&apos;re figuring out what they need — not what looks good in a case study.
+                  I started building websites for small businesses. Kajabi sites, Shopify stores, WordPress redesigns. The kind of work where you&apos;re on a call with the actual founder and you&apos;re figuring out what they need, not what looks good in a case study.
                 </p>
                 <p>
                   That kept pulling me into bigger problems. A client needed email automations. Then a CRM setup. Then competitive research before a rebrand. Instead of saying &ldquo;that&apos;s not what I do,&rdquo; I learned it. Honestly, I found it more interesting than just building another website.
@@ -155,7 +155,7 @@ export default function AboutPage() {
                   One thing led to another and now I build AI-powered internal tools for a VC firm during the week and ship sites and systems for founders on the side.
                 </p>
                 <p>
-                  The through line isn&apos;t &ldquo;I like figuring out how things work&rdquo; — everyone says that. It&apos;s that I&apos;d rather understand the whole picture than be an expert on one corner of it. I&apos;d rather know why we&apos;re building something before I open a code editor. And I&apos;d rather be the person who connects the dots than the person who paints one of them really well.
+                  The through line isn&apos;t &ldquo;I like figuring out how things work.&rdquo; Everyone says that. It&apos;s that I&apos;d rather understand the whole picture than be an expert on one corner of it. I&apos;d rather know why we&apos;re building something before I open a code editor. And I&apos;d rather be the person who connects the dots than the person who paints one of them really well.
                 </p>
                 <p>
                   That&apos;s the name, by the way. Hone: to sharpen. Take something that&apos;s already working and make it cut.

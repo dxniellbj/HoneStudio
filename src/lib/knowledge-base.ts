@@ -11,84 +11,80 @@ export const KNOWLEDGE_BASE = `
 Name: Hone Studio
 Website: honestudio.cv
 Founder: Niell Alfajora (Daniell Bije Alfajora)
-Role: Fractional Ops & Tech Partner
+Role: Founder & Developer (custom software, AI tools, web)
 Location: Philippines
 
 
 === ABOUT NIELL ===
-Niell Alfajora is a full-stack developer and fractional ops & tech partner. He runs Hone Studio and has experience supporting investment teams on sourcing and due diligence — conducting deep-dive sector research, analyzing market trends, and assessing competitive landscapes to identify Seed and Series A/B opportunities. He has built internal AI tools to streamline deal sourcing and research workflows. Previously founded Net Maestro.
+Niell Alfajora is a self-taught full-stack developer (Next.js, TypeScript, React, Firebase, Tailwind, ShadCN) who also builds AI-powered internal tools. He is a working investment analyst at a media and consumer VC firm, where he built the firm's entire internal tooling: a two-tool AI deal-sourcing platform on Next.js, Firebase, and Gemini that eliminated 10 to 20 hours a week of manual research and has processed 8,800+ companies to date. He runs Hone Studio on the side. His differentiator is that he thinks like an operator, because he is one, and builds like a developer: he works out what a tool needs to do for a business before he opens a code editor. Previously founded Net Maestro.
 
 === WHAT HONE STUDIO DOES ===
-Hone Studio is a one-person studio run by Niell Alfajora. It provides fractional (part-time, on-demand) operations and technology services for founders, small businesses, and agencies.
+Hone Studio is a one-person studio run by Niell Alfajora. Most of the work is custom software: internal tools, AI pipelines, and web apps for teams that need something built and don't have a developer to build it. Niell also builds websites (Kajabi, Shopify, Squarespace, Webflow, custom Next.js), and he plans every project with competitive research and a clear scope before writing code.
 
-The core concept is the "Swiss Army Knife" approach: one senior partner who handles strategy, systems, and websites together — eliminating the need for multiple vendors, reducing miscommunication, and keeping costs lean.
-
-- One partner, not three vendors
-- One conversation, not a game of telephone
-- One bill, not a stack of invoices
+The point of working with Niell is that one person handles the strategy, design, and build, so nothing gets lost between brief and ship. He figures out what needs to be built, then builds it.
 
 === WHY "HONE"? ===
 To hone means to sharpen — to take something good and make it precise, focused, effective. Hone Studio takes businesses that are already doing the work and sharpens everything around them: the site, the systems, the strategy. No bloat. No reinvention for the sake of it.
 
-=== THREE SERVICE PILLARS ===
+=== WHAT NIELL BUILDS ===
 
-1. Web Design & Development (accent: teal)
-   Tagline: "Your digital presence, built to convert."
-   Description: Pixel-perfect sites designed around your goals, built to scale, and maintained so you never think about it. From landing pages to full platforms — every detail serves a purpose.
+1. Custom Software & AI Tools (the primary work, accent: teal)
+   Tagline: "The tool you need doesn't exist yet. I build it."
+   Description: Internal tools, AI pipelines, web apps, and the integrations that get a stack talking to itself, for teams without a developer to spare. Example: a two-tool deal-sourcing platform for an investment team that now sources and enriches around 1,000 companies a week on its own.
    Outcomes:
-   - Higher conversion rates through intentional UX
-   - Consistent brand experience across every page
-   - A site that scales with your business
-   - Zero maintenance headaches
-   Platforms & tools: Kajabi, Shopify, Squarespace, WordPress, Next.js, React, Tailwind CSS, HTML/CSS/JS, Custom Apps, Figma, Vercel
+   - A tool built around how your team actually works, not a SaaS you bend your process to fit
+   - Manual research, data entry, and copy-paste work runs on its own
+   - AI that does real work inside your pipeline, not a chatbot bolted on for show
+   - One person owns the whole build, so nothing gets lost between brief and ship
+   Tools: Next.js, React, TypeScript, Firebase, Gemini, OpenAI, Claude, Perplexity, Google Genkit, API integrations, data pipelines
 
-2. AI & Automation (accent: orange/signal)
-   Tagline: "Your business, running itself."
-   Description: Automate the busywork — smart workflows, AI-powered tools, and systems that run while you sleep. Free up your time to focus on the work that actually moves the needle.
+2. Web Builds (accent: signal)
+   Tagline: "A site that actually converts, not just decorates."
+   Description: Sites that load fast, look right, and turn visitors into bookings or sales. Niell works out what the site needs to do for the business first, then picks the platform that fits. He maintains it after launch.
    Outcomes:
-   - Hours reclaimed from manual, repetitive tasks
-   - Fewer errors with automated quality checks
-   - Faster customer response times
-   - Systems that learn and improve over time
-   Platforms & tools: Gemini, OpenAI, Claude, Perplexity, Cursor, Automation, CRM, AI Tools, Email Flows, Chatbots
+   - Built around one clear goal: more bookings, more sales, more inquiries
+   - The platform fits the business, not whichever one Niell prefers
+   - Fast, accessible, and ready to grow
+   - Maintained after launch
+   Platforms: Kajabi, Shopify, Squarespace, Webflow, WordPress, custom Next.js, Figma, Vercel
 
-3. Strategy & Research (accent: indigo)
-   Tagline: "Build the right thing, the first time."
-   Description: Know your market before you move — competitive intel, audience research, and strategy that drives decisions. No guesswork, no wasted budget, just clarity.
+3. Strategy & Research (supporting, accent: indigo)
+   Tagline: "I figure out what to build before I build it."
+   Description: Competitive research, audience mapping, and a plan you can act on. This is not a service Niell sells on its own. It is how every project starts, so the right thing gets built the first time.
    Outcomes:
-   - Clear understanding of your competitive landscape
-   - Data-backed decisions instead of assumptions
-   - A roadmap that aligns team and budget
-   - Confidence in what to build and why
-   Platforms & tools: Market Research, Competitive Intel, Discovery Workshops, Roadmapping, Audits
+   - A clear read on where you stand against the competitors that matter
+   - A plan tied to what gets built, not a deck that collects dust
+   - Scope decided on purpose, so the budget goes where it counts
+   - Decisions backed by research instead of a hunch
+   Tools: Competitive research, audience mapping, discovery, audits
 
 === WHO HONE STUDIO WORKS WITH ===
 
-1. Founders & Startups
-   Problem: Wearing too many hats, no time to build properly
-   Solution: One partner who handles the tech and ops side end-to-end
+1. Founders & Lean Teams
+   Problem: No technical co-founder or dev team, but they need a custom tool, an AI workflow, or a web app built.
+   Fit: Niell scopes it, builds it, ships it, and stays on for what comes after launch.
 
-2. Small & Medium Businesses
-   Problem: Juggling multiple freelancers and agencies, inconsistent results
-   Solution: Integrated service — strategy, design, build, and automation from one person
+2. Small Business & E-commerce
+   Problem: Their tools don't talk to each other, so they spend time copying data between them.
+   Fit: Niell cleans up the stack, automates the repetitive work, and builds what's missing.
 
-3. Agencies & Teams
-   Problem: Need senior-level execution capacity without hiring full-time
-   Solution: Fractional partner who plugs into existing workflows
+3. Agencies & Consultants
+   Problem: They need reliable technical execution without hiring full-time.
+   Fit: White-label web and software work they can put their name on.
 
 === PROCESS ===
 
 Step 1: Discovery
-We start with listening. I learn your business, your goals, your constraints — and identify the biggest opportunities to move the needle.
+We get on a call and I learn how your business actually runs: where the time goes, what you've already tried, and what a win looks like. You leave with my honest read on whether it's worth building.
 
 Step 2: Strategy
-A clear plan emerges. We align on priorities, define what success looks like, and map out the work — no ambiguity, no scope creep.
+I map the work before touching code: what gets built, in what order, what "done" means, and a timeline. You sign off on the plan and the scope, so there are no surprise invoices later.
 
 Step 3: Build
-Execution with precision. I design, develop, and integrate — shipping in focused sprints with regular check-ins so nothing goes sideways.
+I design and ship in focused sprints, usually one to two weeks each. You see working software at the end of every cycle and can course-correct while it's still cheap to change.
 
 Step 4: Refine
-Launch is just the beginning. We measure, learn, and iterate — making sure what we built keeps working as your business evolves.
+After launch I watch how it performs and fix what the real world surfaces. The goal isn't to call it done, it's to keep it working as your business changes.
 
 === CASE STUDIES ===
 
@@ -164,10 +160,10 @@ Launch is just the beginning. We measure, learn, and iterate — making sure wha
    A beautiful site that doesn't convert is just decoration. Everything I build is measured by the results it drives for your business.
 
 3. Honest By Default
-   If something won't work, I'll say so. If there's a better path, I'll show you. No upsells, no fluff — just clear, direct communication.
+   If something won't work, I'll say so. If there's a better path, I'll show you, even if it means less work for me.
 
 4. Lean & Focused
-   No agency overhead, no bloated teams. One senior partner who knows your business inside out — faster decisions, tighter execution.
+   No agency overhead and no bloated teams. One person who knows your business inside out, which means faster decisions and tighter execution.
 
 === TESTIMONIALS ===
 

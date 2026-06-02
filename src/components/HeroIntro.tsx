@@ -134,7 +134,7 @@ function StaticHero() {
           <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-teal/20 bg-teal-ghost px-4 py-2">
             <span className="inline-block h-2 w-2 rounded-full bg-teal dark:bg-teal-dark animate-blink" />
             <span className="font-mono text-xs uppercase tracking-widest text-teal dark:text-teal-dark">
-              Fractional Ops &amp; Tech Partner
+              Custom Software &amp; AI Tools
             </span>
           </div>
 
@@ -142,18 +142,18 @@ function StaticHero() {
             className="font-display font-bold text-ink dark:text-white leading-tight"
             style={{ fontSize: "clamp(2rem, 5vw, 3rem)", letterSpacing: "-0.03em" }}
           >
-            You&apos;re juggling a designer, a developer, and a strategist who&apos;ve never talked to each other.
+            Custom software and AI tools for teams without a developer to spare.
           </h2>
 
           <p
             className="mt-4 font-display text-teal dark:text-teal-dark leading-tight"
             style={{ fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)" }}
           >
-            I&apos;m one person who does all of it.
+            I think like an operator, because I am one.
           </p>
 
           <p className="mt-6 max-w-xl font-body text-lg font-light text-graphite dark:text-ash">
-            Strategy, systems, and websites — all under one roof. No handoffs, no miscommunication, no managing a whole team just to ship something.
+            I figure out what your business actually needs built, then build it. Strategy, design, and code from one person who&apos;s accountable for the whole thing.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-start gap-4">
@@ -402,7 +402,7 @@ function AnimatedHero() {
                   >
                     <span className="inline-block h-2 w-2 rounded-full bg-teal dark:bg-teal-dark animate-blink" />
                     <span className="font-mono text-xs uppercase tracking-widest text-teal dark:text-teal-dark">
-                      Fractional Ops &amp; Tech Partner
+                      Custom Software &amp; AI Tools
                     </span>
                   </motion.div>
 
@@ -410,21 +410,21 @@ function AnimatedHero() {
                     style={{ opacity: headlineOpacity, y: headlineY, fontSize: "clamp(2rem, 5vw, 3rem)", letterSpacing: "-0.03em" }}
                     className="font-display font-bold text-ink dark:text-white leading-tight"
                   >
-                    You&apos;re juggling a designer, a developer, and a strategist who&apos;ve never talked to each other.
+                    Custom software and AI tools for teams without a developer to spare.
                   </motion.h2>
 
                   <motion.p
                     style={{ opacity: subtitleOpacity, y: subtitleY, fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)" }}
                     className="mt-4 font-display text-teal dark:text-teal-dark leading-tight"
                   >
-                    I&apos;m one person who does all of it.
+                    I think like an operator, because I am one.
                   </motion.p>
 
                   <motion.p
                     style={{ opacity: descOpacity, y: descY }}
                     className="mt-6 max-w-xl font-body text-lg font-light text-graphite dark:text-ash"
                   >
-                    Strategy, systems, and websites — all under one roof. No handoffs, no miscommunication, no managing a whole team just to ship something.
+                    I figure out what your business actually needs built, then build it. Strategy, design, and code from one person who&apos;s accountable for the whole thing.
                   </motion.p>
 
                   <motion.div

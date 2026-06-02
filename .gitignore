@@ -23,6 +23,9 @@ npm-debug.log*
 # claude
 .claude/
 
+# serena
+.serena/
+
 # misc
 *.tsbuildinfo
 next-env.d.ts

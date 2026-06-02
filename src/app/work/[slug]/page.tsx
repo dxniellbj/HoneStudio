@@ -425,7 +425,7 @@ export default async function CaseStudyPage({
             <ScrollReveal>
               <div className="rounded-md border border-teal/20 bg-teal-ghost dark:bg-teal-ghost p-8 text-center">
                 <p className="font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash mb-3">
-                  This project combined
+                  This project pulled in
                 </p>
                 <div className="flex flex-wrap justify-center gap-2 mb-4">
                   {study.pillars.map((pillar) => (
@@ -440,13 +440,13 @@ export default async function CaseStudyPage({
                   ))}
                 </div>
                 <p className="text-sm text-graphite dark:text-ash mb-6">
-                  The best results come when strategy, systems, and web all work together.
+                  Research, software, and design, handled by one person from scope to ship.
                 </p>
                 <Link
                   href="/services"
                   className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-teal dark:text-teal-dark transition-colors hover:text-teal-bright dark:hover:text-teal"
                 >
-                  See how the pillars connect
+                  See what I build
                   <span aria-hidden="true">&rarr;</span>
                 </Link>
               </div>

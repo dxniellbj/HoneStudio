@@ -54,7 +54,7 @@ export default function Toolkit({ showHeader = true, className = "" }: ToolkitPr
               What I Work With
             </h2>
             <p className="mt-4 text-lg text-graphite dark:text-ash">
-              I&apos;m platform-flexible — I pick the tool that fits the business, not the one I&apos;m most comfortable with.
+              I&apos;m platform-flexible. I pick the tool that fits the business, not the one I&apos;m most comfortable with.
             </p>
           </ScrollReveal>
         )}

@@ -8,7 +8,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Selected projects from Hone Studio — web design, AI tools, and strategy work for founders, educators, and VC firms.",
+    "Selected projects from Hone Studio: an AI deal-sourcing platform, education platforms, and web builds for founders and small teams.",
   keywords: [
     "portfolio",
     "case studies",
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Work | Hone Studio",
     description:
-      "Selected projects — web design, AI tools, and strategy work for founders, educators, and VC firms.",
+      "Selected projects from Hone Studio: an AI deal-sourcing platform, education platforms, and web builds for founders and small teams.",
     url: "https://honestudio.cv/work",
     
   },
   twitter: {
     title: "Work | Hone Studio",
     description:
-      "Selected projects — web design, AI tools, and strategy work for founders, educators, and VC firms.",
+      "Selected projects from Hone Studio: an AI deal-sourcing platform, education platforms, and web builds for founders and small teams.",
   },
 };
 
@@ -38,7 +38,7 @@ export default function WorkPage() {
   return (
     <>
       {/* ── Hero (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink min-h-dvh flex items-center px-6 pattern-grid">
+      <section className="bg-snow dark:bg-ink min-h-dvh flex items-center px-6 pt-24 md:pt-28 pattern-grid">
         <div className="mx-auto max-w-7xl">
           <ScrollReveal>
             <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
@@ -49,7 +49,7 @@ export default function WorkPage() {
               Selected Work
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-section-desc text-graphite dark:text-ash">
-              Every project here started the same way: something wasn't working, and nobody could figure out why. I figured out why. Then I fixed it.
+              A few things I&apos;ve built, and what they actually did for the people who hired me. The AI deal-sourcing platform is the one I point to first.
             </p>
           </ScrollReveal>
         </div>
@@ -73,16 +73,16 @@ export default function WorkPage() {
       <section className="bg-snow dark:bg-ink py-16 px-6 pattern-grid">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
-            Your project could be next
+            Working on something that needs this kind of thinking?
           </h2>
           <p className="mt-4 text-lg text-graphite dark:text-ash">
-            Tell me what&apos;s not working. I&apos;ll tell you what I&apos;d do about it.
+            Tell me what you&apos;re trying to build. I&apos;ll tell you how I&apos;d approach it.
           </p>
           <Link
             href="/contact"
             className="mt-8 inline-block rounded-sm bg-teal dark:bg-teal-dark px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal"
           >
-            Start a Conversation
+            Book a Call
           </Link>
         </ScrollReveal>
       </section>

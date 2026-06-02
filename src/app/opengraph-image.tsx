@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export const alt = "Hone Studio — Fractional Ops & Tech Partner";
+export const alt = "Hone Studio: Custom Software & AI Tools, Built Solo";
 export const size = {
   width: 1200,
   height: 630,
@@ -99,7 +99,7 @@ export default async function Image() {
               lineHeight: 1.4,
             }}
           >
-            Fractional Ops & Tech Partner
+            Custom Software & AI Tools
           </p>
 
           {/* Subtext */}
@@ -112,7 +112,7 @@ export default async function Image() {
               lineHeight: 1.5,
             }}
           >
-            Strategy, systems, and websites — all from one senior partner
+            Built by one developer who works out what your business needs first
           </p>
 
           {/* Service pills */}
@@ -123,7 +123,7 @@ export default async function Image() {
               marginTop: "48px",
             }}
           >
-            {["Web", "AI & Automation", "Strategy"].map((service, i) => (
+            {["Software & AI", "Web", "Strategy"].map((service, i) => (
               <div
                 key={service}
                 style={{

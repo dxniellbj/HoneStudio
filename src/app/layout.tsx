@@ -35,25 +35,24 @@ const spaceMono = Space_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Hone Studio — Fractional Ops & Tech Partner",
+    default: "Hone Studio: Custom Software & AI Tools, Built Solo",
     template: "%s | Hone Studio",
   },
   description:
-    "Fractional ops & tech partner for founders and small teams. Strategy, systems, and websites — all from one senior partner. No overhead, no handoffs.",
+    "Custom software and AI tools for founders and small teams without a developer to spare. Built by Niell Alfajora, a developer who thinks like an operator.",
   keywords: [
-    "fractional ops",
-    "tech partner",
-    "web design",
+    "custom software development",
+    "AI tools",
+    "internal tools",
+    "Next.js developer",
+    "Firebase developer",
     "web development",
-    "AI automation",
-    "business strategy",
+    "automation",
     "Kajabi",
     "Shopify",
-    "Next.js",
     "small business",
     "startup",
     "freelance developer",
-    "fractional CTO",
   ],
   authors: [{ name: "Niell Alfajora", url: "https://honestudio.cv/about" }],
   creator: "Niell Alfajora",
@@ -67,16 +66,16 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://honestudio.cv",
     siteName: "Hone Studio",
-    title: "Hone Studio — Fractional Ops & Tech Partner",
+    title: "Hone Studio: Custom Software & AI Tools, Built Solo",
     description:
-      "Strategy, systems, and websites — all from one senior partner. No overhead, no handoffs.",
-    
+      "Custom software and AI tools for founders and small teams. Built by one developer who works out what your business needs first.",
+
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hone Studio — Fractional Ops & Tech Partner",
+    title: "Hone Studio: Custom Software & AI Tools, Built Solo",
     description:
-      "Strategy, systems, and websites — all from one senior partner. No overhead, no handoffs.",
+      "Custom software and AI tools for founders and small teams. Built by one developer who works out what your business needs first.",
     creator: "@honestudio",
   },
   robots: {

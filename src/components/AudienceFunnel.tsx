@@ -8,27 +8,27 @@ const AUDIENCES = [
     number: "01",
     title: "Launch Partner",
     audience: "Founders & Early-Stage Startups",
-    hook: "Move fast without hiring.",
+    hook: "You need it built and there's no one to build it.",
     description:
-      "You've got a vision and a deadline but no dev team. I step in and handle the ops and tech — from MVP to launch and whatever comes after.",
+      "No technical co-founder, no dev team, and a list of things that have to exist: an internal tool, an AI workflow, a web app. I scope it, build it, and ship it, then stick around for what comes after launch.",
     model: "Project-based engagement",
   },
   {
     number: "02",
     title: "Growth Partner",
     audience: "Small Business & E-commerce",
-    hook: "Stop duct-taping your systems together.",
+    hook: "Your tools don't talk to each other.",
     description:
-      "Your business is growing but your tools aren't. I clean up the stack, automate the workflows, and build what you need to keep scaling.",
+      "Orders in one place, customers in another, and you in the middle copying data between them. I clean up the stack, automate the repetitive work, and build what's missing so the systems run without you babysitting them.",
     model: "Monthly retainer",
   },
   {
     number: "03",
     title: "Backend Partner",
     audience: "Agencies & Consultants",
-    hook: "Your behind-the-scenes execution partner.",
+    hook: "You won the work. Now you need someone to build it.",
     description:
-      "You handle the client relationship. I handle the build — white-label web development, automation, and technical execution you can trust.",
+      "You own the client relationship. I'm the technical execution behind it: white-label web and software work you can put your name on, delivered without the drama.",
     model: "White-label partnership",
   },
 ] as const;

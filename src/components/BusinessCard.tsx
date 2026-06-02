@@ -70,7 +70,7 @@ export default function BusinessCard() {
         {/* Details — centered, revealed on hover */}
         <div className="bcard-details">
           <p className="bcard-name">Niell Alfajora</p>
-          <p className="bcard-role">Fractional Ops &amp; Tech Partner</p>
+          <p className="bcard-role">Software &amp; AI Developer</p>
           <p className="bcard-contact">dxniellbj@gmail.com</p>
         </div>
       </div>

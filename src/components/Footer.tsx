@@ -22,7 +22,7 @@ export default function Footer() {
 
         {/* Tagline */}
         <p className="mb-8 text-graphite dark:text-ash">
-          Strategy. Systems. Websites. One person.
+          Custom software and AI tools, built solo.
         </p>
 
         {/* Nav Links */}

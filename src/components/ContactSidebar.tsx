@@ -21,6 +21,9 @@ export default function ContactSidebar() {
           >
             dxniellbj@gmail.com
           </a>
+          <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-ash">
+            Replies within 24 hours
+          </p>
         </div>
 
         <div className="h-px bg-cloud dark:bg-slate" />

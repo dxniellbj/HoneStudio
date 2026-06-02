@@ -9,16 +9,16 @@ import { SERVICE_PILLARS, PROCESS_STEPS } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Web design & development, AI automation, and business strategy. Three services, one partner, zero handoffs. See how Hone Studio works.",
+    "Custom software and AI tools, web builds, and the strategy behind them. Built by one developer who works out what your business needs first.",
   keywords: [
+    "custom software development",
+    "AI tools",
+    "internal tools",
+    "Next.js development",
     "web design services",
-    "AI automation",
-    "business strategy",
     "Kajabi development",
     "Shopify development",
-    "Next.js development",
-    "CRM automation",
-    "chatbot development",
+    "automation",
   ],
   alternates: {
     canonical: "/services",
@@ -26,14 +26,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Services | Hone Studio",
     description:
-      "Web design & development, AI automation, and business strategy. Three services, one partner, zero handoffs.",
+      "Custom software and AI tools, web builds, and the strategy behind them. Built by one developer who works out what your business needs first.",
     url: "https://honestudio.cv/services",
-    
+
   },
   twitter: {
     title: "Services | Hone Studio",
     description:
-      "Web design & development, AI automation, and business strategy. Three services, one partner, zero handoffs.",
+      "Custom software and AI tools, web builds, and the strategy behind them. Built by one developer who works out what your business needs first.",
   },
 };
 
@@ -78,7 +78,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* ── Hero (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink min-h-dvh flex items-center px-6 pattern-grid">
+      <section className="bg-snow dark:bg-ink min-h-dvh flex items-center px-6 pt-24 md:pt-28 pattern-grid">
         <div className="mx-auto max-w-7xl">
           <ScrollReveal>
             <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
@@ -86,13 +86,13 @@ export default function ServicesPage() {
               Services
             </p>
             <h1 className="font-display text-5xl text-section-title text-ink dark:text-white md:text-6xl">
-              Three Things, One Person
+              What I Build
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-section-desc text-graphite dark:text-ash">
-              You&apos;ve got a strategist who doesn&apos;t talk to your developer. A developer who&apos;s never seen the business plan. And an automation person who built something nobody asked for.
+              Most of what I do is custom software: internal tools, AI pipelines, and web apps for teams that need something built and don&apos;t have a developer to build it.
             </p>
             <p className="mt-4 max-w-2xl text-lg text-section-desc text-graphite dark:text-ash">
-              I do all three. Strategy, systems, and web. One brain, one Slack thread, zero game-of-telephone. Everything connects because one person is connecting it.
+              I build websites too, and I plan every project before I touch code. Here is what each of those looks like in practice.
             </p>
           </ScrollReveal>
         </div>
@@ -224,10 +224,10 @@ export default function ServicesPage() {
             Let&apos;s figure out what you actually need.
           </h2>
           <p className="mt-4 text-lg text-graphite dark:text-ash">
-            Most projects touch more than one of these. That&apos;s the whole point of working with one person — we don&apos;t have to draw lines between strategy, systems, and web. We just build what matters.
+            A lot of projects start as &ldquo;I think we need a website&rdquo; and turn into something more useful once we dig in. The first call is for working that out, not pitching you.
           </p>
           <p className="mt-4 text-lg text-graphite dark:text-ash">
-            Tell me what&apos;s going on and I&apos;ll tell you where to start.
+            Tell me what&apos;s going on and I&apos;ll tell you where I&apos;d start.
           </p>
           <Link
             href="/contact"

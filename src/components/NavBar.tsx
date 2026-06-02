@@ -64,7 +64,7 @@ export default function NavBar() {
               href="/contact"
               className="rounded-sm bg-teal dark:bg-teal-dark px-4 py-2 font-mono text-xs uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal"
             >
-              Get in Touch
+              Book a Call
             </Link>
           </div>
 
@@ -143,7 +143,7 @@ export default function NavBar() {
               className="rounded-sm bg-teal dark:bg-teal-dark px-10 py-4 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal"
               tabIndex={open ? 0 : -1}
             >
-              Get in Touch
+              Book a Call
             </Link>
           </div>
         </div>

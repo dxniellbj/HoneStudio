@@ -7,11 +7,11 @@ const organizationSchema = {
   url: "https://honestudio.cv",
   logo: "https://honestudio.cv/logo.svg",
   description:
-    "Fractional ops & tech partner — strategy, systems, and websites with zero overhead.",
+    "Custom software, AI tools, and web development for founders and small teams, built by one developer.",
   founder: {
     "@type": "Person",
     name: "Niell Alfajora",
-    jobTitle: "Founder",
+    jobTitle: "Founder & Developer",
   },
   contactPoint: {
     "@type": "ContactPoint",
@@ -28,7 +28,7 @@ const serviceSchema = {
     "@type": "Organization",
     name: "Hone Studio",
   },
-  serviceType: "Fractional Operations & Technology Partner",
+  serviceType: "Custom Software, AI Tools, and Web Development",
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Services",
@@ -50,18 +50,18 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "What services does Hone Studio offer?",
+      name: "What does Hone Studio build?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Hone Studio offers three integrated services: Web Design & Development (Kajabi, Shopify, Squarespace, Next.js, custom apps), AI & Automation (workflows, CRM, AI tools, email flows, chatbots), and Strategy & Research (market research, competitive intel, discovery, audits).",
+        text: "Mostly custom software: internal tools, AI pipelines, and web apps built with Next.js, Firebase, and Gemini for teams that don't have a developer to spare. Hone Studio also builds websites on Kajabi, Shopify, Squarespace, Webflow, and custom stacks, and plans every project with competitive research and a clear scope first.",
       },
     },
     {
       "@type": "Question",
-      name: "What makes Hone Studio different from an agency?",
+      name: "What makes Hone Studio different?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Unlike agencies where you work with multiple people who rarely talk to each other, Hone Studio is one senior partner who handles strategy, systems, and websites together. This means faster decisions, tighter execution, and no miscommunication between departments.",
+        text: "Niell is a developer who thinks like an operator because he is one. He works out what a business actually needs built before opening a code editor, then handles the strategy, design, and code himself, so nothing gets lost between brief and ship.",
       },
     },
     {
@@ -69,7 +69,7 @@ const faqSchema = {
       name: "Who does Hone Studio work with?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Hone Studio works with founders, small businesses, and agencies who need ops and tech support without building a full team. Clients range from education businesses to VC firms to e-commerce brands.",
+        text: "Founders and lean teams who need custom tools or a web app without a technical co-founder, small businesses whose tools don't talk to each other, and agencies that need a reliable white-label technical execution partner.",
       },
     },
     {

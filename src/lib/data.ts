@@ -37,52 +37,52 @@ export interface CaseStudy {
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
-    title: "AI-Powered Deal Sourcing for a Media & Consumer VC",
+    title: "An AI Deal-Sourcing Platform for a Media & Consumer VC",
     client: "Media & Consumer VC",
     platform: "Next.js + Firebase + Gemini",
-    pillars: ["Web", "AI", "Strategy"],
+    pillars: ["AI", "Web", "Strategy"],
     summary:
-      "A VC firm was sourcing deals the old-fashioned way — spreadsheets, manual research, and a lot of copy-pasting between tabs. I built two internal tools (a Sourcing Platform and an Intel Hub) that use AI-powered enrichment and multi-source web scraping to surface, score, and track deals in real time. The team went from spending 10-20 hours/week on manual sourcing to having a live pipeline that updates itself.",
+      "An investment team was sourcing companies by hand: Googling, copy-pasting into spreadsheets, and still missing most of the market. I designed and built two internal tools that find, enrich, score, and track companies automatically. The team now runs around 1,000 companies a week through a live pipeline instead of burning 10 to 20 hours on manual research.",
     slug: "vc-deal-sourcing",
     thumbnail: "/images/work/vc-deal-sourcing/Platform - Hero.png",
     thumbnailBg: "#2c2f21",
     images: [
       {
         src: "/images/work/vc-deal-sourcing/Platform - Interface.png",
-        alt: "Sourcing Platform company enrichment table",
+        alt: "Sourcing platform company enrichment table",
         bg: "#2c2f21",
-        caption: "Enter a company name and website — AI enrichment handles the rest: description, social links, follower counts, sourcing grades, and more.",
+        caption: "Enter a company name and website. AI enrichment handles the rest: description, social links, follower counts, sourcing grades, and more.",
       },
       {
         src: "/images/work/vc-deal-sourcing/Platform - Analytics.png",
-        alt: "Sourcing Platform analytics dashboard showing ROI and sourcing metrics",
+        alt: "Sourcing platform analytics dashboard showing ROI and sourcing metrics",
         bg: "#2c2f21",
       },
     ],
     stats: [
       { label: "Companies / Week", value: "~1,000" },
-      { label: "Hours Saved / Week", value: "250+" },
-      { label: "Days Saved / Year", value: "1,625" },
+      { label: "Hours Eliminated / Year", value: "13,000+" },
+      { label: "Companies Processed", value: "8,800+" },
       { label: "Cost / 1K Companies", value: "$10–15" },
     ],
     challenge:
-      "The client is a startup VC firm focused on media and consumer — music, entertainment, film, digital media, beauty, hospitality, and more. As a lean team without enterprise tooling, researching potential investments meant hours of manual Googling, scattered notes, and no structured way to enrich, grade, or track companies at scale.",
+      "The client is an early-stage VC firm focused on media and consumer: music, entertainment, film, digital media, beauty, hospitality, and more. As a lean team without enterprise tooling, researching a potential investment meant hours of manual Googling, scattered notes, and no structured way to enrich, grade, or track companies at scale. The work cost 10 to 20 hours a week and still missed most of the market.",
     approach: [
-      "Started with the core problem: the team was spending hours manually researching every company. Built a Sourcing Platform to let them enter a name and website, then let AI do the rest",
-      "Designed the enrichment pipeline in phases — domain discovery, web scraping, AI analysis, social data extraction, and follower counts — each validating against multiple sources so nothing relies on a single data point",
-      "Added the tools the team needed around it: theme-based organization with drag-and-drop, a grading system, bulk CSV imports, and a real-time dashboard tracking ROI and pipeline health",
-      "Built an Intel Hub as a second tool for retail intelligence — analysts photograph store shelves, Gemini AI identifies every brand and SKU on sight, then enriches each with manufacturer data and maps it all geographically",
+      "Started with the real bottleneck: every company had to be researched by hand. I built a sourcing platform where the team enters a name and a website, and the system does the rest.",
+      "Designed the enrichment pipeline in phases: domain discovery, web scraping, AI analysis, social data extraction, and follower counts. Each phase validates against multiple sources, so nothing rests on a single data point.",
+      "Built the tools the team needed around it: theme-based organization with drag-and-drop, a grading system, bulk CSV imports, and a real-time dashboard tracking ROI and pipeline health.",
+      "Added a second tool for retail intelligence. Analysts photograph store shelves, AI identifies every brand and SKU on sight, then enriches each with manufacturer data and plots it on a map.",
     ],
     results: [
-      "~1,000 companies enriched per week at $10–15 in API costs — work that would take a full team 250+ hours done automatically",
-      "13,000+ hours of manual research eliminated per year — the equivalent of six full-time analysts",
-      "8,851 companies sourced, enriched, and graded in the system to date",
-      "Deal pipeline went from scattered notes and spreadsheets to a structured, searchable platform the whole team uses daily",
-      "Investment team now sees enriched company data in real time — research that used to take hours is ready in seconds",
+      "Around 1,000 companies enriched per week at $10 to $15 in API costs, work that would take a full team more than 250 hours.",
+      "13,000+ hours of manual research eliminated per year, roughly the output of six full-time analysts.",
+      "8,800+ companies sourced, enriched, and graded in the system to date.",
+      "The deal pipeline went from scattered notes and spreadsheets to a structured, searchable platform the whole team uses daily.",
+      "Enriched company data now shows up in real time. Research that used to take hours is ready in seconds.",
     ],
     scope: [
-      "Sourcing Platform — investment sourcing platform",
-      "Intel Hub — retail intelligence hub",
+      "Sourcing platform for investment deal flow",
+      "Retail intelligence hub",
       "AI enrichment pipeline design",
       "Real-time collaborative data infrastructure",
     ],
@@ -93,16 +93,16 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Google Maps API", "Google PSE", "Recharts",
     ],
     keyFeatures: [
-      "Multi-phase AI enrichment: domain discovery → web scraping → AI analysis → social data → consensus scoring",
+      "Multi-phase AI enrichment: domain discovery, web scraping, AI analysis, social data, consensus scoring",
       "Four concurrent background processing queues for parallel enrichment",
-      "Hierarchical theme/folder management with drag-and-drop organization",
+      "Hierarchical theme and folder management with drag-and-drop organization",
       "Interactive dashboard with ROI tracking and sourcing grade distribution",
       "Brand extractor for bulk CSV imports with automated domain discovery",
-      "Store walk photo analysis — Gemini AI detects every brand and SKU on retail shelves",
+      "Store-walk photo analysis: AI detects every brand and SKU on retail shelves",
       "Two-pass retail enrichment with Google Search grounding for manufacturer data",
       "Interactive Google Maps view with intelligent markers per store location",
       "A/B/C/D company grading system with pipeline tracking",
-      "Real-time Firestore listeners — all users see data updates instantly",
+      "Real-time Firestore listeners, so every user sees data updates instantly",
     ],
   },
   {
@@ -111,7 +111,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     platform: "Kajabi",
     pillars: ["Web", "Strategy"],
     summary:
-      "Shan's photography education business had outgrown WordPress. Courses were scattered across multiple platforms, automations didn't exist, and every launch was a manual scramble. I migrated everything to Kajabi — courses, offers, email sequences, the works. Now it runs on autopilot.",
+      "Shan's photography education business had outgrown WordPress. Courses were scattered across platforms, automations didn't exist, and every launch was a manual scramble. I migrated everything to Kajabi: courses, offers, and email sequences. The business has since done six figures in gross revenue on the platform.",
     slug: "shan-fisher-education",
     url: "https://academy.shanfishereducation.com",
     thumbnail: "/images/work/shan-fisher-education/SFE - Hero.png",
@@ -119,7 +119,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     images: [
       {
         src: "/images/work/shan-fisher-education/SFE - Hero.png",
-        alt: "Shan Fisher Education — Kajabi site homepage",
+        alt: "Shan Fisher Education Kajabi site homepage",
       },
       {
         src: "/images/work/shan-fisher-education/SFE - Analytics.png",
@@ -129,7 +129,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
       {
         src: "/images/work/shan-fisher-education/SFE - Gross Revenue.png",
-        alt: "Gross revenue — £50,151 GBP and $28,124 USD all time",
+        alt: "Gross revenue: £50,151 GBP and $28,124 USD all time",
         cols: 4,
         bg: "#f5f5f5",
       },
@@ -141,27 +141,27 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: "MRR", value: "$518" },
     ],
     challenge:
-      "Shan Fisher Education is a photography business that had outgrown their WordPress setup. Courses were hard to manage, there was no automation in place, and scaling meant hitting a wall with every new launch. They needed a platform that could handle course delivery, payments, and marketing in one place.",
+      "Shan Fisher Education is a photography business that had outgrown its WordPress setup. Courses were hard to manage, there was no automation in place, and scaling meant hitting a wall with every new launch. They needed a platform that could handle course delivery, payments, and marketing in one place.",
     approach: [
-      "Audited the existing WordPress site and mapped all courses, content, and student data for migration",
-      "Migrated the full course library to Kajabi — including videos, resources, and student access",
-      "Built offers, landing pages, and checkout flows optimized for conversion",
-      "Set up full automation — email sequences, onboarding flows, and post-purchase nurture campaigns",
-      "Continued with ongoing maintenance and building out new course offerings as the business grew",
+      "Audited the existing WordPress site and mapped every course, asset, and student record for migration.",
+      "Migrated the full course library to Kajabi, including videos, resources, and student access.",
+      "Built offers, landing pages, and checkout flows designed to convert.",
+      "Set up the automation: email sequences, onboarding flows, and post-purchase nurture campaigns.",
+      "Stayed on for ongoing maintenance and new course builds as the business grew.",
     ],
     results: [
-      "Complete migration from WordPress to Kajabi with zero downtime",
-      "All courses, offers, and student data successfully moved to one platform",
-      "Automated email sequences replaced hours of manual follow-up",
-      "Scalable foundation for launching new courses and offers without rework",
-      "Ongoing partnership — new courses and offers added without needing outside help",
+      "Complete migration from WordPress to Kajabi with zero downtime.",
+      "All courses, offers, and student data moved onto one platform.",
+      "Automated email sequences replaced hours of manual follow-up.",
+      "Six figures in gross revenue on the platform, with a foundation that launches new courses without a rebuild.",
+      "An ongoing partnership, with new courses and offers added without outside help.",
     ],
     scope: [
-      "Platform migration (WordPress → Kajabi)",
-      "Course library setup & content migration",
-      "Offer & checkout flow design",
-      "Email automation & onboarding sequences",
-      "Ongoing maintenance & new course launches",
+      "Platform migration (WordPress to Kajabi)",
+      "Course library setup and content migration",
+      "Offer and checkout flow design",
+      "Email automation and onboarding sequences",
+      "Ongoing maintenance and new course launches",
     ],
     techStack: ["Kajabi", "WordPress", "ManyChat", "HTML", "CSS", "JavaScript"],
     keyFeatures: [
@@ -177,30 +177,30 @@ export const CASE_STUDIES: CaseStudy[] = [
     platform: "Squarespace",
     pillars: ["Web", "Strategy"],
     summary:
-      "Elena is an internationally recognized photographer who wanted to teach. I helped her launch her academy — first on Kajabi for digital courses, then transitioned to Squarespace when her focus shifted to in-person workshops. The platform adapted to the business, not the other way around.",
+      "Elena is an internationally recognized photographer who wanted to teach. I helped her launch her academy, first on Kajabi for digital courses, then moved it to Squarespace when her focus shifted to in-person workshops. The platform adapted to the business, not the other way around.",
     slug: "elena-givone-academy",
     thumbnail: "/images/work/elena-givone-academy/EGA - Hero.png",
     thumbnailBg: "#e8ddd3",
     url: "https://elenagivoneacademy.com",
     challenge:
-      "Elena Givone — an award-winning Italian photographer, Fujifilm X-Photographer, and Elinchrom ambassador — wanted to start offering education to fellow photographers. She needed a platform to launch courses, but as her vision evolved toward in-person workshops between Italy and Sri Lanka, the setup had to adapt with her.",
+      "Elena Givone is an award-winning Italian photographer, a Fujifilm X-Photographer, and an Elinchrom ambassador who wanted to start teaching fellow photographers. She needed a platform to launch courses, but as her vision moved toward in-person workshops between Italy and Sri Lanka, the setup had to move with her.",
     approach: [
-      "Built the initial academy on Kajabi with course structure, content hosting, and checkout flows",
-      "As Elena's focus shifted from digital courses to physical workshops, re-evaluated the platform needs",
-      "Transitioned the academy to Squarespace — better suited for workshop listings, event-based content, and her visual brand",
-      "Designed the site to showcase her portfolio, published books, and upcoming workshop schedule",
+      "Built the initial academy on Kajabi with course structure, content hosting, and checkout flows.",
+      "Re-evaluated the platform as Elena's focus shifted from digital courses to physical workshops.",
+      "Moved the academy to Squarespace, a better fit for workshop listings, event-based content, and her visual brand.",
+      "Designed the site to showcase her portfolio, published books, and upcoming workshop schedule.",
     ],
     results: [
-      "Academy launched and operational, giving Elena a professional home for her education offering",
-      "Smooth transition from Kajabi to Squarespace without losing momentum",
-      "Platform now aligned with her workshop-first model — easy to update events and listings",
-      "Site reflects Elena's international brand across photography, education, and social projects",
+      "Academy launched and operational, giving Elena a professional home for her education offering.",
+      "Smooth transition from Kajabi to Squarespace without losing momentum.",
+      "Platform now aligned with her workshop-first model, easy to update events and listings.",
+      "Site reflects Elena's international brand across photography, education, and social projects.",
     ],
     scope: [
       "Academy platform setup (Kajabi, then Squarespace)",
-      "Course structure & content hosting",
+      "Course structure and content hosting",
       "Website design aligned to visual brand",
-      "Workshop listings & event management",
+      "Workshop listings and event management",
     ],
     techStack: ["Squarespace", "Kajabi", "HTML", "CSS", "JavaScript"],
     keyFeatures: [
@@ -227,48 +227,48 @@ export interface ServicePillar {
 export const SERVICE_PILLARS: ServicePillar[] = [
   {
     number: "01",
-    title: "Web Design & Development",
+    title: "Custom Software & AI Tools",
     accent: "teal",
-    tagline: "Sites that work as hard as you do.",
+    tagline: "The tool you need doesn't exist yet. I build it.",
     description:
-      "A pretty site that doesn't convert is just an expensive brochure. I build around what your business actually needs: more bookings, more sales, more people picking up the phone. Not a template with your logo slapped on it. I work across Kajabi, Shopify, Squarespace, Next.js, and custom builds — so the platform fits your business, not the other way around. And once it's live, I maintain it.",
+      "You have a process that lives in spreadsheets and someone's head, or a product idea that needs real engineering, and no developer on payroll to build it. I build web apps, internal tools, AI pipelines, and the integrations that get your stack talking to itself. For an investment team, I built a two-tool platform that now sources and enriches around 1,000 companies a week on its own. I reach for Next.js, Firebase, and Gemini when they fit. What matters is that the tool does the job, not the logo on it.",
     outcomes: [
-      "Built around a specific conversion goal, not just 'we need a website'",
-      "Every page has a job — architecture scales when you're ready to grow",
-      "You're not stuck on a platform someone else chose three years ago",
-      "Never wonder why the contact form broke at 2 AM",
+      "A tool built around how your team actually works, not a SaaS you bend your process to fit",
+      "The manual research, data entry, and copy-paste work runs on its own",
+      "AI that does real work inside your pipeline, not a chatbot bolted on for show",
+      "One person owns the whole build, so nothing gets lost between brief and ship",
     ],
-    tools: ["Kajabi", "Shopify", "Squarespace", "Next.js", "Custom Apps"],
+    tools: ["Next.js", "Firebase", "Gemini", "TypeScript", "API Integrations"],
   },
   {
     number: "02",
-    title: "AI & Automation",
+    title: "Web Builds",
     accent: "signal",
-    tagline: "Stop doing the robot's job.",
+    tagline: "If you need a site, I build those too.",
     description:
-      "If you're copying data between tabs, manually sending follow-up emails, or spending your Monday morning updating a spreadsheet that should update itself — that's not work. That's busywork wearing a lanyard. I build the workflows, AI tools, and integrations that handle the repetitive stuff. CRM automations, email flows, chatbots that actually answer questions, data pipelines that don't need you babysitting them.",
+      "Maybe you don't need custom software. You need a site that loads fast, looks right, and turns visitors into bookings or sales. I build on Kajabi, Shopify, Squarespace, Webflow, or a custom Next.js front end, picked around what your business actually has to do. Because I work out the business case before the design, the sites tend to convert instead of just sitting there looking nice. And once it's live, I keep it running.",
     outcomes: [
-      "The 5–10 hours a week you burn on manual tasks? Those come back",
-      "Your tools talk to each other without copy-paste errors",
-      "Your customers get instant responses at 3 AM on a Sunday",
-      "Systems get smarter the longer they run — not dumber",
+      "Built around one clear goal: more bookings, more sales, more inquiries",
+      "The platform fits your business, not whichever one I happen to like",
+      "Fast, accessible, and ready to grow when you are",
+      "I maintain it after launch, so the contact form never quietly breaks at 2 AM",
     ],
-    tools: ["Automation", "CRM", "AI Tools", "Email Flows", "Chatbots"],
+    tools: ["Kajabi", "Shopify", "Squarespace", "Webflow", "Next.js"],
   },
   {
     number: "03",
     title: "Strategy & Research",
     accent: "indigo",
-    tagline: "Build the right thing the first time.",
+    tagline: "I want to know what we're building before I build it.",
     description:
-      "Here's an expensive mistake I see all the time: someone spends $15K building a product, a site, a campaign — and then checks whether anyone actually wants it. That's backwards. I do the competitive research, audience analysis, and strategic planning before a single pixel gets designed. You get a clear picture of where you stand, what to build, and why it's worth building — backed by data, not vibes.",
+      "Before I open a code editor, I want to know what we're making and why. That means competitive research, audience mapping, and a plan you can act on, not a template strategy doc you file and forget. This isn't a separate thing I sell you. It's how every project starts, so we build the right thing the first time instead of finding out after launch that nobody wanted it.",
     outcomes: [
-      "Know exactly how you stack up against 5–10 direct competitors",
-      "A roadmap your whole team can follow, not a 40-page deck that collects dust",
-      "When someone asks 'why are we doing this?' you'll have a real answer",
-      "Decisions backed by research, not gut feel",
+      "A clear read on where you stand against the competitors that actually matter",
+      "A plan tied to what gets built, not a 40-page deck that collects dust",
+      "Scope decided on purpose, so the budget goes where it counts",
+      "Decisions backed by research instead of a hunch",
     ],
-    tools: ["Market Research", "Competitive Intel", "Discovery", "Audits"],
+    tools: ["Competitive Research", "Audience Mapping", "Discovery", "Audits"],
   },
 ];
 
@@ -285,25 +285,25 @@ export const PROCESS_STEPS: ProcessStep[] = [
     number: "01",
     title: "Discovery",
     description:
-      "I learn your business. Not the elevator pitch version — the real one. Where things are stuck, what's been tried, where the biggest wins are hiding.",
+      "We get on a call and I learn how your business actually runs: where the time goes, what you've already tried, and what a win looks like. You leave with my honest read on whether this is worth building.",
   },
   {
     number: "02",
     title: "Strategy",
     description:
-      "We get specific. What gets built, in what order, what 'done' looks like, and when you'll see it. No ambiguity, no scope creep surprises.",
+      "I map the work before touching code: what gets built, in what order, what 'done' means, and a timeline. You sign off on the plan and the scope, so there are no surprise invoices later.",
   },
   {
     number: "03",
     title: "Build",
     description:
-      "I design and ship in focused sprints, usually 1–2 weeks per cycle. You get regular check-ins so nothing shows up that you didn't expect.",
+      "I design and ship in focused sprints, usually one to two weeks each. You see working software at the end of every cycle and can course-correct while it's still cheap to change.",
   },
   {
     number: "04",
     title: "Refine",
     description:
-      "After launch, we measure. What's converting, what's not, what needs adjusting. The goal isn't 'done' — it's 'working and getting better.'",
+      "After launch I watch how it performs and fix what the real world surfaces. The goal isn't to call it done. It's to keep it working as your business changes.",
   },
 ];
 
@@ -323,7 +323,7 @@ export const NOTABLE_MENTIONS: NotableMention[] = [
     client: "Sharni Quinn Wellness",
     url: "https://sharniquinn.com",
     description:
-      "Kajabi site for an international wellness coach covering coaching programs, corporate wellness, yoga retreats, and travel consulting. Consolidated multiple offerings into one platform.",
+      "Kajabi site for an international wellness coach covering coaching programs, corporate wellness, yoga retreats, and travel consulting. Consolidated several offerings onto one platform.",
     pillars: ["Web", "Strategy"],
   },
   {
@@ -337,14 +337,14 @@ export const NOTABLE_MENTIONS: NotableMention[] = [
     client: "The Host Approach",
     url: "https://thehostapproach.com",
     description:
-      "Kajabi site, offers, and email automations for a vacation rental coaching business helping BnB hosts build direct booking strategies.",
+      "Kajabi site, offers, and email automations for a vacation-rental coaching business that helps BnB hosts build direct-booking strategies.",
     pillars: ["Web", "AI"],
   },
   {
     client: "Allison Lane Literary",
     url: "https://lanelit.com",
     description:
-      "Kajabi redesign and email automations for a book coaching firm that helps experts write, publish, and launch books.",
+      "Kajabi redesign and email automations for a book-coaching firm that helps experts write, publish, and launch books.",
     pillars: ["Web", "AI"],
   },
   {
@@ -358,14 +358,14 @@ export const NOTABLE_MENTIONS: NotableMention[] = [
     client: "Supreme Garden Herbs",
     url: "https://supremegardenherbs.com",
     description:
-      "Shopify store for a farm-to-consumer beauty brand selling handcrafted, plant-based haircare and skincare products.",
+      "Shopify store for a farm-to-consumer beauty brand selling handcrafted, plant-based haircare and skincare.",
     pillars: ["Web"],
   },
   {
     client: "Courage 2 Transform",
     url: "https://courage2transform.com",
     description:
-      "Squarespace site for a certified life and health coach offering coaching, art therapy resources, and a membership community.",
+      "Squarespace site for a certified life and health coach offering coaching, art-therapy resources, and a membership community.",
     pillars: ["Web", "Strategy"],
   },
   {
