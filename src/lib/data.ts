@@ -66,7 +66,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     stats: [
       { label: "Companies / Week", value: "~1,000" },
       { label: "Hours Eliminated / Year", value: "13,000+" },
-      { label: "Companies Processed", value: "8,800+" },
+      { label: "Companies Processed", value: "xx,xxx+" },
       { label: "Cost / 1K Companies", value: "$10–15" },
     ],
     challenge:
