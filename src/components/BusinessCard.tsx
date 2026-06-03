@@ -19,10 +19,10 @@ export default function BusinessCard() {
             <text
               x="0"
               y="34"
-              fontFamily="var(--font-fraunces), Georgia, serif"
+              fontFamily="var(--font-space-grotesk), sans-serif"
               fontSize="38"
-              fontWeight="600"
-              fill="var(--color-snow, #F6F7F9)"
+              fontWeight="700"
+              fill="var(--color-cream, #E8E0C8)"
             >
               H
             </text>
@@ -57,10 +57,10 @@ export default function BusinessCard() {
             <text
               x="2"
               y="34"
-              fontFamily="var(--font-fraunces), Georgia, serif"
+              fontFamily="var(--font-space-grotesk), sans-serif"
               fontSize="38"
-              fontWeight="600"
-              fill="var(--color-teal, #00D4AA)"
+              fontWeight="700"
+              fill="var(--color-red, #C0392B)"
             >
               .
             </text>

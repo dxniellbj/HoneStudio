@@ -2,28 +2,23 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <section className="flex min-h-[70vh] items-center justify-center bg-ink px-6">
+    <section className="scanlines flex min-h-[70vh] items-center justify-center bg-dark px-6">
       <div className="text-center">
-        <p className="font-mono text-sm uppercase tracking-widest text-teal dark:text-teal-dark">
+        <p className="eyebrow">Game Over</p>
+        <h1 className="mt-4 font-display text-6xl font-bold uppercase tracking-tight text-yellow md:text-8xl">
           404
-        </p>
-        <h1 className="mt-4 font-display text-5xl text-section-title text-white md:text-6xl">
-          Page not found
         </h1>
-        <p className="mt-4 text-lg text-ash">
+        <p className="mt-2 font-display text-2xl font-bold uppercase text-cream md:text-3xl">
+          Page not found
+        </p>
+        <p className="mt-4 text-lg text-cream/65">
           The page you&apos;re looking for doesn&apos;t exist or has been moved.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <Link
-            href="/"
-            className="rounded-sm bg-teal dark:bg-teal-dark px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal"
-          >
-            Go Home
+          <Link href="/" className="btn btn--primary btn--lg">
+            Insert Coin · Go Home
           </Link>
-          <Link
-            href="/contact"
-            className="rounded-sm border border-slate px-8 py-3 font-mono text-sm uppercase tracking-widest text-ash transition-colors hover:border-teal dark:hover:border-teal-dark hover:text-teal dark:hover:text-teal-dark"
-          >
+          <Link href="/contact" className="btn btn--ghost btn--lg">
             Get in Touch
           </Link>
         </div>

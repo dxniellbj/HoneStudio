@@ -55,11 +55,11 @@ export default function AnimatedStat({ value, label, started }: AnimatedStatProp
   const animatedNum = useCountUp(num, started);
 
   return (
-    <div className="h-full rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink p-5 text-center">
-      <p className="font-display text-2xl font-semibold text-teal dark:text-teal-dark md:text-3xl">
+    <div className="h-full rounded-lg border-2 border-shadow bg-beige p-5 text-center">
+      <p className="font-display text-2xl font-extrabold tracking-[-0.02em] text-red md:text-3xl">
         {prefix}{formatNumber(animatedNum)}{suffix}
       </p>
-      <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-graphite dark:text-ash">
+      <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-dark/50">
         {label}
       </p>
     </div>

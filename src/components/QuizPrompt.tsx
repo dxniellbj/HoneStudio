@@ -49,7 +49,7 @@ export default function QuizPrompt() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 bg-ink/80 backdrop-blur-sm"
+            className="fixed inset-0 z-50 bg-darkest/80 backdrop-blur-sm"
             onClick={handleDismiss}
             aria-hidden="true"
           />
@@ -60,12 +60,12 @@ export default function QuizPrompt() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            className="fixed left-1/2 top-1/2 z-50 w-full max-w-md -translate-x-1/2 -translate-y-1/2 rounded-lg border border-slate bg-carbon p-8 shadow-2xl"
+            className="fixed left-1/2 top-1/2 z-50 w-full max-w-md -translate-x-1/2 -translate-y-1/2 rounded-lg border-2 border-shadow bg-beige p-8 shadow-2xl"
           >
             {/* Dismiss button */}
             <button
               onClick={handleDismiss}
-              className="absolute right-4 top-4 text-ash transition-colors hover:text-white"
+              className="absolute right-4 top-4 text-dark/50 transition-colors hover:text-dark"
               aria-label="Dismiss"
             >
               <svg
@@ -85,18 +85,18 @@ export default function QuizPrompt() {
 
             {/* Content */}
             <div className="text-center">
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-teal/20 bg-teal-ghost px-4 py-2">
-                <span className="inline-block h-2 w-2 rounded-full bg-teal dark:bg-teal-dark animate-pulse" />
-                <span className="font-mono text-xs uppercase tracking-widest text-teal dark:text-teal-dark">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-red/20 bg-red/10 px-4 py-2">
+                <span className="inline-block h-2 w-2 rounded-full bg-red animate-pulse" />
+                <span className="font-mono text-xs uppercase tracking-widest text-red">
                   5-min quiz
                 </span>
               </div>
 
-              <h3 className="mb-3 font-display text-2xl font-medium text-white">
+              <h3 className="mb-3 font-display font-extrabold tracking-[-0.02em] text-2xl text-dark">
                 Not sure where to start?
               </h3>
 
-              <p className="mb-6 text-fog">
+              <p className="mb-6 text-dark/65">
                 Take a quick quiz to find out which services fit your needs — and get a personalized recommendation.
               </p>
 
@@ -104,13 +104,13 @@ export default function QuizPrompt() {
                 <Link
                   href="/quiz"
                   onClick={handleDismiss}
-                  className="w-full rounded-sm bg-teal dark:bg-teal-dark px-6 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal sm:w-auto"
+                  className="btn btn--primary w-full sm:w-auto"
                 >
                   Take the Quiz
                 </Link>
                 <button
                   onClick={handleDismiss}
-                  className="w-full rounded-sm border border-slate bg-transparent px-6 py-3 font-mono text-sm uppercase tracking-widest text-fog transition-colors hover:border-iron hover:text-white sm:w-auto"
+                  className="btn btn--outline w-full sm:w-auto"
                 >
                   Maybe Later
                 </button>

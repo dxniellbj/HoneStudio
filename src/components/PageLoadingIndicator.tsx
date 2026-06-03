@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -23,7 +23,9 @@ export default function PageLoadingIndicator() {
   // Intercept link clicks to show loading state
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
+      const target = e.target;
+      // e.target is an EventTarget (can be Document/Window), so guard before using Element-only APIs.
+      if (!(target instanceof Element)) return;
       const link = target.closest("a");
 
       if (!link) return;
@@ -93,14 +95,14 @@ export default function PageLoadingIndicator() {
             className="fixed top-0 left-0 right-0 z-[200] h-0.5"
           >
             <motion.div
-              className="h-full bg-teal dark:bg-teal-dark"
+              className="h-full bg-red"
               initial={{ width: "0%" }}
               animate={{ width: `${progress}%` }}
               transition={{ ease: "easeOut" }}
             />
             {/* Glow effect */}
             <div
-              className="absolute right-0 top-0 h-full w-24 bg-gradient-to-r from-transparent to-teal/50 dark:to-teal-dark/50"
+              className="absolute right-0 top-0 h-full w-24 bg-gradient-to-r from-transparent to-red/50"
               style={{ transform: `translateX(${progress < 5 ? -100 : 0}%)` }}
             />
           </motion.div>
@@ -118,7 +120,7 @@ export default function PageLoadingIndicator() {
             className="fixed inset-0 z-[199] pointer-events-none"
           >
             {/* Subtle overlay */}
-            <div className="absolute inset-0 bg-white/5 dark:bg-ink/10" />
+            <div className="absolute inset-0 bg-dark/5" />
 
             {/* Center loading spinner */}
             <div className="absolute inset-0 flex items-center justify-center">
@@ -132,10 +134,10 @@ export default function PageLoadingIndicator() {
                 {/* Spinner */}
                 <div className="relative h-8 w-8">
                   <motion.div
-                    className="absolute inset-0 rounded-full border-2 border-teal/20 dark:border-teal-dark/20"
+                    className="absolute inset-0 rounded-full border-2 border-red/20"
                   />
                   <motion.div
-                    className="absolute inset-0 rounded-full border-2 border-transparent border-t-teal dark:border-t-teal-dark"
+                    className="absolute inset-0 rounded-full border-2 border-transparent border-t-red"
                     animate={{ rotate: 360 }}
                     transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
                   />

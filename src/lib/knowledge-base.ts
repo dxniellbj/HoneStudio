@@ -170,7 +170,11 @@ After launch I watch how it performs and fix what the real world surfaces. The g
 Brian W.: "I couldn't have launched my business without Daniell. He excelled with strategy, research, creative execution and building technology to streamline operations. Daniell is hard working, reliable and a great communicator. Can't wait to work with him again!" (5 stars)
 
 === PRICING ===
-No pricing is listed on the website. The call to action is always "get in touch" or "book a call." If asked about pricing, direct them to the contact page.
+Starting-at prices are shown on the service cards (home + Services page):
+- Custom Software & AI Tools: from $1,500 (typical projects land around $1,500–2,000)
+- Web Builds: from $600
+- Strategy & Research: from $300 standalone (an audit, discovery sprint, or competitive read) — and it's included free with any build
+These are starting points for one-time project work; the final number depends on scope. For a real quote, the call to action is still "get in touch" / "book a call" — point them to the contact page.
 
 === CONTACT ===
 Email: dxniellbj@gmail.com

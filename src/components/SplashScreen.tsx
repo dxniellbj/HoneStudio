@@ -1,42 +1,43 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import { createPortal } from "react-dom";
 
-type Phase = "loading" | "prompt" | "ripple" | "done";
+type Phase = "loading" | "prompt" | "crt" | "done";
 
 function playBootSound() {
   try {
     const ctx = new AudioContext();
     const now = ctx.currentTime;
 
-    // Soft bouncing tones — synced to the ball bounce rhythm
+    // Soft bouncing tones — boot blips
     for (let i = 0; i < 3; i++) {
       const t = now + i * 0.5;
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
       osc.connect(gain);
       gain.connect(ctx.destination);
-      osc.type = "sine";
-      osc.frequency.setValueAtTime(520 + i * 80, t);
-      gain.gain.setValueAtTime(0.04, t);
-      gain.gain.exponentialRampToValueAtTime(0.001, t + 0.15);
+      osc.type = "square";
+      osc.frequency.setValueAtTime(420 + i * 90, t);
+      gain.gain.setValueAtTime(0.03, t);
+      gain.gain.exponentialRampToValueAtTime(0.001, t + 0.12);
       osc.start(t);
-      osc.stop(t + 0.15);
+      osc.stop(t + 0.12);
     }
 
     // Completion ping — two harmonious tones
-    const ct = now + 1.2;
+    const ct = now + 1.6;
     [1047, 1319].forEach((freq) => {
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
       osc.connect(gain);
       gain.connect(ctx.destination);
-      osc.type = "sine";
+      osc.type = "square";
       osc.frequency.setValueAtTime(freq, ct);
-      gain.gain.setValueAtTime(0.06, ct);
-      gain.gain.exponentialRampToValueAtTime(0.001, ct + 0.5);
+      gain.gain.setValueAtTime(0.05, ct);
+      gain.gain.exponentialRampToValueAtTime(0.001, ct + 0.4);
       osc.start(ct);
-      osc.stop(ct + 0.5);
+      osc.stop(ct + 0.4);
     });
   } catch {
     // Web Audio not available — continue silently
@@ -45,11 +46,14 @@ function playBootSound() {
 
 export default function SplashScreen() {
   const [phase, setPhase] = useState<Phase>("loading");
-  const [loaderFading, setLoaderFading] = useState(false);
-  const [ripplePos, setRipplePos] = useState<{ x: number; y: number } | null>(null);
+  const [pct, setPct] = useState(0);
   const [isTouch, setIsTouch] = useState(false);
   const [skip, setSkip] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const soundPlayed = useRef(false);
+
+  // Portal target only exists on the client
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     // Only show once per session
@@ -69,12 +73,9 @@ export default function SplashScreen() {
       return;
     }
 
-    // Detect touch device
     setIsTouch(window.matchMedia("(pointer: coarse)").matches);
-
     document.body.style.overflow = "hidden";
 
-    // Prevent double sound in StrictMode
     if (!soundPlayed.current) {
       soundPlayed.current = true;
       playBootSound();
@@ -89,37 +90,39 @@ export default function SplashScreen() {
       }
     }, 100);
 
-    // Phase A → fade loader after 1.7s
-    const fadeTimer = setTimeout(() => setLoaderFading(true), 1700);
-    // Phase A → show prompt after loader fade (1.7s + 500ms)
-    const promptTimer = setTimeout(() => setPhase("prompt"), 2200);
+    // Chunky 8-bit progress — fills in uneven jumps, then shows the prompt
+    let current = 0;
+    let promptTimer: ReturnType<typeof setTimeout>;
+    const tick = setInterval(() => {
+      current = Math.min(100, current + 4 + Math.floor(Math.random() * 12));
+      setPct(current);
+      if (current >= 100) {
+        clearInterval(tick);
+        promptTimer = setTimeout(() => setPhase("prompt"), 450);
+      }
+    }, 110);
 
     return () => {
       clearTimeout(sessionTimer);
-      clearTimeout(fadeTimer);
+      clearInterval(tick);
       clearTimeout(promptTimer);
       document.body.style.overflow = "";
     };
   }, []);
 
-  const handleClick = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      if (phase !== "prompt") return;
+  const handleClick = useCallback(() => {
+    if (phase !== "prompt") return;
 
-      setRipplePos({ x: e.clientX, y: e.clientY });
-      setPhase("ripple");
+    // CRT power-on flash, then reveal the site
+    setPhase("crt");
+    setTimeout(() => {
+      setPhase("done");
+      document.body.style.overflow = "";
+      window.dispatchEvent(new Event("splash-dismissed"));
+    }, 600);
+  }, [phase]);
 
-      // After ripple animation (600ms), dismiss
-      setTimeout(() => {
-        setPhase("done");
-        document.body.style.overflow = "";
-        window.dispatchEvent(new Event("splash-dismissed"));
-      }, 600);
-    },
-    [phase],
-  );
-
-  // Skip: dispatch event so HeroIntro knows to auto-start for returning visitors
+  // Skip: tell HeroIntro to auto-start for returning visitors
   useEffect(() => {
     if (skip) {
       const t = setTimeout(() => {
@@ -129,38 +132,45 @@ export default function SplashScreen() {
     }
   }, [skip]);
 
-  if (skip || phase === "done") return null;
+  if (skip || phase === "done" || !mounted) return null;
 
-  return (
+  const showPrompt = phase === "prompt";
+  const crt = phase === "crt";
+
+  const overlay = (
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-snow dark:bg-ink"
+      className={`scanlines fixed inset-0 z-[9999] flex items-center justify-center bg-cream ${
+        crt ? "animate-crt-off" : ""
+      }`}
+      role="dialog"
+      aria-modal="true"
       aria-hidden="true"
       onClick={handleClick}
-      style={{ cursor: phase === "prompt" ? "pointer" : "default" }}
+      style={{ cursor: showPrompt && !crt ? "pointer" : "default" }}
     >
-      {/* Phase A: Loader */}
-      {phase === "loading" && (
-        <div
-          className={`splash-loader transition-opacity duration-500 ${
-            loaderFading ? "opacity-0" : "opacity-100"
-          }`}
-        />
-      )}
-
-      {/* Phase B: Enter Prompt */}
-      {phase === "prompt" && (
-        <p className="splash-prompt font-mono text-sm uppercase tracking-widest text-graphite dark:text-ash select-none">
-          {isTouch ? "Tap to enter" : "Click to enter"}
+      <div className="relative z-[1] flex flex-col items-center gap-8 select-none px-6">
+        {/* LOADING.. / READY label */}
+        <p className="font-pixel text-[22px] leading-none text-dark">
+          {showPrompt ? "READY!" : "LOADING"}
+          {!showPrompt && <span className="animate-blink">..</span>}
         </p>
-      )}
 
-      {/* Phase C: Ripple */}
-      {phase === "ripple" && ripplePos && (
-        <div
-          className="splash-ripple"
-          style={{ left: ripplePos.x, top: ripplePos.y }}
-        />
-      )}
+        {/* Pixel progress bar */}
+        <div className="pixel-bar pixel-bar--lg">
+          <div className="pixel-bar__fill" style={{ width: `${showPrompt ? 100 : pct}%` }} />
+        </div>
+
+        {/* Percentage / prompt */}
+        {showPrompt ? (
+          <p className="splash-prompt font-pixel text-[18px] leading-relaxed text-red">
+            {isTouch ? "TAP TO START" : "CLICK TO START"}
+          </p>
+        ) : (
+          <p className="font-pixel text-[15px] leading-none text-dark/70">{pct}%</p>
+        )}
+      </div>
     </div>
   );
+
+  return createPortal(overlay, document.body);
 }

@@ -25,7 +25,7 @@ function formatText(text: string) {
         <a
           key={i}
           href={linkMatch[2]}
-          className="text-teal dark:text-teal-dark underline underline-offset-2 hover:text-teal-bright dark:hover:text-teal"
+          className="text-red underline underline-offset-2 hover:text-red-bright"
           target={linkMatch[2].startsWith("http") ? "_blank" : undefined}
           rel={linkMatch[2].startsWith("http") ? "noopener noreferrer" : undefined}
         >
@@ -35,7 +35,7 @@ function formatText(text: string) {
     }
     if (part.startsWith("`") && part.endsWith("`")) {
       return (
-        <code key={i} className="rounded bg-snow dark:bg-slate px-1 py-0.5 font-mono text-[0.85em]">
+        <code key={i} className="rounded bg-beige px-1 py-0.5 font-mono text-[0.85em]">
           {part.slice(1, -1)}
         </code>
       );
@@ -56,8 +56,8 @@ export default function ChatMessage({ role, text }: ChatMessageProps) {
       <div
         className={`max-w-[85%] rounded-lg px-4 py-3 text-sm leading-relaxed ${
           isUser
-            ? "bg-teal dark:bg-teal-dark text-ink"
-            : "bg-snow dark:bg-slate text-graphite dark:text-ash"
+            ? "bg-red text-white"
+            : "bg-beige text-dark border border-shadow"
         }`}
       >
         {formatText(text)}

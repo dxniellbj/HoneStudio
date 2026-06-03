@@ -18,8 +18,9 @@ export default function TealCursor() {
       pos.current = { x: e.clientX, y: e.clientY };
       if (!visible) setVisible(true);
 
-      const target = e.target as Element | null;
-      setHovering(!!target?.closest(CLICKABLE));
+      const target = e.target;
+      // e.target is an EventTarget (can be Document/Window), so guard before .closest.
+      setHovering(target instanceof Element && !!target.closest(CLICKABLE));
     };
 
     const onLeave = () => setVisible(false);
@@ -61,7 +62,7 @@ export default function TealCursor() {
           width: hovering ? 0 : 12,
           height: hovering ? 0 : 12,
           borderRadius: "50%",
-          backgroundColor: "#00D4AA",
+          backgroundColor: "#C0392B",
           top: hovering ? 0 : -6,
           left: hovering ? 0 : -6,
           opacity: hovering ? 0 : 1,
@@ -73,7 +74,7 @@ export default function TealCursor() {
         width="20"
         height="22"
         viewBox="0 0 20 22"
-        fill="#00D4AA"
+        fill="#C0392B"
         className="absolute transition-all duration-200 ease-out"
         style={{
           top: -2,

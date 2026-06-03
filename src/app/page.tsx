@@ -1,11 +1,11 @@
 import HeroIntro from "@/components/HeroIntro";
 import SplashScreen from "@/components/SplashScreen";
+import MarqueeStrip from "@/components/MarqueeStrip";
 import ServicePillars from "@/components/ServicePillars";
 import Toolkit from "@/components/Toolkit";
 import AudienceFunnel from "@/components/AudienceFunnel";
 import Testimonials from "@/components/Testimonials";
 import ScrollReveal from "@/components/ScrollReveal";
-import SectionDivider from "@/components/SectionDivider";
 import Image from "next/image";
 import Link from "next/link";
 import { CASE_STUDIES } from "@/lib/data";
@@ -19,12 +19,15 @@ export default function HomePage() {
       <SplashScreen />
       <HeroIntro />
 
-      {/* 2. Featured Proof — lead case study (B: white/carbon) */}
-      <section className="bg-white dark:bg-carbon py-16 px-6 pattern-diag">
+      {/* Marquee — decorative scrolling strip */}
+      <MarqueeStrip />
+
+      {/* 2. Featured Proof — lead case study */}
+      <section className="bg-cream py-16 px-6 pattern-diag border-b-[3px] border-shadow">
         <div className="mx-auto max-w-7xl">
           <ScrollReveal>
-            <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-              <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
+            <p className="eyebrow mb-4 flex items-center gap-2">
+              <span className="inline-block h-px w-6 bg-red" />
               Featured Work
             </p>
           </ScrollReveal>
@@ -32,22 +35,22 @@ export default function HomePage() {
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
             {/* Text */}
             <ScrollReveal>
-              <h2 className="font-display text-3xl text-section-title text-ink dark:text-white md:text-4xl">
+              <h2 className="font-display text-3xl font-bold tracking-[-0.02em] text-dark md:text-4xl">
                 {FEATURED.title}
               </h2>
-              <p className="mt-5 text-lg leading-relaxed text-graphite dark:text-ash">
-                An investment team was sourcing companies by hand and still missing most of the market. I designed and built two internal tools that find, enrich, score, and track companies automatically. Here is what changed:
+              <p className="mt-5 text-lg leading-relaxed text-dark/65">
+                An investment team was hunting companies by hand and still missing most of the market. So I built them two internal tools that find, enrich, score, and track companies on their own. Here&apos;s what changed:
               </p>
 
-              {/* Stats */}
+              {/* Stats — retro stats bar */}
               {FEATURED.stats && (
                 <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-4">
                   {FEATURED.stats.map((stat) => (
                     <div key={stat.label}>
-                      <p className="font-display text-2xl font-medium text-teal dark:text-teal-dark md:text-3xl">
+                      <p className="font-display text-2xl font-extrabold text-red md:text-3xl">
                         {stat.value}
                       </p>
-                      <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-graphite dark:text-ash">
+                      <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-dark/50">
                         {stat.label}
                       </p>
                     </div>
@@ -57,17 +60,14 @@ export default function HomePage() {
 
               {/* CTAs */}
               <div className="mt-10 flex flex-wrap items-center gap-4">
-                <Link
-                  href={`/work/${FEATURED.slug}`}
-                  className="inline-block rounded-sm bg-teal dark:bg-teal-dark px-7 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal"
-                >
-                  Read the Case Study
+                <Link href={`/work/${FEATURED.slug}`} className="btn btn--primary">
+                  Read the case study
                 </Link>
                 <Link
                   href="/work"
-                  className="inline-flex items-center gap-2 font-mono text-sm uppercase tracking-widest text-graphite dark:text-ash transition-colors hover:text-teal dark:hover:text-teal-dark"
+                  className="inline-flex items-center gap-2 font-mono text-sm uppercase tracking-widest text-dark/60 transition-colors hover:text-red"
                 >
-                  See All Work
+                  See all work
                   <span aria-hidden="true">&rarr;</span>
                 </Link>
               </div>
@@ -81,7 +81,7 @@ export default function HomePage() {
                 aria-label={`Read the ${FEATURED.client} case study`}
               >
                 <div
-                  className="relative aspect-video overflow-hidden rounded-md border border-cloud dark:border-slate transition-all duration-300 group-hover:border-teal dark:group-hover:border-teal-dark"
+                  className="relative aspect-video overflow-hidden rounded-lg border-2 border-shadow transition-all duration-300 group-hover:-translate-y-1 group-hover:border-red"
                   style={FEATURED.thumbnailBg ? { backgroundColor: FEATURED.thumbnailBg } : undefined}
                 >
                   {FEATURED.thumbnail && (
@@ -100,42 +100,34 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. What I Build (B: white/carbon — continuous with proof) */}
+      {/* 3. What I Build */}
       <ScrollReveal>
         <ServicePillars />
       </ScrollReveal>
 
-      <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
-
-      {/* 4. Who I Work With (A: snow/ink) */}
+      {/* 4. Who I Work With */}
       <AudienceFunnel />
 
-      <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
-
-      {/* 5. Toolkit (B: white/carbon) */}
+      {/* 5. Toolkit */}
       <Toolkit />
 
-      {/* 6. Testimonial (B: white/carbon) */}
+      {/* 6. Testimonial */}
       <Testimonials />
 
-      <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
-
-      {/* 7. CTA Section (A: snow/ink) */}
-      <section className="bg-snow dark:bg-ink py-16 px-6 pattern-grid">
-        <ScrollReveal className="mx-auto max-w-3xl text-center">
-          <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
-            Sound like what you need?
+      {/* 7. CTA — retro block */}
+      <section className="cta-block">
+        <div>
+          <h2 className="cta-block__text">
+            Sound like what you need?{" "}
+            <span className="cta-block__text--accent">Let&apos;s talk.</span>
           </h2>
-          <p className="mt-4 text-lg text-graphite dark:text-ash">
-            Tell me what you&apos;re working on. I&apos;ll tell you how I&apos;d approach it, and whether I&apos;m the right person to build it.
+          <p className="cta-block__sub">
+            Tell me what you&apos;re working on — game on.
           </p>
-          <Link
-            href="/contact"
-            className="mt-8 inline-block rounded-sm bg-teal dark:bg-teal-dark px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal"
-          >
-            Book a Call
-          </Link>
-        </ScrollReveal>
+        </div>
+        <Link href="/contact" className="btn btn--primary btn--lg">
+          Book a call
+        </Link>
       </section>
     </>
   );

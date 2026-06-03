@@ -42,7 +42,7 @@ export default function ImageLightbox({ src, alt, children }: ImageLightboxProps
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className="w-full h-full cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
+        className="w-full h-full cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-red focus-visible:ring-offset-2"
         aria-label={`View ${alt} in fullscreen`}
       >
         {children}

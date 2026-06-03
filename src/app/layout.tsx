@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { Fraunces, DM_Sans, Space_Mono } from "next/font/google";
+import { Space_Grotesk, DM_Mono, Press_Start_2P } from "next/font/google";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import ThemeProvider from "@/components/ThemeProvider";
 import ChatWidgetLazy from "@/components/chat/ChatWidgetLazy";
 import QuizPrompt from "@/components/QuizPrompt";
 import TealCursor from "@/components/TealCursor";
@@ -12,24 +11,24 @@ import JsonLd from "@/components/JsonLd";
 import ErrorLogger from "@/components/ErrorLogger";
 import "@/styles/globals.css";
 
-const fraunces = Fraunces({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-fraunces",
-  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-space-grotesk",
+  weight: ["400", "500", "700"],
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const dmMono = DM_Mono({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
-  weight: ["300", "400", "500", "600"],
+  variable: "--font-dm-mono",
+  weight: ["400", "500"],
   display: "swap",
 });
 
-const spaceMono = Space_Mono({
+const pressStart = Press_Start_2P({
   subsets: ["latin"],
-  variable: "--font-space-mono",
-  weight: ["400", "700"],
+  variable: "--font-press-start",
+  weight: ["400"],
   display: "swap",
 });
 
@@ -101,31 +100,23 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${fraunces.variable} ${dmSans.variable} ${spaceMono.variable}`}
+      className={`${spaceGrotesk.variable} ${dmMono.variable} ${pressStart.variable}`}
       suppressHydrationWarning
     >
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("hone-theme");if(t==="light"){document.documentElement.classList.remove("dark")}else if(!t&&window.matchMedia("(prefers-color-scheme:light)").matches){document.documentElement.classList.remove("dark")}}catch(e){}})()`,
-          }}
-        />
-        
         <JsonLd />
       </head>
       <body>
-        <ThemeProvider>
-          <Suspense fallback={null}>
-            <PageLoadingIndicator />
-          </Suspense>
-          <NavBar />
-          <main>{children}</main>
-          <Footer />
-          <ChatWidgetLazy />
-          <QuizPrompt />
-          <TealCursor />
-          <ErrorLogger />
-        </ThemeProvider>
+        <Suspense fallback={null}>
+          <PageLoadingIndicator />
+        </Suspense>
+        <NavBar />
+        <main>{children}</main>
+        <Footer />
+        <ChatWidgetLazy />
+        <QuizPrompt />
+        <TealCursor />
+        <ErrorLogger />
       </body>
     </html>
   );

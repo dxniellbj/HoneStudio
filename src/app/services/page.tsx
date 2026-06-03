@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import ScrollReveal from "@/components/ScrollReveal";
-import SectionDivider from "@/components/SectionDivider";
 import TechLines from "@/components/TechLines";
 import Toolkit from "@/components/Toolkit";
+import ArcadeCabinet from "@/components/ArcadeCabinet";
 import Link from "next/link";
 import { SERVICE_PILLARS, PROCESS_STEPS } from "@/lib/data";
 
@@ -37,63 +37,62 @@ export const metadata: Metadata = {
   },
 };
 
+// Map legacy pillar accent keys to retro palette colors
 const ACCENT_MAP = {
   teal: {
-    number: "text-teal dark:text-teal-dark",
-    border: "border-teal/20 dark:border-teal-dark/20",
-    dot: "bg-teal dark:bg-teal-dark",
-    tag: "border-teal/30 dark:border-teal-dark/30 text-teal dark:text-teal-dark bg-teal-ghost",
+    number: "text-red",
+    dot: "bg-red",
+    tag: "border-red/40 text-red bg-red/5",
+    hover: "hover:border-red",
   },
   signal: {
-    number: "text-signal",
-    border: "border-signal/20",
-    dot: "bg-signal",
-    tag: "border-signal/30 text-signal bg-signal-ghost",
+    number: "text-orange",
+    dot: "bg-orange",
+    tag: "border-orange/40 text-orange bg-orange/5",
+    hover: "hover:border-orange",
   },
   indigo: {
-    number: "text-indigo",
-    border: "border-indigo/20",
-    dot: "bg-indigo",
-    tag: "border-indigo/30 text-indigo bg-indigo-ghost",
+    number: "text-blue",
+    dot: "bg-blue",
+    tag: "border-blue/40 text-blue bg-blue/5",
+    hover: "hover:border-blue",
   },
 } as const;
 
-// Alternating section types: A = snow/ink, B = white/carbon
-const SECTION_STYLES = [
-  { bg: "bg-white dark:bg-carbon", card: "bg-snow dark:bg-ink", pattern: "pattern-diag" },
-  { bg: "bg-snow dark:bg-ink", card: "bg-white dark:bg-carbon", pattern: "pattern-dots" },
-  { bg: "bg-white dark:bg-carbon", card: "bg-snow dark:bg-ink", pattern: "pattern-grid" },
-] as const;
-
-const DIVIDER_PAIRS = [
-  // Hero(A) → Pillar1(B)
-  { from: "ink", to: "carbon", lightFrom: "snow", lightTo: "white" },
-  // Pillar1(B) → Pillar2(A)
-  { from: "carbon", to: "ink", lightFrom: "white", lightTo: "snow" },
-  // Pillar2(A) → Pillar3(B)
-  { from: "ink", to: "carbon", lightFrom: "snow", lightTo: "white" },
-] as const;
+// Alternating section patterns for the retro single theme
+const SECTION_PATTERNS = ["pattern-diag", "pattern-dots", "pattern-grid"] as const;
 
 export default function ServicesPage() {
   return (
     <>
-      {/* ── Hero (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink min-h-dvh flex items-center px-6 pt-24 md:pt-28 pattern-grid">
-        <div className="mx-auto max-w-7xl">
+      {/* ── Hero ── */}
+      <section className="bg-cream min-h-dvh flex items-center px-6 pt-24 md:pt-28 pattern-grid border-b-[3px] border-shadow">
+        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 md:grid-cols-[1fr_420px] md:gap-16">
           <ScrollReveal>
-            <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-              <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
+            <p className="eyebrow mb-4 flex items-center gap-2">
+              <span className="inline-block h-px w-6 bg-red" />
               Services
             </p>
-            <h1 className="font-display text-5xl text-section-title text-ink dark:text-white md:text-6xl">
+            <h1 className="font-display text-5xl font-extrabold tracking-[-0.02em] text-dark md:text-6xl">
               What I Build
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-section-desc text-graphite dark:text-ash">
-              Most of what I do is custom software: internal tools, AI pipelines, and web apps for teams that need something built and don&apos;t have a developer to build it.
+            <p className="mt-6 max-w-2xl text-lg font-light text-dark/65">
+              Most of what I do is custom software: internal tools, AI pipelines, and web apps for teams that need something built and have no developer to build it.
             </p>
-            <p className="mt-4 max-w-2xl text-lg text-section-desc text-graphite dark:text-ash">
-              I build websites too, and I plan every project before I touch code. Here is what each of those looks like in practice.
+            <p className="mt-4 max-w-2xl text-lg font-light text-dark/65">
+              I build websites too, and I plan every project before I touch the code. Here&apos;s what each of those looks like in practice.
             </p>
+            <p className="mt-6 font-mono text-xs uppercase tracking-widest text-dark/45">
+              Starting prices — final number depends on scope
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.15} className="order-first md:order-none">
+            <ArcadeCabinet
+              marquee="Hone · Services"
+              screen="menu"
+              items={["Software & AI", "Web Builds", "Strategy"]}
+            />
           </ScrollReveal>
         </div>
       </section>
@@ -101,91 +100,96 @@ export default function ServicesPage() {
       {/* ── Pillar Details ── */}
       {SERVICE_PILLARS.map((pillar, i) => {
         const accent = ACCENT_MAP[pillar.accent];
-        const style = SECTION_STYLES[i];
-        const divider = DIVIDER_PAIRS[i];
+        const pattern = SECTION_PATTERNS[i % SECTION_PATTERNS.length];
 
         return (
-          <div key={pillar.number}>
-            <SectionDivider
-              from={divider.from}
-              to={divider.to}
-              lightFrom={divider.lightFrom}
-              lightTo={divider.lightTo}
-            />
-            <section className={`${style.bg} py-16 px-6 ${style.pattern}`}>
-              <div className="mx-auto max-w-7xl">
-                <div
-                  className={`grid grid-cols-1 items-start gap-12 lg:grid-cols-2 ${
-                    i % 2 !== 0 ? "lg:[&>*:first-child]:order-2" : ""
-                  }`}
-                >
-                  {/* Text Column */}
-                  <ScrollReveal>
-                    <p className={`mb-2 font-mono text-sm ${accent.number}`}>
-                      {pillar.number}
-                    </p>
-                    <h2 className="font-display text-3xl text-section-title text-ink dark:text-white md:text-4xl">
-                      {pillar.title}
-                    </h2>
-                    <p className={`mt-2 font-display text-lg italic ${accent.number}`}>
-                      {pillar.tagline}
-                    </p>
-                    <p className="mt-6 text-lg leading-relaxed text-section-desc text-graphite dark:text-ash">
-                      {pillar.description}
-                    </p>
+          <section
+            key={pillar.number}
+            className={`bg-cream py-16 px-6 ${pattern} border-b-[3px] border-shadow`}
+          >
+            <div className="mx-auto max-w-7xl">
+              <div
+                className={`grid grid-cols-1 items-start gap-12 lg:grid-cols-2 ${
+                  i % 2 !== 0 ? "lg:[&>*:first-child]:order-2" : ""
+                }`}
+              >
+                {/* Text Column */}
+                <ScrollReveal>
+                  <div className="mb-2 flex flex-wrap items-center gap-3">
+                    <p className={`font-mono text-sm ${accent.number}`}>{pillar.number}</p>
+                    <span
+                      className={`rounded-sm border border-current px-2 py-0.5 font-mono text-[10px] font-medium uppercase tracking-wide ${accent.number}`}
+                    >
+                      {pillar.price}
+                    </span>
+                    {pillar.priceNote && (
+                      <span className="font-mono text-[10px] uppercase tracking-wide text-dark/45">
+                        {pillar.priceNote}
+                      </span>
+                    )}
+                  </div>
+                  <h2 className="font-display text-3xl font-extrabold tracking-[-0.02em] text-dark md:text-4xl">
+                    {pillar.title}
+                  </h2>
+                  <p className={`mt-2 font-display text-lg italic ${accent.number}`}>
+                    {pillar.tagline}
+                  </p>
+                  <p className="mt-6 text-lg font-light leading-relaxed text-dark/65">
+                    {pillar.description}
+                  </p>
 
-                    {/* Tool Pills */}
-                    <div className="mt-8 flex flex-wrap gap-2">
-                      {pillar.tools.map((tool) => (
-                        <span
-                          key={tool}
-                          className={`rounded-full border px-3 py-1 font-mono text-[11px] ${accent.tag}`}
-                        >
-                          {tool}
-                        </span>
+                  {/* Tool Pills */}
+                  <div className="mt-8 flex flex-wrap gap-2">
+                    {pillar.tools.map((tool) => (
+                      <span
+                        key={tool}
+                        className={`rounded-sm border px-3 py-1 font-mono text-[11px] uppercase tracking-wide ${accent.tag}`}
+                      >
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                </ScrollReveal>
+
+                {/* Outcomes Column */}
+                <ScrollReveal delay={0.15}>
+                  <div
+                    className={`rounded-lg border-2 border-shadow bg-beige p-8 transition-all duration-300 ${accent.hover}`}
+                  >
+                    <h3 className="mb-6 font-mono text-xs uppercase tracking-widest text-dark/50">
+                      What You Get
+                    </h3>
+                    <ul className="space-y-4">
+                      {pillar.outcomes.map((outcome) => (
+                        <li key={outcome} className="flex items-start gap-3">
+                          <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${accent.dot}`} />
+                          <span className="text-sm leading-relaxed text-dark/65">
+                            {outcome}
+                          </span>
+                        </li>
                       ))}
-                    </div>
-                  </ScrollReveal>
-
-                  {/* Outcomes Column */}
-                  <ScrollReveal delay={0.15}>
-                    <div className={`rounded-md border border-cloud dark:border-slate p-8 ${style.card}`}>
-                      <h3 className="mb-6 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-                        What You Get
-                      </h3>
-                      <ul className="space-y-4">
-                        {pillar.outcomes.map((outcome) => (
-                          <li key={outcome} className="flex items-start gap-3">
-                            <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${accent.dot}`} />
-                            <span className="text-sm leading-relaxed text-graphite dark:text-ash">
-                              {outcome}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </ScrollReveal>
-                </div>
+                    </ul>
+                  </div>
+                </ScrollReveal>
               </div>
-            </section>
-          </div>
+            </div>
+          </section>
         );
       })}
 
-      {/* ── Process (A: snow/ink) ── */}
-      <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
-      <section className="relative bg-snow dark:bg-ink py-16 px-6 pattern-dots">
-        <TechLines variant="circuit-trace" className="text-mist dark:text-iron" />
+      {/* ── Process ── */}
+      <section className="relative bg-cream py-16 px-6 pattern-dots border-b-[3px] border-shadow">
+        <TechLines variant="circuit-trace" className="text-shadow/60" />
         <div className="mx-auto max-w-7xl">
           <ScrollReveal>
-            <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-              <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
+            <p className="eyebrow mb-4 flex items-center gap-2">
+              <span className="inline-block h-px w-6 bg-red" />
               Process
             </p>
-            <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
+            <h2 className="font-display text-4xl font-extrabold tracking-[-0.02em] text-dark md:text-5xl">
               How This Works
             </h2>
-            <p className="mt-4 max-w-2xl text-lg text-section-desc text-graphite dark:text-ash">
+            <p className="mt-4 max-w-2xl text-lg font-light text-dark/65">
               No 12-step onboarding gauntlet. Here&apos;s what actually happens:
             </p>
           </ScrollReveal>
@@ -193,14 +197,14 @@ export default function ServicesPage() {
           <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {PROCESS_STEPS.map((step, i) => (
               <ScrollReveal key={step.number} delay={i * 0.1} className="h-full">
-                <div className="h-full rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-8 transition-all duration-300 hover:border-teal dark:hover:border-teal-dark">
-                  <p className="mb-4 font-mono text-sm text-teal dark:text-teal-dark">
+                <div className="h-full rounded-lg border-2 border-shadow bg-beige p-8 transition-all duration-300 hover:-translate-y-1 hover:border-red">
+                  <p className="mb-4 font-mono text-sm text-red">
                     {step.number}
                   </p>
-                  <h3 className="mb-3 font-display text-xl font-medium text-ink dark:text-white">
+                  <h3 className="mb-3 font-display text-xl font-bold text-dark">
                     {step.title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-section-desc text-graphite dark:text-ash">
+                  <p className="text-sm font-light leading-relaxed text-dark/65">
                     {step.description}
                   </p>
                 </div>
@@ -210,32 +214,23 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
-
-      {/* ── Toolkit (B: white/carbon) ── */}
+      {/* ── Toolkit ── */}
       <Toolkit />
 
-      <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
-
-      {/* ── CTA (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink py-16 px-6 pattern-dots">
-        <ScrollReveal className="mx-auto max-w-3xl text-center">
-          <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
-            Let&apos;s figure out what you actually need.
+      {/* ── CTA — retro block ── */}
+      <section className="cta-block">
+        <div>
+          <h2 className="cta-block__text">
+            Let&apos;s figure out what you actually need.{" "}
+            <span className="cta-block__text--accent">Game on.</span>
           </h2>
-          <p className="mt-4 text-lg text-graphite dark:text-ash">
-            A lot of projects start as &ldquo;I think we need a website&rdquo; and turn into something more useful once we dig in. The first call is for working that out, not pitching you.
+          <p className="cta-block__sub">
+            Plenty of projects start as &ldquo;I think we need a website&rdquo; and turn into something far more useful once we dig in. Tell me what&apos;s going on and I&apos;ll tell you where I&apos;d start.
           </p>
-          <p className="mt-4 text-lg text-graphite dark:text-ash">
-            Tell me what&apos;s going on and I&apos;ll tell you where I&apos;d start.
-          </p>
-          <Link
-            href="/contact"
-            className="mt-8 inline-block rounded-sm bg-teal dark:bg-teal-dark px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal"
-          >
-            Book a Discovery Call
-          </Link>
-        </ScrollReveal>
+        </div>
+        <Link href="/contact" className="btn btn--primary btn--lg">
+          Book a call
+        </Link>
       </section>
     </>
   );

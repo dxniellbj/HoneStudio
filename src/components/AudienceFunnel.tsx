@@ -8,9 +8,9 @@ const AUDIENCES = [
     number: "01",
     title: "Launch Partner",
     audience: "Founders & Early-Stage Startups",
-    hook: "You need it built and there's no one to build it.",
+    hook: "You need it built and there's nobody to build it.",
     description:
-      "No technical co-founder, no dev team, and a list of things that have to exist: an internal tool, an AI workflow, a web app. I scope it, build it, and ship it, then stick around for what comes after launch.",
+      "No technical co-founder, no dev team, and a pile of things that have to exist: an internal tool, an AI workflow, a web app. I scope it, build it, ship it, then stick around for whatever launch throws at you.",
     model: "Project-based engagement",
   },
   {
@@ -19,7 +19,7 @@ const AUDIENCES = [
     audience: "Small Business & E-commerce",
     hook: "Your tools don't talk to each other.",
     description:
-      "Orders in one place, customers in another, and you in the middle copying data between them. I clean up the stack, automate the repetitive work, and build what's missing so the systems run without you babysitting them.",
+      "Orders here, customers there, and you in the middle copying data between them by hand. I tidy the stack, automate the boring stuff, and build what's missing so the whole thing runs without you babysitting it.",
     model: "Monthly retainer",
   },
   {
@@ -28,14 +28,14 @@ const AUDIENCES = [
     audience: "Agencies & Consultants",
     hook: "You won the work. Now you need someone to build it.",
     description:
-      "You own the client relationship. I'm the technical execution behind it: white-label web and software work you can put your name on, delivered without the drama.",
+      "You keep the client relationship. I'm the technical muscle behind it: white-label web and software work you can put your name on, delivered without the drama.",
     model: "White-label partnership",
   },
 ] as const;
 
 export default function AudienceFunnel() {
   return (
-    <section className="bg-snow dark:bg-ink py-16 px-6 pattern-dots">
+    <section className="scanlines bg-dark py-16 px-6 pattern-scan border-b-[3px] border-black/40">
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <motion.div
@@ -47,16 +47,16 @@ export default function AudienceFunnel() {
         >
           <motion.p
             variants={fadeUp}
-            className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash"
+            className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-yellow"
           >
-            <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
+            <span className="inline-block h-px w-6 bg-red" />
             Who I Help
           </motion.p>
           <motion.h2
             variants={fadeUp}
-            className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl"
+            className="font-display text-4xl font-extrabold tracking-[-0.02em] text-cream md:text-5xl"
           >
-            I Work With...
+            So who hires me?
           </motion.h2>
         </motion.div>
 
@@ -73,39 +73,38 @@ export default function AudienceFunnel() {
               key={item.number}
               variants={fadeUp}
               whileHover={{
-                scale: 1.03,
-                borderColor: "var(--color-teal)",
-                boxShadow: "0 8px 30px rgba(0,212,170,0.12)",
+                scale: 1.02,
+                borderColor: "var(--color-red)",
                 transition: { type: "spring", stiffness: 300, damping: 20 },
               }}
-              className="relative h-full rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-8 transition-colors"
+              className="relative h-full rounded-xl border-2 border-black/30 bg-[#211c18] p-8 transition-colors"
             >
               {/* Eyebrow */}
-              <p className="mb-4 font-mono text-xs uppercase tracking-widest text-ash">
+              <p className="mb-4 font-mono text-xs uppercase tracking-widest text-cream/40">
                 Package {item.number}
               </p>
 
               {/* Title */}
-              <h3 className="mb-1 font-display text-2xl font-medium text-ink dark:text-white">
+              <h3 className="mb-1 font-display text-2xl font-bold text-cream">
                 {item.title}
               </h3>
 
               {/* Audience */}
-              <p className="mb-4 text-sm text-ash">{item.audience}</p>
+              <p className="mb-4 text-sm text-cream/45">{item.audience}</p>
 
               {/* Hook Quote */}
-              <p className="mb-4 font-display text-lg italic text-teal-deep dark:text-teal-dark">
+              <p className="mb-4 font-display text-lg italic text-red">
                 &ldquo;{item.hook}&rdquo;
               </p>
 
               {/* Description */}
-              <p className="mb-6 text-section-desc leading-relaxed text-graphite dark:text-ash">
+              <p className="mb-6 font-light leading-relaxed text-cream/65">
                 {item.description}
               </p>
 
               {/* Engagement Model */}
-              <div className="border-t border-cloud dark:border-slate pt-4">
-                <p className="font-mono text-xs uppercase tracking-widest text-ash">
+              <div className="border-t border-white/10 pt-4">
+                <p className="font-mono text-xs uppercase tracking-widest text-yellow/80">
                   {item.model}
                 </p>
               </div>

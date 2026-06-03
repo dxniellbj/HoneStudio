@@ -14,7 +14,7 @@ export default async function Image() {
     (
       <div
         style={{
-          background: "linear-gradient(135deg, #0F1114 0%, #181B20 50%, #22262D 100%)",
+          background: "linear-gradient(135deg, #2A2420 0%, #1A1410 100%)",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -25,26 +25,26 @@ export default async function Image() {
           position: "relative",
         }}
       >
-        {/* Grid pattern overlay */}
+        {/* Scanline grid overlay */}
         <div
           style={{
             position: "absolute",
             inset: 0,
             backgroundImage:
-              "linear-gradient(rgba(0,212,170,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,170,0.03) 1px, transparent 1px)",
+              "linear-gradient(rgba(232,224,200,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(232,224,200,0.04) 1px, transparent 1px)",
             backgroundSize: "40px 40px",
           }}
         />
 
-        {/* Teal accent line */}
+        {/* Arcade accent line */}
         <div
           style={{
             position: "absolute",
             top: 0,
             left: 0,
             right: 0,
-            height: "4px",
-            background: "linear-gradient(90deg, #00D4AA 0%, #1AEDC2 50%, #00D4AA 100%)",
+            height: "5px",
+            background: "linear-gradient(90deg, #C0392B 0%, #D4AC0D 50%, #C0392B 100%)",
           }}
         />
 
@@ -69,20 +69,20 @@ export default async function Image() {
           >
             <span
               style={{
-                fontSize: "72px",
-                fontWeight: 600,
-                color: "#FFFFFF",
-                letterSpacing: "-0.02em",
+                fontSize: "76px",
+                fontWeight: 700,
+                color: "#E8E0C8",
+                letterSpacing: "-0.03em",
               }}
             >
               Hone
             </span>
             <span
               style={{
-                fontSize: "72px",
-                fontWeight: 600,
-                color: "#00D4AA",
-                letterSpacing: "-0.02em",
+                fontSize: "76px",
+                fontWeight: 700,
+                color: "#C0392B",
+                letterSpacing: "-0.03em",
               }}
             >
               .
@@ -93,7 +93,7 @@ export default async function Image() {
           <p
             style={{
               fontSize: "32px",
-              color: "#B3B8C0",
+              color: "#D4C9A8",
               margin: 0,
               maxWidth: "800px",
               lineHeight: 1.4,
@@ -106,7 +106,7 @@ export default async function Image() {
           <p
             style={{
               fontSize: "22px",
-              color: "#5A6069",
+              color: "#A89C82",
               margin: "24px 0 0 0",
               maxWidth: "700px",
               lineHeight: 1.5,
@@ -123,26 +123,27 @@ export default async function Image() {
               marginTop: "48px",
             }}
           >
-            {["Software & AI", "Web", "Strategy"].map((service, i) => (
-              <div
-                key={service}
-                style={{
-                  padding: "12px 24px",
-                  borderRadius: "6px",
-                  border: `1px solid ${
-                    i === 0 ? "rgba(0,212,170,0.3)" : i === 1 ? "rgba(255,107,61,0.3)" : "rgba(79,91,213,0.3)"
-                  }`,
-                  background: i === 0 ? "rgba(0,212,170,0.08)" : i === 1 ? "rgba(255,107,61,0.08)" : "rgba(79,91,213,0.08)",
-                  color: i === 0 ? "#00D4AA" : i === 1 ? "#FF6B3D" : "#4F5BD5",
-                  fontSize: "16px",
-                  fontWeight: 500,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.05em",
-                }}
-              >
-                {service}
-              </div>
-            ))}
+            {["Software & AI", "Web", "Strategy"].map((service, i) => {
+              const accent = i === 0 ? "#C0392B" : i === 1 ? "#2471A3" : "#D4AC0D";
+              return (
+                <div
+                  key={service}
+                  style={{
+                    padding: "12px 24px",
+                    borderRadius: "4px",
+                    border: `1.5px solid ${accent}`,
+                    background: "rgba(232,224,200,0.04)",
+                    color: accent,
+                    fontSize: "16px",
+                    fontWeight: 500,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.08em",
+                  }}
+                >
+                  {service}
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -161,13 +162,13 @@ export default async function Image() {
               width: "8px",
               height: "8px",
               borderRadius: "50%",
-              background: "#00D4AA",
+              background: "#5DBF5D",
             }}
           />
           <span
             style={{
               fontSize: "18px",
-              color: "#8A9099",
+              color: "#A89C82",
               fontWeight: 500,
               letterSpacing: "0.1em",
               textTransform: "uppercase",

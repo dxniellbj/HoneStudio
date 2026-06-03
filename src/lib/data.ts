@@ -25,6 +25,8 @@ export interface CaseStudy {
   url?: string;
   thumbnail?: string;
   thumbnailBg?: string;
+  thumbVariant?: "red" | "blue" | "yellow" | "green" | "purple";
+  thumbLabel?: string;
   images?: CaseStudyImage[];
   stats?: CaseStudyStat[];
   challenge: string;
@@ -37,7 +39,7 @@ export interface CaseStudy {
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
-    title: "An AI Deal-Sourcing Platform for a Media & Consumer VC",
+    title: "An AI deal-sourcing platform that runs itself",
     client: "Media & Consumer VC",
     platform: "Next.js + Firebase + Gemini",
     pillars: ["AI", "Web", "Strategy"],
@@ -46,6 +48,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "vc-deal-sourcing",
     thumbnail: "/images/work/vc-deal-sourcing/Platform - Hero.png",
     thumbnailBg: "#2c2f21",
+    thumbVariant: "red",
+    thumbLabel: "VC.AI",
     images: [
       {
         src: "/images/work/vc-deal-sourcing/Platform - Interface.png",
@@ -106,7 +110,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
-    title: "From WordPress to a Scalable Education Platform",
+    title: "From a maxed-out WordPress site to a six-figure education platform",
     client: "Shan Fisher Education",
     platform: "Kajabi",
     pillars: ["Web", "Strategy"],
@@ -116,6 +120,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     url: "https://academy.shanfishereducation.com",
     thumbnail: "/images/work/shan-fisher-education/SFE - Hero.png",
     thumbnailBg: "#e8e8e8",
+    thumbVariant: "blue",
+    thumbLabel: "SFE",
     images: [
       {
         src: "/images/work/shan-fisher-education/SFE - Hero.png",
@@ -172,15 +178,17 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
-    title: "Building an Academy for an Award-Winning Photographer",
+    title: "An academy that moved with the photographer behind it",
     client: "Elena Givone Academy",
     platform: "Squarespace",
     pillars: ["Web", "Strategy"],
     summary:
-      "Elena is an internationally recognized photographer who wanted to teach. I helped her launch her academy, first on Kajabi for digital courses, then moved it to Squarespace when her focus shifted to in-person workshops. The platform adapted to the business, not the other way around.",
+      "Elena is an internationally recognized photographer who wanted to teach. I helped her launch her academy, first on Kajabi for digital courses, then moved it to Squarespace when her focus shifted to in-person workshops. The platform bent to fit the business, not the other way around.",
     slug: "elena-givone-academy",
     thumbnail: "/images/work/elena-givone-academy/EGA - Hero.png",
     thumbnailBg: "#e8ddd3",
+    thumbVariant: "yellow",
+    thumbLabel: "EGA",
     url: "https://elenagivoneacademy.com",
     challenge:
       "Elena Givone is an award-winning Italian photographer, a Fujifilm X-Photographer, and an Elinchrom ambassador who wanted to start teaching fellow photographers. She needed a platform to launch courses, but as her vision moved toward in-person workshops between Italy and Sri Lanka, the setup had to move with her.",
@@ -218,6 +226,10 @@ export interface ServicePillar {
   number: string;
   title: string;
   accent: "teal" | "signal" | "indigo";
+  /** Starting-at price tag, e.g. "From $1,500" or "Custom". */
+  price: string;
+  /** Optional caption under the price, e.g. "Included with any build". */
+  priceNote?: string;
   tagline: string;
   description: string;
   outcomes: string[];
@@ -229,14 +241,15 @@ export const SERVICE_PILLARS: ServicePillar[] = [
     number: "01",
     title: "Custom Software & AI Tools",
     accent: "teal",
-    tagline: "The tool you need doesn't exist yet. I build it.",
+    price: "From $1,500",
+    tagline: "The tool you need doesn't exist yet? I'll build it.",
     description:
-      "You have a process that lives in spreadsheets and someone's head, or a product idea that needs real engineering, and no developer on payroll to build it. I build web apps, internal tools, AI pipelines, and the integrations that get your stack talking to itself. For an investment team, I built a two-tool platform that now sources and enriches around 1,000 companies a week on its own. I reach for Next.js, Firebase, and Gemini when they fit. What matters is that the tool does the job, not the logo on it.",
+      "You've got a process living in spreadsheets and someone's head, or a product idea that needs real engineering, and nobody on payroll to build it. That's me. I make web apps, internal tools, AI pipelines, and the integrations that finally get your stack talking to itself. For one investment team, I built a two-tool platform that now sources and enriches around 1,000 companies a week on its own. I reach for Next.js, Firebase, and Gemini when they fit. What matters is the tool doing the job, not the logo on it.",
     outcomes: [
-      "A tool built around how your team actually works, not a SaaS you bend your process to fit",
-      "The manual research, data entry, and copy-paste work runs on its own",
-      "AI that does real work inside your pipeline, not a chatbot bolted on for show",
-      "One person owns the whole build, so nothing gets lost between brief and ship",
+      "A tool shaped around how your team actually works, not a SaaS you contort yourself to fit",
+      "The manual research, data entry, and copy-paste grind runs itself",
+      "AI doing real work inside your pipeline, not a chatbot bolted on for show",
+      "One person owns the whole build, so nothing falls through the cracks between brief and ship",
     ],
     tools: ["Next.js", "Firebase", "Gemini", "TypeScript", "API Integrations"],
   },
@@ -244,14 +257,15 @@ export const SERVICE_PILLARS: ServicePillar[] = [
     number: "02",
     title: "Web Builds",
     accent: "signal",
-    tagline: "If you need a site, I build those too.",
+    price: "From $600",
+    tagline: "Need a site? I build those too.",
     description:
-      "Maybe you don't need custom software. You need a site that loads fast, looks right, and turns visitors into bookings or sales. I build on Kajabi, Shopify, Squarespace, Webflow, or a custom Next.js front end, picked around what your business actually has to do. Because I work out the business case before the design, the sites tend to convert instead of just sitting there looking nice. And once it's live, I keep it running.",
+      "Maybe you don't need custom software. You need a site that loads fast, looks right, and turns visitors into bookings or sales. I build on Kajabi, Shopify, Squarespace, Webflow, or a custom Next.js front end, chosen around what your business actually has to do. Because I work out the business case before the design, the sites tend to convert instead of just sitting there. And once it's live, I keep it running.",
     outcomes: [
       "Built around one clear goal: more bookings, more sales, more inquiries",
-      "The platform fits your business, not whichever one I happen to like",
+      "The platform fits your business, not whichever one I happen to like this month",
       "Fast, accessible, and ready to grow when you are",
-      "I maintain it after launch, so the contact form never quietly breaks at 2 AM",
+      "I maintain it after launch, so the contact form never quietly dies at 2 AM",
     ],
     tools: ["Kajabi", "Shopify", "Squarespace", "Webflow", "Next.js"],
   },
@@ -259,14 +273,16 @@ export const SERVICE_PILLARS: ServicePillar[] = [
     number: "03",
     title: "Strategy & Research",
     accent: "indigo",
+    price: "From $300",
+    priceNote: "Included with any build",
     tagline: "I want to know what we're building before I build it.",
     description:
-      "Before I open a code editor, I want to know what we're making and why. That means competitive research, audience mapping, and a plan you can act on, not a template strategy doc you file and forget. This isn't a separate thing I sell you. It's how every project starts, so we build the right thing the first time instead of finding out after launch that nobody wanted it.",
+      "Before I open a code editor, I want to know what we're making and why. That means competitive research, audience mapping, and a plan you can act on, not a strategy doc you file and forget. It's built into every project I take on, and you can also book it on its own — an audit, a discovery sprint, a competitive read — when the thinking is the part you actually need.",
     outcomes: [
       "A clear read on where you stand against the competitors that actually matter",
-      "A plan tied to what gets built, not a 40-page deck that collects dust",
-      "Scope decided on purpose, so the budget goes where it counts",
-      "Decisions backed by research instead of a hunch",
+      "A plan tied to what gets built, not a 40-page deck collecting dust",
+      "Scope decided on purpose, so the budget lands where it counts",
+      "Decisions backed by research instead of a gut feeling",
     ],
     tools: ["Competitive Research", "Audience Mapping", "Discovery", "Audits"],
   },
@@ -285,13 +301,13 @@ export const PROCESS_STEPS: ProcessStep[] = [
     number: "01",
     title: "Discovery",
     description:
-      "We get on a call and I learn how your business actually runs: where the time goes, what you've already tried, and what a win looks like. You leave with my honest read on whether this is worth building.",
+      "We get on a call and I learn how your business really runs: where the time goes, what you've already tried, and what a win looks like. You leave with my honest read on whether this is even worth building.",
   },
   {
     number: "02",
     title: "Strategy",
     description:
-      "I map the work before touching code: what gets built, in what order, what 'done' means, and a timeline. You sign off on the plan and the scope, so there are no surprise invoices later.",
+      "I map the work before touching code: what gets built, in what order, what 'done' means, and a timeline. You sign off on the plan and the scope, so no surprise invoices show up later.",
   },
   {
     number: "03",
@@ -388,13 +404,37 @@ export interface Testimonial {
   name: string;
   quote: string;
   rating: number;
+  /** Optional context line shown under the name (project, platform, etc.) */
+  detail?: string;
 }
 
 export const TESTIMONIALS: Testimonial[] = [
   {
     name: "Brian W.",
+    detail: "VC + AI software",
     quote:
-      "I couldn't have launched my business without Daniell. He excelled with strategy, research, creative execution and building technology to streamline operations. Daniell is hard working, reliable and a great communicator. Can't wait to work with him again!",
+      "I couldn't have launched my business without Daniell. He excelled at strategy, research, creative execution, and building the technology to streamline operations. Hard working, reliable, a great communicator. Can't wait to work with him again.",
+    rating: 5,
+  },
+  {
+    name: "Sharni Q.",
+    detail: "WordPress → Kajabi migration",
+    quote:
+      "Daniell migrated my WordPress site to Kajabi on a tight deadline and set it all up properly. My monthly traffic is up 4,500% since the move, and I never would have hit my deadlines without him.",
+    rating: 5,
+  },
+  {
+    name: "Sylvia O.",
+    detail: "Shopify build",
+    quote:
+      "Daniell took the time to understand my vision and turned it into a clean, functional site that represents my brand perfectly. He was responsive, open to feedback, and made the whole thing stress-free. Now I have a platform I'm proud to share with my customers.",
+    rating: 5,
+  },
+  {
+    name: "Shan F.",
+    detail: "Worked together since 2023",
+    quote:
+      "Daniell is talented, knowledgeable, and patient, with a positive attitude that lifts the whole team. Anyone who works with him quickly sees why he's so valuable.",
     rating: 5,
   },
 ];

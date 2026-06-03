@@ -10,19 +10,19 @@ const FOOTER_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-snow dark:bg-ink py-16 px-6" role="contentinfo">
+    <footer className="bg-darkest py-16 px-6" role="contentinfo">
       <div className="mx-auto max-w-7xl flex flex-col items-center text-center">
         {/* Logo */}
         <Link href="/" className="mb-4" aria-label="Hone Studio home">
-          <span className="font-display text-2xl font-semibold tracking-[-0.02em] text-ink dark:text-white">
+          <span className="font-display text-2xl font-bold tracking-[-0.02em] text-cream">
             Hone
           </span>
-          <span className="font-display text-2xl font-semibold tracking-[-0.02em] text-teal dark:text-teal-dark">.</span>
+          <span className="font-display text-2xl font-bold tracking-[-0.02em] text-red">.</span>
         </Link>
 
         {/* Tagline */}
-        <p className="mb-8 text-graphite dark:text-ash">
-          Custom software and AI tools, built solo.
+        <p className="mb-8 text-cream/55">
+          Custom software and AI tools, built by the person you&apos;ll actually talk to.
         </p>
 
         {/* Nav Links */}
@@ -34,7 +34,7 @@ export default function Footer() {
             <Link
               key={link.href}
               href={link.href}
-              className="font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash transition-colors hover:text-teal dark:hover:text-teal-dark"
+              className="font-mono text-xs uppercase tracking-widest text-cream/45 transition-colors hover:text-yellow"
             >
               {link.label}
             </Link>
@@ -47,7 +47,7 @@ export default function Footer() {
             href="https://www.linkedin.com/in/niell-alfajora/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash transition-colors hover:text-teal dark:hover:text-teal-dark"
+            className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-cream/45 transition-colors hover:text-yellow"
             aria-label="LinkedIn profile"
           >
             <svg
@@ -65,7 +65,7 @@ export default function Footer() {
             href="https://github.com/dxniellbj"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash transition-colors hover:text-teal dark:hover:text-teal-dark"
+            className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-cream/45 transition-colors hover:text-yellow"
             aria-label="GitHub profile"
           >
             <svg
@@ -82,10 +82,10 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="mb-8 h-0.5 w-9 bg-teal dark:bg-teal-dark" />
+        <div className="mb-8 h-0.5 w-9 bg-red" />
 
         {/* Copyright */}
-        <p className="font-mono text-xs text-ash dark:text-graphite">
+        <p className="font-mono text-xs uppercase tracking-widest text-cream/30">
           &copy; 2026 Hone Studio
         </p>
       </div>

@@ -8,7 +8,11 @@ export default function CalEmbed() {
     (async function () {
       const cal = await getCalApi();
       cal("ui", {
-        theme: "dark",
+        theme: "light",
+        cssVarsPerTheme: {
+          light: { "cal-brand": "#C0392B" },
+          dark: { "cal-brand": "#C0392B" },
+        },
         hideEventTypeDetails: false,
         layout: "month_view",
       });
@@ -21,7 +25,7 @@ export default function CalEmbed() {
       style={{ width: "100%", height: "100%", overflow: "hidden" }}
       config={{
         layout: "month_view",
-        theme: "dark",
+        theme: "light",
       }}
     />
   );

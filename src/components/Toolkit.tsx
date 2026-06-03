@@ -21,17 +21,17 @@ const TOOLKIT = {
 } as const;
 
 const TOOLKIT_ACCENT: Record<string, string> = {
-  Web: "text-teal dark:text-teal-dark",
-  "AI & Automation": "text-signal",
-  Strategy: "text-indigo",
-  Design: "text-violet",
+  Web: "text-red",
+  "AI & Automation": "text-orange",
+  Strategy: "text-blue",
+  Design: "text-purple",
 };
 
 const TOOLKIT_TAG_STYLE: Record<string, string> = {
-  Web: "border-teal/30 dark:border-teal-dark/30 text-teal dark:text-teal-dark bg-teal-ghost",
-  "AI & Automation": "border-signal/30 text-signal bg-signal-ghost",
-  Strategy: "border-indigo/30 text-indigo bg-indigo-ghost",
-  Design: "border-violet/30 text-violet bg-violet-ghost",
+  Web: "border-red/40 text-red bg-red/5",
+  "AI & Automation": "border-orange/40 text-orange bg-orange/5",
+  Strategy: "border-blue/40 text-blue bg-blue/5",
+  Design: "border-purple/40 text-purple bg-purple/5",
 };
 
 interface ToolkitProps {
@@ -41,20 +41,20 @@ interface ToolkitProps {
 
 export default function Toolkit({ showHeader = true, className = "" }: ToolkitProps) {
   return (
-    <section className={`relative bg-white dark:bg-carbon py-16 px-6 pattern-scan ${className}`}>
-      <TechLines variant="corner-brackets" className="text-cloud dark:text-slate" />
+    <section className={`relative bg-cream py-16 px-6 pattern-scan border-b-[3px] border-shadow ${className}`}>
+      <TechLines variant="corner-brackets" className="text-shadow/60" />
       <div className="mx-auto max-w-7xl">
         {showHeader && (
           <ScrollReveal>
-            <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-              <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
+            <p className="eyebrow mb-4 flex items-center gap-2">
+              <span className="inline-block h-px w-6 bg-red" />
               Toolkit
             </p>
-            <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
+            <h2 className="font-display text-4xl font-extrabold tracking-[-0.02em] text-dark md:text-5xl">
               What I Work With
             </h2>
-            <p className="mt-4 text-lg text-graphite dark:text-ash">
-              I&apos;m platform-flexible. I pick the tool that fits the business, not the one I&apos;m most comfortable with.
+            <p className="mt-4 text-lg font-light text-dark/65">
+              I&apos;m not loyal to any one platform. I pick the tool that fits your business, not the one I&apos;m comfiest in.
             </p>
           </ScrollReveal>
         )}
@@ -62,7 +62,7 @@ export default function Toolkit({ showHeader = true, className = "" }: ToolkitPr
         <div className={`${showHeader ? "mt-10" : ""} grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4`}>
           {Object.entries(TOOLKIT).map(([category, tools], i) => (
             <ScrollReveal key={category} delay={i * 0.1} className="h-full">
-              <div className="h-full rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink p-8">
+              <div className="h-full rounded-lg border-2 border-shadow bg-beige p-8">
                 <h3
                   className={`mb-6 font-mono text-xs uppercase tracking-widest ${TOOLKIT_ACCENT[category]}`}
                 >
@@ -72,7 +72,7 @@ export default function Toolkit({ showHeader = true, className = "" }: ToolkitPr
                   {tools.map((tool) => (
                     <span
                       key={tool}
-                      className={`rounded-full border px-3 py-1 font-mono text-[11px] ${TOOLKIT_TAG_STYLE[category]}`}
+                      className={`rounded-sm border px-3 py-1 font-mono text-[11px] uppercase tracking-wide ${TOOLKIT_TAG_STYLE[category]}`}
                     >
                       {tool}
                     </span>

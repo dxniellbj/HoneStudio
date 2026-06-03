@@ -52,14 +52,12 @@ function StatItem({
   const count = useCountUp(value, started);
 
   return (
-    <div className="text-center">
-      <p className="font-display text-4xl font-medium text-teal dark:text-teal-dark md:text-5xl">
+    <div className="stats-bar__item">
+      <p className="stats-bar__num stats-bar__num--accent">
         {count}
-        <span className="text-teal-bright">{suffix}</span>
+        <span>{suffix}</span>
       </p>
-      <p className="mt-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-        {label}
-      </p>
+      <p className="stats-bar__label">{label}</p>
     </div>
   );
 }
@@ -87,11 +85,11 @@ export default function StatsStrip() {
   }, []);
 
   return (
-    <section ref={ref} className="bg-white dark:bg-carbon py-20 px-6 pattern-scan">
+    <section ref={ref} className="bg-cream py-20 px-6 pattern-scan border-b-[3px] border-shadow">
       <div className="mx-auto max-w-5xl mb-10">
-        <TechLines variant="scan-rule" className="text-teal dark:text-teal-dark" />
+        <TechLines variant="scan-rule" className="text-shadow/60" />
       </div>
-      <div className="mx-auto grid max-w-5xl grid-cols-2 gap-10 md:grid-cols-4">
+      <div className="mx-auto max-w-5xl stats-bar">
         {STATS.map((stat) => (
           <StatItem key={stat.label} {...stat} started={started} />
         ))}

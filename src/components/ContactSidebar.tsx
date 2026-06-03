@@ -8,40 +8,40 @@ export default function ContactSidebar() {
   }
 
   return (
-    <div className="rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink p-6 flex flex-col gap-6">
+    <div className="scanlines rounded-xl bg-dark text-cream p-6 flex flex-col gap-6">
       {/* Alternative contact options */}
       <div className="space-y-6">
         <div>
-          <p className="font-mono text-xs uppercase tracking-widest text-ash leading-relaxed">
+          <p className="font-mono text-xs uppercase tracking-widest text-yellow leading-relaxed">
             Prefer email?
           </p>
           <a
             href="mailto:dxniellbj@gmail.com"
-            className="text-sm leading-relaxed text-graphite dark:text-ash transition-colors hover:text-teal dark:hover:text-teal-dark"
+            className="text-sm leading-relaxed text-cream/80 transition-colors hover:text-yellow"
           >
             dxniellbj@gmail.com
           </a>
-          <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-ash">
+          <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-cream/45">
             Replies within 24 hours
           </p>
         </div>
 
-        <div className="h-px bg-cloud dark:bg-slate" />
+        <div className="h-px bg-cream/15" />
 
         <div>
-          <p className="font-mono text-xs uppercase tracking-widest text-ash leading-relaxed">
-            Quick question?
+          <p className="font-mono text-xs uppercase tracking-widest text-yellow leading-relaxed">
+            Got a quick one?
           </p>
           <button
             onClick={openChat}
-            className="text-sm leading-relaxed text-teal dark:text-teal-dark transition-colors hover:text-teal-bright dark:hover:text-teal text-left"
+            className="text-sm leading-relaxed text-cream/80 transition-colors hover:text-yellow text-left"
           >
-            Use the chat widget →
+            Ping the chat widget →
           </button>
         </div>
       </div>
 
-      <div className="h-px bg-cloud dark:bg-slate" />
+      <div className="h-px bg-cream/15" />
 
       {/* Business Card */}
       <div className="flex justify-center">

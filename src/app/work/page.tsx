@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import ScrollReveal from "@/components/ScrollReveal";
-import SectionDivider from "@/components/SectionDivider";
 import WorkGrid from "@/components/WorkGrid";
 import Testimonials from "@/components/Testimonials";
+import ArcadeCabinet from "@/components/ArcadeCabinet";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -37,52 +37,49 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   return (
     <>
-      {/* ── Hero (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink min-h-dvh flex items-center px-6 pt-24 md:pt-28 pattern-grid">
-        <div className="mx-auto max-w-7xl">
+      {/* ── Hero ── */}
+      <section className="bg-cream min-h-dvh flex items-center px-6 pt-24 md:pt-28 pattern-grid border-b-[3px] border-shadow">
+        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 md:grid-cols-[1fr_420px] md:gap-16">
           <ScrollReveal>
-            <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-              <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
+            <p className="eyebrow mb-4 flex items-center gap-2">
+              <span className="inline-block h-px w-6 bg-red" />
               Portfolio
             </p>
-            <h1 className="font-display text-5xl text-section-title text-ink dark:text-white md:text-6xl">
+            <h1 className="font-display text-5xl font-extrabold tracking-[-0.02em] text-dark md:text-6xl">
               Selected Work
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-section-desc text-graphite dark:text-ash">
+            <p className="mt-6 max-w-2xl text-lg font-light text-dark/65">
               A few things I&apos;ve built, and what they actually did for the people who hired me. The AI deal-sourcing platform is the one I point to first.
             </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.15} className="order-first md:order-none">
+            <ArcadeCabinet marquee="Hone · Work" screen="attract" />
           </ScrollReveal>
         </div>
       </section>
 
-      <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
-
-      {/* ── Filter + Grid + Notable Mentions (B: white/carbon) ── */}
-      <section className="bg-white dark:bg-carbon py-16 px-6 pattern-dots">
+      {/* ── Filter + Grid + Notable Mentions ── */}
+      <section className="bg-cream py-16 px-6 pattern-dots border-b-[3px] border-shadow">
         <div className="mx-auto max-w-7xl">
           <WorkGrid />
         </div>
       </section>
 
-      {/* ── Testimonial (B: white/carbon) ── */}
+      {/* ── Testimonial ── */}
       <Testimonials />
 
-      <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
-
-      {/* ── CTA (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink py-16 px-6 pattern-grid">
+      {/* ── CTA ── */}
+      <section className="bg-cream py-16 px-6 pattern-grid border-b-[3px] border-shadow">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
-          <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
+          <h2 className="font-display text-4xl font-extrabold tracking-[-0.02em] text-dark md:text-5xl">
             Working on something that needs this kind of thinking?
           </h2>
-          <p className="mt-4 text-lg text-graphite dark:text-ash">
+          <p className="mt-4 text-lg font-light text-dark/65">
             Tell me what you&apos;re trying to build. I&apos;ll tell you how I&apos;d approach it.
           </p>
-          <Link
-            href="/contact"
-            className="mt-8 inline-block rounded-sm bg-teal dark:bg-teal-dark px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal"
-          >
-            Book a Call
+          <Link href="/contact" className="btn btn--primary btn--lg mt-8">
+            Book a call
           </Link>
         </ScrollReveal>
       </section>

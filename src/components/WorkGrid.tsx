@@ -11,6 +11,12 @@ import {
   type PillarFilter,
 } from "@/lib/data";
 
+const PILLAR_TAG: Record<string, string> = {
+  Web: "tag--red",
+  AI: "tag--purple",
+  Strategy: "tag--blue",
+};
+
 export default function WorkGrid() {
   const [active, setActive] = useState<PillarFilter>("All");
 
@@ -35,10 +41,10 @@ export default function WorkGrid() {
             key={filter}
             onClick={() => setActive(filter)}
             aria-pressed={active === filter}
-            className={`rounded-full border px-5 py-2 font-mono text-xs uppercase tracking-widest transition-colors ${
+            className={`rounded-sm border-2 px-5 py-2 font-mono text-xs uppercase tracking-widest transition-colors ${
               active === filter
-                ? "border-teal dark:border-teal-dark bg-teal dark:bg-teal-dark text-ink"
-                : "border-cloud dark:border-slate bg-snow dark:bg-ink text-graphite dark:text-ash hover:border-teal dark:hover:border-teal-dark hover:text-teal dark:hover:text-teal-dark"
+                ? "border-red bg-red text-cream"
+                : "border-shadow bg-beige text-dark/65 hover:border-red hover:text-red"
             }`}
           >
             {filter}
@@ -69,8 +75,8 @@ export default function WorkGrid() {
       {filteredMentions.length > 0 && (
         <div className="mt-16">
           <ScrollReveal>
-            <p className="mb-6 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-              <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
+            <p className="eyebrow mb-6 flex items-center gap-2">
+              <span className="inline-block h-px w-6 bg-red" />
               Also Worked With
             </p>
           </ScrollReveal>
@@ -98,23 +104,23 @@ export default function WorkGrid() {
                   >
                     <CardWrapper
                       {...cardProps}
-                      className={`flex items-start justify-between gap-6 rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-6 transition-all duration-300 hover:border-teal dark:hover:border-teal-dark ${mention.url ? "cursor-pointer group block" : ""}`}
+                      className={`flex items-start justify-between gap-6 rounded-lg border-2 border-shadow bg-beige p-6 transition-all duration-300 hover:border-red ${mention.url ? "cursor-pointer group block hover:-translate-y-1" : ""}`}
                     >
                       <div>
-                        <span className={`font-display text-lg font-medium text-ink dark:text-white ${mention.url ? "group-hover:text-teal dark:group-hover:text-teal-dark transition-colors" : ""}`}>
+                        <span className={`font-display text-lg font-bold text-dark ${mention.url ? "group-hover:text-red transition-colors" : ""}`}>
                           {mention.client}
                           {mention.url && (
-                            <svg className="ml-1.5 inline-block h-3.5 w-3.5 text-ash group-hover:text-teal dark:group-hover:text-teal-dark transition-colors" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                            <svg className="ml-1.5 inline-block h-3.5 w-3.5 text-dark/40 group-hover:text-red transition-colors" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                               <path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5" />
                             </svg>
                           )}
                           {mention.defunct && (
-                            <span className="ml-2 text-sm font-normal italic text-ash">
+                            <span className="ml-2 text-sm font-normal italic text-dark/45">
                               (defunct)
                             </span>
                           )}
                         </span>
-                        <p className="mt-2 text-sm leading-relaxed text-graphite dark:text-ash">
+                        <p className="mt-2 text-sm leading-relaxed text-dark/65">
                           {mention.description}
                         </p>
                       </div>
@@ -122,12 +128,8 @@ export default function WorkGrid() {
                         {mention.pillars.map((pillar) => (
                           <span
                             key={pillar}
-                            className={`rounded-full border px-3 py-1 font-mono text-[11px] ${
-                              pillar === "Web"
-                                ? "border-teal/30 dark:border-teal-dark/30 text-teal dark:text-teal-dark bg-teal-ghost"
-                                : pillar === "AI"
-                                  ? "border-signal/30 text-signal bg-signal-ghost"
-                                  : "border-indigo/30 text-indigo bg-indigo-ghost"
+                            className={`rounded-sm border border-shadow px-2 py-0.5 font-mono text-[11px] uppercase tracking-wide ${
+                              PILLAR_TAG[pillar] ?? "tag--blue"
                             }`}
                           >
                             {pillar}
@@ -144,7 +146,7 @@ export default function WorkGrid() {
       )}
 
       {!hasResults && (
-        <p className="mt-12 text-center text-ash">
+        <p className="mt-12 text-center text-dark/50">
           No projects in this category yet.
         </p>
       )}

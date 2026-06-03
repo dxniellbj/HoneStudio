@@ -18,18 +18,18 @@ export default function QuizProgress({
     <div className="mb-8">
       {/* Category & Step Counter */}
       <div className="mb-3 flex items-center justify-between">
-        <span className="font-mono text-xs uppercase tracking-widest text-teal dark:text-teal-dark">
+        <span className="font-mono text-xs uppercase tracking-widest text-red">
           {currentCategory}
         </span>
-        <span className="font-mono text-xs text-ash">
+        <span className="font-mono text-xs text-dark/50">
           {currentStep + 1} / {TOTAL_QUESTIONS}
         </span>
       </div>
 
       {/* Progress Bar */}
-      <div className="relative h-1 w-full overflow-hidden rounded-full bg-slate">
+      <div className="relative h-1 w-full overflow-hidden rounded-full bg-shadow">
         <motion.div
-          className="absolute left-0 top-0 h-full bg-teal dark:bg-teal-dark"
+          className="absolute left-0 top-0 h-full bg-red"
           initial={{ width: 0 }}
           animate={{ width: `${progress}%` }}
           transition={{ type: "spring", stiffness: 100, damping: 20 }}
@@ -48,10 +48,10 @@ export default function QuizProgress({
               key={category}
               className={`h-1.5 w-1.5 rounded-full transition-colors ${
                 isComplete
-                  ? "bg-teal dark:bg-teal-dark"
+                  ? "bg-red"
                   : isActive
-                    ? "bg-teal dark:bg-teal-dark"
-                    : "bg-iron"
+                    ? "bg-red"
+                    : "bg-shadow"
               }`}
               title={category}
             />

@@ -26,15 +26,15 @@ export default function QuizResumePrompt({
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
         transition={springTransition}
-        className="w-full max-w-lg rounded-lg border border-slate bg-carbon p-8"
+        className="w-full max-w-lg rounded-lg border-2 border-shadow bg-beige p-8"
       >
-      <h2 className="mb-2 font-display text-2xl font-medium text-white">
+      <h2 className="mb-2 font-display font-extrabold tracking-[-0.02em] text-2xl text-dark">
         Welcome back!
       </h2>
-      
-      <p className="mb-6 text-fog">
+
+      <p className="mb-6 text-dark/65">
         You have a quiz in progress
-        <span className="ml-1 font-mono text-sm text-ash">
+        <span className="ml-1 font-mono text-sm text-dark/50">
           (Question {questionNumber} of {totalQuestions})
         </span>
       </p>
@@ -42,7 +42,7 @@ export default function QuizResumePrompt({
       <div className="flex flex-col gap-3 sm:flex-row">
         <motion.button
           onClick={onResume}
-          className="flex-1 rounded-sm bg-teal dark:bg-teal-dark px-6 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal"
+          className="btn btn--primary flex-1"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           transition={springTransition}
@@ -52,7 +52,7 @@ export default function QuizResumePrompt({
 
         <motion.button
           onClick={onStartFresh}
-          className="flex-1 rounded-sm border border-slate bg-transparent px-6 py-3 font-mono text-sm uppercase tracking-widest text-fog transition-colors hover:border-iron hover:bg-slate/50 hover:text-white"
+          className="btn btn--outline flex-1"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           transition={springTransition}

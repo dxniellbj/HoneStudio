@@ -140,7 +140,7 @@ function ToolIcon({ name, className }: { name: string; className?: string }) {
 
 interface ToolCategory {
   title: string;
-  accent: "teal" | "signal" | "indigo";
+  accent: "red" | "orange" | "blue";
   description: string;
   featured: string[];
   tools: string[];
@@ -149,7 +149,7 @@ interface ToolCategory {
 const CATEGORIES: ToolCategory[] = [
   {
     title: "Web & Development",
-    accent: "teal",
+    accent: "red",
     description:
       "What I build with.",
     featured: ["Next.js", "React", "Firebase", "WordPress", "Tailwind"],
@@ -173,7 +173,7 @@ const CATEGORIES: ToolCategory[] = [
   },
   {
     title: "AI & Intelligence",
-    accent: "signal",
+    accent: "orange",
     description:
       "What I think with.",
     featured: ["Claude", "Perplexity", "OpenAI", "Gemini", "Cursor"],
@@ -190,7 +190,7 @@ const CATEGORIES: ToolCategory[] = [
   },
   {
     title: "Ops & Automation",
-    accent: "indigo",
+    accent: "blue",
     description:
       "What I automate with.",
     featured: ["Zapier", "Make", "HubSpot", "Pipedrive", "GHL"],
@@ -235,33 +235,27 @@ const FLOAT_CLASSES = [
 ];
 
 const TAG_CLASSES = {
-  teal: "text-teal dark:text-teal-dark border-teal/20 dark:border-teal-dark/20 bg-teal-ghost",
-  signal: "text-signal border-signal/20 bg-signal-ghost",
-  indigo: "text-indigo border-indigo/20 bg-indigo-ghost",
+  red: "text-red border-red/40 bg-red/5",
+  orange: "text-orange border-orange/40 bg-orange/5",
+  blue: "text-blue border-blue/40 bg-blue/5",
 } as const;
 
 const TITLE_CLASSES = {
-  teal: "text-teal dark:text-teal-dark",
-  signal: "text-signal",
-  indigo: "text-indigo",
-} as const;
-
-const BORDER_CLASSES = {
-  teal: "border-teal/10",
-  signal: "border-signal/10",
-  indigo: "border-indigo/10",
+  red: "text-red",
+  orange: "text-orange",
+  blue: "text-blue",
 } as const;
 
 const HOVER_CLASSES = {
-  teal: "hover:border-teal hover:shadow-[0_0_24px_rgba(0,212,170,0.15)]",
-  signal: "hover:border-signal hover:shadow-[0_0_24px_rgba(255,107,61,0.15)]",
-  indigo: "hover:border-indigo hover:shadow-[0_0_24px_rgba(79,91,213,0.15)]",
+  red: "hover:border-red hover:shadow-[0_0_24px_rgba(192,57,43,0.18)]",
+  orange: "hover:border-orange hover:shadow-[0_0_24px_rgba(202,111,30,0.18)]",
+  blue: "hover:border-blue hover:shadow-[0_0_24px_rgba(36,113,163,0.18)]",
 } as const;
 
 const SCAN_COLORS = {
-  teal: "#00D4AA",
-  signal: "#FF6B3D",
-  indigo: "#4F5BD5",
+  red: "#C0392B",
+  orange: "#CA6F1E",
+  blue: "#2471A3",
 } as const;
 
 /* ── Card ── */
@@ -271,11 +265,11 @@ function ToolCard({ category }: { category: ToolCategory }) {
 
   return (
     <div
-      className={`group h-full w-full p-6 md:p-8 rounded-xl border ${BORDER_CLASSES[category.accent]} ${HOVER_CLASSES[category.accent]} bg-cloud dark:bg-slate/70 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]`}
+      className={`group h-full w-full p-6 md:p-8 rounded-lg border-2 border-shadow ${HOVER_CLASSES[category.accent]} bg-beige transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]`}
     >
       {/* Icon area with radial mask */}
       <div
-        className="h-[15rem] md:h-[20rem] rounded-xl bg-mist dark:bg-iron/40"
+        className="h-[15rem] md:h-[20rem] rounded-lg bg-cream"
         style={{
           maskImage:
             "radial-gradient(50% 50% at 50% 50%, white 0%, transparent 100%)",
@@ -289,11 +283,11 @@ function ToolCard({ category }: { category: ToolCategory }) {
             {category.featured.map((tool, i) => (
               <div
                 key={tool}
-                className={`${CIRCLE_SIZES[i]} ${FLOAT_CLASSES[i]} rounded-full flex items-center justify-center bg-white/5 shadow-[0px_0px_8px_0px_rgba(248,248,248,0.25)_inset,0px_32px_24px_-16px_rgba(0,0,0,0.40)]`}
+                className={`${CIRCLE_SIZES[i]} ${FLOAT_CLASSES[i]} rounded-full flex items-center justify-center border-2 border-shadow bg-beige shadow-[0px_16px_24px_-12px_rgba(42,36,32,0.30)]`}
               >
                 <ToolIcon
                   name={tool}
-                  className={`${ICON_SIZES[i]} text-ink dark:text-white`}
+                  className={`${ICON_SIZES[i]} text-dark`}
                 />
               </div>
             ))}
@@ -311,13 +305,13 @@ function ToolCard({ category }: { category: ToolCategory }) {
 
       {/* Title */}
       <p
-        className={`py-2 font-display text-lg font-semibold ${TITLE_CLASSES[category.accent]}`}
+        className={`py-2 font-display text-lg font-bold ${TITLE_CLASSES[category.accent]}`}
       >
         {category.title}
       </p>
 
       {/* Description */}
-      <p className="mb-4 text-sm font-light text-graphite dark:text-ash">
+      <p className="mb-4 text-sm font-light text-dark/65">
         {category.description}
       </p>
 
@@ -326,7 +320,7 @@ function ToolCard({ category }: { category: ToolCategory }) {
         {category.tools.map((tool) => (
           <span
             key={tool}
-            className={`rounded-full border px-2.5 py-0.5 font-mono text-[10px] ${TAG_CLASSES[category.accent]}`}
+            className={`rounded-sm border px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wide ${TAG_CLASSES[category.accent]}`}
           >
             {tool}
           </span>
@@ -340,19 +334,19 @@ function ToolCard({ category }: { category: ToolCategory }) {
 
 export default function ToolsBanner() {
   return (
-    <section className="bg-white dark:bg-carbon py-16 px-6">
+    <section className="bg-cream py-16 px-6 pattern-grid border-b-[3px] border-shadow">
       <div className="mx-auto max-w-7xl">
         {/* Section header */}
         <div className="mb-16 text-center">
-          <p className="mb-4 flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-            <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
+          <p className="eyebrow mb-4 flex items-center justify-center gap-2">
+            <span className="inline-block h-px w-6 bg-red" />
             Tech Stack
-            <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
+            <span className="inline-block h-px w-6 bg-red" />
           </p>
-          <h2 className="font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
+          <h2 className="font-display text-4xl font-extrabold tracking-[-0.02em] text-dark md:text-5xl">
             Tools of the Trade
           </h2>
-          <p className="mt-4 mx-auto max-w-2xl text-lg text-graphite dark:text-ash">
+          <p className="mt-4 mx-auto max-w-2xl text-lg font-light text-dark/65">
             Everything I use day-to-day.
           </p>
         </div>

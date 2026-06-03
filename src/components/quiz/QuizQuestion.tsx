@@ -56,7 +56,7 @@ export default function QuizQuestion({
         transition={springTransition}
       >
         {/* Question Text */}
-        <h2 className="mb-8 font-display text-2xl font-medium text-white md:text-3xl">
+        <h2 className="mb-8 font-display font-extrabold tracking-[-0.02em] text-2xl text-dark md:text-3xl">
           {question.question}
         </h2>
 
@@ -73,10 +73,10 @@ export default function QuizQuestion({
                 initial="hidden"
                 animate="visible"
                 onClick={() => onSelect(option)}
-                className={`group w-full rounded-md border px-5 py-4 text-left transition-all ${
+                className={`group w-full rounded-lg border-2 px-5 py-4 text-left transition-all ${
                   isSelected
-                    ? "border-teal bg-teal-ghost"
-                    : "border-slate bg-carbon hover:border-iron hover:bg-slate/50"
+                    ? "border-red bg-red/10"
+                    : "border-shadow bg-beige hover:border-red"
                 }`}
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
@@ -87,15 +87,15 @@ export default function QuizQuestion({
                   <div
                     className={`mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border-2 transition-colors ${
                       isSelected
-                        ? "border-teal dark:border-teal-dark bg-teal dark:bg-teal-dark"
-                        : "border-iron group-hover:border-ash"
+                        ? "border-red bg-red"
+                        : "border-shadow group-hover:border-red"
                     }`}
                   >
                     {isSelected && (
                       <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
-                        className="h-2 w-2 rounded-full bg-ink"
+                        className="h-2 w-2 rounded-full bg-cream"
                       />
                     )}
                   </div>
@@ -103,7 +103,7 @@ export default function QuizQuestion({
                   {/* Option Text */}
                   <span
                     className={`text-sm leading-relaxed transition-colors md:text-base ${
-                      isSelected ? "text-white" : "text-fog group-hover:text-white"
+                      isSelected ? "text-dark" : "text-dark/65 group-hover:text-dark"
                     }`}
                   >
                     {option.label}

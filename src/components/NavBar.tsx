@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import ThemeToggle from "@/components/ThemeToggle";
+import CoinDrag from "@/components/CoinDrag";
 
 const NAV_LINKS = [
   { href: "/services", label: "Services" },
@@ -30,18 +30,21 @@ export default function NavBar() {
     <>
       {/* Nav Bar */}
       <nav
-        className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-ink/80 backdrop-blur-md border-b border-cloud/50 dark:border-slate/50"
+        className="fixed top-0 left-0 right-0 z-50 bg-dark border-b border-black/30"
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="mx-auto max-w-7xl flex items-center justify-between px-6 py-4">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-0" aria-label="Hone Studio home">
-            <span className="font-display text-xl font-semibold tracking-[-0.02em] text-ink dark:text-white">
-              Hone
-            </span>
-            <span className="font-display text-xl font-semibold tracking-[-0.02em] text-teal dark:text-teal-dark">.</span>
-          </Link>
+        <div className="mx-auto max-w-7xl flex items-center justify-between px-6 py-3">
+          {/* Logo + hidden coin */}
+          <div className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-0" aria-label="Hone Studio home">
+              <span className="font-display text-xl font-bold tracking-[-0.02em] text-cream">
+                Hone
+              </span>
+              <span className="font-display text-xl font-bold tracking-[-0.02em] text-red">.</span>
+            </Link>
+            <CoinDrag />
+          </div>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
@@ -50,21 +53,20 @@ export default function NavBar() {
                 key={link.href}
                 href={link.href}
                 aria-current={pathname === link.href ? "page" : undefined}
-                className={`font-mono text-xs uppercase tracking-widest transition-colors hover:text-teal dark:hover:text-teal-dark ${
+                className={`font-mono text-[11px] uppercase tracking-[0.1em] transition-colors hover:text-cream ${
                   pathname === link.href
-                    ? "text-teal dark:text-teal-dark"
-                    : "text-graphite dark:text-ash"
+                    ? "text-yellow"
+                    : "text-cream/60"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <ThemeToggle />
             <Link
               href="/contact"
-              className="rounded-sm bg-teal dark:bg-teal-dark px-4 py-2 font-mono text-xs uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal"
+              className="rounded-sm bg-red px-4 py-2 font-mono text-[11px] uppercase tracking-[0.1em] text-white shadow-[0_3px_0_rgba(0,0,0,0.3)] transition-colors hover:bg-red-bright"
             >
-              Book a Call
+              Start a project
             </Link>
           </div>
 
@@ -77,12 +79,12 @@ export default function NavBar() {
             aria-label={open ? "Close menu" : "Open menu"}
           >
             <span
-              className={`block h-px w-5 bg-ink dark:bg-white transition-all duration-300 ${
+              className={`block h-px w-5 bg-cream transition-all duration-300 ${
                 open ? "translate-y-[3.5px] rotate-45" : ""
               }`}
             />
             <span
-              className={`block h-px w-5 bg-ink dark:bg-white transition-all duration-300 ${
+              className={`block h-px w-5 bg-cream transition-all duration-300 ${
                 open ? "-translate-y-[3.5px] -rotate-45" : ""
               }`}
             />
@@ -93,7 +95,7 @@ export default function NavBar() {
       {/* Full-Page Mobile Menu */}
       <div
         id="mobile-menu"
-        className={`md:hidden fixed inset-0 z-[60] bg-white dark:bg-ink transition-all duration-300 ${
+        className={`md:hidden fixed inset-0 z-[60] bg-dark transition-all duration-300 ${
           open ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         }`}
         role="dialog"
@@ -110,10 +112,10 @@ export default function NavBar() {
             onClick={() => setOpen(false)}
             tabIndex={open ? 0 : -1}
           >
-            <span className="font-display text-xl font-semibold tracking-[-0.02em] text-ink dark:text-white">
+            <span className="font-display text-xl font-bold tracking-[-0.02em] text-cream">
               Hone
             </span>
-            <span className="font-display text-xl font-semibold tracking-[-0.02em] text-teal dark:text-teal-dark">.</span>
+            <span className="font-display text-xl font-bold tracking-[-0.02em] text-red">.</span>
           </Link>
         </div>
 
@@ -124,10 +126,10 @@ export default function NavBar() {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className={`font-display text-3xl font-medium transition-colors hover:text-teal ${
+              className={`font-display text-3xl font-bold transition-colors hover:text-yellow ${
                 pathname === link.href
-                  ? "text-teal dark:text-teal-dark"
-                  : "text-ink dark:text-white"
+                  ? "text-yellow"
+                  : "text-cream"
               }`}
               tabIndex={open ? 0 : -1}
             >
@@ -136,14 +138,13 @@ export default function NavBar() {
           ))}
 
           <div className="mt-4 flex flex-col items-center gap-6">
-            <ThemeToggle />
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="rounded-sm bg-teal dark:bg-teal-dark px-10 py-4 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal"
+              className="rounded-sm bg-red px-10 py-4 font-mono text-sm uppercase tracking-widest text-white shadow-[0_4px_0_rgba(0,0,0,0.3)] transition-colors hover:bg-red-bright"
               tabIndex={open ? 0 : -1}
             >
-              Book a Call
+              Start a project
             </Link>
           </div>
         </div>

@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
 
+type ThumbVariant = "red" | "blue" | "yellow" | "green" | "purple";
+
 interface CaseStudyCardProps {
   title: string;
   client: string;
@@ -12,12 +14,14 @@ interface CaseStudyCardProps {
   slug: string;
   thumbnail?: string;
   thumbnailBg?: string;
+  thumbVariant?: ThumbVariant;
+  thumbLabel?: string;
 }
 
-const PILLAR_COLORS: Record<string, string> = {
-  Web: "border-teal/30 dark:border-teal-dark/30 text-teal dark:text-teal-dark bg-teal-ghost",
-  AI: "border-signal/30 text-signal bg-signal-ghost",
-  Strategy: "border-indigo/30 text-indigo bg-indigo-ghost",
+const PILLAR_TAG: Record<string, string> = {
+  Web: "tag--red",
+  AI: "tag--purple",
+  Strategy: "tag--blue",
 };
 
 const cardVariants: Variants = {
@@ -29,7 +33,7 @@ const cardVariants: Variants = {
   hover: {
     scale: 1.02,
     y: -6,
-    boxShadow: "0 20px 40px rgba(0,212,170,0.12), 0 8px 16px rgba(0,0,0,0.08)",
+    boxShadow: "0 20px 40px rgba(192,57,43,0.12), 0 8px 16px rgba(0,0,0,0.08)",
     transition: {
       type: "spring" as const,
       stiffness: 300,
@@ -38,13 +42,20 @@ const cardVariants: Variants = {
   },
 };
 
-const imageVariants: Variants = {
-  rest: { scale: 1 },
-  hover: {
-    scale: 1.08,
-    transition: { duration: 0.5, ease: "easeOut" },
-  },
-};
+// Derive a short all-caps token from the client name for the thumb label.
+function deriveLabel(label: string | undefined, client: string): string {
+  if (label) return label;
+  const cleaned = client.replace(/[^A-Za-z0-9 ]/g, "").trim();
+  const words = cleaned.split(/\s+/).filter(Boolean);
+  if (words.length >= 2) {
+    return words
+      .slice(0, 3)
+      .map((w) => w[0])
+      .join("")
+      .toUpperCase();
+  }
+  return cleaned.slice(0, 6).toUpperCase();
+}
 
 export default function CaseStudyCard({
   title,
@@ -53,59 +64,45 @@ export default function CaseStudyCard({
   pillars,
   summary,
   slug,
-  thumbnail,
-  thumbnailBg,
+  thumbVariant = "red",
+  thumbLabel,
 }: CaseStudyCardProps) {
+  const label = deriveLabel(thumbLabel, client);
+
   return (
     <Link href={`/work/${slug}`} className="block h-full">
       <motion.article
-        className="group h-full rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon overflow-hidden hover:border-teal dark:hover:border-teal-dark"
+        className="card-work group h-full"
         initial="rest"
         whileHover="hover"
         animate="rest"
         variants={cardVariants}
       >
-        {/* Thumbnail */}
-        <div
-          className="relative aspect-video bg-slate dark:bg-ink overflow-hidden"
-          style={thumbnailBg ? { backgroundColor: thumbnailBg } : undefined}
-        >
-          {thumbnail ? (
-            <motion.img
-              src={thumbnail}
-              alt={`${client} preview`}
-              className="h-full w-full object-contain"
-              variants={imageVariants}
-            />
-          ) : (
-            <div className="absolute inset-0 bg-radial-[at_30%_40%] from-teal-glow to-transparent opacity-60" />
-          )}
+        {/* Thumbnail — scanline console panel with big all-caps token */}
+        <div className={`card-work__thumb card-work__thumb--${thumbVariant} font-display`}>
+          <span className="card-work__thumb-label">{label}</span>
         </div>
 
         {/* Body */}
-        <div className="p-6">
-          {/* Client Eyebrow */}
-          <p className="mb-2 font-mono text-xs uppercase tracking-widest text-ash">
-            {client}
+        <div className="card-work__body">
+          {/* Client + platform eyebrow */}
+          <p className="card-work__tag">
+            {client} · {platform}
           </p>
 
           {/* Title */}
-          <h3 className="mb-3 font-display text-xl font-semibold text-ink dark:text-white group-hover:text-teal dark:group-hover:text-teal-dark transition-colors">
-            {title}
-          </h3>
+          <h3 className="card-work__title font-display">{title}</h3>
 
-          {/* Platform Badge */}
-          <span className="mb-3 inline-block rounded-full border border-mist dark:border-iron px-3 py-1 font-mono text-[11px] text-graphite dark:text-ash">
-            {platform}
-          </span>
+          {/* Summary */}
+          <p className="card-work__desc">{summary}</p>
 
           {/* Pillar Tags */}
           <div className="mt-3 flex flex-wrap gap-2">
             {pillars.map((pillar) => (
               <span
                 key={pillar}
-                className={`rounded-full border px-3 py-1 font-mono text-[11px] ${
-                  PILLAR_COLORS[pillar] ?? "border-mist dark:border-iron text-graphite dark:text-ash"
+                className={`rounded-sm border border-black/30 px-2 py-0.5 font-mono text-[9px] uppercase tracking-wide ${
+                  PILLAR_TAG[pillar] ?? "tag--blue"
                 }`}
               >
                 {pillar}
@@ -113,14 +110,9 @@ export default function CaseStudyCard({
             ))}
           </div>
 
-          {/* Summary */}
-          <p className="mt-4 text-sm leading-relaxed text-graphite dark:text-ash">
-            {summary}
-          </p>
-
           {/* Arrow hint */}
           <motion.span
-            className="mt-4 inline-flex items-center gap-1 font-mono text-xs uppercase tracking-widest text-teal dark:text-teal-dark"
+            className="mt-4 inline-flex items-center gap-1 font-mono text-xs uppercase tracking-widest text-yellow"
             variants={{
               rest: { x: 0 },
               hover: { x: 4 },

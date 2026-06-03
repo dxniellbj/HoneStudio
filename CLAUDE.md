@@ -50,7 +50,7 @@ Exact names from PRD Section 9. Do not rename.
 
 | Component | Type | Description |
 |---|---|---|
-| `<NavBar />` | RSC | Responsive nav. Logo, links, contact CTA. Transparent on hero, solid on scroll. |
+| `<NavBar />` | Client | Responsive nav. Solid `dark` bar, cream `Hone.` logo (red dot), mono uppercase links (yellow when active), red CTA. Full-screen mobile menu. |
 | `<Hero />` | RSC | Full-width hero. SAK value prop headline, subtitle, CTA. |
 | `<ServicePillars />` | RSC | Three pillar cards. Linework icons, outcome copy, platform tags. Integrated feel. |
 | `<AudienceFunnel />` | Client | "I work with..." interactive cards. Founders / SMBs / Agencies. |
@@ -64,74 +64,69 @@ Exact names from PRD Section 9. Do not rename.
 
 ## 4. Design Token Naming
 
-All values sourced from the Brand Kit v2. Map to `tailwind.config.ts`.
+**Theme: Retro Arcade Console** (reskinned 2026-06-02 from the old "Teal Edge" Brand Kit v2).
+Single **light** theme on a cream base — **no dark mode, no theme toggle.**
+All values map to the Tailwind v4 `@theme` block in `src/styles/globals.css` (there is no separate `tailwind.config.ts`).
 
 ### Colors
 
-**Primary — Teal Edge**
+**Base — Polystyrene Cream**
 
 | Token | Hex | Usage |
 |---|---|---|
-| `teal` | `#00D4AA` | CTAs, links, chatbot, primary accent |
-| `teal-bright` | `#1AEDC2` | Hover states, highlights |
-| `teal-mid` | `#00B892` | Secondary teal |
-| `teal-dark` | `#009E7B` | Dark backgrounds, on-light dot |
-| `teal-deep` | `#007A5F` | Deepest teal |
-| `teal-ghost` | `rgba(0,212,170,0.08)` | Transparent fills, ghost backgrounds |
-| `teal-glow` | `rgba(0,212,170,0.15)` | Glow effects, hover overlays |
+| `cream` | `#E8E0C8` | page background |
+| `beige` | `#D4C9A8` | raised surfaces, cards, stats |
+| `shadow` | `#B8A882` | borders, bezel depth |
+| `dark` | `#2A2420` | dark surfaces, primary text |
+| `darkest` | `#1A1410` | footer, deepest bg |
 
-**Secondary — Service Accents**
+**Accents — Console Buttons**
 
 | Token | Hex | Usage |
 |---|---|---|
-| `signal` | `#FF6B3D` | AI & Automation pillar accent |
-| `signal-dim` | `#E05A30` | Dimmed signal |
-| `signal-ghost` | `rgba(255,107,61,0.08)` | Signal transparent fill |
-| `indigo` | `#4F5BD5` | Strategy pillar accent |
-| `indigo-dim` | `#3D49B8` | Dimmed indigo |
-| `indigo-ghost` | `rgba(79,91,213,0.08)` | Indigo transparent fill |
-
-**Neutrals**
-
-| Token | Hex |
-|---|---|
-| `ink` | `#0F1114` |
-| `carbon` | `#181B20` |
-| `slate` | `#22262D` |
-| `iron` | `#363B44` |
-| `graphite` | `#5A6069` |
-| `ash` | `#8A9099` |
-| `fog` | `#B3B8C0` |
-| `mist` | `#D6D9DE` |
-| `cloud` | `#ECEEF1` |
-| `snow` | `#F6F7F9` |
-| `white` | `#FFFFFF` |
+| `red` | `#C0392B` | primary CTA, links, primary accent, the `Hone.` dot |
+| `red-bright` | `#D84A3A` | hover |
+| `red-shadow` | `#7B241C` | pressed-button shadow |
+| `blue` | `#2471A3` | secondary / "player 2" |
+| `yellow` | `#D4AC0D` | highlight, eyebrows, logo wordmark, active nav |
+| `green-pixel` | `#5DBF5D` | terminal text, status dot |
+| `green-screen` | `#3D5A3E` | screen bezel |
+| `purple` | `#7D3C98` | storytelling accent |
+| `orange` | `#CA6F1E` | tertiary accent |
 
 **Status**
 
 | Token | Hex |
 |---|---|
-| `success` | `#34D399` |
-| `warning` | `#FBBF24` |
-| `error` | `#F87171` |
+| `success` | `#5DBF5D` |
+| `warning` | `#D4AC0D` |
+| `error` | `#C0392B` |
+
+> Legacy Brand-Kit-v2 names (`teal`, `signal`, `indigo`, `ink`, `snow`, `carbon`, `ash`, …) are still defined in `@theme` but **repointed to retro values** for back-compat. Prefer the canonical retro names above for new work.
 
 ### Fonts
 
 | Token | Family | Role |
 |---|---|---|
-| `font-display` | Fraunces | Headlines, hero, logo |
-| `font-body` | DM Sans | Body copy, UI, forms |
-| `font-mono` | Space Mono | Labels, tags, metadata, code |
+| `font-display` | Space Grotesk | Headlines, hero, logo wordmark |
+| `font-body` | Space Grotesk | Body copy, UI, forms |
+| `font-mono` | DM Mono | Labels, tags, eyebrows, metadata, terminal |
 
-Self-host all three via `next/font/google`. No external stylesheet requests.
+Self-host both via `next/font/google`. No external stylesheet requests.
 
 ### Radii
 
 | Token | Value |
 |---|---|
-| `radius-sm` | `6px` |
-| `radius-md` | `10px` |
-| `radius-lg` | `16px` |
+| `radius-sm` | `4px` |
+| `radius-md` | `8px` |
+| `radius-lg` | `10px` |
+| `radius-xl` | `12px` |
+| `radius-2xl` | `16px` |
+
+### Retro component classes (in `globals.css`)
+
+`.btn` (+ `--primary` / `--secondary` / `--outline` / `--ghost` / `--lg` / `--sm`), `.card-work`, `.console-widget`, `.marquee-strip`, `.skill-row`, `.testimonial`, `.stats-bar`, `.cta-block`, `.page-footer`, `.status-dot`, `.scanlines`, `.eyebrow`, `.section-label`, `.badge--*`, `.tag--*`.
 
 ---
 
@@ -149,8 +144,10 @@ Self-host all three via `next/font/google`. No external stylesheet requests.
 
 ### Brand Identity
 - Never hardcode brand colors — always use Tailwind tokens
+- **Single retro-arcade theme on cream — no dark mode, no theme toggle.** Don't reintroduce `.dark` variants or `ThemeProvider`.
+- The dot on "Hone." is **red** (`text-red`) — keep it red; don't revert to teal. The wordmark uses `font-display` (Space Grotesk).
+- Lean into the console aesthetic: scanline textures (`.scanlines`), 3D press buttons (`.btn--*`), terminal/console motifs, hard 2–3px bezel borders (`border-shadow`).
 - Swiss Army Knife concept in copy/messaging only — never in logo or visual identity
-- Teal dot on "Hone." is sacred — never remove or recolor
 - Illustrations: linework SVG only (1–1.5px strokes), no photos, no full illustrations
 
 ### Rendering & Performance
@@ -183,7 +180,7 @@ Self-host all three via `next/font/google`. No external stylesheet requests.
 - Never leave the user wondering if their action was received
 
 ### Content & Messaging
-- No pricing on site — CTA is always "get in touch" / "book a call"
+- Pricing: starting-at ("From $X") tags on the three service cards — Custom Software & AI **from $1,500**, Web Builds **from $600**, Strategy & Research **from $300** (standalone; included free with any build). These are one-time project floors; final price is scope-dependent. CTA is still "get in touch" / "book a call" for a real quote.
 - Frame services as outcomes, not deliverables
 - Cross-sell through case studies, not nav
 - Tone of voice: direct not aggressive, expert not pretentious, warm not casual, clear not oversimplified
@@ -221,7 +218,7 @@ Library: **Framer Motion** (`motion` from `framer-motion`)
 | **Page transitions** | Fade between routes using layout animations |
 | **Hero entrance** | Staggered fade-up: pill → wordmark → subtitle → CTA |
 | **Parallax** | Subtle background shift on scroll for hero/dark sections (< 20% movement) |
-| **Hover states** | Scale `1.02–1.05` with spring transition on cards; teal glow on interactive elements |
+| **Hover states** | Cards lift (`hover:-translate-y-1`) with red accent border; 3D buttons press down via `.btn` |
 | **Text reveal** | Word-by-word or line-by-line on headlines via `variants` + `staggerChildren` |
 | **Number counters** | Animate stats/metrics counting up on scroll entry |
 | **Gradient shifts** | Subtle animated radial gradients on hero/dark sections (CSS `@keyframes` for performance) |

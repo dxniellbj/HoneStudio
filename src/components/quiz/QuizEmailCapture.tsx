@@ -42,7 +42,7 @@ export default function QuizEmailCapture({
   }
 
   const inputBase =
-    "w-full rounded-md border bg-carbon px-4 py-3 text-sm text-white placeholder:text-ash transition-colors focus:border-teal focus:outline-none";
+    "w-full rounded-lg border-2 bg-cream px-4 py-3 text-sm text-dark placeholder:text-dark/40 transition-colors focus:border-red focus:outline-none";
 
   return (
     <motion.div
@@ -53,13 +53,13 @@ export default function QuizEmailCapture({
     >
       {/* Icon */}
       <motion.div variants={fadeUp} className="mb-6 flex justify-center">
-        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-teal-ghost">
+        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-red/10">
           <svg
             width="32"
             height="32"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="#00D4AA"
+            stroke="#C0392B"
             strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -72,10 +72,10 @@ export default function QuizEmailCapture({
 
       {/* Heading */}
       <motion.div variants={fadeUp} className="mb-8 text-center">
-        <h2 className="font-display text-2xl font-medium text-white md:text-3xl">
+        <h2 className="font-display font-extrabold tracking-[-0.02em] text-2xl text-dark md:text-3xl">
           Your results are ready
         </h2>
-        <p className="mt-3 text-fog">
+        <p className="mt-3 text-dark/65">
           Enter your email to see your personalized service recommendations.
         </p>
       </motion.div>
@@ -87,7 +87,7 @@ export default function QuizEmailCapture({
           <div>
             <label
               htmlFor="quiz-email"
-              className="mb-2 block font-mono text-xs uppercase tracking-widest text-ash"
+              className="mb-2 block font-mono text-xs uppercase tracking-widest text-dark/50"
             >
               Email <span className="text-error">*</span>
             </label>
@@ -100,7 +100,7 @@ export default function QuizEmailCapture({
                 if (emailError) setEmailError(null);
               }}
               className={`${inputBase} ${
-                emailError ? "border-error" : "border-slate"
+                emailError ? "border-error" : "border-shadow"
               }`}
               placeholder="you@company.com"
               aria-describedby={emailError ? "email-error" : undefined}
@@ -118,16 +118,16 @@ export default function QuizEmailCapture({
           <div>
             <label
               htmlFor="quiz-name"
-              className="mb-2 block font-mono text-xs uppercase tracking-widest text-ash"
+              className="mb-2 block font-mono text-xs uppercase tracking-widest text-dark/50"
             >
-              Name <span className="text-graphite">(optional)</span>
+              Name <span className="text-dark/40">(optional)</span>
             </label>
             <input
               type="text"
               id="quiz-name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className={`${inputBase} border-slate`}
+              className={`${inputBase} border-shadow`}
               placeholder="Your name"
               disabled={isSubmitting}
             />
@@ -137,16 +137,16 @@ export default function QuizEmailCapture({
           <div>
             <label
               htmlFor="quiz-company"
-              className="mb-2 block font-mono text-xs uppercase tracking-widest text-ash"
+              className="mb-2 block font-mono text-xs uppercase tracking-widest text-dark/50"
             >
-              Company <span className="text-graphite">(optional)</span>
+              Company <span className="text-dark/40">(optional)</span>
             </label>
             <input
               type="text"
               id="quiz-company"
               value={company}
               onChange={(e) => setCompany(e.target.value)}
-              className={`${inputBase} border-slate`}
+              className={`${inputBase} border-shadow`}
               placeholder="Your company"
               disabled={isSubmitting}
             />
@@ -156,7 +156,7 @@ export default function QuizEmailCapture({
           <button
             type="submit"
             disabled={isSubmitting}
-            className="mt-2 w-full rounded-sm bg-teal dark:bg-teal-dark px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal disabled:cursor-not-allowed disabled:opacity-60"
+            className="btn btn--primary mt-2 w-full disabled:cursor-not-allowed disabled:opacity-60"
           >
             {isSubmitting ? "Loading..." : "See My Results"}
           </button>
@@ -173,7 +173,7 @@ export default function QuizEmailCapture({
       {/* Privacy Note */}
       <motion.p
         variants={fadeUp}
-        className="mt-6 text-center text-xs text-graphite"
+        className="mt-6 text-center text-xs text-dark/50"
       >
         No spam, ever. Your info is used only to personalize your results.
       </motion.p>

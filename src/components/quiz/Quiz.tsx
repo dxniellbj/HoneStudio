@@ -328,7 +328,7 @@ export default function Quiz() {
               <button
                 onClick={handleBack}
                 disabled={state.currentStep === 0}
-                className="font-mono text-xs uppercase tracking-widest text-ash transition-colors hover:text-white disabled:cursor-not-allowed disabled:opacity-30"
+                className="font-mono text-xs uppercase tracking-widest text-dark/50 transition-colors hover:text-dark disabled:cursor-not-allowed disabled:opacity-30"
               >
                 Back
               </button>
@@ -336,7 +336,7 @@ export default function Quiz() {
               <button
                 onClick={handleNext}
                 disabled={!currentAnswer}
-                className="rounded-sm bg-teal dark:bg-teal-dark px-6 py-2.5 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal disabled:cursor-not-allowed disabled:opacity-50"
+                className="btn btn--primary disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {state.currentStep === QUIZ_QUESTIONS.length - 1
                   ? "See Results"
@@ -345,7 +345,7 @@ export default function Quiz() {
             </motion.div>
 
             {/* Keyboard Hint */}
-            <p className="mt-8 hidden text-center font-mono text-xs text-graphite md:block">
+            <p className="mt-8 hidden text-center font-mono text-xs text-dark/50 md:block">
               Use arrow keys to navigate, Enter to continue
             </p>
           </motion.div>

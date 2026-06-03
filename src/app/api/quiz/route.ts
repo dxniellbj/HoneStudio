@@ -75,8 +75,8 @@ async function sendQuizNotification(data: QuizSubmission) {
           <tr><td style="padding: 8px 0; color: #5A6069;">Urgency</td><td style="padding: 8px 0;"><strong>${urgencyLabels[data.urgency]}</strong></td></tr>
         </table>
         
-        <div style="background: #00D4AA15; border-left: 3px solid #00D4AA; padding: 16px; margin-bottom: 24px;">
-          <p style="margin: 0 0 8px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #00D4AA;">Primary Recommendation</p>
+        <div style="background: #C0392B15; border-left: 3px solid #C0392B; padding: 16px; margin-bottom: 24px;">
+          <p style="margin: 0 0 8px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #C0392B;">Primary Recommendation</p>
           <p style="margin: 0; font-size: 18px; font-weight: 600;">${primary.title}</p>
           ${secondary ? `<p style="margin: 8px 0 0; font-size: 14px; color: #5A6069;">Also: ${secondary.title}</p>` : ""}
         </div>
@@ -91,7 +91,7 @@ async function sendQuizNotification(data: QuizSubmission) {
           <p style="margin: 0 0 12px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #5A6069;">Scores</p>
           <div style="display: flex; gap: 16px;">
             <div style="text-align: center;">
-              <p style="margin: 0; font-size: 24px; font-weight: 600; color: #00D4AA;">${data.scores.web}</p>
+              <p style="margin: 0; font-size: 24px; font-weight: 600; color: #C0392B;">${data.scores.web}</p>
               <p style="margin: 0; font-size: 12px; color: #5A6069;">Web</p>
             </div>
             <div style="text-align: center;">

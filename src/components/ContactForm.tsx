@@ -89,8 +89,8 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-8 text-center">
-        <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-teal-ghost">
+      <div className="rounded-lg border-2 border-shadow bg-beige p-8 text-center">
+        <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[rgba(93,191,93,0.15)]">
           <svg
             width="24"
             height="24"
@@ -100,15 +100,15 @@ export default function ContactForm() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="text-teal dark:text-teal-dark"
+            className="text-green-pixel"
           >
             <polyline points="20 6 9 17 4 12" />
           </svg>
         </div>
-        <h3 className="font-display text-2xl font-medium text-ink dark:text-white">
+        <h3 className="font-display text-2xl font-extrabold tracking-[-0.02em] text-dark">
           Message sent
         </h3>
-        <p className="mt-2 text-graphite dark:text-ash">
+        <p className="mt-2 text-dark/65">
           Thanks for reaching out. I&apos;ll get back to you within 24 hours.
         </p>
       </div>
@@ -116,7 +116,7 @@ export default function ContactForm() {
   }
 
   const inputBase =
-    "w-full rounded-md border bg-white dark:bg-carbon px-4 py-3 text-sm text-ink dark:text-white placeholder:text-ash transition-colors focus:border-teal focus:outline-none";
+    "w-full rounded-sm border-2 bg-cream px-4 py-3 text-sm text-dark placeholder:text-dark/40 transition-colors focus:border-red focus:outline-none";
 
   return (
     <form onSubmit={handleSubmit} noValidate>
@@ -139,9 +139,9 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="name"
-            className="mb-2 block font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash"
+            className="mb-2 block font-mono text-xs uppercase tracking-widest text-dark/60"
           >
-            Name <span className="text-error">*</span>
+            Name <span className="text-red">*</span>
           </label>
           <input
             type="text"
@@ -153,12 +153,12 @@ export default function ContactForm() {
             aria-describedby={errors.name ? "name-error" : undefined}
             aria-invalid={!!errors.name}
             className={`${inputBase} ${
-              errors.name ? "border-error" : "border-cloud dark:border-slate"
+              errors.name ? "border-red" : "border-shadow"
             }`}
             placeholder="Your name"
           />
           {errors.name && (
-            <p id="name-error" className="mt-1 text-xs text-error" role="alert">
+            <p id="name-error" className="mt-1 text-xs text-red" role="alert">
               {errors.name}
             </p>
           )}
@@ -168,9 +168,9 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="email"
-            className="mb-2 block font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash"
+            className="mb-2 block font-mono text-xs uppercase tracking-widest text-dark/60"
           >
-            Email <span className="text-error">*</span>
+            Email <span className="text-red">*</span>
           </label>
           <input
             type="email"
@@ -182,12 +182,12 @@ export default function ContactForm() {
             aria-describedby={errors.email ? "email-error" : undefined}
             aria-invalid={!!errors.email}
             className={`${inputBase} ${
-              errors.email ? "border-error" : "border-cloud dark:border-slate"
+              errors.email ? "border-red" : "border-shadow"
             }`}
             placeholder="you@company.com"
           />
           {errors.email && (
-            <p id="email-error" className="mt-1 text-xs text-error" role="alert">
+            <p id="email-error" className="mt-1 text-xs text-red" role="alert">
               {errors.email}
             </p>
           )}
@@ -197,9 +197,9 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="company"
-            className="mb-2 block font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash"
+            className="mb-2 block font-mono text-xs uppercase tracking-widest text-dark/60"
           >
-            Company <span className="text-ash">(optional)</span>
+            Company <span className="text-dark/40">(optional)</span>
           </label>
           <input
             type="text"
@@ -207,7 +207,7 @@ export default function ContactForm() {
             name="company"
             value={form.company}
             onChange={handleChange}
-            className={`${inputBase} border-cloud dark:border-slate`}
+            className={`${inputBase} border-shadow`}
             placeholder="Your company"
           />
         </div>
@@ -216,9 +216,9 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="message"
-            className="mb-2 block font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash"
+            className="mb-2 block font-mono text-xs uppercase tracking-widest text-dark/60"
           >
-            Message <span className="text-error">*</span>
+            Message <span className="text-red">*</span>
           </label>
           <textarea
             id="message"
@@ -230,14 +230,14 @@ export default function ContactForm() {
             aria-describedby={errors.message ? "message-error" : undefined}
             aria-invalid={!!errors.message}
             className={`${inputBase} resize-none ${
-              errors.message ? "border-error" : "border-cloud dark:border-slate"
+              errors.message ? "border-red" : "border-shadow"
             }`}
             placeholder="Tell me about your project..."
           />
           {errors.message && (
             <p
               id="message-error"
-              className="mt-1 text-xs text-error"
+              className="mt-1 text-xs text-red"
               role="alert"
             >
               {errors.message}
@@ -250,7 +250,7 @@ export default function ContactForm() {
           type="submit"
           disabled={status === "submitting"}
           aria-busy={status === "submitting"}
-          className="w-full rounded-sm bg-teal dark:bg-teal-dark px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal disabled:opacity-60 disabled:cursor-not-allowed"
+          className="btn btn--primary btn--lg w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {status === "submitting" ? (
             <span className="inline-flex items-center gap-2">
@@ -264,7 +264,7 @@ export default function ContactForm() {
         </button>
 
         {status === "error" && (
-          <p className="text-center text-sm text-error" role="alert">
+          <p className="text-center text-sm text-red" role="alert">
             Something went wrong. Please try again or email me directly.
           </p>
         )}

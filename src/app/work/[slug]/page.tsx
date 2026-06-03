@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
-import SectionDivider from "@/components/SectionDivider";
 import TechLines from "@/components/TechLines";
 import { AnimatedStatsGrid } from "@/components/AnimatedStat";
 import ImageLightbox from "@/components/ImageLightbox";
@@ -21,9 +20,9 @@ const COL_SPAN: Record<number, string> = {
 };
 
 const PILLAR_COLORS: Record<string, string> = {
-  Web: "border-teal/30 dark:border-teal-dark/30 text-teal dark:text-teal-dark bg-teal-ghost",
-  AI: "border-signal/30 text-signal bg-signal-ghost",
-  Strategy: "border-indigo/30 text-indigo bg-indigo-ghost",
+  Web: "border-red/40 text-red bg-red/5",
+  AI: "border-purple/40 text-purple bg-purple/5",
+  Strategy: "border-blue/40 text-blue bg-blue/5",
 };
 
 // Group images into rows based on column spans (12-col grid)
@@ -128,27 +127,27 @@ export default async function CaseStudyPage({
 
   return (
     <>
-      {/* ── Hero (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink py-20 px-6 pattern-grid">
+      {/* ── Hero ── */}
+      <section className="bg-cream py-20 px-6 pattern-grid border-b-[3px] border-shadow">
         <div className="mx-auto max-w-4xl">
           <ScrollReveal>
             <Link
               href="/work"
-              className="mb-8 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash transition-colors hover:text-teal dark:hover:text-teal-dark"
+              className="mb-8 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-dark/50 transition-colors hover:text-red"
             >
               <span aria-hidden="true">&larr;</span>
               Back to Work
             </Link>
 
             <div className="mt-4 flex flex-wrap items-center gap-3">
-              <span className="rounded-full border border-mist dark:border-iron px-3 py-1 font-mono text-[11px] text-graphite dark:text-ash">
+              <span className="rounded-sm border border-shadow px-3 py-1 font-mono text-[11px] uppercase tracking-wide text-dark/65">
                 {study.platform}
               </span>
               {study.pillars.map((pillar) => (
                 <span
                   key={pillar}
-                  className={`rounded-full border px-3 py-1 font-mono text-[11px] ${
-                    PILLAR_COLORS[pillar] ?? "border-mist dark:border-iron text-graphite dark:text-ash"
+                  className={`rounded-sm border px-3 py-1 font-mono text-[11px] uppercase tracking-wide ${
+                    PILLAR_COLORS[pillar] ?? "border-shadow text-dark/65"
                   }`}
                 >
                   {pillar}
@@ -156,13 +155,13 @@ export default async function CaseStudyPage({
               ))}
             </div>
 
-            <p className="mt-6 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
+            <p className="mt-6 font-mono text-xs uppercase tracking-widest text-dark/50">
               {study.client}
             </p>
-            <h1 className="mt-2 font-display text-4xl text-section-title text-ink dark:text-white md:text-5xl">
+            <h1 className="mt-2 font-display text-4xl font-extrabold tracking-[-0.02em] text-dark md:text-5xl">
               {study.title}
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-graphite dark:text-ash">
+            <p className="mt-6 text-lg leading-relaxed font-light text-dark/65">
               {study.summary}
             </p>
 
@@ -171,7 +170,7 @@ export default async function CaseStudyPage({
                 href={study.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2 font-mono text-sm uppercase tracking-widest text-teal dark:text-teal-dark transition-colors hover:text-teal-bright dark:hover:text-teal"
+                className="mt-6 inline-flex items-center gap-2 font-mono text-sm uppercase tracking-widest text-red transition-colors hover:text-red-bright"
               >
                 Visit Site
                 <svg className="ml-1.5 inline-block h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -187,7 +186,7 @@ export default async function CaseStudyPage({
               <figure className="mt-10">
                 <ImageLightbox src={study.images[0].src} alt={study.images[0].alt}>
                   <div
-                    className="relative aspect-video overflow-hidden rounded-md border border-cloud dark:border-slate transition-all duration-300 hover:border-teal"
+                    className="relative aspect-video overflow-hidden rounded-lg border-2 border-shadow transition-all duration-300 hover:border-red"
                     style={study.images[0].bg ? { backgroundColor: study.images[0].bg } : undefined}
                   >
                     <Image
@@ -200,7 +199,7 @@ export default async function CaseStudyPage({
                   </div>
                 </ImageLightbox>
                 {study.images[0].caption && (
-                  <figcaption className="mt-3 text-center text-sm text-graphite dark:text-ash">
+                  <figcaption className="mt-3 text-center text-sm text-dark/50">
                     {study.images[0].caption}
                   </figcaption>
                 )}
@@ -210,23 +209,21 @@ export default async function CaseStudyPage({
         </div>
       </section>
 
-      <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
-
-      {/* ── Scope & Tech Stack (B: white/carbon) ── */}
-      <section className="bg-white dark:bg-carbon py-16 px-6 pattern-dots">
+      {/* ── Scope & Tech Stack ── */}
+      <section className="bg-cream py-16 px-6 pattern-dots border-b-[3px] border-shadow">
         <div className="mx-auto max-w-4xl">
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
             {/* Scope */}
             <ScrollReveal>
-              <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-                <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
+              <p className="eyebrow mb-4 flex items-center gap-2">
+                <span className="inline-block h-px w-6 bg-red" />
                 Scope
               </p>
               <div className="space-y-3">
                 {study.scope.map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-teal dark:bg-teal-dark" />
-                    <p className="text-sm leading-relaxed text-graphite dark:text-ash">{item}</p>
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-red" />
+                    <p className="text-sm leading-relaxed text-dark/65">{item}</p>
                   </div>
                 ))}
               </div>
@@ -234,15 +231,15 @@ export default async function CaseStudyPage({
 
             {/* Tech Stack */}
             <ScrollReveal delay={0.1}>
-              <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-                <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
+              <p className="eyebrow mb-4 flex items-center gap-2">
+                <span className="inline-block h-px w-6 bg-red" />
                 Tech Stack
               </p>
               <div className="flex flex-wrap gap-2">
                 {study.techStack.map((tech) => (
                   <span
                     key={tech}
-                    className="rounded-full border border-cloud dark:border-iron px-3 py-1 font-mono text-[11px] text-graphite dark:text-ash"
+                    className="rounded-sm border border-shadow px-3 py-1 font-mono text-[11px] uppercase tracking-wide text-dark/65"
                   >
                     {tech}
                   </span>
@@ -253,18 +250,16 @@ export default async function CaseStudyPage({
         </div>
       </section>
 
-      <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
-
-      {/* ── The Challenge (A: snow/ink) ── */}
-      <section className="bg-snow dark:bg-ink py-16 px-6 pattern-diag">
+      {/* ── The Challenge (dark accent) ── */}
+      <section className="scanlines bg-dark py-16 px-6 pattern-diag border-b-[3px] border-black/40">
         <div className="mx-auto max-w-4xl">
           <ScrollReveal>
-            <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-              <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
+            <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-yellow">
+              <span className="inline-block h-px w-6 bg-yellow" />
               The Challenge
             </p>
-            <div className="rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-8">
-              <p className="text-lg leading-relaxed text-graphite dark:text-ash">
+            <div className="rounded-xl border-2 border-black/30 bg-[#211c18] p-8">
+              <p className="text-lg leading-relaxed text-cream/70">
                 {study.challenge}
               </p>
             </div>
@@ -272,15 +267,13 @@ export default async function CaseStudyPage({
         </div>
       </section>
 
-      <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
-
-      {/* ── The Approach (B: white/carbon) ── */}
-      <section className="relative bg-white dark:bg-carbon py-16 px-6 pattern-scan">
-        <TechLines variant="circuit-trace" className="text-cloud dark:text-iron" />
+      {/* ── The Approach ── */}
+      <section className="relative bg-cream py-16 px-6 pattern-scan border-b-[3px] border-shadow">
+        <TechLines variant="circuit-trace" className="text-shadow/60" />
         <div className="mx-auto max-w-4xl">
           <ScrollReveal>
-            <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-              <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
+            <p className="eyebrow mb-4 flex items-center gap-2">
+              <span className="inline-block h-px w-6 bg-red" />
               The Approach
             </p>
           </ScrollReveal>
@@ -288,11 +281,11 @@ export default async function CaseStudyPage({
           <div className="mt-8 space-y-6">
             {study.approach.map((step, i) => (
               <ScrollReveal key={i} delay={i * 0.08}>
-                <div className="flex items-start gap-4 rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink p-6">
-                  <span className="shrink-0 font-mono text-sm font-medium text-teal dark:text-teal-dark">
+                <div className="flex items-start gap-4 rounded-lg border-2 border-shadow bg-beige p-6">
+                  <span className="shrink-0 font-mono text-sm font-bold text-red">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <p className="text-sm leading-relaxed text-graphite dark:text-ash">{step}</p>
+                  <p className="text-sm leading-relaxed text-dark/65">{step}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -300,45 +293,39 @@ export default async function CaseStudyPage({
         </div>
       </section>
 
-      <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
-
-      {/* ── Key Features (A: snow/ink) ── */}
+      {/* ── Key Features ── */}
       {study.keyFeatures.length > 0 && (
-        <>
-          <section className="bg-snow dark:bg-ink py-16 px-6 pattern-grid">
-            <div className="mx-auto max-w-4xl">
-              <ScrollReveal>
-                <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-                  <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
-                  Key Features
-                </p>
-              </ScrollReveal>
+        <section className="bg-cream py-16 px-6 pattern-grid border-b-[3px] border-shadow">
+          <div className="mx-auto max-w-4xl">
+            <ScrollReveal>
+              <p className="eyebrow mb-4 flex items-center gap-2">
+                <span className="inline-block h-px w-6 bg-red" />
+                Key Features
+              </p>
+            </ScrollReveal>
 
-              <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
-                {study.keyFeatures.map((feature, i) => (
-                  <ScrollReveal key={i} delay={i * 0.06} className="h-full">
-                    <div className="h-full flex items-start gap-3 rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-5 transition-all duration-300 hover:border-teal">
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal dark:bg-teal-dark" />
-                      <p className="text-sm leading-relaxed text-graphite dark:text-ash">
-                        {feature}
-                      </p>
-                    </div>
-                  </ScrollReveal>
-                ))}
-              </div>
+            <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+              {study.keyFeatures.map((feature, i) => (
+                <ScrollReveal key={i} delay={i * 0.06} className="h-full">
+                  <div className="h-full flex items-start gap-3 rounded-lg border-2 border-shadow bg-beige p-5 transition-all duration-300 hover:-translate-y-1 hover:border-red">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-red" />
+                    <p className="text-sm leading-relaxed text-dark/65">
+                      {feature}
+                    </p>
+                  </div>
+                </ScrollReveal>
+              ))}
             </div>
-          </section>
-
-          <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
-        </>
+          </div>
+        </section>
       )}
 
-      {/* ── The Results (B: white/carbon) ── */}
-      <section className="bg-white dark:bg-carbon py-16 px-6 pattern-dots">
+      {/* ── The Results ── */}
+      <section className="bg-cream py-16 px-6 pattern-dots border-b-[3px] border-shadow">
         <div className="mx-auto max-w-4xl">
           <ScrollReveal>
-            <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-              <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
+            <p className="eyebrow mb-4 flex items-center gap-2">
+              <span className="inline-block h-px w-6 bg-red" />
               The Results
             </p>
           </ScrollReveal>
@@ -368,7 +355,7 @@ export default async function CaseStudyPage({
                           >
                             <ImageLightbox src={img.src} alt={img.alt}>
                               <div
-                                className={`relative overflow-hidden rounded-md border border-cloud dark:border-slate transition-all duration-300 hover:border-teal ${
+                                className={`relative overflow-hidden rounded-lg border-2 border-shadow transition-all duration-300 hover:border-red ${
                                   isFullWidth ? "aspect-video" : "h-full"
                                 }`}
                                 style={img.bg ? { backgroundColor: img.bg } : undefined}
@@ -381,7 +368,7 @@ export default async function CaseStudyPage({
                                   sizes={isFullWidth ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 100vw, 33vw"}
                                 />
                                 {/* Zoom indicator */}
-                                <div className="absolute bottom-2 right-2 flex h-6 w-6 items-center justify-center rounded-full bg-ink/50 text-white opacity-0 transition-opacity group-hover:opacity-100">
+                                <div className="absolute bottom-2 right-2 flex h-6 w-6 items-center justify-center rounded-full bg-darkest/60 text-cream opacity-0 transition-opacity group-hover:opacity-100">
                                   <svg className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
                                   </svg>
@@ -389,7 +376,7 @@ export default async function CaseStudyPage({
                               </div>
                             </ImageLightbox>
                             {img.caption && (
-                              <figcaption className="mt-3 text-center text-sm text-graphite dark:text-ash">
+                              <figcaption className="mt-3 text-center text-sm text-dark/50">
                                 {img.caption}
                               </figcaption>
                             )}
@@ -406,9 +393,9 @@ export default async function CaseStudyPage({
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {study.results.map((result, i) => (
               <ScrollReveal key={i} delay={i * 0.08} className="h-full">
-                <div className="h-full flex items-start gap-3 rounded-md border border-cloud dark:border-slate bg-snow dark:bg-ink p-6">
-                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-teal dark:bg-teal-dark" />
-                  <p className="text-sm leading-relaxed text-graphite dark:text-ash">
+                <div className="h-full flex items-start gap-3 rounded-lg border-2 border-shadow bg-beige p-6">
+                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-red" />
+                  <p className="text-sm leading-relaxed text-dark/65">
                     {result}
                   </p>
                 </div>
@@ -420,31 +407,31 @@ export default async function CaseStudyPage({
 
       {/* ── Cross-Pillar CTA (integrated with Results section) ── */}
       {study.pillars.length > 1 && (
-        <section className="bg-white dark:bg-carbon pb-16 px-6">
+        <section className="bg-cream pb-16 px-6 border-b-[3px] border-shadow">
           <div className="mx-auto max-w-4xl">
             <ScrollReveal>
-              <div className="rounded-md border border-teal/20 bg-teal-ghost dark:bg-teal-ghost p-8 text-center">
-                <p className="font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash mb-3">
+              <div className="rounded-lg border-2 border-red/40 bg-red/5 p-8 text-center">
+                <p className="font-mono text-xs uppercase tracking-widest text-dark/50 mb-3">
                   This project pulled in
                 </p>
                 <div className="flex flex-wrap justify-center gap-2 mb-4">
                   {study.pillars.map((pillar) => (
                     <span
                       key={pillar}
-                      className={`rounded-full border px-4 py-1.5 font-mono text-sm ${
-                        PILLAR_COLORS[pillar] ?? "border-mist dark:border-iron text-graphite dark:text-ash"
+                      className={`rounded-sm border px-4 py-1.5 font-mono text-sm uppercase tracking-wide ${
+                        PILLAR_COLORS[pillar] ?? "border-shadow text-dark/65"
                       }`}
                     >
                       {pillar}
                     </span>
                   ))}
                 </div>
-                <p className="text-sm text-graphite dark:text-ash mb-6">
+                <p className="text-sm text-dark/65 mb-6">
                   Research, software, and design, handled by one person from scope to ship.
                 </p>
                 <Link
                   href="/services"
-                  className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-teal dark:text-teal-dark transition-colors hover:text-teal-bright dark:hover:text-teal"
+                  className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-red transition-colors hover:text-red-bright"
                 >
                   See what I build
                   <span aria-hidden="true">&rarr;</span>
@@ -455,62 +442,53 @@ export default async function CaseStudyPage({
         </section>
       )}
 
-      <SectionDivider from="carbon" to="ink" lightFrom="white" lightTo="snow" />
-
-      {/* ── Other Projects (A: snow/ink) ── */}
+      {/* ── Other Projects ── */}
       {others.length > 0 && (
-        <>
-          <section className="bg-snow dark:bg-ink py-16 px-6 pattern-diag">
-            <div className="mx-auto max-w-4xl">
-              <ScrollReveal>
-                <p className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-graphite dark:text-ash">
-                  <span className="inline-block h-px w-6 bg-teal dark:bg-teal-dark" />
-                  More Work
-                </p>
-              </ScrollReveal>
+        <section className="bg-cream py-16 px-6 pattern-diag border-b-[3px] border-shadow">
+          <div className="mx-auto max-w-4xl">
+            <ScrollReveal>
+              <p className="eyebrow mb-4 flex items-center gap-2">
+                <span className="inline-block h-px w-6 bg-red" />
+                More Work
+              </p>
+            </ScrollReveal>
 
-              <div className="mt-8 space-y-4">
-                {others.map((other, i) => (
-                  <ScrollReveal key={other.slug} delay={i * 0.08}>
-                    <Link
-                      href={`/work/${other.slug}`}
-                      className="group flex items-center justify-between rounded-md border border-cloud dark:border-slate bg-white dark:bg-carbon p-6 transition-all duration-300 hover:border-teal hover:-translate-y-0.5"
-                    >
-                      <div>
-                        <p className="font-mono text-[11px] uppercase tracking-widest text-ash">
-                          {other.client}
-                        </p>
-                        <p className="mt-1 font-display text-lg font-medium text-ink dark:text-white group-hover:text-teal transition-colors">
-                          {other.title}
-                        </p>
-                      </div>
-                      <span className="font-mono text-xs text-teal dark:text-teal-dark opacity-0 transition-opacity group-hover:opacity-100">
-                        &rarr;
-                      </span>
-                    </Link>
-                  </ScrollReveal>
-                ))}
-              </div>
+            <div className="mt-8 space-y-4">
+              {others.map((other, i) => (
+                <ScrollReveal key={other.slug} delay={i * 0.08}>
+                  <Link
+                    href={`/work/${other.slug}`}
+                    className="group flex items-center justify-between rounded-lg border-2 border-shadow bg-beige p-6 transition-all duration-300 hover:border-red hover:-translate-y-1"
+                  >
+                    <div>
+                      <p className="font-mono text-[11px] uppercase tracking-widest text-dark/50">
+                        {other.client}
+                      </p>
+                      <p className="mt-1 font-display text-lg font-bold text-dark group-hover:text-red transition-colors">
+                        {other.title}
+                      </p>
+                    </div>
+                    <span className="font-mono text-xs text-red opacity-0 transition-opacity group-hover:opacity-100">
+                      &rarr;
+                    </span>
+                  </Link>
+                </ScrollReveal>
+              ))}
             </div>
-          </section>
-
-          <SectionDivider from="ink" to="carbon" lightFrom="snow" lightTo="white" />
-        </>
+          </div>
+        </section>
       )}
 
       {/* ── CTA ── */}
-      <section className="bg-white dark:bg-carbon py-16 px-6 pattern-grid">
+      <section className="bg-cream py-16 px-6 pattern-grid border-b-[3px] border-shadow">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
-          <h2 className="font-display text-3xl text-section-title text-ink dark:text-white md:text-4xl">
+          <h2 className="font-display text-3xl font-extrabold tracking-[-0.02em] text-dark md:text-4xl">
             Got a project that needs this kind of thinking?
           </h2>
-          <p className="mt-4 text-lg text-graphite dark:text-ash">
+          <p className="mt-4 text-lg font-light text-dark/65">
             Tell me what you&apos;re trying to build. I&apos;ll tell you how I&apos;d approach it.
           </p>
-          <Link
-            href="/contact"
-            className="mt-8 inline-block rounded-sm bg-teal dark:bg-teal-dark px-8 py-3 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-teal-bright dark:hover:bg-teal"
-          >
+          <Link href="/contact" className="btn btn--primary btn--lg mt-8">
             Start a Conversation
           </Link>
         </ScrollReveal>

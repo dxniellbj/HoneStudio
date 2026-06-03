@@ -17,7 +17,7 @@ interface Shape {
   floatDuration: number;
   floatDelay: number;
   opacity: number;
-  color: "teal" | "teal-bright" | "teal-mid" | "teal-dark";
+  color: "red" | "blue" | "yellow" | "purple";
   zIndex: number;
 }
 
@@ -86,10 +86,10 @@ function Cylinder({ size, color }: { size: number; color: string }) {
 
 /* ── Color map ── */
 const colorMap: Record<Shape["color"], string> = {
-  teal: "var(--color-teal)",
-  "teal-bright": "var(--color-teal-bright)",
-  "teal-mid": "var(--color-teal-mid)",
-  "teal-dark": "var(--color-teal-dark)",
+  red: "var(--color-red)",
+  blue: "var(--color-blue)",
+  yellow: "var(--color-yellow)",
+  purple: "var(--color-purple)",
 };
 
 /* ── Shape renderer ── */
@@ -130,7 +130,7 @@ const positions = [
 /* ── Generate shapes ── */
 function generateShapes(): Shape[] {
   const allTypes: ShapeType[] = ["triangle", "square", "diamond", "hexagon", "cube", "cylinder", "circle"];
-  const colors: Shape["color"][] = ["teal", "teal-bright", "teal-mid", "teal-dark"];
+  const colors: Shape["color"][] = ["red", "blue", "yellow", "purple"];
   const shapes: Shape[] = [];
 
   // First: One OBNOXIOUSLY LARGE circle as focal point
@@ -145,7 +145,7 @@ function generateShapes(): Shape[] {
     floatDuration: 8,
     floatDelay: 0,
     opacity: 0.45,
-    color: "teal-bright",
+    color: "red",
     zIndex: 1,
   });
 
