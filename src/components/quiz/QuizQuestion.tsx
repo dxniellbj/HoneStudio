@@ -7,6 +7,7 @@ import { springTransition } from "@/lib/animations";
 interface QuizQuestionProps {
   question: QuizQuestionType;
   selectedOptionId: string | null;
+  highlightedIndex: number; // keyboard highlight, not yet committed
   onSelect: (option: QuizOption) => void;
   direction: number; // 1 for forward, -1 for back
 }
@@ -41,6 +42,7 @@ const optionVariants = {
 export default function QuizQuestion({
   question,
   selectedOptionId,
+  highlightedIndex,
   onSelect,
   direction,
 }: QuizQuestionProps) {
@@ -64,6 +66,7 @@ export default function QuizQuestion({
         <div className="space-y-3">
           {question.options.map((option, index) => {
             const isSelected = selectedOptionId === option.id;
+            const isHighlighted = index === highlightedIndex;
 
             return (
               <motion.button
@@ -73,14 +76,17 @@ export default function QuizQuestion({
                 initial="hidden"
                 animate="visible"
                 onClick={() => onSelect(option)}
-                className={`group w-full rounded-lg border-2 px-5 py-4 text-left transition-all ${
+                className={`group w-full rounded-lg border-2 px-5 py-4 text-left outline-none transition-all ${
                   isSelected
                     ? "border-red bg-red/10"
-                    : "border-shadow bg-beige hover:border-red"
+                    : isHighlighted
+                      ? "border-red bg-beige ring-2 ring-red/50"
+                      : "border-shadow bg-beige hover:border-red"
                 }`}
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
                 aria-pressed={isSelected}
+                data-highlighted={isHighlighted}
               >
                 <div className="flex items-start gap-4">
                   {/* Radio Circle */}

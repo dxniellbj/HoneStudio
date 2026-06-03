@@ -60,7 +60,7 @@ export default function QuizPrompt() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            className="fixed left-1/2 top-1/2 z-50 w-full max-w-md -translate-x-1/2 -translate-y-1/2 rounded-lg border-2 border-shadow bg-beige p-8 shadow-2xl"
+            className="fixed left-1/2 top-1/2 z-50 w-full max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-lg border-2 border-shadow bg-beige px-10 py-14 shadow-2xl"
           >
             {/* Dismiss button */}
             <button
@@ -85,19 +85,20 @@ export default function QuizPrompt() {
 
             {/* Content */}
             <div className="text-center">
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-red/20 bg-red/10 px-4 py-2">
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-red/20 bg-red/10 px-4 py-2">
                 <span className="inline-block h-2 w-2 rounded-full bg-red animate-pulse" />
                 <span className="font-mono text-xs uppercase tracking-widest text-red">
                   5-min quiz
                 </span>
               </div>
 
-              <h3 className="mb-3 font-display font-extrabold tracking-[-0.02em] text-2xl text-dark">
+              <h3 className="mb-4 font-display font-extrabold tracking-[-0.02em] text-3xl text-dark">
                 Not sure where to start?
               </h3>
 
-              <p className="mb-6 text-dark/65">
-                Take a quick quiz to find out which services fit your needs — and get a personalized recommendation.
+              <p className="mb-8 text-dark/65 leading-relaxed">
+                Take a quick quiz to find out which services fit your needs, then
+                get a recommendation built around your answers.
               </p>
 
               <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">

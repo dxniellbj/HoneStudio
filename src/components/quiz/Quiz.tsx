@@ -51,7 +51,11 @@ export default function Quiz() {
   );
 
   const [savedProgress, setSavedProgress] = useState<SavedQuizState | null>(null);
+  const [highlightedIndex, setHighlightedIndex] = useState(0);
   const hasInitialized = useRef(false);
+  // Guards against a second selection firing during the auto-advance delay
+  // (e.g. a double Enter, or click + Enter together).
+  const isAdvancingRef = useRef(false);
 
   const currentQuestion = QUIZ_QUESTIONS[state.currentStep];
   const currentAnswer = state.answers.find(
@@ -82,6 +86,19 @@ export default function Quiz() {
     }
   }, [state.currentStep, state.answers, phase]);
 
+  // On each new question, release the advance lock and move the keyboard
+  // highlight to the already-answered option (when going back) or the first.
+  useEffect(() => {
+    isAdvancingRef.current = false;
+    if (!currentQuestion) return;
+    const answered = state.answers.find((a) => a.questionId === currentQuestion.id);
+    const idx = answered
+      ? currentQuestion.options.findIndex((o) => o.id === answered.optionId)
+      : 0;
+    setHighlightedIndex(idx >= 0 ? idx : 0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.currentStep, phase]);
+
   const handleResume = useCallback(() => {
     if (savedProgress) {
       setState((prev) => ({
@@ -107,33 +124,30 @@ export default function Quiz() {
     setPhase("questions");
   }, []);
 
-  // Keyboard navigation
+  // Keyboard navigation: arrows move the highlight only, Enter/Space commits.
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
       if (phase !== "questions") return;
 
       const options = currentQuestion?.options ?? [];
+      if (options.length === 0) return;
 
       if (e.key === "ArrowDown" || e.key === "ArrowUp") {
         e.preventDefault();
-        // Find current selection index
-        const currentIndex = currentAnswer
-          ? options.findIndex((o) => o.id === currentAnswer.optionId)
-          : -1;
-
-        let newIndex: number;
-        if (e.key === "ArrowDown") {
-          newIndex = currentIndex < options.length - 1 ? currentIndex + 1 : 0;
-        } else {
-          newIndex = currentIndex > 0 ? currentIndex - 1 : options.length - 1;
-        }
-
-        handleSelect(options[newIndex]);
+        setHighlightedIndex((prev) => {
+          if (e.key === "ArrowDown") {
+            return prev < options.length - 1 ? prev + 1 : 0;
+          }
+          return prev > 0 ? prev - 1 : options.length - 1;
+        });
+        return;
       }
 
-      if (e.key === "Enter" && currentAnswer) {
+      if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        handleNext();
+        const option = options[highlightedIndex];
+        if (option) handleSelect(option);
+        return;
       }
 
       if (e.key === "Backspace" && state.currentStep > 0) {
@@ -144,9 +158,14 @@ export default function Quiz() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [phase, currentQuestion, currentAnswer, state.currentStep]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase, currentQuestion, highlightedIndex, state.currentStep]);
 
   const handleSelect = useCallback((option: QuizOption) => {
+    // Ignore extra commits while the current one is auto-advancing.
+    if (isAdvancingRef.current) return;
+    isAdvancingRef.current = true;
+
     setState((prev) => {
       // Remove existing answer for this question if any
       const filteredAnswers = prev.answers.filter(
@@ -314,6 +333,7 @@ export default function Quiz() {
             <QuizQuestion
               question={currentQuestion}
               selectedOptionId={currentAnswer?.optionId ?? null}
+              highlightedIndex={highlightedIndex}
               onSelect={handleSelect}
               direction={direction}
             />
@@ -346,7 +366,7 @@ export default function Quiz() {
 
             {/* Keyboard Hint */}
             <p className="mt-8 hidden text-center font-mono text-xs text-dark/50 md:block">
-              Use arrow keys to navigate, Enter to continue
+              Arrow keys to highlight, Enter to select
             </p>
           </motion.div>
         )}

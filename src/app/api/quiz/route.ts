@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import { db } from "@/lib/firestore";
 import nodemailer from "nodemailer";
 import type { QuizSubmission } from "@/types/quiz";
@@ -14,7 +14,7 @@ const SMTP_PASS = process.env.SMTP_PASS || "";
 
 async function sendQuizNotification(data: QuizSubmission) {
   if (!NOTIFY_EMAIL || !SMTP_USER || !SMTP_PASS) {
-    console.warn("Email notification skipped — SMTP env vars not configured.");
+    console.warn("Email notification skipped: SMTP env vars not configured.");
     return;
   }
 
@@ -23,6 +23,10 @@ async function sendQuizNotification(data: QuizSubmission) {
     port: SMTP_PORT,
     secure: SMTP_PORT === 465,
     auth: { user: SMTP_USER, pass: SMTP_PASS },
+    // Bound how long a slow or unreachable SMTP server can stall the send.
+    connectionTimeout: 10_000,
+    greetingTimeout: 10_000,
+    socketTimeout: 20_000,
   });
 
   const primary = SERVICE_DISPLAY[data.recommendation.primaryService];
@@ -191,11 +195,8 @@ export async function POST(request: NextRequest) {
   };
 
   try {
-    // Save to Firestore
+    // Save to Firestore — the source of truth, so this must succeed.
     await db.collection("quiz_submissions").add(submission);
-
-    // Send email notification
-    await sendQuizNotification(submission);
   } catch (err) {
     console.error("Quiz submission error:", err);
     return NextResponse.json(
@@ -203,6 +204,15 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
+
+  // Send the notification email after the response is sent, so the user isn't
+  // kept waiting on the SMTP handshake. A failed email never blocks the
+  // submission, since the answers are already saved to Firestore.
+  after(() =>
+    sendQuizNotification(submission).catch((err) =>
+      console.error("Quiz notification email failed:", err)
+    )
+  );
 
   return NextResponse.json({ success: true });
 }

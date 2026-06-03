@@ -146,7 +146,13 @@ export default function SplashScreen() {
       aria-modal="true"
       aria-hidden="true"
       onClick={handleClick}
-      style={{ cursor: showPrompt && !crt ? "pointer" : "default" }}
+      style={{
+        // Force fixed positioning: the unlayered `.scanlines` rule sets
+        // position: relative and would otherwise override Tailwind's `fixed`.
+        position: "fixed",
+        inset: 0,
+        cursor: showPrompt && !crt ? "pointer" : "default",
+      }}
     >
       <div className="relative z-[1] flex flex-col items-center gap-8 select-none px-6">
         {/* LOADING.. / READY label */}
